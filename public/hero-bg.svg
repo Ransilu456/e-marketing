@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wave-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1C3ED2" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#978BF2" stop-opacity="0.15" />
+    </linearGradient>
+    <radialGradient id="soft-glow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2B3ED2" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#06091A" stop-opacity="1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background base -->
+  <rect width="100%" height="100%" fill="url(#soft-glow)" />
+
+  <!-- Subtle mesh wave shapes -->
+  <path d="M0 700 Q480 600 960 720 T1920 740 L1920 1080 L0 1080 Z" fill="url(#wave-gradient)" opacity="0.35" />
+  <path d="M0 800 Q480 700 960 850 T1920 880 L1920 1080 L0 1080 Z" fill="url(#wave-gradient)" opacity="0.2" />
+  <path d="M0 900 Q480 780 960 920 T1920 940 L1920 1080 L0 1080 Z" fill="url(#wave-gradient)" opacity="0.15" />
+</svg>

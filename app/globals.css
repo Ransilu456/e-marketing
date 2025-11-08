@@ -1,42 +1,135 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html{
+    scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #06091A;
-    --foreground: #ededed;
-  }
+:root {
+  /* ----- COLORS ----- */
+  --color-primary-text: #000000;
+  --color-secondary-text: #4AEA45;
+
+  --color-filled-button-bg: #000000;
+  --color-filled-button-text: #ffffff;
+
+  --color-outline-button-border: #000000;
+  --color-outline-button-text: #000000;
+
+  --background: #ffffff;
+  --foreground: #000000;
+
+  /* ----- TYPOGRAPHY ----- */
+  --font-small-header: "Protest Revolution", cursive;
+  --font-big-header: "Poppins", sans-serif;
+  --font-section-header: "Prata", serif;
+
+  /* Font Sizes */
+  --text-small-header: 20px;
+  --text-big-header: 80px;
+  --text-section-header: 80px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Poppins", sans-serif;
-  --font-pristina: "Pristina", cursive;
+
+  --font-small-header: var(--font-small-header);
+  --font-big-header: var(--font-big-header);
+  --font-section-header: var(--font-section-header);
+
+  --color-primary-text: var(--color-primary-text);
+  --color-secondary-text: var(--color-secondary-text);
+  --color-filled-button-bg: var(--color-filled-button-bg);
+  --color-outline-button-border: var(--color-outline-button-border);
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-sans);
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
-.text-gradient {
-  background: linear-gradient(to right, #1C3ED2, #978BF2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.small-header {
+  font-family: var(--font-small-header);
+  font-size: var(--text-small-header);
+  color: var(--color-primary-text);
 }
 
-@font-face {
-  font-family: "Pristina";
-  src: url("/fonts/Pristina.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+.small-header-main {
+  font-family: var(--font-small-header);
+  font-size: var(--text-section-header);
+  color: var(--color-secondary-text);
+}
+
+.big-header {
+  font-family: var(--font-big-header);
+  font-size: var(--text-big-header);
+  color: var(--color-primary-text);
+}
+
+.section-header {
+  font-family: var(--font-section-header);
+  font-size: var(--text-section-header);
+  color: var(--color-secondary-text);
+}
+
+.section-header-main {
+  font-family: var(--font-section-header);
+  font-size: var(--text-section-header);
+  color: var(--color-primary-text);
+}
+
+.btn-filled {
+  background-color: var(--color-filled-button-bg);
+  color: var(--color-filled-button-text);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-filled:hover {
+  background: transparent;
+  border: 2px solid var(--color-filled-button-bg);
+  color: var(--color-outline-button-text);
+
+}
+
+.btn-outline {
+  border: 2px solid var(--color-outline-button-border);
+  color: var(--color-outline-button-text);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--color-outline-button-border);
+  color: var(--color-filled-button-text);
+}
+
+::selection{
+  background: #4AEA45;
+}
+
+.splash-screen {
+  z-index: 9999;
+  background: linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
 }

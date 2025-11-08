@@ -2,35 +2,31 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <main
-      className=" relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 
-      text-white bg-[#06091A] 
-      bg-[url('/file.png')] bg-cover bg-no-repeat"
-    >
+<main
+  className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 text-white bg-[#06091A] bg-[url('/hero-bg.svg')] bg-cover bg-center bg-no-repeat"
+>
 
-         <div className="absolute inset-0 bg-black/80 z-0"></div>
-      <div className="absolute inset-0 bg-black/50 z-0  bg-[url('/Shapes.png')] bg-cover bg-no-repeat"></div>
+      {/* --- GLASS OVERLAY --- */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#06091A]/90 to-[#06091A] z-0 backdrop-blur-[2px]" />
 
+      {/* --- MAIN CONTENT --- */}
       <section className="relative z-10 text-center max-w-6xl mt-32">
         {/* Tagline */}
         <div className="flex justify-center">
-          <div className="flex items-center gap-2 rounded-full bg-results-bg/20 px-5 py-2">
-            <span className="text-sm text-results-text tracking-wide uppercase">
+          <div className="flex items-center gap-2 rounded-full backdrop-blur-md bg-white/5 px-5 py-2 border border-white/10 shadow-inner">
+            <span className="text-sm text-gray-300 tracking-wide uppercase">
               Unlimited & Maximum
             </span>
-            <span className="rounded-full border bg-[#00238B]/16 border-[#8C8C8C]/20 px-3 py-1 text-sm text-white/80">
+            <span className="rounded-full border border-[#3A55D2]/40 bg-[#1C3ED2]/20 px-3 py-1 text-sm text-white/80">
               Results
             </span>
           </div>
         </div>
 
-        {/* Grid overlay */}
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-cover bg-center opacity-40 pointer-events-none"></div>
-
         {/* Heading */}
-        <h1 className="font-poppins text-balance text-[clamp(32px,6vw,64px)] leading-tight font-normal">
+        <h1 className="mt-10 font-poppins text-balance text-[clamp(32px,6vw,64px)] leading-tight font-normal">
           Your Entire{" "}
-          <span className="bg-linear-to-r from-[#1C3ED2] to-[#978BF2] bg-clip-text text-transparent font-semibold">
+          <span className="bg-gradient-to-r from-[#1C3ED2] to-[#978BF2] bg-clip-text text-transparent font-semibold">
             Marketing Team
           </span>
           <br />
