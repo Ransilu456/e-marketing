@@ -71,48 +71,81 @@ export default function About() {
                     </motion.div>
                 </div>
 
-                {/* --- Features Cards --- */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-                    {[
-                        { title: "Expert Team", desc: "Skilled professionals with expertise across all digital domains" },
-                        { title: "Proven Track Record", desc: "100+ successful projects delivered with excellent client satisfaction" },
-                        { title: "24/7 Support", desc: "Always available to assist you and ensure your success" },
-                    ].map((item, idx) => (
-                        <motion.div
-                            key={idx}
-                            whileHover={{ scale: 1.03 }}
-                            className="bg-white/10 backdrop-blur-md rounded-xl border border-gray-200 p-6 flex flex-col justify-between transition-all duration-300"
-                        >
-                            <div className="flex flex-col items-center text-center">
-                                <CheckCircle2 className="w-10 h-10 text-secondary-text mb-3" />
-                                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{item.title}</h3>
-                                <p className="text-sm text-gray-600" style={{ fontFamily: 'Poppins, sans-serif' }}>{item.desc}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+              <div className="w-full max-w-7xl mx-auto px-6 py-16 lg:py-24">
+      {/* --- FEATURES --- */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {[
+          {
+            title: "Expert Team",
+            desc: "Our professionals are highly skilled across all digital domains.",
+          },
+          {
+            title: "Proven Track Record",
+            desc: "Over 100+ successful projects delivered with top client satisfaction.",
+          },
+          {
+            title: "24/7 Support",
+            desc: "We’re always available to assist and ensure your success.",
+          },
+        ].map((item, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ y: -6, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            className="p-8 rounded-2xl backdrop-blur-md border border-white/20 bg-white/5 shadow-lg hover:shadow-2xl hover:bg-white/10 transition-all text-center"
+          >
+            <div className="flex flex-col items-center justify-center">
+              <CheckCircle2 className="w-10 h-10 text-[#4AEA45] mb-4" />
+              <h3
+                className="text-xl font-semibold mb-2 text-black"
+                style={{ fontFamily: "Poppins, sans-serif" }}
+              >
+                {item.title}
+              </h3>
+              <p
+                className="text-black text-sm leading-relaxed"
+                style={{ fontFamily: "Poppins, sans-serif" }}
+              >
+                {item.desc}
+              </p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
 
-                {/* --- Values Cards --- */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    {values.map((value, index) => {
-                        const Icon = value.icon;
-                        return (
-                            <motion.div
-                                key={index}
-                                whileHover={{ scale: 1.03 }}
-                                className="bg-white/10 backdrop-blur-md rounded-xl border border-gray-200 p-6 flex flex-col justify-between transition-all duration-300 text-center"
-                            >
-                                <div className="flex flex-col items-center">
-                                    <div className="w-12 h-12 bg-secondary-text/20 text-secondary-text rounded-lg flex items-center justify-center mb-3">
-                                        <Icon className="w-6 h-6 text-primary" />
-                                    </div>
-                                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{value.title}</h3>
-                                    <p className="text-sm text-gray-600" style={{ fontFamily: 'Poppins, sans-serif' }}>{value.description}</p>
-                                </div>
-                            </motion.div>
-                        );
-                    })}
+      {/* --- VALUES --- */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {values.map((value, index) => {
+          const Icon = value.icon;
+          return (
+            <motion.div
+              key={index}
+              whileHover={{ y: -6, scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+              className="p-8 rounded-2xl backdrop-blur-md border border-white/20 bg-white/5 shadow-lg hover:shadow-2xl hover:bg-white/10 transition-all text-center"
+            >
+              <div className="flex flex-col items-center justify-center">
+                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-[#4AEA45]/15 mb-4">
+                  <Icon className="w-7 h-7 text-[#4AEA45]" />
                 </div>
+                <h3
+                  className="text-xl font-semibold mb-2 text-black"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
+                  {value.title}
+                </h3>
+                <p
+                  className="text-black text-sm leading-relaxed"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
+                  {value.description}
+                </p>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </div>
 
                 {/* --- Quote --- */}
                 <motion.p

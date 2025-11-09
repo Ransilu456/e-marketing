@@ -26,7 +26,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <section id="testimonials" className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white to-gray-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-20 right-20 w-64 h-64 bg-[#4AEA45] opacity-10 blur-3xl rounded-full"></div>
       <div className="absolute bottom-20 left-20 w-64 h-64 bg-[#4AEA45] opacity-10 blur-3xl rounded-full"></div>
@@ -39,7 +39,7 @@ export function Testimonials() {
           </div>
 
           <p className="text-lg sm:text-xl text-gray-700" style={{ fontFamily: 'Poppins' }}>
-            Don't just take our word for it. Here's what our clients say about working with us.
+            Don&apos;t just take our word for it. Here&apos;s what our clients say about working with us.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export function Testimonials() {
 
               {/* Content */}
               <p className="text-gray-700 mb-8 leading-relaxed relative z-10 text-lg" style={{ fontFamily: 'Poppins' }}>
-                "{testimonial.content}"
+                &quot;{testimonial.content}&quot;
               </p>
 
               {/* Author */}
@@ -99,7 +99,7 @@ export function Testimonials() {
         <div className="mt-16 text-center">
           <div className="inline-block p-8 lg:p-12 bg-black text-white rounded-3xl max-w-4xl">
             <div className="text-3xl lg:text-4xl mb-4" style={{ fontFamily: 'Prata' }}>
-              Join 10,000+ Happy Clients
+              Join 10+ Happy Clients
             </div>
             <p className="text-lg text-gray-300 mb-6" style={{ fontFamily: 'Poppins' }}>
               Start your success story with us today
