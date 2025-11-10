@@ -27,9 +27,9 @@ export function CustomNavbar() {
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
                     <div className="shrink-0">
-                        <a href="/" className="small-header hover:text-[#4AEA45] transition-colors">
+                        <Link href="/" className="small-header hover:text-[#4AEA45] transition-colors">
                             E Marketing Paradice
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Desktop Navigation */}

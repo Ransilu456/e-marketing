@@ -2,182 +2,165 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import ServiceCard from "./card/ServiceCard";
-import { ChevronDown, ChevronUp } from "lucide-react"; 
-
 
 const services = [
   {
     title: "Web Development",
     description:
-      "We create responsive, fast-loading websites tailored to your brand. Our websites are built with modern technologies ensuring scalability, SEO optimization, and cross-browser compatibility.",
+      "Responsive, scalable, and SEO-optimized websites tailored to your brand and goals.",
     buttonText: "Learn More",
     link: "/services/web-development",
+    image:
+      "https://images.unsplash.com/photo-1529101091764-c3526daf38fe?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+    features: ["Responsive design", "SEO optimized", "Scalable architecture"],
   },
   {
     title: "Mobile Apps",
     description:
-      "From iOS to Android, we build intuitive mobile applications that enhance user experience and business integration.",
+      "Native and cross-platform mobile apps with seamless performance and user experience.",
     buttonText: "Explore Apps",
     link: "/services/mobile-apps",
+    image:
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+    features: ["iOS & Android", "Cross-platform frameworks", "Performance focused"],
   },
   {
     title: "UI/UX Design",
     description:
-      "We craft visually stunning interfaces focused on usability and user engagement for delightful experiences.",
-    buttonText: "Contact US",
+      "Visually stunning and user-focused interface design for exceptional digital experiences.",
+    buttonText: "Contact Us",
     link: "#contact",
+    image:
+      "https://images.unsplash.com/photo-1559028012-481c04fa702d?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+    features: ["User research", "Wireframing & prototyping", "Consistency across platforms"],
   },
-  {
-    title: "Brand Identity",
-    description:
-      "We help businesses establish strong, recognizable brand identities with logos, colors, and consistent visuals.",
-    buttonText: "Discover Identity",
-    link: "#contact",
-  },
-  {
-    title: "Creative Posters",
-    description:
-      "We design eye-catching posters and social media graphics that help your campaigns stand out.",
-    buttonText: "View Examples",
-    link: "/services/creative-posters",
-  },
+{
+  title: "Brand Identity",
+  description:
+    "Crafting memorable visual identities that make your brand stand out across platforms.",
+  buttonText: "Discover Identity",
+  link: "#contact",
+  image:
+    "https://images.unsplash.com/photo-1499955085172-a104c9463ece?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+  features: ["Logo & mark design", "Brand guidelines", "Visual assets library"],
+}
+,
+{
+  title: "Creative Posters",
+  description:
+    "Eye-catching poster and social designs to amplify your campaigns’ visual impact.",
+  buttonText: "View Examples",
+  link: "/services/creative-posters",
+  image:
+    "https://images.unsplash.com/photo-1503602642458-232111445657?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+  features: [
+    "Campaign posters",
+    "Social media visuals",
+    "Print-ready deliverables",
+  ],
+}
+,
   {
     title: "Social Media Management",
     description:
-      "We manage your social media presence, creating content and campaigns to grow engagement and loyalty.",
+      "We build and manage your brand’s social presence to drive engagement and growth.",
     buttonText: "Manage Accounts",
     link: "/services/social-media-management",
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+    features: ["Content calendar", "Community engagement", "Analytics & reporting"],
   },
 ];
 
 
 export default function Services() {
   const [showAll, setShowAll] = useState(false);
-
   const visibleServices = showAll ? services : services.slice(0, 3);
 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
     exit: { opacity: 0, y: 20, transition: { duration: 0.3 } },
   };
 
   return (
     <section
       id="services"
-      className="relative flex flex-col items-center justify-center text-center py-28 px-6 lg:px-12 bg-white overflow-hidden"
+      className="relative py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden"
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
-      {/* --- Section Header --- */}
-      <div className="text-center mb-16">
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center max-w-4xl mx-auto mb-16 lg:mb-24">
+          <div className="w-full flex items-center justify-center gap-6">
+            <h2
+              className="big-header mb-6 leading-tight"
+              style={{ fontFamily: "Prata" }}
+            >
+              Our
+            </h2>
+            <h2
+              className="section-header mb-6 leading-tight"
+              style={{ fontFamily: "Prata" }}
+            >
+              Services
+            </h2>
+          </div>
+          <p className="text-lg sm:text-xl text-gray-700" style={{ fontFamily: "Poppins" }}>
+            At{" "}
+            <span className="font-semibold text-[#4AEA45]">
+              E Marketing Paradice
+            </span>
+            , we deliver cutting-edge digital services — from web & mobile development
+            to creative branding and marketing solutions.
+          </p>
+        </div>
+
+        {/* Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-end justify-center gap-3"
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          <h2 className="section-header-main leading-none">Our</h2>
-          <h2 className="section-header text-secondary-text leading-none">
-            Services
-          </h2>
+          <AnimatePresence>
+            {visibleServices.map((service) => (
+              <motion.div
+                key={service.title}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                layout
+                className="flex justify-center"
+              >
+                <ServiceCard {...service} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-3xl mx-auto mt-6 text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed"
+        {/* View More Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
         >
-          At{" "}
-          <span className="font-semibold text-[#4AEA45]">
-            E Marketing Paradice
-          </span>
-          , we craft digital excellence — from{" "}
-          <span className="font-medium text-black">custom websites</span> and{" "}
-          <span className="font-medium text-black">mobile apps</span> to{" "}
-          <span className="font-medium text-black">creative poster designs</span>
-          . We build experiences that inspire and perform.
-        </motion.p>
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="btn-filled px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
+          >
+            {showAll ? "View Less" : "View More"}
+            {showAll ? (
+              <ChevronUp className="inline ml-2" />
+            ) : (
+              <ChevronDown className="inline ml-2" />
+            )}
+          </button>
+        </motion.div>
       </div>
-
-      {/* --- Cards Grid --- */}
-      <motion.div
-        layout
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl"
-      >
-        <AnimatePresence>
-          {visibleServices.map((service) => (
-            <motion.div
-              key={service.title}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              layout
-              className="flex justify-center"
-            >
-              <ServiceCard
-                title={service.title}
-                description={service.description}
-                buttonText={service.buttonText}
-                link={service.link}
-              />
-
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </motion.div>
-
-{/* --- View More Button --- */}
-<motion.div
-  initial={{ opacity: 0, y: 10 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
-  className="mt-12"
->
-  <button
-    onClick={() => setShowAll(!showAll)}
-    className="group flex items-center gap-2 px-6 py-3 text-lg font-medium text-[#4AEA45] border border-[#4AEA45] rounded-full transition-all duration-300 hover:bg-[#4AEA45] hover:text-white shadow-sm hover:shadow-lg"
-  >
-    {showAll ? (
-      <>
-        View Less
-        <ChevronUp
-          size={20}
-          className="transition-transform duration-300 group-hover:-translate-y-1"
-        />
-      </>
-    ) : (
-      <>
-        View More
-        <ChevronDown
-          size={20}
-          className="transition-transform duration-300 group-hover:translate-y-1"
-        />
-      </>
-    )}
-  </button>
-</motion.div>
-
-
-      {/* --- Tagline --- */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        viewport={{ once: true }}
-        className="mt-16 text-gray-800 italic text-lg sm:text-xl max-w-2xl"
-      >
-        “Your all-in-one partner for{" "}
-        <span className="text-[#4AEA45] font-semibold">web</span>,{" "}
-        <span className="text-[#4AEA45] font-semibold">mobile</span>, and{" "}
-        <span className="text-[#4AEA45] font-semibold">creative</span> solutions.”
-      </motion.div>
     </section>
   );
 }

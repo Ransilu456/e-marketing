@@ -45,7 +45,7 @@ export default function Portfolio() {
                         </h2>
                     </div>
                     <p className="text-lg sm:text-xl text-gray-700" style={{ fontFamily: 'Poppins' }}>
-                        Real results for real businesses. See how we've helped brands achieve remarkable growth.
+                        Real results for real businesses. See how we&apos;ve helped brands achieve remarkable growth.
                     </p>
                 </div>
 
@@ -57,13 +57,13 @@ export default function Portfolio() {
                             className="group relative overflow-hidden bg-black cursor-pointer rounded-2xl transform hover:-translate-y-2 transition-all duration-500"
                         >
                             {/* Image */}
-                            <div className="relative overflow-hidden aspect-[4/5]">
+                            <div className="relative overflow-hidden aspect-4/5">
                                 <ImageWithFallback
                                     src={project.image}
                                     alt={project.title}
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300"></div>
+                                <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300"></div>
                             </div>
 
                             {/* Content */}
