@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+{/* import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Code, Smartphone, Layout, TrendingUp, Palette, Icon as LucideIcon, ExternalLink } from 'lucide-react';
 
@@ -25,11 +25,7 @@ interface FeatureCardProps {
   icon: LucideIcon;
 }
 
-/**
- * UPGRADED: Feature Card
- * - Uses Tailwind hover classes for a cleaner, combined effect.
- * - Adds a subtle accent border on hover.
- */
+
 const FeatureCard: React.FC<FeatureCardProps> = ({ title, desc, icon: Icon }) => (
   <motion.div 
     className="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-start gap-4 border-b-4 border-transparent transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02]"
@@ -70,7 +66,6 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: (index % 2) * 0.1 }}
   >
-    {/* Image */}
     <div className="relative overflow-hidden aspect-[4/5]">
       <img
           src={image}
@@ -81,9 +76,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300"></div>
     </div>
 
-    {/* Content */}
     <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 text-white">
-      {/* Category Badge */}
       <div className="inline-block px-4 py-1 bg-[#4AEA45] text-black text-sm mb-4 rounded-full" style={{ fontFamily: 'Poppins' }}>
           {category}
       </div>
@@ -96,7 +89,6 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
           {description}
       </p>
 
-      {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-6">
           {tags.map((tag, i) => (
               <span key={i} className="text-xs px-3 py-1 bg-white/10 border border-white/20 rounded-full">
@@ -105,7 +97,6 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
           ))}
       </div>
 
-      {/* Result */}
       <div className="flex items-center justify-between p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
           <div>
               <div className="text-xs text-gray-400 mb-1">Result</div>
@@ -116,15 +107,12 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
           </div>
       </div>
     </div>
-
-    {/* Hover overlay */}
     <div className="absolute inset-0 border-4 border-[#4AEA45] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
   </motion.a>
 );
 
 
-// --- File: components/ui/FilledButton.tsx ---
-// (No changes to this component)
+
 interface FilledButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
@@ -144,7 +132,7 @@ const FilledButton: React.FC<FilledButtonProps> = ({ children, onClick, style = 
           backgroundColor: baseBg, 
           color: baseColor,
           borderColor: baseBorder,
-          ...style // Allow overrides
+          ...style
       }}
       onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = 'transparent';
@@ -192,10 +180,6 @@ const portfolioProjectsSMM: Project[] = [
 ];
 
 
-// --- File: lib/animations.ts ---
-/**
- * NEW: Staggered animation variants for hero sections
- */
 const heroParentVariant = {
   hidden: { opacity: 0 },
   visible: {
@@ -226,7 +210,6 @@ const WebDevelopmentPage: React.FC = () => {
   const heroImage = "https://images.unsplash.com/photo-1559028012-481c04fa702d?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080";
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-      {/* UPGRADED Hero Section (Staggered Animation) */}
       <section className="relative px-6 md:px-16 py-24 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl mx-auto">
         <motion.div 
           variants={heroParentVariant}
@@ -259,7 +242,6 @@ const WebDevelopmentPage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* UPGRADED Portfolio Section (Sticky Title & NEW Cards) */}
       <section className="py-20 bg-white px-6 md:px-16 overflow-hidden relative">
         <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-3 lg:gap-16">
           <div className="lg:col-span-1 lg:sticky lg:top-28 h-max text-center lg:text-left">
@@ -274,7 +256,6 @@ const WebDevelopmentPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 px-6 md:px-16 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>Why Choose Our Web Services</h2>
@@ -294,7 +275,6 @@ const MobileAppDevelopmentPage: React.FC = () => {
   const heroImage = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080";
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-      {/* UPGRADED Hero Section (Staggered Animation) */}
       <section className="relative px-6 md:px-16 py-24 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl mx-auto">
         <motion.div 
           variants={heroParentVariant}
@@ -326,7 +306,6 @@ const MobileAppDevelopmentPage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* UPGRADED Portfolio Section (Sticky Title & NEW Cards) */}
       <section className="py-20 bg-white px-6 md:px-16 overflow-hidden relative">
         <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-3 lg:gap-16">
           <div className="lg:col-span-1 lg:sticky lg:top-28 h-max text-center lg:text-left">
@@ -341,7 +320,6 @@ const MobileAppDevelopmentPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 px-6 md:px-16 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>What We Deliver in Mobile</h2>
@@ -361,7 +339,6 @@ const CreativePostersPage: React.FC = () => {
   const heroImage = "https://images.unsplash.com/photo-1503602642458-232111445657?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080";
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-      {/* UPGRADED Hero Section (Staggered Animation) */}
       <section className="relative px-6 md:px-16 py-24 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl mx-auto">
         <motion.div 
           variants={heroParentVariant}
@@ -393,7 +370,6 @@ const CreativePostersPage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* UPGRADED Portfolio Section (Sticky Title & NEW Cards) */}
       <section className="py-20 bg-white px-6 md:px-16 overflow-hidden relative">
         <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-3 lg:gap-16">
           <div className="lg:col-span-1 lg:sticky lg:top-28 h-max text-center lg:text-left">
@@ -408,7 +384,6 @@ const CreativePostersPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 px-6 md:px-16 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>Design Process Highlights</h2>
@@ -428,7 +403,6 @@ const SocialMediaManagementPage: React.FC = () => {
   const heroImage = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080";
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-      {/* UPGRADED Hero Section (Staggered Animation) */}
       <section className="relative px-6 md:px-16 py-24 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl mx-auto">
         <motion.div 
           variants={heroParentVariant}
@@ -460,7 +434,6 @@ const SocialMediaManagementPage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* UPGRADED Portfolio Section (Sticky Title & NEW Cards) */}
       <section className="py-20 bg-white px-6 md:px-16 overflow-hidden relative">
         <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-3 lg:gap-16">
           <div className="lg:col-span-1 lg:sticky lg:top-28 h-max text-center lg:text-left">
@@ -475,7 +448,6 @@ const SocialMediaManagementPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 px-6 md:px-16 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>The SMM Advantage</h2>
@@ -506,11 +478,6 @@ interface HeaderProps {
   setCurrentPage: React.Dispatch<React.SetStateAction<PageKey>>;
 }
 
-/**
- * UPGRADED: Header
- * - Uses a sliding motion.div (layoutId) for the active state.
- * - This provides a much more fluid and premium navigation feel.
- */
 const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => (
   <header className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-gray-200">
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
@@ -544,11 +511,9 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => (
   </header>
 );
 
-// --- File: components/layout/Footer.tsx ---
-// (Minor typography tweak)
+
 const Footer: React.FC = () => (
   <section className="bg-gray-900 text-white py-20 md:py-24 px-6 text-center relative overflow-hidden">
-    {/* Subtle glow effect */}
     <div 
       className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-64 opacity-10 blur-[100px] rounded-full" 
       style={{ backgroundColor: ACCENT_COLOR }}
@@ -585,14 +550,12 @@ export default function App() {
     // UPGRADED: Main background is now light gray for depth
     <div className="min-h-screen bg-gray-50 text-black font-poppins">
       
-      {/* Load Fonts (Poppins and Prata) */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Prata&display=swap');
         
         .font-poppins { font-family: 'Poppins', sans-serif; }
         .font-prata { font-family: 'Prata', serif; }
 
-        /* Custom scrollbar hide for portfolio section */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
@@ -600,10 +563,8 @@ export default function App() {
 
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
-      {/* Main Content Area */}
       <AnimatePresence mode="wait">
         <main key={currentPage} className="font-poppins">
-          {/* Page content is now rendered on bg-gray-50, with white sections inside */}
           <CurrentComponent />
         </main>
       </AnimatePresence>
@@ -611,4 +572,4 @@ export default function App() {
       <Footer />
     </div>
   );
-}
+} */}

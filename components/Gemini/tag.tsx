@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+{/* import React, { useState, useEffect } from 'react';
 import { Menu, X, Rocket, Sparkles, Send, Loader2, Zap } from 'lucide-react';
 
 // Define the main Navbar component
@@ -39,7 +39,6 @@ function Navbar() {
     <header className="fixed top-0 left-0 w-full z-50 bg-[#06091A]/90 backdrop-blur-xl shadow-xl border-b border-indigo-700/30">
       <div className="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
 
-        {/* Logo / Title */}
         <div className="flex items-center">
             <Rocket className="w-6 h-6 mr-2 text-[#978BF2]" />
             <h1 
@@ -56,20 +55,17 @@ function Navbar() {
             </h1>
         </div>
 
-        {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-1 p-1 bg-white/5 rounded-full border border-white/10 shadow-lg">
           {links.map(link => (
             <NavLink key={link.name} {...link} />
           ))}
         </nav>
 
-        {/* Access Button (Desktop) */}
         <button className="hidden md:block ml-8 cursor-pointer relative group overflow-hidden rounded-xl px-6 py-2 bg-indigo-700 text-white font-semibold transition duration-300 ease-in-out hover:bg-indigo-600 shadow-[0_0_15px_rgba(151,139,242,0.5)]">
           <span className="relative z-10">Access Portal</span>
           <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition duration-500"></div>
         </button>
         
-        {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -82,7 +78,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Panel */}
       <div 
         className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
       >
@@ -264,8 +259,6 @@ function MarketingCopyGenerator() {
                     )}
                 </button>
             </form>
-
-            {/* Results Display */}
             {(taglines.length > 0 || isLoading) && (
                 <div className="mt-10 pt-6 border-t border-white/10">
                     <h4 className="text-xl font-semibold mb-4 text-gray-200 flex items-center gap-2">
@@ -301,7 +294,7 @@ export default function App() {
     return (
         <div className="App">
             <Navbar />
-            <main className="pt-20"> {/* Padding to offset the fixed navbar */}
+            <main className="pt-20"> 
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     {sections.map((title, index) => (
                         <section 
@@ -336,4 +329,4 @@ export default function App() {
             </footer>
         </div>
     );
-}
+} */}

@@ -1,20 +1,12 @@
+/*
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Code, Smartphone, Layout, TrendingUp, Palette } from 'lucide-react';
 
-// --- Utility Components & Data ---
 
 const PRIMARY_COLOR = 'black';
-const ACCENT_COLOR = '#4AEA45'; // Your defined secondary color
+const ACCENT_COLOR = '#4AEA45'; 
 
-// --- NEW/UPDATED Utility Components ---
-
-/**
- * UPDATED: Feature Card
- * - Uses Prata font for the title.
- * - Uses a cleaner framer-motion hover (scale, y, boxShadow).
- * - Bolder icon.
- */
 const FeatureCard = ({ title, desc, icon: Icon }) => (
   <motion.div 
     className="bg-white p-8 rounded-3xl shadow-lg flex flex-col items-start gap-4 transition-all duration-300"
@@ -28,11 +20,7 @@ const FeatureCard = ({ title, desc, icon: Icon }) => (
   </motion.div>
 );
 
-/**
- * NEW: Portfolio Card
- * - Replaces the simple horizontal scroll item.
- * - Includes a "group-hover" effect to zoom the image and animate the link.
- */
+
 const PortfolioCard = ({ title, description, image, link, index }) => (
   <motion.a
     href={link}
@@ -62,11 +50,6 @@ const PortfolioCard = ({ title, description, image, link, index }) => (
 );
 
 
-/**
- * UPDATED: Filled Button
- * - More robust logic to handle style overrides (for the green footer button)
- * - Correctly applies the "invert" hover effect based on passed styles.
- */
 const FilledButton = ({ children, onClick, style = {} }) => {
   const baseBg = style.backgroundColor || PRIMARY_COLOR;
   const baseColor = style.color || 'white';
@@ -80,7 +63,7 @@ const FilledButton = ({ children, onClick, style = {} }) => {
           backgroundColor: baseBg, 
           color: baseColor,
           borderColor: baseBorder,
-          ...style // Allow overrides
+          ...style 
       }}
       onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = 'transparent';
@@ -97,7 +80,6 @@ const FilledButton = ({ children, onClick, style = {} }) => {
 };
 
 
-// --- Portfolio Data (Unchanged) ---
 const portfolioProjectsWeb = [
   { title: "E‑Commerce Store", description: "A fast and responsive online store with payment integration.", image: "https://images.unsplash.com/photo-1605902711622-cfb43c443d31?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080", link: "#" },
   { title: "Portfolio Website", description: "A sleek portfolio for creative professionals.", image: "https://images.unsplash.com/photo-1581091215362-273c6b4e0f3e?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080", link: "#" },
@@ -126,14 +108,11 @@ const portfolioProjectsSMM = [
   { title: "Paid Ad Campaign", description: "Targeted ad spend across platforms for measurable ROI.", image: "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080", link: "#" },
 ];
 
-// --- Page Components (UPDATED) ---
 
 const WebDevelopmentPage = () => {
   const heroImage = "https://images.unsplash.com/photo-1559028012-481c04fa702d?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080";
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-      {/* Hero Section */}
-      <section className="relative px-6 md:px-16 py-24 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="flex-1 text-center lg:text-left">
           <span className="text-lg font-medium uppercase tracking-wider" style={{ color: ACCENT_COLOR }}>Our Service</span>
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight mt-2" style={{ color: PRIMARY_COLOR, fontFamily: 'Prata, serif' }}>
@@ -153,7 +132,6 @@ const WebDevelopmentPage = () => {
         </motion.div>
       </section>
 
-      {/* UPDATED Portfolio Section */}
       <section className="py-20 bg-gray-50 px-6 md:px-16 overflow-hidden relative">
         <div className="max-w-7xl mx-auto mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>Our Recent Web Projects</h2>
@@ -166,7 +144,6 @@ const WebDevelopmentPage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 px-6 md:px-16 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>Why Choose Our Web Services</h2>
@@ -185,7 +162,6 @@ const MobileAppDevelopmentPage = () => {
   const heroImage = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080";
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-      {/* Hero Section */}
       <section className="relative px-6 md:px-16 py-24 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="flex-1 text-center lg:text-left">
           <span className="text-lg font-medium uppercase tracking-wider" style={{ color: ACCENT_COLOR }}>Our Service</span>
@@ -205,7 +181,6 @@ const MobileAppDevelopmentPage = () => {
         </motion.div>
       </section>
 
-      {/* UPDATED Portfolio Section */}
       <section className="py-20 bg-gray-50 px-6 md:px-16 overflow-hidden relative">
         <div className="max-w-7xl mx-auto mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>Our App Development Showcase</h2>
@@ -218,7 +193,6 @@ const MobileAppDevelopmentPage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 px-6 md:px-16 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>What We Deliver in Mobile</h2>
@@ -237,7 +211,6 @@ const CreativePostersPage = () => {
   const heroImage = "https://images.unsplash.com/photo-1503602642458-232111445657?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080";
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-      {/* Hero Section */}
       <section className="relative px-6 md:px-16 py-24 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="flex-1 text-center lg:text-left">
           <span className="text-lg font-medium uppercase tracking-wider" style={{ color: ACCENT_COLOR }}>Our Service</span>
@@ -257,7 +230,6 @@ const CreativePostersPage = () => {
         </motion.div>
       </section>
 
-      {/* UPDATED Portfolio Section */}
       <section className="py-20 bg-gray-50 px-6 md:px-16 overflow-hidden relative">
         <div className="max-w-7xl mx-auto mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>Visual Impact Examples</h2>
@@ -270,7 +242,6 @@ const CreativePostersPage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 px-6 md:px-16 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>Design Process Highlights</h2>
@@ -289,7 +260,6 @@ const SocialMediaManagementPage = () => {
   const heroImage = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080";
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-      {/* Hero Section */}
       <section className="relative px-6 md:px-16 py-24 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="flex-1 text-center lg:text-left">
           <span className="text-lg font-medium uppercase tracking-wider" style={{ color: ACCENT_COLOR }}>Our Service</span>
@@ -309,7 +279,7 @@ const SocialMediaManagementPage = () => {
         </motion.div>
       </section>
 
-      {/* UPDATED Portfolio Section */}
+      
       <section className="py-20 bg-gray-50 px-6 md:px-16 overflow-hidden relative">
         <div className="max-w-7xl mx-auto mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>Our SMM Deliverables</h2>
@@ -322,7 +292,7 @@ const SocialMediaManagementPage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      
       <section className="py-20 px-6 md:px-16 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-prata" style={{ color: PRIMARY_COLOR }}>The SMM Advantage</h2>
@@ -338,7 +308,6 @@ const SocialMediaManagementPage = () => {
 };
 
 
-// --- Main Application Component ---
 
 const PAGES = {
   'web': { component: WebDevelopmentPage, title: 'Web Development' },
@@ -355,20 +324,18 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-black font-poppins">
       
-      {/* Load Fonts (Poppins and Prata) */}
+      
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Prata&display=swap');
         
         .font-poppins { font-family: 'Poppins', sans-serif; }
         .font-prata { font-family: 'Prata', serif; }
 
-        /* Custom scrollbar hide for portfolio section */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
 
 
-      {/* UPDATED Navigation Header */}
       <header className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-gray-200">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
           <h1 className="text-2xl font-bold font-prata" style={{ color: ACCENT_COLOR }}>
@@ -395,16 +362,13 @@ export default function App() {
         </div>
       </header>
 
-      {/* Main Content Area */}
       <AnimatePresence mode="wait">
         <main key={currentPage} className="font-poppins">
           <CurrentComponent />
         </main>
       </AnimatePresence>
 
-      {/* UPDATED Universal CTA Footer */}
       <section className="bg-gray-900 text-white py-20 md:py-24 px-6 text-center relative overflow-hidden">
-        {/* Subtle glow effect */}
         <div 
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-64 opacity-10 blur-[100px] rounded-full" 
           style={{ backgroundColor: ACCENT_COLOR }}
@@ -430,4 +394,4 @@ export default function App() {
       </section>
     </div>
   );
-}
+} */
