@@ -2,11 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Zap, Palette, Feather, Target, ImageIcon } from "lucide-react"; 
+import { ArrowRight, Zap, Palette, Target, ImageIcon, Feather } from "lucide-react";
+import { posterProjects } from "./projects";
 
-const PRIMARY_COLOR = "#4AEA45"; 
-const HEADING_COLOR = "#0f172a"; 
-const SECONDARY_BG = "#f8fafc";
 
 const features = [
   {
@@ -31,31 +29,40 @@ const features = [
   },
 ];
 
+const useCases = [
+  "Event Posters",
+  "Product Launches",
+  "Social Media Ads",
+  "Print Campaigns",
+  "Infographics",
+  "Flyers & Leaflets",
+];
+
 export default function CreativePostersPage() {
   return (
     <main className="min-h-screen bg-white text-gray-800" style={{ fontFamily: "Poppins, sans-serif" }}>
-      
-      {/* Hero Section */}
-      <section className="relative px-6 md:px-16 py-28 lg:py-40 max-w-7xl mx-auto text-center overflow-hidden">
-        {/* Subtle Background Shape */}
-        <div className={`absolute -top-10 -right-10 w-48 h-48 bg-[${PRIMARY_COLOR}]/10 rounded-full blur-3xl pointer-events-none`}></div>
-        
+
+      {/* --- Hero Section --- */}
+      <section className="relative px-6 md:px-16 py-28 lg:py-40 text-center overflow-hidden">
+        <div className="absolute -top-16 -left-16 w-60 h-60 bg-green-400/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-16 -right-16 w-60 h-60 bg-green-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className={`text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-[${HEADING_COLOR}]`}>
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-[0f172a]">
             Creative Poster <br />
-            <span className={`text-[${PRIMARY_COLOR}]`}>Design That Gets Noticed</span>
+            <span className="text-[#4AEA45]">Designs That Get Noticed</span>
           </h1>
           <p className="text-gray-600 text-xl max-w-3xl mx-auto mb-10">
-            We transform your message into **attention-grabbing visual assets** perfect for events, promotions, and digital campaigns.
+            Transforming your message into attention-grabbing visuals perfect for events, promotions, and digital campaigns.
           </p>
           <Link
             href="/#contact"
-            className={`inline-flex items-center gap-3 px-10 py-4 text-lg font-bold text-white bg-[${PRIMARY_COLOR}] rounded-full hover:bg-[#3ec93b] transition-all duration-300 shadow-xl shadow-[${PRIMARY_COLOR}]/40 uppercase tracking-wider`}
+            className="inline-flex items-center gap-3 px-10 py-4 text-lg font-bold text-white bg-[#4AEA45] rounded-full hover:bg-[#3ec93b] transition-all duration-300 shadow-xl uppercase tracking-wider"
           >
             Start Your Poster Project
             <ArrowRight size={20} />
@@ -63,63 +70,106 @@ export default function CreativePostersPage() {
         </motion.div>
       </section>
 
-      {/* Benefits/Features Section */}
-      <section className={`py-20 px-6 md:px-16 bg-[${SECONDARY_BG}] border-t border-b border-gray-100`}>
+      {/* --- Features Section --- */}
+      <section className="py-20 px-6 md:px-16 bg-[#f8fafc] border-t border-b border-gray-100">
         <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-center text-[${HEADING_COLOR}]`}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[0f172a]">
             Why Choose Our Poster Design?
           </h2>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-xl shadow-lg flex items-start space-x-5 transition-transform duration-300 hover:shadow-2xl hover:-translate-y-0.5 border border-gray-100"
-              >
-                <div className={`p-3 rounded-full bg-[${PRIMARY_COLOR}] text-white shrink-0`}>
-                  <feature.icon size={24} strokeWidth={2.5} />
-                </div>
-                <div>
-                  <h3 className={`text-xl font-bold mb-2 text-[${HEADING_COLOR}]`}>{feature.title}</h3>
-                  <p className="text-gray-600">{feature.desc}</p>
-                </div>
-              </motion.div>
-            ))}
+            {features.map((feature, i) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-white p-8 rounded-2xl shadow-lg flex items-start space-x-5 hover:shadow-2xl transition-all border border-gray-100"
+                >
+                  <div className="p-3 rounded-full bg-[#4AEA45] text-white shrink-0">
+                    <Icon size={24} strokeWidth={2.5} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2 text-[0f172a]">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Services/Use Cases Section */}
+      {/* --- Project Showcase --- */}
       <section className="py-20 px-6 md:px-16 max-w-7xl mx-auto">
-        <h2 className={`text-3xl md:text-4xl font-bold mb-10 text-center text-[${HEADING_COLOR}]`}>
-          Our Design Scope
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[0f172a]">
+          Poster Projects We&apos;ve Designed
         </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {['Event Posters', 'Product Launches', 'Social Media Ads', 'Print Campaigns', 'Infographics', 'Flyers & Leaflets'].map((item, index) => (
-                <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className={`p-6 bg-white rounded-lg shadow-sm border border-gray-100 transition-all duration-300 hover:border-[${PRIMARY_COLOR}] hover:shadow-md`}
-                >
-                    <Feather size={36} className={`mx-auto mb-3 text-[${PRIMARY_COLOR}]`} />
-                    <p className="font-semibold text-lg text-gray-700">{item}</p>
-                </motion.div>
-            ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {posterProjects.map((project, i) => (
+            <motion.div
+              key={project.slug}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all cursor-pointer"
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2 text-[0f172a]">{project.title}</h3>
+                <p className="text-gray-600 mb-4 text-sm">{project.description}</p>
+                <div className="mb-2">
+                  <h4 className="font-semibold text-gray-800 mb-1">Features:</h4>
+                  <ul className="list-disc list-inside text-gray-600 text-sm">
+                    {project.features.map((f, idx) => <li key={idx}>{f}</li>)}
+                  </ul>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, idx) => (
+                    <span key={idx} className="px-2 py-1 bg-[#4AEA45]/10 text-[#4AEA45] text-xs rounded-full font-semibold">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className={`bg-[${PRIMARY_COLOR}] text-white py-16 px-6 md:px-16`}>
+      {/* --- Use Cases Section --- */}
+      <section className="py-20 px-6 md:px-16 bg-[#f8fafc]">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[0f172a]">
+          Posters for Every Purpose
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {useCases.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="p-6 bg-white rounded-xl shadow hover:shadow-2xl border border-gray-100 text-center transition-all"
+            >
+              <Feather size={36} className="mx-auto mb-3 text-[#4AEA45]" />
+              <p className="font-semibold text-lg text-gray-700">{item}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- Final CTA --- */}
+      <section className="bg-[#4AEA45] text-white py-16 px-6 md:px-16">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -128,7 +178,7 @@ export default function CreativePostersPage() {
           >
             Ready for a Visual Masterpiece?
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -145,7 +195,7 @@ export default function CreativePostersPage() {
           >
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-3 px-10 py-4 bg-white text-[${PRIMARY_COLOR}] rounded-full font-bold text-xl hover:bg-gray-100 transition-all duration-300 shadow-xl shadow-black/20"
+              className="inline-flex items-center gap-3 px-10 py-4 bg-white text-[#4AEA45] rounded-full font-bold text-xl hover:bg-gray-100 transition-all duration-300 shadow-xl shadow-black/20"
             >
               Request a Design
               <ArrowRight size={22} />

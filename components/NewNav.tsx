@@ -35,23 +35,23 @@ export function CustomNavbar() {
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8 lg:gap-10 font-[Poppins]">
 
-                        <Link href="#about" className="text-black hover:text-[#4AEA45] transition-all duration-300 relative group">
+                        <Link href="/#about" className="text-black hover:text-[#4AEA45] transition-all duration-300 relative group">
                             About
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4AEA45] group-hover:w-full transition-all duration-300"></span>
                         </Link>
-                        <Link href="#services" className="text-black hover:text-[#4AEA45] transition-all duration-300 relative group">
+                        <Link href="/#services" className="text-black hover:text-[#4AEA45] transition-all duration-300 relative group">
                             Services
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4AEA45] group-hover:w-full transition-all duration-300"></span>
                         </Link>
-                        <Link href="#portfolio" className="text-black hover:text-[#4AEA45] transition-all duration-300 relative group">
+                        <Link href="/#portfolio" className="text-black hover:text-[#4AEA45] transition-all duration-300 relative group">
                             Portfolio
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4AEA45] group-hover:w-full transition-all duration-300"></span>
                         </Link>
-                        <Link href="#testimonials" className="text-black hover:text-[#4AEA45] transition-all duration-300 relative group">
+                        <Link href="/#testimonials" className="text-black hover:text-[#4AEA45] transition-all duration-300 relative group">
                             Testimonials
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4AEA45] group-hover:w-full transition-all duration-300"></span>
                         </Link>
-                        <Link href="#contact" className="text-black hover:text-[#4AEA45] transition-all duration-300 relative group">
+                        <Link href="/#contact" className="text-black hover:text-[#4AEA45] transition-all duration-300 relative group">
                             Contact
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4AEA45] group-hover:w-full transition-all duration-300"></span>
                         </Link>
