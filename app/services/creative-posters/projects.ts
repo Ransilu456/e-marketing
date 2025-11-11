@@ -7,7 +7,7 @@ export interface Project {
   technologies: string[];
 }
 
-export const mobileProjects: Project[] = [
+export const posterProjects: Project[] = [
   {
     title: "FitPulse – Health & Fitness Tracker",
     description:

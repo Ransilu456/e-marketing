@@ -2,12 +2,11 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Zap, Palette, Feather, Target, ImageIcon } from "lucide-react"; // Added icons for features
+import { ArrowRight, Zap, Palette, Feather, Target, ImageIcon } from "lucide-react"; 
 
-// --- Configuration ---
-const PRIMARY_COLOR = "#4AEA45"; // Vibrant Green Accent
-const HEADING_COLOR = "#0f172a"; // Dark Headings
-const SECONDARY_BG = "#f8fafc"; // Very Light Gray Background
+const PRIMARY_COLOR = "#4AEA45"; 
+const HEADING_COLOR = "#0f172a"; 
+const SECONDARY_BG = "#f8fafc";
 
 const features = [
   {
@@ -81,7 +80,7 @@ export default function CreativePostersPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white p-8 rounded-xl shadow-lg flex items-start space-x-5 transition-transform duration-300 hover:shadow-2xl hover:-translate-y-0.5 border border-gray-100"
               >
-                <div className={`p-3 rounded-full bg-[${PRIMARY_COLOR}] text-white flex-shrink-0`}>
+                <div className={`p-3 rounded-full bg-[${PRIMARY_COLOR}] text-white shrink-0`}>
                   <feature.icon size={24} strokeWidth={2.5} />
                 </div>
                 <div>
