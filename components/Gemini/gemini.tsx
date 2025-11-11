@@ -4,6 +4,27 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Code, Smartphone, Layout, TrendingUp, Palette } from 'lucide-react';
 
 
+What we offer:
+Custom Website Design & Development
+High-speed, SEO-friendly CMS setups
+E-commerce Solutions
+Modern JS Frameworks (React, Node.js, etc.)
+SEO Optimization & Performance Tuning
+
+What we offer:
+Native & Cross-Platform App Development
+iOS and Android App Store Deployment
+API Integration & Cloud Connectivity
+Maintenance and Continuous Support
+App Store Deployment Support
+
+What we offer:
+Logo & Brand Identity Design
+Social Media Graphics & Ads
+Brochures, Flyers & Posters
+Presentation & Pitch Decks
+Product & Packaging Design
+
 const PRIMARY_COLOR = 'black';
 const ACCENT_COLOR = '#4AEA45'; 
 
