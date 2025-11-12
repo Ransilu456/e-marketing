@@ -27,41 +27,31 @@ const services = [
     features: ["iOS & Android", "Cross-platform frameworks", "Performance focused"],
   },
   {
-    title: "UI/UX Design",
+    title: "Brand Identity",
     description:
-      "Visually stunning and user-focused interface design for exceptional digital experiences.",
-    buttonText: "Contact Us",
+      "Crafting memorable visual identities that make your brand stand out across platforms.",
+    buttonText: "Discover Identity",
     link: "#contact",
     image:
-      "https://images.unsplash.com/photo-1559028012-481c04fa702d?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
-    features: ["User research", "Wireframing & prototyping", "Consistency across platforms"],
-  },
-{
-  title: "Brand Identity",
-  description:
-    "Crafting memorable visual identities that make your brand stand out across platforms.",
-  buttonText: "Discover Identity",
-  link: "#contact",
-  image:
-    "https://images.unsplash.com/photo-1499955085172-a104c9463ece?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
-  features: ["Logo & mark design", "Brand guidelines", "Visual assets library"],
-}
-,
-{
-  title: "Creative Posters",
-  description:
-    "Eye-catching poster and social designs to amplify your campaigns’ visual impact.",
-  buttonText: "View Examples",
-  link: "/services/creative-posters",
-  image:
-    "https://images.unsplash.com/photo-1503602642458-232111445657?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
-  features: [
-    "Campaign posters",
-    "Social media visuals",
-    "Print-ready deliverables",
-  ],
-}
-,
+      "https://images.unsplash.com/photo-1499955085172-a104c9463ece?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+    features: ["Logo & mark design", "Brand guidelines", "Visual assets library"],
+  }
+  ,
+  {
+    title: "Creative Posters",
+    description:
+      "Eye-catching poster and social designs to amplify your campaigns’ visual impact.",
+    buttonText: "View Examples",
+    link: "/services/creative-posters",
+    image:
+      "https://images.unsplash.com/photo-1503602642458-232111445657?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+    features: [
+      "Campaign posters",
+      "Social media visuals",
+      "Print-ready deliverables",
+    ],
+  }
+  ,
   {
     title: "Social Media Management",
     description:

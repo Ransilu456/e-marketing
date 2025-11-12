@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Zap, Monitor, Rocket, ArrowRight, Sparkles } from "lucide-react";
-import { portfolioProjects } from "./projects";
+import { portfolioProjects } from "./projects"; 
 
 const PRIMARY_COLOR = "#4AEA45";
 const SECONDARY_BG = "#f7f9fc";
@@ -218,7 +218,9 @@ export default function WebDevelopmentPage() {
 
               {/* --- CONTENT --- */}
               <div className="relative z-10 p-7">
-                <h3 className="text-2xl font-semibold mb-3 text-gray-900 group-hover:text-emerald-600 transition-colors">
+                <h3
+                  className={`text-2xl font-semibold mb-3 text-gray-900 group-hover:text-[${PRIMARY_COLOR}] transition-colors`}
+                >
                   {project.title}
                 </h3>
                 <p className="text-gray-700/90 mb-6 leading-relaxed line-clamp-2">
@@ -227,9 +229,11 @@ export default function WebDevelopmentPage() {
 
                 <Link
                   href={`/services/web-development/projects/${project.slug}`}
-                  className="relative inline-flex items-center gap-2 font-semibold text-emerald-600 group transition-all duration-300"
+                  className={`relative inline-flex items-center gap-2 font-semibold text-[${PRIMARY_COLOR}] group transition-all duration-300`}
                 >
-                  <span className="relative after:absolute after:-bottom-0.5 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 after:transition-all after:duration-300 group-hover:after:w-full">
+                  <span
+                    className={`relative after:absolute after:-bottom-0.5 after:left-0 after:w-0 after:h-0.5 after:bg-[${PRIMARY_COLOR}] after:transition-all after:duration-300 group-hover:after:w-full`}
+                  >
                     View Project
                   </span>
                   <ArrowRight
@@ -237,7 +241,6 @@ export default function WebDevelopmentPage() {
                     className="group-hover:translate-x-1 transition-transform duration-300"
                   />
                 </Link>
-
               </div>
 
               {/* --- GLASS HIGHLIGHT BORDER --- */}
@@ -248,7 +251,6 @@ export default function WebDevelopmentPage() {
             </motion.div>
           ))}
         </div>
-
       </section>
 
       {/* CTA */}

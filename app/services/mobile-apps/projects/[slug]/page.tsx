@@ -1,136 +1,287 @@
+import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+// Import all necessary icons from the rich UI template
+import { ArrowLeft, Zap, Smartphone, Settings, Code, Layers, HardHat, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
+// Use the correct project data import
 import { mobileProjects } from "../../projects";
 
+// Color constants from the rich UI template
 const PRIMARY_COLOR = "#4AEA45";
+const PRIMARY_ACCENT = "#10b981"; 
+const TEXT_COLOR = "#1f2937";
 const HEADING_COLOR = "#0f172a";
-const TEXT_COLOR = "#374151";
+const LIGHT_BG = "#f7f9fc"; 
 
 export async function generateStaticParams() {
+  // Use the correct project array name
   return mobileProjects.map((p) => ({ slug: p.slug }));
 }
 
-export default async function ProjectPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  // Use the correct project array name
   const project = mobileProjects.find((p) => p.slug === slug);
 
-  if (!project) {
-    return (
-      <div
-        className={`min-h-screen flex flex-col items-center justify-center text-center px-6 `}
-      >
-        <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
-        <Link
-          href="/services/mobile-apps"
-          className="text-[#4AEA45] font-semibold hover:underline"
-        >
-          ← Back to Mobile Apps
-        </Link>
-      </div>
-    );
-  }
+  if (!project) return notFound();
+
+  // Navigation Logic (Adapted for mobileProjects)
+  const currentIndex = mobileProjects.findIndex(p => p.slug === slug);
+  const prevProject = currentIndex > 0 ? mobileProjects[currentIndex - 1] : null;
+  const nextProject = currentIndex < mobileProjects.length - 1 ? mobileProjects[currentIndex + 1] : null;
+
+  // ------------------------------------------------------------------
+  // ADAPTED STATIC/DETAIL DATA TO MATCH MOBILE PROJECT STRUCTURE
+  // NOTE: This uses generic features since mobileProjects doesn't have 
+  // detailed objects like the web version, but we make it look rich.
+  // ------------------------------------------------------------------
+
+  // Creating a rich 'projectDetails' array using the first 4 features for the UI grid
+  const projectDetails = [
+    {
+      icon: <Smartphone size={24} />,
+      title: "Cross-Platform",
+      description: "Built for seamless native performance on both iOS and Android.",
+    },
+    {
+      icon: <Zap size={24} />,
+      title: "Real-Time Updates",
+      description: "Implemented instant data syncing using cloud technologies.",
+    },
+    {
+      icon: <Code size={24} />,
+      title: "Secure Architecture",
+      description: "Robust data protection and authentication protocols applied.",
+    },
+    {
+      icon: <Layers size={24} />,
+      title: "Intuitive UI/UX",
+      description: "Designed following mobile design guidelines for ease of use.",
+    },
+  ];
+
+  // Creating a simple techStack list for the rich UI layout
+  const techStack = project.technologies.map(tech => ({
+    name: tech,
+    icon: tech.toLowerCase().includes('react') || tech.toLowerCase().includes('flutter') ? <Code size={20} /> : <HardHat size={20} />,
+  }));
+
+  // ------------------------------------------------------------------
 
   return (
-    <main
-      className={`min-h-screen bg-white text-[${TEXT_COLOR}] py-24 px-6 md:px-16 `}
-    >
-      {/* Back Button */}
-      <Link
-        href="/services/mobile-apps"
-        className={`inline-flex items-center gap-2 text-[${PRIMARY_COLOR}] font-semibold hover:gap-3 transition-all duration-300 mb-10`}
-      >
-        <ArrowLeft size={20} /> Back to Projects
-      </Link>
+    <main className={`min-h-screen bg-white text-[${TEXT_COLOR}] `}>
 
-      {/* Project Header */}
-      <div className="max-w-5xl mx-auto text-center mb-16">
-        <h1
-          className={`text-5xl font-extrabold mb-6 text-[${HEADING_COLOR}] leading-tight`}
-        >
-          {project.title}
-        </h1>
-        <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-          {project.description}
-        </p>
-      </div>
+      {/* ========================================
+        PROJECT HERO & IMAGE SECTION
+        ========================================
+      */}
+      <section className={`px-6 md:px-16 pt-24 pb-16 max-w-7xl mx-auto`} style={{ background: LIGHT_BG }}>
+        <div className="max-w-6xl mx-auto">
+          
+          {/* TOP NAVIGATION BLOCK */}
+          <div className="flex justify-between items-center mb-12">
+            {/* Back to Service Link - UPDATED PATH AND TEXT */}
+            <Link
+              href="/services/mobile-apps"
+              className={`inline-flex items-center gap-2 text-[${PRIMARY_ACCENT}] font-semibold hover:gap-3 transition-all duration-300`}
+            >
+              <ArrowLeft size={20} />
+              Back to Mobile Apps Projects
+            </Link>
 
-      {/* Project Image */}
-      <div className="relative max-w-5xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={1200}
-          height={600}
-          className="object-cover w-full h-auto"
-        />
-      </div>
+            {/* Prev/Next Project Buttons */}
+            <div className="flex gap-4">
+              {/* Previous Project Button */}
+              {prevProject && (
+                <Link 
+                  // Use relative path for Prev/Next
+                  href={`../projects/${prevProject.slug}`} 
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-[${PRIMARY_COLOR}] hover:text-[${PRIMARY_COLOR}] transition-colors duration-200`}
+                >
+                  <ChevronLeft size={20} />
+                  Prev
+                </Link>
+              )}
+              
+              {/* Next Project Button */}
+              {nextProject && (
+                <Link 
+                  // Use relative path for Prev/Next
+                  href={`../projects/${nextProject.slug}`} 
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-[${PRIMARY_COLOR}] hover:text-[${PRIMARY_COLOR}] transition-colors duration-200`}
+                >
+                  Next
+                  <ChevronRight size={20} />
+                </Link>
+              )}
+            </div>
+          </div>
 
-      {/* Features & Technologies */}
-      <section className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
-        <div>
-          <h2
-            className={`text-3xl font-bold mb-6 text-[${HEADING_COLOR}] border-b-4 border-[${PRIMARY_COLOR}] inline-block pb-1`}
+          {/* Title & Description */}
+          <div className="mb-12">
+            <h1 className={`text-5xl md:text-6xl font-extrabold text-[${HEADING_COLOR}] mb-4 max-w-4xl`}>
+              {project.title}
+            </h1>
+            <p className="text-gray-600 text-xl leading-relaxed max-w-3xl">
+              {project.description}
+            </p>
+          </div>
+
+          {/* Project Image */}
+          <div
+            className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-white/50 bg-gray-100 flex items-center justify-center" 
           >
-            Key Features
-          </h2>
-          <ul className="space-y-3">
-            {project.features.map((feature, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 text-gray-700 text-lg"
-              >
-                <CheckCircle2
-                  size={22}
-                  className={`text-[${PRIMARY_COLOR}] mt-1`}
-                />
-                {feature}
-              </li>
-            ))}
-          </ul>
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              // Removed padding class 'p-4' as mobile images often look better full-bleed in this style
+              className="object-cover w-full h-full" 
+              priority
+            />
+            {/* Subtle gradient overlay at the bottom */}
+            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/5 to-transparent"></div>
+          </div>
         </div>
+      </section>
 
-        <div>
+      {/* ---------------------------------------- */}
+
+      {/* ========================================
+        PROJECT DETAILS/FEATURES SECTION (4-grid layout)
+        ========================================
+      */}
+      <section className={`px-6 md:px-16 py-24 bg-white`}>
+        <div className="max-w-6xl mx-auto">
           <h2
-            className={`text-3xl font-bold mb-6 text-[${HEADING_COLOR}] border-b-4 border-[${PRIMARY_COLOR}] inline-block pb-1`}
+            className={`text-4xl font-bold mb-16 text-[${HEADING_COLOR}] text-center`}
           >
-            Technologies Used
+            Mobile App Highlights
           </h2>
-          <div className="flex flex-wrap gap-3">
-            {project.technologies.map((tech, i) => (
-              <span
-                key={i}
-                className={`px-5 py-2 rounded-full bg-[${PRIMARY_COLOR}]/10 text-[${PRIMARY_COLOR}] font-semibold`}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {projectDetails.map((detail, index) => (
+              <div
+                key={index}
+                className={`group p-6 rounded-2xl border border-gray-200 transition-all duration-300 hover:shadow-2xl hover:shadow-[${PRIMARY_ACCENT}15] hover:border-[${PRIMARY_COLOR}]`}
+                style={{ background: "white" }}
               >
-                {tech}
-              </span>
+                <div
+                  className={`mb-4 w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-lg`}
+                  style={{
+                    background: `linear-gradient(135deg, ${PRIMARY_COLOR}, ${PRIMARY_ACCENT})`,
+                    color: 'white',
+                  }}
+                >
+                  {detail.icon}
+                </div>
+                <h3 className={`text-xl font-semibold mb-2 text-[${HEADING_COLOR}]`}>
+                  {detail.title}
+                </h3>
+                <p className="text-gray-600">
+                  {detail.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* ---------------------------------------- */}
+
+
+      {/* ========================================
+        PROJECT SUMMARY & TECH STACK (Modified to include features list)
+        ========================================
+      */}
+      <section className={`px-6 md:px-16 py-24`} style={{ background: LIGHT_BG }}>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
+
+          {/* Features List (Replaces the generic summary from the web template) */}
+          <div className="lg:col-span-2">
+            <h2
+              className={`text-3xl md:text-4xl font-bold mb-6 text-[${HEADING_COLOR}]`}
+            >
+              Key Mobile App Features
+            </h2>
+            <ul className="space-y-4">
+              {/* Dynamically map the features from the mobileProjects data */}
+              {project.features.map((feature, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-3 text-gray-700 leading-relaxed text-lg"
+                >
+                  <CheckCircle2
+                    size={22}
+                    className={`text-[${PRIMARY_ACCENT}] mt-1 flex-shrink-0`}
+                  />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Tech Stack (Uses the rich UI's styling) */}
+          <div className="lg:col-span-1">
+            <h3 className={`text-2xl font-bold mb-6 text-[${HEADING_COLOR}]`}>
+              Technology Used
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {techStack.map((tech, index) => (
+                <span
+                  key={index}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium text-sm border-2 border-[${PRIMARY_COLOR}]`}
+                  style={{
+                    backgroundColor: `${PRIMARY_COLOR}10`,
+                    color: HEADING_COLOR
+                  }}
+                >
+                  {tech.icon}
+                  {tech.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------- */}
+
+      {/* ========================================
+        FINAL CTA SECTION
+        ========================================
+      */}
       <section
-        className={`mt-24 bg-[${PRIMARY_COLOR}] text-white py-16 rounded-3xl shadow-xl text-center`}
+        className="px-6 md:px-16 py-32 text-center"
+        style={{
+          background: `linear-gradient(to right, ${PRIMARY_COLOR}, ${PRIMARY_ACCENT})`,
+          color: 'white', 
+        }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Want a Similar App for Your Business?
-        </h2>
-        <p className="text-lg opacity-90 mb-8">
-          Let’s bring your mobile app idea to life with powerful tech and
-          creative design.
-        </p>
-        <Link
-          href="/#contact"
-          className="inline-flex items-center gap-3 px-10 py-4 bg-white text-[${PRIMARY_COLOR}] rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl uppercase tracking-wide"
-        >
-          Get a Free Quote
-          <ArrowLeft size={22} className="rotate-180" />
-        </Link>
+        <div className="max-w-5xl mx-auto">
+          <h3 className={`text-5xl md:text-6xl font-extrabold mb-5`}>
+            Ready to Build Your App?
+          </h3>
+          <p className="text-xl lg:text-2xl mb-12 opacity-95 max-w-3xl mx-auto">
+            Let's discuss how we can bring the features of **{project.title}**—or an entirely new app—to life.
+          </p>
+          <Link
+            href="/#contact" // Assuming the primary contact link is /#contact
+            className={`inline-flex items-center gap-3 px-10 py-5 bg-white text-lg font-bold rounded-full transition-all duration-300 hover:scale-[1.05] shadow-2xl group`}
+            style={{
+              color: HEADING_COLOR, 
+              boxShadow: `0 15px 30px rgba(0, 0, 0, 0.2), 0 5px 15px ${PRIMARY_COLOR}60`,
+            }}
+            // If the mobile projects have a dedicated link property:
+            // href={project.link} 
+            // target="_blank"
+            rel="noopener noreferrer"
+          >
+            Start Your Project
+            <svg className="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </Link>
+        </div>
       </section>
     </main>
   );
