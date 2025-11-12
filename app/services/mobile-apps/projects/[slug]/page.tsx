@@ -1,12 +1,9 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-// Import all necessary icons from the rich UI template
-import { ArrowLeft, Zap, Smartphone, Settings, Code, Layers, HardHat, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
-// Use the correct project data import
+import { ArrowLeft, Zap, Smartphone, Code, Layers, HardHat, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 import { mobileProjects } from "../../projects";
 
-// Color constants from the rich UI template
 const PRIMARY_COLOR = "#4AEA45";
 const PRIMARY_ACCENT = "#10b981"; 
 const TEXT_COLOR = "#1f2937";
@@ -14,29 +11,20 @@ const HEADING_COLOR = "#0f172a";
 const LIGHT_BG = "#f7f9fc"; 
 
 export async function generateStaticParams() {
-  // Use the correct project array name
   return mobileProjects.map((p) => ({ slug: p.slug }));
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  // Use the correct project array name
   const project = mobileProjects.find((p) => p.slug === slug);
 
   if (!project) return notFound();
 
-  // Navigation Logic (Adapted for mobileProjects)
   const currentIndex = mobileProjects.findIndex(p => p.slug === slug);
   const prevProject = currentIndex > 0 ? mobileProjects[currentIndex - 1] : null;
   const nextProject = currentIndex < mobileProjects.length - 1 ? mobileProjects[currentIndex + 1] : null;
 
-  // ------------------------------------------------------------------
-  // ADAPTED STATIC/DETAIL DATA TO MATCH MOBILE PROJECT STRUCTURE
-  // NOTE: This uses generic features since mobileProjects doesn't have 
-  // detailed objects like the web version, but we make it look rich.
-  // ------------------------------------------------------------------
 
-  // Creating a rich 'projectDetails' array using the first 4 features for the UI grid
   const projectDetails = [
     {
       icon: <Smartphone size={24} />,
@@ -60,27 +48,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     },
   ];
 
-  // Creating a simple techStack list for the rich UI layout
   const techStack = project.technologies.map(tech => ({
     name: tech,
     icon: tech.toLowerCase().includes('react') || tech.toLowerCase().includes('flutter') ? <Code size={20} /> : <HardHat size={20} />,
   }));
 
-  // ------------------------------------------------------------------
-
   return (
     <main className={`min-h-screen bg-white text-[${TEXT_COLOR}] `}>
 
-      {/* ========================================
-        PROJECT HERO & IMAGE SECTION
-        ========================================
-      */}
       <section className={`px-6 md:px-16 pt-24 pb-16 max-w-7xl mx-auto`} style={{ background: LIGHT_BG }}>
         <div className="max-w-6xl mx-auto">
           
-          {/* TOP NAVIGATION BLOCK */}
           <div className="flex justify-between items-center mb-12">
-            {/* Back to Service Link - UPDATED PATH AND TEXT */}
             <Link
               href="/services/mobile-apps"
               className={`inline-flex items-center gap-2 text-[${PRIMARY_ACCENT}] font-semibold hover:gap-3 transition-all duration-300`}
@@ -89,12 +68,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               Back to Mobile Apps Projects
             </Link>
 
-            {/* Prev/Next Project Buttons */}
             <div className="flex gap-4">
-              {/* Previous Project Button */}
               {prevProject && (
                 <Link 
-                  // Use relative path for Prev/Next
                   href={`../projects/${prevProject.slug}`} 
                   className={`flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-[${PRIMARY_COLOR}] hover:text-[${PRIMARY_COLOR}] transition-colors duration-200`}
                 >
@@ -103,10 +79,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 </Link>
               )}
               
-              {/* Next Project Button */}
               {nextProject && (
                 <Link 
-                  // Use relative path for Prev/Next
                   href={`../projects/${nextProject.slug}`} 
                   className={`flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-[${PRIMARY_COLOR}] hover:text-[${PRIMARY_COLOR}] transition-colors duration-200`}
                 >
@@ -117,7 +91,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </div>
           </div>
 
-          {/* Title & Description */}
           <div className="mb-12">
             <h1 className={`text-5xl md:text-6xl font-extrabold text-[${HEADING_COLOR}] mb-4 max-w-4xl`}>
               {project.title}
@@ -135,22 +108,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               src={project.image}
               alt={project.title}
               fill
-              // Removed padding class 'p-4' as mobile images often look better full-bleed in this style
               className="object-cover w-full h-full" 
               priority
             />
-            {/* Subtle gradient overlay at the bottom */}
-            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/5 to-transparent"></div>
+            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-linear-to-t from-black/5 to-transparent"></div>
           </div>
         </div>
       </section>
 
-      {/* ---------------------------------------- */}
 
-      {/* ========================================
-        PROJECT DETAILS/FEATURES SECTION (4-grid layout)
-        ========================================
-      */}
       <section className={`px-6 md:px-16 py-24 bg-white`}>
         <div className="max-w-6xl mx-auto">
           <h2
@@ -186,17 +152,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* ---------------------------------------- */}
-
-
-      {/* ========================================
-        PROJECT SUMMARY & TECH STACK (Modified to include features list)
-        ========================================
-      */}
       <section className={`px-6 md:px-16 py-24`} style={{ background: LIGHT_BG }}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
 
-          {/* Features List (Replaces the generic summary from the web template) */}
           <div className="lg:col-span-2">
             <h2
               className={`text-3xl md:text-4xl font-bold mb-6 text-[${HEADING_COLOR}]`}
@@ -204,7 +162,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               Key Mobile App Features
             </h2>
             <ul className="space-y-4">
-              {/* Dynamically map the features from the mobileProjects data */}
               {project.features.map((feature, i) => (
                 <li
                   key={i}
@@ -212,7 +169,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 >
                   <CheckCircle2
                     size={22}
-                    className={`text-[${PRIMARY_ACCENT}] mt-1 flex-shrink-0`}
+                    className={`text-[${PRIMARY_ACCENT}] mt-1 shrink-0`}
                   />
                   {feature}
                 </li>
@@ -220,7 +177,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </ul>
           </div>
 
-          {/* Tech Stack (Uses the rich UI's styling) */}
           <div className="lg:col-span-1">
             <h3 className={`text-2xl font-bold mb-6 text-[${HEADING_COLOR}]`}>
               Technology Used
@@ -243,13 +199,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </section>
-
-      {/* ---------------------------------------- */}
-
-      {/* ========================================
-        FINAL CTA SECTION
-        ========================================
-      */}
       <section
         className="px-6 md:px-16 py-32 text-center"
         style={{
@@ -262,18 +211,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             Ready to Build Your App?
           </h3>
           <p className="text-xl lg:text-2xl mb-12 opacity-95 max-w-3xl mx-auto">
-            Let's discuss how we can bring the features of **{project.title}**—or an entirely new app—to life.
+            Let&apos;s discuss how we can bring the features of <b>{project.title}</b> or an entirely new app—to life.
           </p>
           <Link
-            href="/#contact" // Assuming the primary contact link is /#contact
+            href="/#contact" 
             className={`inline-flex items-center gap-3 px-10 py-5 bg-white text-lg font-bold rounded-full transition-all duration-300 hover:scale-[1.05] shadow-2xl group`}
             style={{
               color: HEADING_COLOR, 
               boxShadow: `0 15px 30px rgba(0, 0, 0, 0.2), 0 5px 15px ${PRIMARY_COLOR}60`,
             }}
-            // If the mobile projects have a dedicated link property:
-            // href={project.link} 
-            // target="_blank"
             rel="noopener noreferrer"
           >
             Start Your Project

@@ -10,6 +10,7 @@ import WhyChooseUS from "@/components/Why";
 import { Testimonials } from "@/components/Testimonials";
 import { Contact } from "@/components/Contact";
 import Portfolio from "@/components/Portfolio";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -43,6 +44,7 @@ export default function Home() {
           <WhyChooseUS />
           <Testimonials />
           <Contact />
+          <Footer />
         </>
       )}
     </div>

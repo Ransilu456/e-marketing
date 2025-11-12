@@ -27,6 +27,7 @@ export function NewHero() {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
+            id='home'
         >
             {/* Animated Background Elements 
             <motion.div
