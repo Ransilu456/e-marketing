@@ -1,4 +1,10 @@
-import { Star, Quote } from 'lucide-react';
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+
+import { Star, Quote, ArrowRight, UserPlus } from 'lucide-react';
 
 const testimonials = [
   {
@@ -25,6 +31,20 @@ const testimonials = [
 ];
 
 export function Testimonials() {
+
+    const router = useRouter();
+  const [showModal, setShowModal] = useState(false);
+
+  // Function to open consultation modal
+  const openConsultationForm = () => {
+    setShowModal(true);
+  };
+
+  // Function to navigate to case studies
+  const goToCaseStudies = () => {
+    router.push("/case-studies");
+  };
+
   return (
     <section id="testimonials" className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white to-gray-50 relative overflow-hidden">
       {/* Background Elements */}
@@ -95,25 +115,97 @@ export function Testimonials() {
           ))}
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-16 text-center">
-          <div className="inline-block p-8 lg:p-12 bg-black text-white rounded-3xl max-w-4xl">
-            <div className="text-3xl lg:text-4xl mb-4" style={{ fontFamily: 'Prata' }}>
-              Join 10+ Happy Clients
-            </div>
-            <p className="text-lg text-gray-300 mb-6" style={{ fontFamily: 'Poppins' }}>
-              Start your success story with us today
+ <div className="mt-16 text-center relative z-10">
+      <motion.div
+        className="inline-block p-8 lg:p-12 bg-black text-white rounded-3xl max-w-4xl"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <motion.div
+          className="text-3xl lg:text-4xl mb-4"
+          style={{ fontFamily: "Prata" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          Join 10+ Happy Clients
+        </motion.div>
+
+        <motion.p
+          className="text-lg text-gray-300 mb-6"
+          style={{ fontFamily: "Poppins" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          Start your success story with us today
+        </motion.p>
+
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          <button
+            onClick={openConsultationForm}
+            className="px-8 py-4 bg-[#4AEA45] text-black rounded-full hover:bg-[#4AEA45]/90 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:scale-105"
+            style={{ fontFamily: "Poppins" }}
+          >
+            <UserPlus size={20} /> Get Your Free Consultation
+          </button>
+
+          <button
+            onClick={goToCaseStudies}
+            className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center gap-2"
+            style={{ fontFamily: "Poppins" }}
+          >
+            View Case Studies <ArrowRight size={20} />
+          </button>
+        </motion.div>
+      </motion.div>
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl p-8 max-w-md w-full relative">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 text-xl"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-semibold mb-4">Free Consultation</h2>
+            <p className="mb-6 text-gray-700">
+              Fill in your details and our team will reach out to start your success story.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-[#4AEA45] text-black rounded-full hover:bg-[#4AEA45]/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105" style={{ fontFamily: 'Poppins' }}>
-                Get Your Free Consultation
+            <form className="flex flex-col gap-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="border rounded-lg px-4 py-2 w-full"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="border rounded-lg px-4 py-2 w-full"
+              />
+              <textarea
+                placeholder="Your Message"
+                className="border rounded-lg px-4 py-2 w-full resize-none"
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 bg-[#4AEA45] text-black rounded-full hover:bg-[#4AEA45]/90 transition-all duration-300"
+              >
+                Submit
               </button>
-              <button className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white hover:text-black transition-all duration-300" style={{ fontFamily: 'Poppins' }}>
-                View Case Studies
-              </button>
-            </div>
+            </form>
           </div>
         </div>
+      )}
+    </div>
       </div>
     </section>
   );
