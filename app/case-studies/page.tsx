@@ -3,11 +3,18 @@
 import { projects, Project } from "@/components/data/data";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { X, ArrowRight, CheckCircle2 } from "lucide-react";
+import { X, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageWithFallback } from "@/components/error/ImageWithFallback";
 
 export default function CaseStudiesPage() {
   const [expandedProject, setExpandedProject] = useState<Project | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
+
+  const totalPages = Math.ceil(projects.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentProjects = projects.slice(startIndex, endIndex);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -58,9 +65,9 @@ export default function CaseStudiesPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="space-y-20"
+          className="space-y-20 mb-16"
         >
-          {projects.map((project, index) => {
+          {currentProjects.map((project, index) => {
             const isEven = index % 2 === 0;
             return (
               <motion.div
@@ -154,6 +161,65 @@ export default function CaseStudiesPage() {
             );
           })}
         </motion.div>
+
+        {/* --- Pagination --- */}
+        {totalPages > 1 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center gap-3 py-12"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                if (currentPage > 1) setCurrentPage(currentPage - 1);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              disabled={currentPage === 1}
+              className="p-2 rounded-full border border-emerald-300 text-emerald-600 hover:bg-emerald-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </motion.button>
+
+            <div className="flex gap-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <motion.button
+                  key={page}
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    setCurrentPage(page);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className={`w-10 h-10 rounded-full font-semibold transition-all ${
+                    currentPage === page
+                      ? "bg-linear-to-r from-emerald-500 to-emerald-600 text-white shadow-lg"
+                      : "border border-emerald-300 text-emerald-600 hover:bg-emerald-50"
+                  }`}
+                  style={currentPage === page ? { fontFamily: "Poppins" } : {}}
+                >
+                  {page}
+                </motion.button>
+              ))}
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              disabled={currentPage === totalPages}
+              className="p-2 rounded-full border border-emerald-300 text-emerald-600 hover:bg-emerald-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </motion.button>
+          </motion.div>
+        )}
 
         {/* --- Expanded Modal / Full Case Study --- */}
         {expandedProject && (
