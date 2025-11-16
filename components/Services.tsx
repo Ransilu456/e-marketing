@@ -33,7 +33,7 @@ const services = [
     buttonText: "Discover Identity",
     link: "#contact",
     image:
-      "https://images.unsplash.com/photo-1499955085172-a104c9463ece?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+      "/data/brand.jpg",
     features: ["Logo & mark design", "Brand guidelines", "Visual assets library"],
   }
   ,
@@ -44,7 +44,7 @@ const services = [
     buttonText: "View Examples",
     link: "/services/creative-posters",
     image:
-      "https://images.unsplash.com/photo-1503602642458-232111445657?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+      "/data/creative-poster.jpg",
     features: [
       "Campaign posters",
       "Social media visuals",
@@ -59,7 +59,7 @@ const services = [
     buttonText: "Manage Accounts",
     link: "/services/social-media-management",
     image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+      "/data/social-media.jpg",
     features: ["Content calendar", "Community engagement", "Analytics & reporting"],
   },
 ];

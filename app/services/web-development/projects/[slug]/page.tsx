@@ -49,7 +49,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   ];
 
   const techStack = [
-    { name: "Next.js", icon: <Code size={20} /> },
+    { name: "React.js", icon: <Code size={20} /> },
     { name: "TypeScript", icon: <Code size={20} /> },
     { name: "Tailwind CSS", icon: <HardHat size={20} /> },
     { name: "Framer Motion", icon: <Zap size={20} /> },
@@ -58,10 +58,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <main className={`min-h-screen bg-white text-[${TEXT_COLOR}] `}>
 
-      {/* ========================================
-        PROJECT HERO & IMAGE SECTION
-        ========================================
-      */}
+
       <section className={`px-6 md:px-16 pt-24 pb-16 max-w-7xl mx-auto`} style={{ background: LIGHT_BG }}>
         <div className="max-w-6xl mx-auto">
           
@@ -99,7 +96,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </div>
           </div>
 
-          {/* Title & Description */}
           <div className="mb-12">
             <h1 className={`text-5xl md:text-6xl font-extrabold text-[${HEADING_COLOR}] mb-4 max-w-4xl`}>
               {project.title}
@@ -120,18 +116,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               className="object-contain p-4 "
               priority
             />
-            {/* Subtle gradient overlay at the bottom */}
             <div className="absolute inset-x-0 bottom-0 h-1/4 bg-linear-to-t from-black/5 to-transparent"></div>
           </div>
         </div>
       </section>
 
-      {/* ---------------------------------------- */}
 
-      {/* ========================================
-        PROJECT DETAILS/FEATURES SECTION 
-        ========================================
-      */}
       <section className={`px-6 md:px-16 py-24 bg-white`}>
         <div className="max-w-6xl mx-auto">
           <h2
@@ -169,13 +159,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* ---------------------------------------- */}
 
-
-      {/* ========================================
-        PROJECT SUMMARY & TECH STACK
-        ========================================
-      */}
       <section className={`px-6 md:px-16 py-24`} style={{ background: LIGHT_BG }}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
 
@@ -217,12 +201,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* ---------------------------------------- */}
 
-      {/* ========================================
-        FINAL CTA SECTION
-        ========================================
-      */}
       <section
         className="px-6 md:px-16 py-32 text-center"
         style={{

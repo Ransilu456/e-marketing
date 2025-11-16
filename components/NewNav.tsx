@@ -24,7 +24,7 @@ export function CustomNavbar() {
                 }`}
         >
             <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16 sm:h-20">
+                <div className="flex justify-between items-center h-16 ">
                     {/* Logo */}
                     <div className="shrink-0">
                         <Link href="/" className="small-header hover:text-[#4AEA45] transition-colors">
@@ -32,7 +32,6 @@ export function CustomNavbar() {
                         </Link>
                     </div>
 
-                    {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-4 xl:gap-8 font-[Poppins] text-sm md:text-base">
 
                         <Link href="/#about" className="text-black hover:text-[#4AEA45] transition-all duration-300 relative group">
@@ -57,14 +56,14 @@ export function CustomNavbar() {
                         </Link>
                     </div>
 
-                    {/* CTA Button */}
                     <div className="hidden lg:block">
-                        <button className="btn-filled px-6 md:px-8 py-2 md:py-3 rounded-full transform hover:scale-105 transition-transform duration-300 font-[Poppins] text-sm md:text-base">
-                            Get Started
+                        <button className="btn-filled px-6 md:px-8 py-2 md:py-3 rounded-full transform hover:scale-105 transition-transform duration-300 font-[Poppins] text-sm md:text-base" onClick={() => {
+  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+}}>
+  Get Started
                         </button>
                     </div>
 
-                    {/* Tablet Navigation */}
                     <div className="hidden md:flex lg:hidden items-center gap-3 md:gap-4 font-[Poppins] text-xs sm:text-sm">
                         <Link href="/#about" className="text-black hover:text-[#4AEA45] transition-colors">About</Link>
                         <Link href="/#services" className="text-black hover:text-[#4AEA45] transition-colors">Services</Link>
@@ -72,7 +71,6 @@ export function CustomNavbar() {
                         <button className="btn-filled px-4 md:px-6 py-2 rounded-full text-xs sm:text-sm">Get Started</button>
                     </div>
 
-                    {/* Mobile menu button */}
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
@@ -88,35 +86,35 @@ export function CustomNavbar() {
                     <div className="md:hidden pb-4 sm:pb-6 animate-in slide-in-from-top duration-300 border-t border-black/5">
                         <div className="flex flex-col gap-3 sm:gap-4 pt-4">
                             <Link
-                                href="#services"
+                                href=">#services"
                                 className="text-black hover:text-[#4AEA45] transition-colors py-2 text-sm sm:text-base"
                                 onClick={() => setIsOpen(false)}
                             >
                                 Services
                             </Link>
                             <Link
-                                href="#about"
+                                href=">#about"
                                 className="text-black hover:text-[#4AEA45] transition-colors py-2 text-sm sm:text-base"
                                 onClick={() => setIsOpen(false)}
                             >
                                 About
                             </Link>
                             <Link
-                                href="#portfolio"
+                                href=">#portfolio"
                                 className="text-black hover:text-[#4AEA45] transition-colors py-2 text-sm sm:text-base"
                                 onClick={() => setIsOpen(false)}
                             >
                                 Portfolio
                             </Link>
                             <Link
-                                href="#testimonials"
+                                href=">#testimonials"
                                 className="text-black hover:text-[#4AEA45] transition-colors py-2 text-sm sm:text-base"
                                 onClick={() => setIsOpen(false)}
                             >
                                 Testimonials
                             </Link>
                             <Link
-                                href="#contact"
+                                href=">#contact"
                                 className="text-black hover:text-[#4AEA45] transition-colors py-2 text-sm sm:text-base"
                                 onClick={() => setIsOpen(false)}
                             >

@@ -63,7 +63,6 @@ export default function Trusted() {
 
   return (
     <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 bg-white overflow-hidden">
-      {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-[#4AEA45] rounded-full blur-3xl opacity-10 -z-10"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#4AEA45] rounded-full blur-3xl opacity-10 -z-10"></div>
 
@@ -90,7 +89,6 @@ export default function Trusted() {
         </p>
       </motion.div>
 
-      {/* Scrolling Logos Container */}
       <motion.div
         ref={containerRef}
         initial={{ opacity: 0 }}
@@ -100,10 +98,8 @@ export default function Trusted() {
         className="overflow-hidden w-full cursor-grab rounded-2xl"
         whileTap={{ cursor: "grabbing" }}
       >
-        {/* Gradient Overlay Left */}
         <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-32 bg-linear-to-r from-white via-white/50 to-transparent z-10 pointer-events-none"></div>
         
-        {/* Gradient Overlay Right */}
         <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 md:w-32 bg-linear-to-l from-white via-white/50 to-transparent z-10 pointer-events-none"></div>
 
         <motion.div
@@ -135,7 +131,6 @@ export default function Trusted() {
         </motion.div>
       </motion.div>
 
-      {/* Bottom Text */}
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}

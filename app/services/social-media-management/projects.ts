@@ -28,7 +28,7 @@ export const portfolioProjects: Project[] = [
     description:
       "A TikTok growth campaign that reached over 1M views in under a week, significantly boosting brand awareness and consumer interest.",
     image:
-      "https://images.unsplash.com/photo-1625602818607-3d90353a1f4a?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+      "/data/viral-brand.jpg",
     link: "#contact",
     slug: "viral-brand-campaign",
   },
@@ -37,7 +37,7 @@ export const portfolioProjects: Project[] = [
     description:
       "Increased engagement rate by 300% for a local brand through authentic storytelling, community management, and targeted posts.",
     image:
-      "https://images.unsplash.com/photo-1525186402429-b4ff38bedbec?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+      "/data/insta-grow.jpg",
     link: "#contact",
     slug: "instagram-growth",
   },
@@ -55,12 +55,12 @@ export const portfolioProjects: Project[] = [
 export const projectDetails: Record<string, ProjectDetail> = {
   "viral-brand-campaign": {
     stats: [
-      { icon: Users, value: "+1M", label: "Organic Views" },
+      { icon: Users, value: "+1K", label: "Organic Views" },
       { icon: TrendingUp, value: "350%", label: "Engagement Increase" },
-      { icon: Zap, value: "4 Days", label: "Time to Viral" },
+      { icon: Zap, value: "10 Days", label: "Time to Viral" },
     ],
     overview:
-      "This campaign turned a relatively unknown brand into a viral sensation by leveraging trending TikTok formats and creator collaborations. Within just four days, the content achieved over 1 million organic views, transforming the brand’s digital presence.",
+      "This campaign turned a relatively unknown brand into a viral sensation by leveraging trending TikTok formats and creator collaborations. Within just four days, the content achieved over 1 kilo organic views, transforming the brand’s digital presence.",
     challenge:
       "The brand lacked a distinct voice and struggled to break through the noise on fast-paced platforms like TikTok.",
     solution:

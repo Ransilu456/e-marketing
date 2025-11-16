@@ -28,7 +28,7 @@ export function Contact() {
         ></div>
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
           {/* Left Side */}
           <div className="lg:col-span-2 space-y-8">

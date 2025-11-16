@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import ProjectCard from "@/components/card/ProjectCard";
 import Link from "next/link";
 
@@ -9,8 +8,8 @@ const projects = [
     title: "Restaurant Website Redesign",
     category: "Web Development",
     result: "2x Online Orders",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+   image:
+      "/data/res.jpg",
     description:
       "Modern, mobile-friendly restaurant website with menu management and online ordering for a Colombo-based client.",
     tags: ["Next.js", "UI/UX", "SEO"],
@@ -20,7 +19,7 @@ const projects = [
     category: "Web App",
     result: "Improved Efficiency by 80%",
     image:
-      "https://images.unsplash.com/photo-1607207131548-9c84943f4d2d?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+      "/Attendance.png",
     description:
       "Built a web-based system for managing attendance, grades, and communications for local schools.",
     tags: ["React", "Node.js", "Database"],
@@ -30,7 +29,7 @@ const projects = [
     category: "Graphic Design",
     result: "Tripled Engagement in 2 Weeks",
     image:
-      "https://images.unsplash.com/photo-1506089676908-3592f7389d4d?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+      "/data/social-bg.jpg",
     description:
       "Created eye-catching Facebook and Instagram post designs with daily engagement content.",
     tags: ["Facebook Ads", "Canva", "Brand Design", "Figma"],

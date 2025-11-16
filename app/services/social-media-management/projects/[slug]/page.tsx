@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { portfolioProjects, projectDetails  } from "../../projects";
+import { portfolioProjects, projectDetails } from "../../projects";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
@@ -7,8 +7,8 @@ import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 const PRIMARY_COLOR = "#4AEA45";
 const TEXT_COLOR = "#1f2937";
 const HEADING_COLOR = "#0f172a";
-const LIGHT_BG = "#f7f9fc"; 
-const PRIMARY_ACCENT = "#10b981"; 
+const LIGHT_BG = "#f7f9fc";
+const PRIMARY_ACCENT = "#10b981";
 
 
 
@@ -22,7 +22,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   if (!project) return notFound();
 
-  
+
   const detail = projectDetails[slug];
 
   const currentIndex = portfolioProjects.findIndex(p => p.slug === slug);
@@ -30,14 +30,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const nextProject = currentIndex < portfolioProjects.length - 1 ? portfolioProjects[currentIndex + 1] : null;
 
   return (
-    <main className={`min-h-screen bg-white text-[${TEXT_COLOR}] font-sans`}>
-     
+    <main className={`min-h-screen bg-white text-[${TEXT_COLOR}]`}>
+
       <section className={`px-6 md:px-16 pt-24 pb-16 max-w-7xl mx-auto`} style={{ background: LIGHT_BG }}>
 
         <div className="flex w-full justify-between items-center">
           <Link
             href="/services/social-media-management"
-             className={`inline-flex items-center gap-2 text-[${PRIMARY_ACCENT}] font-semibold hover:gap-3 transition-all duration-300`}
+            className={`inline-flex items-center gap-2 text-[${PRIMARY_ACCENT}] font-semibold hover:gap-3 transition-all duration-300`}
           >
             <ArrowLeft size={20} />
             Back to Social Media
@@ -85,62 +85,62 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-<section className="px-6 md:px-16 py-28 bg-white border-t border-gray-100">
-  <div className="max-w-6xl mx-auto space-y-24">
+      <section className="px-6 md:px-16 py-28 bg-white border-t border-gray-100">
+        <div className="max-w-6xl mx-auto space-y-24">
 
-    {/* --- Overview --- */}
-    <div className="max-w-4xl">
-      <h2
-        className={`text-4xl md:text-5xl font-bold tracking-tight text-[${HEADING_COLOR}] mb-8`}
-      >
-        Project Overview
-      </h2>
-      <p className="text-gray-600 text-lg leading-relaxed">
-        {detail.overview}
-      </p>
-    </div>
+          {/* --- Overview --- */}
+          <div className="max-w-4xl">
+            <h2
+              className={`text-4xl md:text-5xl font-bold tracking-tight text-[${HEADING_COLOR}] mb-8`}
+            >
+              Project Overview
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              {detail.overview}
+            </p>
+          </div>
 
-    {/* --- Stats --- */}
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-      {detail.stats.map((stat, i) => {
-        const Icon = stat.icon;
-        return (
-          <div
-            key={i}
-            className="flex flex-col justify-between rounded-2xl border border-gray-200 bg-gray-50 p-10 hover:bg-white hover:shadow-sm transition-all duration-200"
-          >
-            <Icon size={26} className={`text-[${PRIMARY_COLOR}] mb-5`} />
-            <div>
-              <p className="text-4xl font-semibold text-gray-900">{stat.value}</p>
-              <p className="text-gray-500 mt-2">{stat.label}</p>
+          {/* --- Stats --- */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+            {detail.stats.map((stat, i) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={i}
+                  className="flex flex-col justify-between rounded-2xl border border-gray-200 bg-gray-50 p-10 hover:bg-white hover:shadow-sm transition-all duration-200"
+                >
+                  <Icon size={26} className={`text-[${PRIMARY_COLOR}] mb-5`} />
+                  <div>
+                    <p className="text-4xl font-semibold text-gray-900">{stat.value}</p>
+                    <p className="text-gray-500 mt-2">{stat.label}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* --- Challenge / Solution --- */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="bg-red-500/10 p-4 rounded-2xl ">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                The Challenge
+              </h3>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                {detail.challenge}
+              </p>
+            </div>
+
+            <div className="bg-green-500/10 p-4 rounded-2xl ">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                The Solution
+              </h3>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                {detail.solution}
+              </p>
             </div>
           </div>
-        );
-      })}
-    </div>
-
-    {/* --- Challenge / Solution --- */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-      <div>
-        <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-          The Challenge
-        </h3>
-        <p className="text-gray-600 leading-relaxed text-lg">
-          {detail.challenge}
-        </p>
-      </div>
-
-      <div>
-        <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-          The Solution
-        </h3>
-        <p className="text-gray-600 leading-relaxed text-lg">
-          {detail.solution}
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
 
 

@@ -15,9 +15,9 @@ import {
 
 import { motion } from "framer-motion";
 
-import { posterProjects, Project } from "./projects"; 
+import { posterProjects, Project } from "./projects";
 
-const PRIMARY_ACCENT_COLOR = "#4AEA45"; 
+const PRIMARY_ACCENT_COLOR = "#4AEA45";
 const SECONDARY_ACCENT_COLOR = "#34C930"; // Slightly darker variant
 const HEADING_COLOR = "#000000"; // Black
 const TEXT_COLOR = "#374151"; // Gray
@@ -113,7 +113,7 @@ export default function MobileAppsPage() {
             </p>
 
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex items-center gap-3 px-10 py-5 text-lg text-white rounded-full font-bold transition-all duration-300 hover:scale-[1.05] group"
               style={{
                 background: `linear-gradient(to right, ${PRIMARY_ACCENT_COLOR}, ${SECONDARY_ACCENT_COLOR})`,
@@ -129,33 +129,34 @@ export default function MobileAppsPage() {
           </div>
 
           <div className="flex-1 flex justify-center pt-10 lg:pt-0">
-            <div className="relative w-96 h-96"> 
-              <div 
+            <div className="relative w-96 h-96">
+              <div
                 className="absolute inset-0 bg-white/30 backdrop-blur-2xl rounded-2xl border border-white/50 shadow-2xl flex items-center justify-center p-3"
                 style={{
                   boxShadow: '0 25px 50px rgba(0, 0, 0, 0.15)',
                 }}
               >
-                {posterProjects[0]?.image ? (
-                    <div className="relative w-full h-full rounded-xl overflow-hidden bg-gray-100">
-                        <Image
-                            src={posterProjects[0].image}
-                            alt="Poster design mockup"
-                            fill
-                            className="object-cover"
-                            priority
-                        />
-                    </div>
-                ) : (
-                    <Layers size={120} style={{ color: `${PRIMARY_ACCENT_COLOR}30` }} />
-                )}
+                <div className="relative w-full h-full rounded-xl overflow-hidden bg-gray-100">
+                  <Image
+                    src="/data/creative-poster.jpg"
+                    alt="Poster design mockup"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+
               </div>
-              
-              <div className="absolute -top-10 -right-10 w-40 h-40 rounded-3xl bg-white p-4 shadow-xl rotate-6 group-hover:rotate-0 transition-transform duration-500"
-                   style={{ border: `1px solid ${PRIMARY_ACCENT_COLOR}30` }}>
+
+              <div className="absolute -top-10 -right-10 w-[200px] h-24 rounded-3xl bg-white p-4 shadow-xl rotate-6 group-hover:rotate-0 transition-transform duration-500 flex flex-row items-center justify-between"
+                style={{ border: `1px solid ${PRIMARY_ACCENT_COLOR}30` }}>
+
                 <Sparkles size={36} style={{ color: PRIMARY_ACCENT_COLOR }} className="mb-2" />
-                <p className="text-sm font-bold text-gray-800">Vector Quality</p>
-                <p className="text-xs text-gray-500">Infinitely scalable designs.</p>
+                <div className="w-full flex flex-col ml-2">
+                  <p className="text-sm font-bold text-gray-800">Vector Quality</p>
+                  <p className="text-xs text-gray-500">Scalable designs.</p>
+                </div>
+
               </div>
             </div>
           </div>
@@ -209,7 +210,7 @@ export default function MobileAppsPage() {
           </div>
         </div>
       </section>
-      
+
       <section className="py-16 px-6 md:px-16 bg-white">
         <div className="max-w-7xl mx-auto text-center border-y border-gray-200 py-10">
           <blockquote className="max-w-4xl mx-auto">
@@ -238,7 +239,7 @@ export default function MobileAppsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {posterProjects.map((project: Project, i: number) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -247,7 +248,7 @@ export default function MobileAppsPage() {
               className="group relative rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
               style={{
                 background: "rgba(255, 255, 255, 0.3)",
-                border: `1px solid ${PRIMARY_ACCENT_COLOR}30`, 
+                border: `1px solid ${PRIMARY_ACCENT_COLOR}30`,
                 boxShadow: "0 8px 40px rgba(0, 0, 0, 0.06)",
                 backdropFilter: "blur(16px) saturate(180%)",
                 WebkitBackdropFilter: "blur(16px) saturate(180%)",
@@ -266,8 +267,8 @@ export default function MobileAppsPage() {
               <div className="relative z-10 p-7">
                 <h3
                   className="text-2xl font-semibold mb-3 transition-colors"
-                  style={{ 
-                      color: HEADING_COLOR, 
+                  style={{
+                    color: HEADING_COLOR,
                   }}
                   onMouseOver={(e) => (e.currentTarget.style.color = PRIMARY_ACCENT_COLOR)}
                   onMouseOut={(e) => (e.currentTarget.style.color = HEADING_COLOR)}
@@ -277,25 +278,25 @@ export default function MobileAppsPage() {
                 <p className="text-gray-700/90 mb-6 leading-relaxed line-clamp-2">
                   {project.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.slice(0, 3).map((tech, idx) => (
-                        <span key={idx} className="text-xs font-medium px-3 py-1 rounded-full border"
-                            style={{ 
-                                backgroundColor: `transparent`,
-                                color: PRIMARY_ACCENT_COLOR, 
-                                borderColor: `${PRIMARY_ACCENT_COLOR}50`
-                            }}>
-                            {tech}
-                        </span>
-                    ))}
+                  {project.technologies.slice(0, 3).map((tech, idx) => (
+                    <span key={idx} className="text-xs font-medium px-3 py-1 rounded-full border"
+                      style={{
+                        backgroundColor: `transparent`,
+                        color: PRIMARY_ACCENT_COLOR,
+                        borderColor: `${PRIMARY_ACCENT_COLOR}50`
+                      }}>
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              <div 
-                className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none blur-md" 
-                style={{ 
-                    background: `linear-gradient(to bottom right, ${PRIMARY_ACCENT_COLOR}20, transparent, ${PRIMARY_ACCENT_COLOR}20)`
+              <div
+                className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none blur-md"
+                style={{
+                  background: `linear-gradient(to bottom right, ${PRIMARY_ACCENT_COLOR}20, transparent, ${PRIMARY_ACCENT_COLOR}20)`
                 }}
               />
 
@@ -319,7 +320,7 @@ export default function MobileAppsPage() {
             Let’s craft a custom poster design that captures your audience and elevates your brand.
           </p>
           <Link
-            href="/#contact"
+            href="/contact"
             className="inline-flex items-center gap-3 px-12 py-6 bg-white text-xl rounded-full hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-2xl group font-bold"
             style={{ color: PRIMARY_ACCENT_COLOR }}
           >

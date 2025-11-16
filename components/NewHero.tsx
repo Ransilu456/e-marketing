@@ -29,24 +29,11 @@ export function NewHero() {
             variants={containerVariants}
             id='home'
         >
-            {/* Animated Background Elements 
-            <motion.div
-                className="absolute top-20 left-10 w-72 h-72 bg-[#4AEA45] opacity-10 blur-3xl rounded-full"
-                animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.3, 0.1] }}
-                transition={{ duration: 5, repeat: Infinity }}
-            />
-            <motion.div
-                className="absolute bottom-20 right-10 w-96 h-96 bg-[#4AEA45] opacity-10 blur-3xl rounded-full"
-                animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.3, 0.1] }}
-                transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-            />*/}
 
             <div className="max-w-7xl mx-auto w-full relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-20 items-center">
 
-                    {/* Left Content */}
                     <motion.div className="space-y-4 sm:space-y-6 md:space-y-8" variants={itemVariants}>
-                        {/* Badge */}
                         <motion.div
                             className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-[#4AEA45]/10 border border-[#4AEA45]/20 rounded-full"
                             variants={itemVariants}
@@ -55,7 +42,6 @@ export function NewHero() {
                             <span className="text-xs sm:text-sm">Building experiences that inspire & engage</span>
                         </motion.div>
 
-                        {/* Headline */}
                         <motion.div className="space-y-4 sm:space-y-6" variants={itemVariants}>
                             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1]">
                                 Web & App Solutions That
@@ -71,7 +57,6 @@ export function NewHero() {
                             </p>
                         </motion.div>
 
-                        {/* Buttons */}
                         <motion.div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto" variants={itemVariants}>
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
@@ -87,7 +72,7 @@ export function NewHero() {
                                 whileTap={{ scale: 0.95 }}
                                 className="btn-outline px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-sm sm:text-base"
                             >
-                                View Our Work
+                                <Link href="/portfolio/projects">View Our Work</Link>
                             </motion.button>
                         </motion.div>
 
@@ -114,9 +99,8 @@ export function NewHero() {
                         </motion.div>
                     </motion.div>
 
-                    {/* Right Content - Image */}
-                    <motion.div className="relative mt-8 sm:mt-0" variants={itemVariants}>
-                        {/* Floating Tag */}
+
+                    <motion.div className="relative mt-4 sm:mt-0" variants={itemVariants}>
                         <motion.div
                             className="absolute hidden sm:block top-8 md:top-0 lg:-top-16 -right-2 sm:-right-3 md:-right-6 rotate-12 bg-white rounded-xl shadow-lg px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium"
                             animate={{ y: [0, -10, 0] }}
@@ -125,7 +109,6 @@ export function NewHero() {
                             💡 Innovative Design
                         </motion.div>
 
-                        {/* Hero Image */}
                         <motion.div
                             className="relative rounded-3xl overflow-hidden shadow-2xl group"
                             initial={{ opacity: 0, x: 100 }}

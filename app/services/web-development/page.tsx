@@ -91,7 +91,7 @@ export default function WebDevelopmentPage() {
             </p>
 
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex items-center gap-3 px-8 py-4 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 group"
               style={{
                 background: `linear-gradient(to right, ${PRIMARY_COLOR}, #10b981)`,
@@ -270,7 +270,7 @@ export default function WebDevelopmentPage() {
           </p>
 
           <Link
-            href="/#contact"
+            href="/contact"
             className="inline-flex items-center gap-3 px-10 py-5 bg-white rounded-full hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-xl group"
             style={{ color: PRIMARY_COLOR }}
           >
