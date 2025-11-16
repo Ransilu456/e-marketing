@@ -117,11 +117,9 @@ export default function Page() {
           ))}
         </motion.div>
 
-        {/* --- Pagination Controls --- */}
         {totalPages > 1 && (
           <div className="mt-16 flex items-center justify-center gap-3 sm:gap-4">
             
-            {/* Prev Button */}
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               disabled={currentPage === 1}
@@ -137,7 +135,6 @@ export default function Page() {
               Prev
             </button>
 
-            {/* Page Numbers */}
             {[...Array(totalPages)].map((_, i) => {
               const page = i + 1;
               return (
@@ -159,7 +156,6 @@ export default function Page() {
               );
             })}
 
-            {/* Next Button */}
             <button
               onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
               disabled={currentPage === totalPages}

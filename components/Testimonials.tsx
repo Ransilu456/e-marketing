@@ -148,7 +148,7 @@ export function Testimonials() {
                   className="text-gray-700 mb-6 leading-relaxed"
                   style={{ fontFamily: "Poppins" }}
                 >
-                  Let's start your success story. Share your details and we’ll reach out shortly.
+                  Let&apos;s start your success story. Share your details and we’ll reach out shortly.
                 </p>
 
                 <form className="flex flex-col gap-4">
