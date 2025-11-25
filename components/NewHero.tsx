@@ -2,7 +2,7 @@
 
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from './error/ImageWithFallback';
-import { motion } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion';
 import Link from 'next/link';
 
 export function NewHero() {
@@ -18,8 +18,13 @@ export function NewHero() {
 
     const itemVariants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: easeOut },
+        },
     };
+
 
     return (
         <motion.section
@@ -52,7 +57,7 @@ export function NewHero() {
                             </h1>
 
                             <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-xl">
-                                From stunning websites to intuitive mobile apps and creative Facebook poster designs — 
+                                From stunning websites to intuitive mobile apps and creative Facebook poster designs —
                                 we craft digital solutions that captivate audiences and grow your brand presence online.
                             </p>
                         </motion.div>

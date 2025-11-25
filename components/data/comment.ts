@@ -1,7 +1,7 @@
 export interface Comment {
     name: string;
     job_title: string;
-    image?: string;
+    image: string;
     description: string;
     rating: number;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeOut } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import ServiceCard from "./card/ServiceCard";
 
@@ -71,9 +71,14 @@ export default function Services() {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: easeOut }
+    },
     exit: { opacity: 0, y: 20, transition: { duration: 0.3 } },
   };
+
 
   return (
     <section

@@ -33,7 +33,6 @@ export default function WhyChooseUS() {
       </motion.h1>
       </div>
 
-      {/* --- UNDERLINE / DECORATIVE ELEMENT --- */}
       <motion.div
         initial={{ width: 0 }}
         animate={{ width: "80px" }}
@@ -47,10 +46,9 @@ export default function WhyChooseUS() {
         transition={{ duration: 0.8, delay: 0.4 }}
         className="max-w-2xl sm:max-w-3xl text-base sm:text-lg md:text-xl lg:text-xl text-primary-text font-light mb-4 sm:mb-6 leading-relaxed px-2"
       >
-       At E-Marketing Paradice, we believe great results come from passion, precision, and trust. From concept to completion, we've successfully delivered every single project — on time, on budget, and beyond expectations. Here's why our clients choose us again and again.
+       At E-Marketing Paradice, we believe great results come from passion, precision, and trust. From concept to completion, we&apos;ve successfully delivered every single project — on time, on budget, and beyond expectations. Here&apos;s why our clients choose us again and again.
       </motion.p>
 
-      {/* --- QUOTE TEXT --- */}
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
