@@ -4,7 +4,6 @@ import { FC } from "react";
 import { ExternalLink } from "lucide-react";
 import { ImageWithFallback } from "../error/ImageWithFallback";
 
-// --- Define Props Interface ---
 interface ProjectCardProps {
   title: string;
   category: string;
@@ -14,7 +13,6 @@ interface ProjectCardProps {
   tags?: string[];
 }
 
-// --- Functional Component ---
 const ProjectCard: FC<ProjectCardProps> = ({
   title,
   category,
@@ -85,7 +83,6 @@ const ProjectCard: FC<ProjectCardProps> = ({
         </div>
       </div>
 
-      {/* Hover border overlay */}
       <div className="absolute inset-0 border-4 border-[#4AEA45] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
     </div>
   );

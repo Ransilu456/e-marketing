@@ -107,7 +107,7 @@ export default function Page() {
             >
               <ProjectCard
                 title={project.title}
-                categories={project.categories}
+                category={project.categories?.[0]}
                 result={project.result}
                 image={project.image}
                 description={project.description}

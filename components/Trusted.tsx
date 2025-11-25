@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useAnimation, AnimationControls } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -8,35 +8,35 @@ export default function Trusted() {
   const logos = ["DMFEED.png", "Sarasaviya.jpg"];
   const scrollingLogos = [...logos, ...logos, ...logos];
 
-  const controls: AnimationControls = useAnimation();
+  const controls = useAnimation();
+
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const [duration, setDuration] = useState(30);
 
   const updateDuration = () => {
     if (typeof window === "undefined") return;
+
     const w = window.innerWidth;
-    if (w < 640) setDuration(40);
-    else if (w < 1024) setDuration(30);
-    else setDuration(22);
+    let newDuration = 30;
+
+    if (w < 640) newDuration = 40;
+    else if (w < 1024) newDuration = 30;
+    else newDuration = 22;
+
+    setDuration((prev) => (prev !== newDuration ? newDuration : prev));
   };
 
-  useEffect(() => {
-    updateDuration();
-    window.addEventListener("resize", updateDuration);
-    return () => window.removeEventListener("resize", updateDuration);
-  }, []);
 
   useEffect(() => {
-    controls.start({
-      x: ["0%", "-50%"],
-      transition: {
-        repeat: Infinity,
-        duration,
-        ease: "linear",
-      },
-    });
-  }, [duration]);
+    const handleResize = () => updateDuration();
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
 
   const pauseScroll = () => controls.stop();
 
