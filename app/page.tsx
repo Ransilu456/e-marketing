@@ -1,7 +1,5 @@
 'use client';
 
-import { useState, useEffect } from "react";
-import Intro from "@/components/LoadHandling/Intro";
 import { NewHero } from "@/components/NewHero";
 import Trusted from "@/components/Trusted";
 import About from "@/components/About";
@@ -13,9 +11,9 @@ import Portfolio from "@/components/Portfolio";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
-  const [showSplash, setShowSplash] = useState(true);
+ // const [showSplash, setShowSplash] = useState(true);
 
-  useEffect(() => {
+ /* useEffect(() => {
     const splashShown = sessionStorage.getItem("splashShown");
 
     if (splashShown === "true") {
@@ -27,16 +25,16 @@ export default function Home() {
     sessionStorage.setItem("splashShown", "true");
     setShowSplash(false);
   };
-
+*/
   return (
     <div className="w-full min-h-screen overflow-x-hidden">
-      {showSplash ? (
+     {/* {showSplash ? (
         <div className="w-full h-screen flex items-center justify-center">
           <Intro key="splash" onComplete={handleSplashComplete} />
         </div>
       ) : (
-        <>
-          <NewHero animateOnLoad={!showSplash} />
+       */} <>
+          <NewHero />
           <Trusted />
           <About />
           <Services />
@@ -46,7 +44,6 @@ export default function Home() {
           <Contact />
           <Footer />
         </>
-      )}
     </div>
   );
 }
