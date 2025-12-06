@@ -11,39 +11,17 @@ import Portfolio from "@/components/Portfolio";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
- // const [showSplash, setShowSplash] = useState(true);
-
- /* useEffect(() => {
-    const splashShown = sessionStorage.getItem("splashShown");
-
-    if (splashShown === "true") {
-      setShowSplash(false);
-    }
-  }, []);
-
-  const handleSplashComplete = () => {
-    sessionStorage.setItem("splashShown", "true");
-    setShowSplash(false);
-  };
-*/
   return (
     <div className="w-full min-h-screen overflow-x-hidden">
-     {/* {showSplash ? (
-        <div className="w-full h-screen flex items-center justify-center">
-          <Intro key="splash" onComplete={handleSplashComplete} />
-        </div>
-      ) : (
-       */} <>
-          <NewHero />
-          <Trusted />
-          <About />
-          <Services />
-          <Portfolio />
-          <WhyChooseUS />
-          <Testimonials />
-          <Contact />
-          <Footer />
-        </>
+      <NewHero />
+      <Trusted />
+      <About />
+      <Services />
+      <Portfolio />
+      <WhyChooseUS />
+      <Testimonials />
+      <Contact />
+      <Footer />
     </div>
   );
 }
