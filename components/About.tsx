@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { Target, Users, Zap, Sparkles, Award, Rocket } from "lucide-react";
 import { ImageWithFallback } from "./error/ImageWithFallback";
@@ -42,8 +43,8 @@ const features = [
   },
 ];
 
-const PRIMARY_COLOR = "#4AEA45";
-const HEADING_COLOR = "#0f172a";
+const PRIMARY_COLOR = "var(--accent)";
+const HEADING_COLOR = "var(--text)";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -77,8 +78,8 @@ export default function About() {
           viewport={{ once: true }}
           className="flex flex-col items-center mb-20 text-center space-y-6"
         >
-          <div className="inline-block px-4 py-2 rounded-full bg-green-400/10 border border-green-400/30">
-            <p className="text-sm font-semibold text-green-600">About Our Agency</p>
+          <div className="inline-block px-4 py-2 rounded-full" style={{ backgroundColor: 'var(--accent)', opacity: 0.08, border: '1px solid rgba(0,0,0,0.04)' }}>
+            <p className="text-sm font-semibold" style={{ color: 'var(--accent)' }}>About Our Agency</p>
           </div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -86,10 +87,10 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
             className="text-5xl sm:text-6xl lg:text-7xl  tracking-tight"
-            style={{ color: HEADING_COLOR, fontFamily: "Prata" }}
+            style={{ color: HEADING_COLOR }}
           >
             We Create Digital
-            <span className="block mt-2" style={{ color: PRIMARY_COLOR }}>Excellence</span>
+            <span className="block mt-2 accent">Excellence</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -115,13 +116,13 @@ export default function About() {
             variants={itemVariants}
             className="relative"
           >
-            <div className="absolute -top-8 -left-8 w-64 h-64 bg-green-400/15 rounded-full blur-3xl"></div>
+            <div className="absolute -top-8 -left-8 w-64 h-64 rounded-full blur-3xl" style={{ backgroundColor: 'var(--accent)', opacity: 0.06 }}></div>
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="relative rounded-2xl overflow-hidden border border-green-400/20"
+              className="relative rounded-2xl overflow-hidden border"
             >
-              <div className="absolute inset-0 bg-linear-to-br from-green-400/20 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.03), transparent)' }}></div>
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
                 alt="Professional Team Collaboration"
@@ -136,7 +137,7 @@ export default function About() {
             className="space-y-6"
           >
             <div>
-              <h2 className="text-3xl lg:text-4xl mb-4" style={{ color: HEADING_COLOR, fontFamily: "Poppins" }}>
+              <h2 className="text-3xl lg:text-4xl mb-4" style={{ color: HEADING_COLOR }}>
                 Who We Are
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
@@ -148,13 +149,13 @@ export default function About() {
             </p>
             <div className="pt-4 flex gap-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-green-400/20 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--accent)', opacity: 0.12 }}>
                   <div className="w-5 h-5 rounded-full" style={{ background: PRIMARY_COLOR }}></div>
                 </div>
                 <span className="text-gray-700 font-medium">Innovative Solutions</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-green-400/20 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-[rgba(99,102,241,0.06)] flex items-center justify-center">
                   <div className="w-5 h-5 rounded-full" style={{ background: PRIMARY_COLOR }}></div>
                 </div>
                 <span className="text-gray-700 font-medium">Proven Results</span>
@@ -188,9 +189,9 @@ export default function About() {
                   whileHover={{ y: -6 }}
                   className="group relative"
                 >
-                  <div className="absolute inset-0 bg-linear-to-br from-green-400/10 to-blue-400/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative bg-white rounded-2xl p-8 border border-gray-200 hover:border-green-400/30 transition-all duration-300">
-                    <div className="w-14 h-14 rounded-xl bg-linear-to-br from-green-400/20 to-blue-400/20 flex items-center justify-center mb-6 group-hover:shadow-lg transition-shadow">
+                  <div className="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.06), rgba(99,102,241,0.03))' }}></div>
+                  <div className="relative bg-white rounded-2xl p-8" style={{ border: '1px solid rgba(229,231,235,0.8)' }}>
+                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:shadow-lg transition-shadow" style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(99,102,241,0.06))' }}>
                       <Icon className="w-7 h-7" style={{ color: PRIMARY_COLOR }} />
                     </div>
                     <h3 className="text-xl font-bold mb-3" style={{ color: HEADING_COLOR }}>
@@ -232,15 +233,15 @@ export default function About() {
                   className="group relative"
                 >
                   {/* Background glow effect */}
-                  <div className={`absolute inset-0 bg-linear-to-br ${value.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
+                  <div className={`absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300`} style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.06), rgba(99,102,241,0.04))' }}></div>
 
                   {/* Card */}
-                  <div className="relative bg-white rounded-2xl p-8 border border-gray-200 hover:border-green-400/30 transition-all duration-300 h-full">
+                  <div className="relative bg-white rounded-2xl p-8 h-full" style={{ border: '1px solid rgba(229,231,235,0.8)' }}>
                     {/* Top accent bar */}
-                    <div className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${value.color} rounded-t-2xl`}></div>
+                    <div className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl`} style={{ background: 'linear-gradient(90deg, var(--accent), rgba(59,130,246,1))' }}></div>
 
                     {/* Icon */}
-                    <div className={`w-16 h-16 rounded-xl bg-linear-to-br ${value.color} flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow`}>
+                    <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow`} style={{ background: 'linear-gradient(135deg, var(--accent), rgba(59,130,246,1))' }}>
                       <Icon className="w-8 h-8 text-white" />
                     </div>
 
@@ -262,17 +263,17 @@ export default function About() {
         </motion.div>
 
         {/* --- Quote Section --- */}
-        <motion.div
+          <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center py-16 px-8 rounded-3xl bg-linear-to-r from-green-400/10 via-blue-400/10 to-green-400/10 border border-green-400/20 relative overflow-hidden group"
+          className="text-center py-16 px-8 rounded-3xl border relative overflow-hidden group"
         >
-          <div className="absolute inset-0 bg-linear-to-r from-green-400/5 to-blue-400/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(90deg, rgba(99,102,241,0.05), rgba(59,130,246,0.03))' }}></div>
           <p className="text-3xl md:text-4xl font-bold italic relative z-10" style={{ color: HEADING_COLOR }}>
             &quot;Creative Minds.<br />
-            <span style={{ color: PRIMARY_COLOR }}>Digital Excellence.</span>&quot;
+            <span className="accent">Digital Excellence.</span>&quot;
           </p>
         </motion.div>
       </div>

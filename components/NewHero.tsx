@@ -1,164 +1,80 @@
-'use client'
+"use client"
 
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { ImageWithFallback } from './error/ImageWithFallback';
-import { motion, easeOut } from 'framer-motion';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import Image from "next/image";
 
-export function NewHero() {
-    const containerVariants = {
-        hidden: {},
-        visible: {
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.2,
-            },
-        },
-    };
+export default function NewHero() {
+  return (
+    <motion.section
+      className="relative min-h-screen pt-32 pb-20 overflow-hidden flex items-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="absolute inset-0 bg-grid -z-10 h-[600px]" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-100 rounded-full blur-[100px] opacity-50 -z-10 translate-x-1/2 -translate-y-1/4 animate-pulse" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-50 rounded-full blur-[80px] opacity-60 -z-10 -translate-x-1/4 translate-y-1/4" />
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.8, ease: easeOut },
-        },
-    };
-
-
-    return (
-        <motion.section
-            className="relative pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-24 px-3 sm:px-6 md:px-8 lg:px-8 min-h-screen flex items-center overflow-hidden"
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-            id='home'
-        >
-
-            <div className="max-w-7xl mx-auto w-full relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-20 items-center">
-
-                    <motion.div className="space-y-4 sm:space-y-6 md:space-y-8" variants={itemVariants}>
-                        <motion.div
-                            className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-[#4AEA45]/10 border border-[#4AEA45]/20 rounded-full"
-                            variants={itemVariants}
-                        >
-                            <Sparkles size={14} className="text-[#4AEA45] shrink-0" />
-                            <span className="text-xs sm:text-sm">Building experiences that inspire & engage</span>
-                        </motion.div>
-
-                        <motion.div className="space-y-4 sm:space-y-6" variants={itemVariants}>
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1]">
-                                Web & App Solutions That
-                                <span className="relative inline-block ml-2 sm:ml-3 md:ml-4">
-                                    <span className="relative z-10">Stand Out</span>
-                                    <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 md:h-4 bg-[#4AEA45] z-0"></span>
-                                </span>
-                            </h1>
-
-                            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-xl">
-                                From stunning websites to intuitive mobile apps and creative Facebook poster designs —
-                                we craft digital solutions that captivate audiences and grow your brand presence online.
-                            </p>
-                        </motion.div>
-
-                        <motion.div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto" variants={itemVariants}>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="btn-filled px-6 sm:px-8 py-3 sm:py-4 rounded-full flex items-center justify-center gap-2 group shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
-                            >
-                                <Link href="#contact">Contact us</Link>
-                                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
-                            </motion.button>
-
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="btn-outline px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-sm sm:text-base"
-                            >
-                                <Link href="/portfolio/projects">View Our Work</Link>
-                            </motion.button>
-                        </motion.div>
-
-                        {/* Stats */}
-                        <motion.div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8" variants={itemVariants}>
-                            <div className="group">
-                                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-1 transition-all duration-300 group-hover:scale-110" style={{ color: '#4AEA45', fontFamily: 'Poppins' }}>
-                                    2+
-                                </div>
-                                <div className="text-xs sm:text-sm text-gray-600">Web Projects</div>
-                            </div>
-                            <div className="group">
-                                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-1 transition-all duration-300 group-hover:scale-110" style={{ color: '#4AEA45', fontFamily: 'Poppins' }}>
-                                    1+
-                                </div>
-                                <div className="text-xs sm:text-sm text-gray-600">Mobile Apps</div>
-                            </div>
-                            <div className="group">
-                                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-1 transition-all duration-300 group-hover:scale-110" style={{ color: '#4AEA45', fontFamily: 'Poppins' }}>
-                                    1K+
-                                </div>
-                                <div className="text-xs sm:text-sm text-gray-600">Facebook Posters</div>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-
-
-                    <motion.div className="relative mt-4 sm:mt-0" variants={itemVariants}>
-                        <motion.div
-                            className="absolute hidden sm:block top-8 md:top-0 lg:-top-16 -right-2 sm:-right-3 md:-right-6 rotate-12 bg-white rounded-xl shadow-lg px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium"
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                            💡 Innovative Design
-                        </motion.div>
-
-                        <motion.div
-                            className="relative rounded-3xl overflow-hidden shadow-2xl group"
-                            initial={{ opacity: 0, x: 100 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1 }}
-                        >
-                            <ImageWithFallback
-                                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
-                                alt="Web and App Development Workspace"
-                                className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-linear-to-tr from-black/30 via-transparent to-[#4AEA45]/10"></div>
-
-                            {/* Overlay Pattern */}
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <div
-                                    className="absolute inset-0"
-                                    style={{
-                                        backgroundImage: 'radial-gradient(circle, #4AEA45 1px, transparent 1px)',
-                                        backgroundSize: '30px 30px',
-                                        opacity: 0.1
-                                    }}
-                                ></div>
-                            </div>
-                        </motion.div>
-
-                        {/* Floating Badge */}
-                        <motion.div
-                            className="absolute -bottom-3 sm:-bottom-6 -left-3 sm:-left-6 bg-[#4AEA45] text-black p-3 sm:p-6 rounded-xl sm:rounded-2xl shadow-2xl transform hover:rotate-3 transition-transform duration-300"
-                            animate={{ y: [0, -5, 0] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                            <div className="text-xs sm:text-sm mb-1" style={{ fontFamily: 'Poppins' }}>Creative Agency</div>
-                            <div className="text-xl sm:text-3xl" style={{ fontFamily: 'Poppins' }}>Since 2025</div>
-                        </motion.div>
-
-                        {/* Decorative Circle */}
-                        <motion.div
-                            className="absolute hidden sm:block -top-4 -right-4 w-16 sm:w-20 h-16 sm:h-20 border-3 sm:border-4 border-[#4AEA45] rounded-full opacity-50"
-                            animate={{ rotate: [0, 360] }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                        />
-                    </motion.div>
-                </div>
+      <div className="max-w-7xl mx-auto px-6 w-full">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Column: Hero Text, Description, Buttons */}
+          <div className="max-w-xl animate-fade-up">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-medium text-slate-500 mb-6 shadow-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
+              Accepting New Clients for Q4
             </div>
-        </motion.section>
-    );
+            <h1 className="text-5xl lg:text-7xl leading-[1.05] font-medium tracking-tight text-slate-900 mb-6">
+              Engineering <span className="text-slate-400 italic">digital experiences</span> that scale.
+            </h1>
+            <p className="text-lg text-slate-500 leading-relaxed mb-10 max-w-md">
+              We blend high-performance code with world-class aesthetics to build brands that dominate their market.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="#contact" className="inline-flex justify-center items-center px-8 py-3.5 bg-red-600 text-white rounded-full font-medium hover:bg-black transition-all shadow-xl shadow-slate-900/20">
+                Book Consultation
+              </a>
+              <a href="#work" className="inline-flex justify-center items-center px-8 py-3.5 bg-white text-slate-900 border border-slate-200 rounded-full font-medium hover:bg-slate-50 transition-all">
+                View Portfolio
+              </a>
+            </div>
+          </div>
+          {/* Right Column: Hero Image and Floating Cards */}
+          <div className="relative h-[600px] w-full hidden lg:block animate-fade-up delay-200">
+            <div className="absolute inset-0 bg-slate-100 rounded-4xl overflow-hidden shadow-2xl border border-slate-200/50">
+              <Image src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2940&auto=format&fit=crop" alt="Digital Engineering" width={2940} height={2940} className="w-full h-full object-cover opacity-90 scale-105 hover:scale-100 transition-transform duration-[2s]" />
+            </div>
+            <div className="absolute top-12 -left-12 glass p-5 rounded-2xl shadow-xl animate-[bounce_6s_infinite] w-64">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600">
+                  <span className="iconify" data-icon="lucide:code-2" data-width="20" />
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 font-medium uppercase tracking-wider">System Status</p>
+                  <p className="text-slate-900 font-serif font-medium">All Operational</p>
+                </div>
+              </div>
+              <div className="flex gap-1.5 mt-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                <div className="h-1.5 w-8 rounded-full bg-slate-200" />
+                <div className="h-1.5 w-12 rounded-full bg-slate-200" />
+              </div>
+            </div>
+            <div className="absolute bottom-20 -right-8 glass p-6 rounded-2xl shadow-xl animate-[bounce_8s_infinite] delay-300 w-56 backdrop-blur-xl bg-white/80">
+              <div className="flex justify-between items-start mb-4">
+                <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+                  <span className="iconify" data-icon="lucide:trending-up" data-width="20" />
+                </div>
+                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+127%</span>
+              </div>
+              <p className="text-2xl font-serif text-slate-900 font-medium">24.5k</p>
+              <p className="text-xs text-slate-500">Monthly Active Users</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.section>
+  );
 }

@@ -43,23 +43,10 @@ export default function PortfolioPage() {
         {/* --- Header --- */}
         <div className="text-center max-w-4xl mx-auto mb-16 lg:mb-24">
           <div className="w-full flex items-center justify-center gap-6">
-            <h2
-              className="big-header mb-6 leading-tight"
-              style={{ fontFamily: "Prata" }}
-            >
-              Our
-            </h2>
-            <h2
-              className="section-header mb-6 leading-tight"
-              style={{ fontFamily: "Prata" }}
-            >
-              Work
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Our</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Work</h2>
           </div>
-          <p
-            className="text-lg sm:text-xl text-gray-700"
-            style={{ fontFamily: "Poppins" }}
-          >
+          <p className="text-lg sm:text-xl text-gray-700">
             Real results for real businesses. See how we&apos;ve helped brands
             achieve remarkable growth.
           </p>
@@ -82,7 +69,7 @@ export default function PortfolioPage() {
 
         {/* --- CTA --- */}
         <div className="text-center mt-16">
-          <Link href="/portfolio/projects" className="btn-filled px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl">
+          <Link href="/portfolio/projects" className="btn btn-accent px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl">
             View More Projects
           </Link>
         </div>

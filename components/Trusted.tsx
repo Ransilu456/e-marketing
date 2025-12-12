@@ -64,9 +64,9 @@ export default function Trusted() {
 
   return (
     <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 bg-white overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-[#4AEA45] rounded-full blur-3xl opacity-10 -z-10" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#4AEA45] rounded-full blur-3xl opacity-10 -z-10" />
+      {/* Background glow (brand color via CSS variable) */}
+      <div className="absolute top-0 left-0 w-72 h-72 rounded-full blur-3xl opacity-8 -z-10" style={{ backgroundColor: "var(--accent)" }} />
+      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-8 -z-10" style={{ backgroundColor: "var(--accent)" }} />
 
       {/* Header */}
       <motion.div
@@ -76,19 +76,19 @@ export default function Trusted() {
         viewport={{ once: true }}
         className="text-center mb-10 md:mb-14"
       >
-        <p className="text-xs sm:text-sm md:text-base uppercase tracking-widest text-[#4AEA45] font-semibold mb-4">
+        <p className="text-xs sm:text-sm md:text-base uppercase tracking-widest font-semibold mb-4 accent">
           Our Partners
         </p>
 
-        <h2 className="text-3xl md:text-5xl font-bold text-black mb-3">
-          Trusted By Industry{" "}
+        <h2 className="text-3xl md:text-5xl font-bold mb-3">
+          Trusted By Industry
           <span className="relative inline-block ml-2">
             <span className="relative z-10">Leaders</span>
-            <span className="absolute bottom-1 left-0 w-full h-3 bg-[#4AEA45] z-0"></span>
+            <span className="absolute bottom-1 left-0 w-full h-3 z-0" style={{ backgroundColor: "var(--accent)" }}></span>
           </span>
         </h2>
 
-        <p className="text-sm md:text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+        <p className="text-sm md:text-lg mt-4 max-w-2xl mx-auto muted">
           Partnering with brands that inspire excellence and innovation.
         </p>
       </motion.div>
@@ -103,8 +103,8 @@ export default function Trusted() {
         whileTap={{ cursor: "grabbing" }}
       >
         {/* Gradient edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-white via-white/70 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-white via-white/70 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white via-white/70 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white via-white/70 to-transparent z-10 pointer-events-none" />
 
         {/* Scroll track */}
         <motion.div

@@ -14,8 +14,8 @@ export function Testimonials() {
 
   return (
     <section id="testimonials" className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white to-gray-50 relative overflow-hidden">
-      <div className="absolute top-20 right-20 w-64 h-64 bg-[#4AEA45] opacity-10 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-20 left-20 w-64 h-64 bg-[#4AEA45] opacity-10 blur-3xl rounded-full"></div>
+      <div className="absolute top-20 right-20 w-64 h-64 opacity-10 blur-3xl rounded-full" style={{ backgroundColor: 'var(--accent)' }}></div>
+      <div className="absolute bottom-20 left-20 w-64 h-64 opacity-10 blur-3xl rounded-full" style={{ backgroundColor: 'var(--accent)' }}></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
@@ -33,7 +33,8 @@ export function Testimonials() {
           {comments.map((comments: Comment, index) => (
             <div
               key={index}
-              className="relative p-8 lg:p-10 bg-white border-2 border-black/10 hover:border-[#4AEA45] transition-all duration-500 group rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2"
+              className="relative p-8 lg:p-10 bg-white border-2 border-black/10 transition-all duration-500 group rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2"
+              style={{ borderColor: 'rgba(0,0,0,0.08)' }}
             >
               <div className="absolute top-6 right-6 opacity-5 group-hover:opacity-10 transition-opacity">
                 <Quote size={80} fill="currentColor" />
@@ -41,7 +42,7 @@ export function Testimonials() {
 
               <div className="flex gap-1 mb-6 relative z-10">
                 {[...Array(comments.rating)].map((_, i) => (
-                  <Star key={i} size={20} fill="#4AEA45" className="text-[#4AEA45]" />
+                  <Star key={i} size={20} fill="var(--accent)" className="accent" />
                 ))}
               </div>
 
@@ -50,7 +51,7 @@ export function Testimonials() {
               </p>
 
               <div className="relative z-10 flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-gray-200 overflow-hidden border-2 border-[#4AEA45] shrink-0">
+                <div className="w-14 h-14 rounded-full bg-gray-200 overflow-hidden shrink-0" style={{ border: '2px solid var(--accent)' }}>
                   <Image
                     src={comments.image}
                     alt={comments.name}
@@ -70,8 +71,8 @@ export function Testimonials() {
                 </div>
               </div>
 
-              <div className="absolute bottom-0 left-0 w-0 h-2 bg-[#4AEA45] group-hover:w-full transition-all duration-500 rounded-b-2xl"></div>
-              <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-[#4AEA45] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-tl-2xl"></div>
+              <div className="absolute bottom-0 left-0 w-0 h-2 group-hover:w-full transition-all duration-500 rounded-b-2xl" style={{ backgroundColor: 'var(--accent)' }}></div>
+              <div className="absolute top-0 left-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-tl-2xl" style={{ borderTop: '4px solid var(--accent)', borderLeft: '4px solid var(--accent)' }}></div>
             </div>
           ))}
         </div>
@@ -110,13 +111,12 @@ export function Testimonials() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <button
-                onClick={openConsultationForm}
-                className="px-8 py-4 bg-[#4AEA45] text-black rounded-full hover:bg-[#4AEA45]/90 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:scale-105"
-                style={{ fontFamily: "Poppins" }}
-              >
-                <UserPlus size={20} /> Get Your Free Consultation
-              </button>
+                <button
+                  onClick={openConsultationForm}
+                  className="btn btn-primary"
+                >
+                  <UserPlus size={20} /> Get Your Free Consultation
+                </button>
             </motion.div>
           </motion.div>
 
@@ -127,7 +127,7 @@ export function Testimonials() {
                 className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-fadeIn"
               />
 
-              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#4AEA45] opacity-20 blur-[120px] pointer-events-none" />
+              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-72 h-72 opacity-20 blur-[120px] pointer-events-none" style={{ backgroundColor: 'var(--color-secondary-text)' }} />
 
               <div className="relative bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl p-8 sm:p-10 w-[90%] max-w-md animate-scaleIn border border-white/40  mt-20">
 
@@ -155,24 +155,28 @@ export function Testimonials() {
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="border-2 border-gray-200 focus:border-[#4AEA45] outline-none px-4 py-3 rounded-xl transition-all text-black"
+                    className="border-2 border-gray-200 outline-none px-4 py-3 rounded-xl transition-all text-black"
+                    style={{ borderColor: 'rgba(229,231,235,1)' }}
                   />
 
                   <input
                     type="email"
                     placeholder="Your Email"
-                    className="border-2 border-gray-200 focus:border-[#4AEA45] outline-none px-4 py-3 rounded-xl transition-all text-black"
+                    className="border-2 border-gray-200 outline-none px-4 py-3 rounded-xl transition-all text-black"
+                    style={{ borderColor: 'rgba(229,231,235,1)' }}
                   />
 
                   <textarea
                     placeholder="Your Message"
                     rows={4}
-                    className="border-2 border-gray-200 focus:border-[#4AEA45] outline-none px-4 py-3 rounded-xl resize-none transition-all text-black"
+                    className="border-2 border-gray-200 outline-none px-4 py-3 rounded-xl resize-none transition-all text-black"
+                    style={{ borderColor: 'rgba(229,231,235,1)' }}
                   />
 
                   <button
                     type="submit"
-                    className="px-6 py-3 bg-[#4AEA45] text-black rounded-full hover:bg-[#3dd43a] shadow-lg hover:shadow-xl transition-all duration-300 font-medium flex items-center justify-center gap-2"
+                    className="px-6 py-3 text-black rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium flex items-center justify-center gap-2"
+                    style={{ backgroundColor: 'var(--color-secondary-text)' }}
                   >
                     Submit
                   </button>

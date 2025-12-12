@@ -79,47 +79,32 @@ export default function Services() {
     exit: { opacity: 0, y: 20, transition: { duration: 0.3 } },
   };
 
-
   return (
     <section
       id="services"
-      className="relative py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden"
-      style={{ fontFamily: "Poppins, sans-serif" }}
+      className="relative py-24 lg:py-36 px-4 sm:px-8 bg-surface overflow-hidden"
     >
+      {/* Glassy background accent */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[80vw] h-96 bg-gradient-to-br from-accent/10 via-white/60 to-accent/5 rounded-full blur-3xl opacity-60 pointer-events-none" />
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16 lg:mb-24">
-          <div className="w-full flex items-center justify-center gap-6">
-            <h2
-              className="big-header mb-6 leading-tight"
-              style={{ fontFamily: "Prata" }}
-            >
-              Our
-            </h2>
-            <h2
-              className="section-header mb-6 leading-tight"
-              style={{ fontFamily: "Prata" }}
-            >
-              Services
-            </h2>
+        <div className="text-center max-w-4xl mx-auto mb-20 lg:mb-28">
+          <div className="inline-flex items-center gap-4 px-6 py-2 glass mb-6 rounded-full border border-glass-border animate-fade-up">
+            <span className="text-accent font-bold text-lg tracking-wide">Our Services</span>
           </div>
-          <p className="text-lg sm:text-xl text-gray-700" style={{ fontFamily: "Poppins" }}>
-            At{" "}
-            <span className="font-semibold text-[#4AEA45]">
-              E Marketing Paradice
-            </span>
-            , we deliver cutting-edge digital services — from web & mobile development
-            to creative branding and marketing solutions.
+          <h2 className="text-4xl md:text-5xl font-display font-extrabold mb-6 animate-fade-up delay-100">Digital Solutions for Modern Brands</h2>
+          <p className="text-lg sm:text-xl text-muted animate-fade-up delay-200">
+            At <span className="font-semibold accent">E Marketing Paradice</span>, we deliver cutting-edge digital services — from web & mobile development to creative branding and marketing solutions.
           </p>
         </div>
 
         {/* Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
         >
           <AnimatePresence>
-            {visibleServices.map((service) => (
+            {visibleServices.map((service, idx) => (
               <motion.div
                 key={service.title}
                 variants={cardVariants}
@@ -127,7 +112,8 @@ export default function Services() {
                 animate="visible"
                 exit="exit"
                 layout
-                className="flex justify-center"
+                className="flex justify-center animate-scaleIn"
+                style={{ animationDelay: `${idx * 0.08 + 0.1}s` }}
               >
                 <ServiceCard {...service} />
               </motion.div>
@@ -141,11 +127,11 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center mt-20"
         >
           <button
             onClick={() => setShowAll(!showAll)}
-            className="btn-filled px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
+            className="btn btn-accent px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl animate-fade-up delay-300"
           >
             {showAll ? "View Less" : "View More"}
             {showAll ? (

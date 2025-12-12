@@ -1,238 +1,201 @@
-import { notFound } from "next/navigation";
-import { portfolioProjects } from "../../projects";
+"use client";
+
+import { useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
-// Import ChevronRight and ChevronLeft for navigation buttons
-import { ArrowLeft, Zap, Smartphone, Settings, Code, Layers, HardHat, ChevronLeft, ChevronRight } from "lucide-react";
+import { useParams, useRouter } from "next/navigation";
+import {
+  ArrowLeft,
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+} from "lucide-react";
+import { portfolioProjects, features } from "../../projects";
 
-const PRIMARY_COLOR = "#4AEA45";
-const PRIMARY_ACCENT = "#10b981"; 
-const TEXT_COLOR = "#1f2937";
-const HEADING_COLOR = "#0f172a";
-const LIGHT_BG = "#f7f9fc"; 
+const ProjectPage = () => {
+  const { slug } = useParams();
+  const router = useRouter();
 
-export async function generateStaticParams() {
-  return portfolioProjects.map((p) => ({ slug: p.slug }));
-}
+  const projectIndex = portfolioProjects.findIndex((p) => p.slug === slug);
+  const project = portfolioProjects[projectIndex];
 
-export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const project = portfolioProjects.find((p) => p.slug === slug);
+  const prevProject = projectIndex > 0 ? portfolioProjects[projectIndex - 1] : null;
+  const nextProject = projectIndex < portfolioProjects.length - 1 ? portfolioProjects[projectIndex + 1] : null;
 
-  if (!project) return notFound();
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".reveal-up").forEach((el) => observer.observe(el));
+  }, []);
 
-  const currentIndex = portfolioProjects.findIndex(p => p.slug === slug);
-  const prevProject = currentIndex > 0 ? portfolioProjects[currentIndex - 1] : null;
-  const nextProject = currentIndex < portfolioProjects.length - 1 ? portfolioProjects[currentIndex + 1] : null;
-
-  const projectDetails = [
-    {
-      icon: <Zap size={24} />,
-      title: "Performance Grade",
-      description: "Achieved A+ Lighthouse scores for speed, ensuring sub-second load times.",
-    },
-    {
-      icon: <Smartphone size={24} />,
-      title: "Cross-Device Fluidity",
-      description: "Pixel-perfect responsiveness across all screens (mobile, tablet, desktop).",
-    },
-    {
-      icon: <Settings size={24} />,
-      title: "Future-Proof Architecture",
-      description: "Modular and scalable foundation built for easy feature expansion.",
-    },
-    {
-      icon: <Layers size={24} />,
-      title: "Clean UI/UX Design",
-      description: "Intuitive interfaces designed to maximize visitor engagement and conversions.",
-    },
-  ];
-
-  const techStack = [
-    { name: "React.js", icon: <Code size={20} /> },
-    { name: "TypeScript", icon: <Code size={20} /> },
-    { name: "Tailwind CSS", icon: <HardHat size={20} /> },
-    { name: "Framer Motion", icon: <Zap size={20} /> },
-  ];
+  if (!project) return <p className="p-8 text-center text-red-600 font-medium">Project not found</p>;
 
   return (
-    <main className={`min-h-screen bg-white text-[${TEXT_COLOR}] `}>
+    <main className="min-h-screen relative bg-white antialiased selection:bg-red-600 selection:text-white text-neutral-900">
+      {/* Background Grid */}
+      <div className="fixed inset-0 bg-grid pointer-events-none -z-10 h-screen"></div>
 
+      {/* HERO */}
+      {/* HERO */}
+      <section className="px-6 md:px-16 pt-12 pb-16 max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto flex flex-col gap-12">
 
-      <section className={`px-6 md:px-16 pt-24 pb-16 max-w-7xl mx-auto`} style={{ background: LIGHT_BG }}>
-        <div className="max-w-6xl mx-auto">
-          
-          {/* TOP NAVIGATION BLOCK */}
-          <div className="flex justify-between items-center mb-12">
-            {/* Back to Service Link */}
-            <Link
-              href="/services/web-development"
-              className={`inline-flex items-center gap-2 text-[${PRIMARY_ACCENT}] font-semibold hover:gap-3 transition-all duration-300`}
+          {/* Navigation */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 reveal-up">
+            <button
+              onClick={() => router.push("/services/web-development")}
+              className="group inline-flex items-center gap-2 text-sm font-medium text-neutral-600 hover:text-red-600 transition-colors"
             >
-              <ArrowLeft size={20} />
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               Back to Web Development
-            </Link>
+            </button>
 
-            <div className="flex gap-4">
-              {prevProject && (
-                <Link 
-                  href={`/services/web-development/projects/${prevProject.slug}`}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-[${PRIMARY_COLOR}] hover:text-[${PRIMARY_COLOR}] transition-colors duration-200`}
-                >
-                  <ChevronLeft size={20} />
-                  Prev
-                </Link>
-              )}
-              
-              {nextProject && (
-                <Link 
-                  href={`/services/web-development/projects/${nextProject.slug}`}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-[${PRIMARY_COLOR}] hover:text-[${PRIMARY_COLOR}] transition-colors duration-200`}
-                >
-                  Next
-                  <ChevronRight size={20} />
-                </Link>
-              )}
+            <div className="flex gap-3">
+              <button
+                onClick={() =>
+                  prevProject && router.push(`/services/web-development/projects/${prevProject.slug}`)
+                }
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg border text-sm font-medium transition-all duration-300 shadow-sm ${prevProject
+                    ? "border-neutral-200 bg-white text-neutral-600 hover:border-red-600 hover:text-red-600 hover:shadow-md"
+                    : "border-neutral-100 bg-neutral-100 text-neutral-400 cursor-not-allowed"
+                  }`}
+                disabled={!prevProject}
+              >
+                <ChevronLeft className="w-4 h-4" />
+                Prev
+              </button>
+              <button
+                onClick={() =>
+                  nextProject && router.push(`/services/web-development/projects/${nextProject.slug}`)
+                }
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg border text-sm font-medium transition-all duration-300 shadow-sm ${nextProject
+                    ? "border-neutral-200 bg-white text-neutral-600 hover:border-red-600 hover:text-red-600 hover:shadow-md"
+                    : "border-neutral-100 bg-neutral-100 text-neutral-400 cursor-not-allowed"
+                  }`}
+                disabled={!nextProject}
+              >
+                Next
+                <ChevronRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
 
-          <div className="mb-12">
-            <h1 className={`text-5xl md:text-6xl font-extrabold text-[${HEADING_COLOR}] mb-4 max-w-4xl`}>
+          {/* Header */}
+          {/* Header */}
+          <div className="reveal-up delay-100 flex flex-col gap-6">
+            {/* Small Category Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-600/30 bg-red-50 text-red-600 text-xs font-semibold uppercase tracking-wide w-max">
+              <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+              Case Study
+            </div>
+
+            {/* Optional Subtitle / Category */}
+            <p className="text-sm text-neutral-500 uppercase tracking-wide">Web Development Project</p>
+
+            {/* Title */}
+            <h1 className="text-2xl md:text-4xl font-extrabold text-neutral-900 leading-tight">
               {project.title}
             </h1>
-            <p className="text-gray-600 text-xl leading-relaxed max-w-3xl">
-              {project.description}
+
+            {/* Description */}
+            <p className="text-base md:text-md text-neutral-700 max-w-3xl leading-relaxed">
+              {project.description}{" "}
+              <strong className="text-neutral-900">
+                Discover the features, technology stack, and insights behind this project.
+              </strong>
             </p>
           </div>
 
+
           {/* Project Image */}
-          <div
-            className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-white/50 bg-gray-100 flex items-center justify-center" 
-          >
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-50 shadow-lg reveal-up delay-200 group">
             <Image
               src={project.image}
               alt={project.title}
-              fill
-              className="object-contain p-4 "
-              priority
+              width={1200}
+              height={800}
+              className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
             />
-            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-linear-to-t from-black/5 to-transparent"></div>
           </div>
         </div>
       </section>
 
 
-      <section className={`px-6 md:px-16 py-24 bg-white`}>
+      {/* FEATURES */}
+      <section className="px-6 md:px-16 py-24 bg-neutral-50 border-t border-neutral-100">
         <div className="max-w-6xl mx-auto">
-          <h2
-            className={`text-4xl font-bold mb-16 text-[${HEADING_COLOR}] text-center`}
-          >
-            Project Highlights & Specifications
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {projectDetails.map((detail, index) => (
+          <h2 className="text-3xl font-semibold mb-12 text-center">Key Features & Highlights</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, idx) => (
               <div
-                key={index}
-                className={`group p-6 rounded-2xl border border-gray-200 transition-all duration-300 hover:shadow-2xl hover:shadow-[${PRIMARY_ACCENT}15] hover:border-[${PRIMARY_COLOR}]`}
-                style={{
-                  background: "white",
-                }}
+                key={idx}
+                className="group p-6 rounded-2xl border border-neutral-200 bg-white hover:bg-red-50 transition-all duration-300  reveal-up"
               >
-                <div
-                  className={`mb-4 w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-lg`}
-                  style={{
-                    background: `linear-gradient(135deg, ${PRIMARY_COLOR}, ${PRIMARY_ACCENT})`,
-                    color: 'white',
-                  }}
-                >
-                  {detail.icon}
+                <div className="w-12 h-12 flex items-center justify-center bg-red-100 rounded-lg mb-4 text-red-600">
+                  <feature.icon className="w-6 h-6" />
                 </div>
-                <h3 className={`text-xl font-semibold mb-2 text-[${HEADING_COLOR}]`}>
-                  {detail.title}
-                </h3>
-                <p className="text-gray-600">
-                  {detail.description}
-                </p>
+                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                <p className="text-sm text-neutral-600 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-
-      <section className={`px-6 md:px-16 py-24`} style={{ background: LIGHT_BG }}>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
-
+      {/* TECH STACK & SUMMARY */}
+      <section className="px-6 md:px-16 py-24 max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
           {/* Summary */}
-          <div className="lg:col-span-2">
-            <h2
-              className={`text-3xl md:text-4xl font-bold mb-6 text-[${HEADING_COLOR}]`}
-            >
-              Project Summary & Impact
-            </h2>
-            <p className="text-gray-700 leading-relaxed text-lg mb-12">
-              This project demonstrates our commitment to delivering **high-impact digital solutions**.
-              By focusing on performance, responsive design, and clean UI/UX, we crafted a web experience built for
-              **conversion and long-term reliability**. The system&apos;s ability to handle complex logic while maintaining a seamless user interface is a testament to our technical rigor.
-            </p>
+          <div className="lg:col-span-2 reveal-up">
+            <h2 className="text-3xl font-semibold mb-8">Project Summary & Impact</h2>
+            <div className="prose prose-neutral prose-lg text-neutral-600 leading-relaxed">
+              <p className="mb-6">{project.longDescription || project.description}</p>
+              <p className="mb-6">
+                Designed for <strong className="text-neutral-900 font-medium">performance, scalability, and user engagement</strong>, this project leverages modern frameworks and clean architecture.
+              </p>
+              <p>
+                By combining intuitive design, responsive layouts, and secure backend systems, it ensures <strong className="text-neutral-900 font-medium">an effortless experience</strong> for end-users and administrators alike.
+              </p>
+            </div>
           </div>
 
           {/* Tech Stack */}
-          <div className="lg:col-span-1">
-            <h3 className={`text-2xl font-bold mb-6 text-[${HEADING_COLOR}]`}>
-              Technology Used
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {techStack.map((tech, index) => (
-                <span
-                  key={index}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium text-sm border-2 border-[${PRIMARY_COLOR}]`}
-                  style={{
-                    backgroundColor: `${PRIMARY_COLOR}10`,
-                    color: HEADING_COLOR
-                  }}
-                >
-                  {tech.icon}
-                  {tech.name}
-                </span>
-              ))}
+          <div className="lg:col-span-1 reveal-up delay-200">
+            <div className="bg-neutral-50 rounded-2xl p-8 border border-neutral-100 sticky top-24">
+              <h3 className="text-sm font-semibold uppercase tracking-wider mb-6">Technology Stack</h3>
+              <div className="flex flex-wrap gap-3">
+                {project.techStack.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border border-neutral-200 bg-white text-sm font-medium text-neutral-700 shadow-sm hover:shadow-md transition-all ${tech.color}`}
+                  >
+                    <span className="font-bold">{tech.name[0]}</span>
+                    {tech.name}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={project.link}
+                target="_blank"
+                className="mt-6 inline-flex items-center justify-center w-full gap-2 px-4 py-3 rounded-lg bg-red-600 text-white font-bold text-sm hover:bg-red-700 transition-colors"
+              >
+                Visit Live Project
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
       </section>
-
-
-      <section
-        className="px-6 md:px-16 py-32 text-center"
-        style={{
-          background: `linear-gradient(to right, ${PRIMARY_COLOR}, ${PRIMARY_ACCENT})`,
-          color: 'white', 
-        }}
-      >
-        <div className="max-w-5xl mx-auto">
-          <h3 className={`text-5xl md:text-6xl font-extrabold mb-5`}>
-            Ready to See the Results?
-          </h3>
-          <p className="text-xl lg:text-2xl mb-12 opacity-95 max-w-3xl mx-auto">
-            Explore the live implementation of the **{project.title}**—experience the speed and design firsthand.
-          </p>
-          <Link
-            href={project.link}
-            className={`inline-flex items-center gap-3 px-10 py-5 bg-white text-lg font-bold rounded-full transition-all duration-300 hover:scale-[1.05] shadow-2xl group`}
-            style={{
-              color: HEADING_COLOR, 
-              boxShadow: `0 15px 30px rgba(0, 0, 0, 0.2), 0 5px 15px ${PRIMARY_COLOR}60`,
-            }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Visit Live Project
-            <svg className="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
-          </Link>
-        </div>
-      </section>
     </main>
   );
-}
+};
+
+export default ProjectPage;

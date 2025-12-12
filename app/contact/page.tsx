@@ -1,100 +1,128 @@
-"use client";
+﻿"use client";
 
-import { Mail, Phone, MessageSquare, Send } from "lucide-react";
+import { Mail, Phone, Send } from "lucide-react";
+import { useState } from "react";
 
 export default function Page() {
-  return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white relative overflow-hidden">
-      {/* Green glow background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/3 w-60 h-60 bg-[#4AEA45] opacity-10 blur-3xl rounded-full animate-pulse"></div>
-        <div
-          className="absolute bottom-0 right-1/4 w-60 h-60 bg-[#4AEA45] opacity-10 blur-3xl rounded-full animate-pulse"
-          style={{ animationDelay: "0.7s" }}
-        ></div>
-      </div>
+  const [formData, setFormData] = useState({
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-      <div className="max-w-3xl mx-auto relative z-10">
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setTimeout(() => {
+      setSubmitting(false);
+      setSubmitted(true);
+      setFormData({ email: "", phone: "", message: "" });
+    }, 700);
+  };
+
+  return (
+    <main className="w-full min-h-screen bg-white pt-24 pb-16">
+      <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-semibold mb-2" style={{ fontFamily: "Prata" }}>
-            Contact Us
-          </h1>
-          <p className="text-gray-300 text-sm sm:text-base" style={{ fontFamily: "Poppins" }}>
-            Feel free to ask anything about us — we’re here to help!
-          </p>
+          <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-slate-900">Get in touch</h1>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">Have questions or ready to start your project? We'd love to hear from you. Send us a message and we'll respond within 24 hours.</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {/* Contact Info Cards */}
+          <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
+            <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mb-4">
+              <Mail className="text-white" size={20} />
+            </div>
+            <h3 className="font-semibold text-slate-900 mb-1">Email</h3>
+            <a href="mailto:emarketingparadice@gmail.com" className="text-sm text-slate-600 hover:accent transition-colors">emarketingparadice@gmail.com</a>
+          </div>
+
+          <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
+            <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mb-4">
+              <Phone className="text-white" size={20} />
+            </div>
+            <h3 className="font-semibold text-slate-900 mb-1">Phone</h3>
+            <a href="tel:+947123456789" className="text-sm text-slate-600 hover:accent transition-colors">+94 712 345 6789</a>
+          </div>
+
+          <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
+            <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mb-4">
+              <Send className="text-white" size={20} />
+            </div>
+            <h3 className="font-semibold text-slate-900 mb-1">Response time</h3>
+            <p className="text-sm text-slate-600">Usually within 24 hours</p>
+          </div>
         </div>
 
         {/* Form Card */}
-        <div className="bg-white text-black p-6 sm:p-8 rounded-2xl shadow-2xl">
-          <form className="space-y-6">
-            
-            {/* Email */}
+        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-slate-100 max-w-2xl mx-auto">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">
-                Email Address *
-              </label>
-              <div className="flex items-center border-2 border-gray-200 rounded-xl px-4 py-3 focus-within:border-[#4AEA45] transition">
-                <Mail size={18} className="text-gray-500 mr-3" />
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  className="w-full outline-none bg-transparent text-sm"
-                  placeholder="Enter your email"
-                />
-              </div>
+              <label htmlFor="email" className="block text-sm font-medium text-slate-900 mb-2">Email Address *</label>
+              <input
+                id="email"
+                type="email"
+                required
+                aria-required="true"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-sm"
+                placeholder="you@company.com"
+              />
             </div>
 
-            {/* Phone */}
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                Mobile Number *
-              </label>
-              <div className="flex items-center border-2 border-gray-200 rounded-xl px-4 py-3 focus-within:border-[#4AEA45] transition">
-                <Phone size={18} className="text-gray-500 mr-3" />
-                <input
-                  type="tel"
-                  id="phone"
-                  required
-                  className="w-full outline-none bg-transparent text-sm"
-                  placeholder="Enter your mobile number"
-                />
-              </div>
+              <label htmlFor="phone" className="block text-sm font-medium text-slate-900 mb-2">Phone Number *</label>
+              <input
+                id="phone"
+                type="tel"
+                required
+                aria-required="true"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-sm"
+                placeholder="+1 (555) 000-0000"
+              />
             </div>
 
-            {/* Message */}
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-1">
-                Your Message *
-              </label>
-              <div className="flex items-start border-2 border-gray-200 rounded-xl px-4 py-3 focus-within:border-[#4AEA45] transition">
-                <MessageSquare size={18} className="text-gray-500 mt-1 mr-3" />
-                <textarea
-                  id="message"
-                  rows={4}
-                  required
-                  className="w-full outline-none bg-transparent resize-none text-sm"
-                  placeholder="Enter your message"
-                ></textarea>
-              </div>
+              <label htmlFor="message" className="block text-sm font-medium text-slate-900 mb-2">Message *</label>
+              <textarea
+                id="message"
+                required
+                aria-required="true"
+                rows={6}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none resize-none transition-all text-sm"
+                placeholder="Tell us about your project, goals, or any questions you have..."
+              />
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-[#4AEA45] hover:bg-[#3ec93b] text-black py-4 rounded-full font-medium flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transition-all duration-300"
+              disabled={submitting}
+              className="btn btn-accent w-full px-6 py-3 text-base font-medium rounded-lg flex items-center justify-center gap-2 shadow-md transition-all duration-300"
+              aria-busy={submitting}
             >
-              <span>Send Message</span>
-              <Send size={18} />
+              <span>{submitting ? 'Sending...' : 'Send Message'}</span>
+              {!submitting && <Send size={18} />}
             </button>
+
+            {submitted && (
+              <div className="text-center p-4 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">
+                Thanks for reaching out! We'll get back to you soon.
+              </div>
+            )}
           </form>
 
-          <p className="text-center text-xs text-gray-600 mt-6 border-t border-black/10 pt-4">
-            Your privacy is protected — we never share your info.
-          </p>
+          <p className="text-center text-xs text-slate-500 mt-6"> Your privacy is protected  we never share your information.</p>
         </div>
       </div>
-    </section>
+    </main>
   );
 }

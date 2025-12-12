@@ -3,15 +3,22 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowRight, Zap, Layout, BarChart3,
+  Menu, X, ArrowRight, Zap, Layout,
+  Smartphone, PenTool, BarChart3, Globe,
   CheckCircle, Code, Mail, Phone, MapPin, Send, Clock
 } from "lucide-react";
 import * as Lucide from 'lucide-react';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
-import NewHero from "@/components/NewHero";
+
+const navigation = [
+  { name: "Services", href: "#services" },
+  { name: "Process", href: "#process" },
+  { name: "Work", href: "#work" },
+  { name: "Reviews", href: "#testimonials" },
+];
 
 const processSteps = [
   { id: "01", title: "Discovery", desc: "We dive deep into your business goals, audience, and competitors to build a solid foundation." },
@@ -21,27 +28,15 @@ const processSteps = [
 ];
 
 const projects = [
-  {
-    title: "Fintech Dashboard",
-    category: "Web App",
-    image:
-      "https://images.pexels.com/photos/187041/pexels-photo-187041.jpeg?auto=compress&cs=tinysrgb&w=800",
-    result: "+140% User Retention",
-  },
-  {
-    title: "Modern E-Commerce",
-    category: "Development",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    result: "2.5x Conversion Rate",
-  },
-  {
-    title: "Health & Wellness",
-    category: "Branding",
-    image:
-      "https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=800",
-    result: "Award Winning Design",
-  },
+  { title: "Fintech Dashboard", category: "Web App", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop", result: "+140% User Retention" },
+  { title: "Modern E-Commerce", category: "Development", image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2000&auto=format&fit=crop", result: "2.5x Conversion Rate" },
+  { title: "Health & Wellness", category: "Branding", image: "https://images.unsplash.com/photo-1544367563-12123d8966cd?q=80&w=2000&auto=format&fit=crop", result: "Award Winning Design" }
+];
+
+const faqs = [
+  { q: "How long does a typical project take?", a: "Timelines vary by scope. A standard website takes 4-6 weeks, while complex applications may take 3-6 months. We provide detailed schedules during the proposal phase." },
+  { q: "Do you offer post-launch support?", a: "Absolutely. We offer various maintenance packages to ensure your digital products remain secure, up-to-date, and performant after launch." },
+  { q: "What is your pricing structure?", a: "We work on a project-based pricing model. This ensures transparency with no hidden costs. For ongoing marketing, we offer monthly retainer packages." }
 ];
 
 interface IconProps {
@@ -98,6 +93,68 @@ function SectionHeading({ badge, title, subtitle, align = "center" }: SectionHea
       <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-zinc-900 mb-6">{title}</h2>
       {subtitle && <p className="text-xl text-zinc-500 font-normal leading-relaxed max-w-3xl mx-auto">{subtitle}</p>}
     </div>
+  );
+}
+
+function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 border-0 border-zinc-50/0 ${isScrolled ? "bg-white/95 glass border-b border-zinc-100 py-2" : "bg-transparent border-0 py-3"}`}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2.5">
+          <div className="bg-black rounded-lg flex items-center justify-center text-white shadow-xl shadow-(--color-primary)/30">
+            <span className="font-serif italic font-bold text-xl leading-none px-3 py-2">E</span>
+          </div>
+          <span className="font-serif text-xl tracking-tightt text-md text-zinc-900">Marketing Paradice</span>
+        </Link>
+
+        <div className="hidden md:flex items-center gap-8">
+          {navigation.map((item) => (
+            <Link key={item.name} href={item.href} className="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors relative group">
+              {item.name}
+              <span className="absolute bottom-[-5px] left-0 w-full h-0.5 bg-(--color-primary) scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="hidden md:flex items-center gap-4">
+          <Link href="#contact">
+            <Button variant="primary" className="h-3 text-xs uppercase tracking-wide rounded-none bg-black">
+              Start Project <ArrowRight className="w-3.5 h-3.5" />
+            </Button>
+          </Link>
+        </div>
+
+        <button className="md:hidden p-2 text-zinc-900" onClick={() => setMobileOpen(!mobileOpen)}>
+          {mobileOpen ? <X /> : <Menu />}
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="absolute top-full left-0 right-0 bg-white border-b border-zinc-200 p-6 md:hidden shadow-xl">
+            <div className="flex flex-col gap-4">
+              {navigation.map((item) => (
+                <Link key={item.name} href={item.href} className="text-lg font-medium text-zinc-900 py-2 border-b border-zinc-100 hover:text-(--color-primary) transition-colors" onClick={() => setMobileOpen(false)}>
+                  {item.name}
+                </Link>
+              ))}
+              <Link href="#contact" onClick={() => setMobileOpen(false)}>
+                <Button className="w-full justify-center mt-2">Get Started</Button>
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 }
 
@@ -331,59 +388,6 @@ function Projects() {
   );
 }
 
-const services = [
-  {
-    title: "Web Development",
-    image:
-      "https://images.pexels.com/photos/326502/pexels-photo-326502.jpeg?auto=compress&cs=tinysrgb&w=800",
-    description:
-      "Responsive, scalable, and SEO-optimized websites tailored to your brand and goals.",
-    features: ["Responsive design", "SEO optimized", "Scalable architecture"],
-    link: "/services/web-development",
-  },
-  {
-    title: "Mobile Apps",
-    image:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;q=80&amp;w=1080",
-    description:
-      "Native and cross-platform mobile apps with seamless performance and user experience.",
-    features: ["iOS & Android", "Cross-platform", "High Performance"],
-    link: "/services/mobile-apps",
-  },
-  {
-    title: "Brand Identity",
-    image:
-      "https://images.pexels.com/photos/3243090/pexels-photo-3243090.jpeg?auto=compress&cs=tinysrgb&w=800",
-    description:
-      "Crafting memorable visual identities that make your brand stand out across platforms.",
-    features: ["Logo & Mark", "Brand Guidelines", "Visual Assets"],
-    link: "/#contact",
-  },
-  {
-    title: "Creative Posters",
-    image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&amp;w=1080&amp;auto=format&amp;fit=crop",
-    description:
-      "Eye-catching poster and social designs to amplify your campaigns' visual impact.",
-    features: ["Campaign visuals", "Social Ready", "Print Ready"],
-    link: "/services/creative-posters",
-  },
-  {
-    title: "Social Media Management",
-    image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&amp;w=1080&amp;auto=format&amp;fit=crop",
-    description:
-      "We build and manage your brand's social presence to drive engagement and growth.",
-    features: [
-      "Content Calendar Strategy",
-      "Community Engagement",
-      "Analytics & Reporting",
-    ],
-    featured: true,
-    link: "/services/social-media-management",
-  },
-];
-
 function NewServices() {
   return (
     <section id="services" className="py-24 bg-slate-50 border-t border-slate-200">
@@ -402,60 +406,143 @@ function NewServices() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`group bg-white rounded-2xl p-2 border border-slate-200 hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 ${service.featured ? "md:col-span-2 lg:col-span-2" : ""
-                }`}
-            >
-              <div
-                className={`${service.featured
-                    ? "flex flex-col md:flex-row gap-4"
-                    : "flex flex-col"
-                  }`}
-              >
-                <div
-                  className={`overflow-hidden rounded-xl bg-gray-100 relative mb-4 md:mb-0 ${service.featured
-                      ? "md:w-1/2 aspect-video md:aspect-auto"
-                      : "aspect-video"
-                    }`}
-                >
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    width={400} height={1000} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div
-                  className={`px-3 pb-3 flex flex-col ${service.featured ? "md:w-1/2 justify-center" : ""
-                    }`}
-                >
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 mt-8">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-center gap-2 text-sm text-gray-600 font-medium"
-                      >
-                        <CheckCircle className="text-emerald-500 w-4 h-4 shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href={service.link} className="mt-auto inline-flex items-center justify-center px-6 py-2 text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-red-50 hover:text-red-700 rounded-lg transition-all">
-                    Learn More
-                  </Link>
+
+          <div className="group bg-white rounded-2xl p-2 border border-slate-200 hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+            <div className="aspect-video overflow-hidden rounded-xl bg-slate-100 relative mb-4">
+              <Image src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" height={1000} width={400} className="object-cover" alt="Web Development" />
+            </div>
+            <div className="px-4 pb-4">
+              <h3 className="text-xl font-display font-bold text-slate-900 mb-2">Web Development</h3>
+              <p className="text-sm text-slate-500 mb-4 line-clamp-2">Responsive, scalable, and SEO-optimized websites tailored to your brand and goals.</p>
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:check-circle" data-width="14"></span> Responsive design
+                </li>
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:check-circle" data-width="14"></span> SEO optimized
+                </li>
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:check-circle" data-width="14"></span> Scalable architecture
+                </li>
+              </ul>
+              <div className="flex items-center w-full justify-center">
+                <Button variant="upsideghost">
+                  <Link href="/services/web-development" className="w-full btn-secondary py-2 text-xs font-bold">Learn More</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="group bg-white rounded-2xl p-2 border border-slate-200 hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+            <div className="aspect-video overflow-hidden rounded-xl bg-slate-100 relative mb-4">
+              <Image src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;q=80&amp;w=1080" alt="Mobile Apps" width={400} height={1000} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" ></Image>
+            </div>
+            <div className="px-4 pb-4">
+              <h3 className="text-xl font-display font-bold text-slate-900 mb-2">Mobile Apps</h3>
+              <p className="text-sm text-slate-500 mb-4 line-clamp-2">Native and cross-platform mobile apps with seamless performance and user experience.</p>
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:smartphone" data-width="14"></span> iOS &amp; Android
+                </li>
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:layers" data-width="14"></span> Cross-platform
+                </li>
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:zap" data-width="14"></span> High Performance
+                </li>
+              </ul>
+              <div className="flex items-center w-full justify-center">
+                <Button variant="upsideghost">
+                  <Link href="/services/mobile-apps" className="w-full btn-secondary py-2 text-xs font-bold">Explore Apps</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="group bg-white rounded-2xl p-2 border border-slate-200 hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+            <div className="aspect-video overflow-hidden rounded-xl bg-slate-100 relative mb-4">
+              <Image src="https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&amp;w=1080&amp;auto=format&amp;fit=crop" alt="Brand Identity" width={400} height={10000} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></Image>
+            </div>
+            <div className="px-4 pb-4">
+              <h3 className="text-xl font-display font-bold text-slate-900 mb-2">Brand Identity</h3>
+              <p className="text-sm text-slate-500 mb-4 line-clamp-2">Crafting memorable visual identities that make your brand stand out across platforms.</p>
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:pen-tool" data-width="14"></span> Logo &amp; Mark
+                </li>
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:book" data-width="14"></span> Brand Guidelines
+                </li>
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:image" data-width="14"></span> Visual Assets
+                </li>
+              </ul>
+              <div className="flex items-center w-full justify-center">
+                <Button variant="upsideghost">
+                  <Link href="/services/mobile-apps" className="w-full btn-secondary py-2 text-xs font-bold">Discover Identity</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="group bg-white rounded-2xl p-2 border border-slate-200 hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+            <div className="aspect-video overflow-hidden rounded-xl bg-slate-100 relative mb-4">
+              <Image src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&amp;w=1080&amp;auto=format&amp;fit=crop" alt="Creative Posters" width={400} height={1000} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></Image>
+            </div>
+            <div className="px-4 pb-4">
+              <h3 className="text-xl font-display font-bold text-slate-900 mb-2">Creative Posters</h3>
+              <p className="text-sm text-slate-500 mb-4 line-clamp-2">Eye-catching poster and social designs to amplify your campaigns’ visual impact.</p>
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:layout" data-width="14"></span> Campaign visuals
+                </li>
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:share-2" data-width="14"></span> Social Ready
+                </li>
+                <li className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                  <span className="iconify text-indigo-600" data-icon="lucide:printer" data-width="14"></span> Print Ready
+                </li>
+              </ul>
+              <div className="flex items-center w-full justify-center">
+                <Button variant="upsideghost">
+                  <Link href="/services/creative-posters" className="w-full btn-secondary py-2 text-xs font-bold">View Examples</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="group bg-white rounded-2xl p-2 border border-slate-200 hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 md:col-span-2 lg:col-span-2">
+            <div className="flex flex-col md:flex-row h-full">
+              <div className="md:w-1/2 aspect-video md:aspect-auto overflow-hidden rounded-xl bg-slate-100 relative mb-4 md:mb-0 md:mr-4">
+                <Image src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&amp;w=1080&amp;auto=format&amp;fit=crop" alt="Social Media" width={400} height={1000} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></Image>
+              </div>
+              <div className="md:w-1/2 px-2 pb-2 flex flex-col justify-center">
+                <h3 className="text-xl font-display font-bold text-slate-900 mb-2">Social Media Management</h3>
+                <p className="text-sm text-slate-500 mb-6">We build and manage your brand’s social presence to drive engagement and growth. Full stack community handling.</p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-3 text-sm text-slate-600 font-medium">
+                    <span className="iconify text-indigo-600" data-icon="lucide:calendar" data-width="16"></span> Content Calendar Strategy
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-slate-600 font-medium">
+                    <span className="iconify text-indigo-600" data-icon="lucide:users" data-width="16"></span> Community Engagement
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-slate-600 font-medium">
+                    <span className="iconify text-indigo-600" data-icon="lucide:bar-chart" data-width="16"></span> Analytics &amp; Reporting
+                  </li>
+                </ul>
+                <div className="flex items-center w-full justify-center">
+                  <Button variant="upsideghost">
+                    <Link href="/services/social-media-management" className="w-full btn-secondary py-2 text-xs font-bold">Manage Accounts</Link>
+                  </Button>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
-
       </div>
     </section>
   );
@@ -815,21 +902,48 @@ function BlogSection() {
   );
 }
 
-
-
-export default function Page() {
+function Footer() {
   return (
-    <main className="bg-white antialiased w-full min-h-screen overflow-x-hidden">
-      <NewHero />
-      {/*<Hero />*/}
-      <NewServices />
-      <Projects />
-      <WorkList />
-      <Methodology />
-      <Process />
-      <InteractiveFAQs />
-      <BlogSection />
-      <Contact />
-    </main>
+    <footer className="py-16 bg-zinc-900 text-zinc-300">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="flex items-center gap-2.5 mb-4 md:mb-0">
+          <div className="w-9 h-9 bg-(--color-primary) rounded-lg flex items-center justify-center text-white shadow-lg">
+            <span className="font-serif italic font-bold text-xl leading-none pt-1 pr-0.5">E</span>
+          </div>
+          <span className="font-semibold tracking-tight text-white">Marketing Paradice</span>
+        </div>
+
+        <div className="flex gap-6 text-sm font-medium">
+          <Link href="#" className="hover:text-white transition">About Us</Link>
+          <Link href="#" className="hover:text-white transition">Portfolio</Link>
+          <Link href="#" className="hover:text-white transition">Contact</Link>
+        </div>
+
+        <div className="flex flex-col">
+          <span className="text-sm font-light order-3 md:border-none mt-6 md:mt-0">&copy; 2025 Marketing Paradice. All rights reserved.</span>
+          <span className="text-[10px] font-light order-3 md:border-none mt-6 md:mt-0">Developed by E Marketing Paradice</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+export default function LandingPage() {
+  return (
+    <div className="bg-white antialiased">
+      <Navbar />
+      <main>
+        <Hero />
+        <NewServices />
+        <Projects />
+        <WorkList />
+        <Methodology />
+        <Process />
+        <InteractiveFAQs />
+        <BlogSection />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
   );
 }

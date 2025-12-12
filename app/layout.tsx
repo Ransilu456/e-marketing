@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { CustomNavbar } from "@/components/NewNav";
+import Navbar from "@/components/ui/Navbar";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/ui/Footer";
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["300","400","500","600","700","800"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -19,11 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${poppins.variable} font-sans antialiased relative`}>
         <header className="w-full sticky top-0 z-50">
-          <CustomNavbar />
+          <Navbar />
         </header>
         <main className="opacity-100 transition-opacity duration-500">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );

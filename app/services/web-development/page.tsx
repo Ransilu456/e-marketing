@@ -1,126 +1,111 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { useEffect } from "react";
+import {
+  Sparkles,
+  ArrowRight,
+  Zap,
+  Monitor,
+  Rocket,
+  Twitter,
+  Github,
+  Linkedin,
+} from "lucide-react";
 import Image from "next/image";
-import { Zap, Monitor, Rocket, ArrowRight, Sparkles } from "lucide-react";
-import { portfolioProjects } from "./projects"; 
+import Link from "next/link";
 
-const PRIMARY_COLOR = "#4AEA45";
-const SECONDARY_BG = "#f7f9fc";
-const TEXT_COLOR = "#1f2937";
-const HEADING_COLOR = "#0f172a";
+import { portfolioProjects } from "./projects";
 
-export default function WebDevelopmentPage() {
-  const features = [
-    {
-      icon: <Zap style={{ color: PRIMARY_COLOR }} size={32} />,
-      title: "Performance First",
-      desc: "Optimized architecture and code for industry-leading speed scores and lightning-fast load times.",
-    },
-    {
-      icon: <Monitor style={{ color: PRIMARY_COLOR }} size={32} />,
-      title: "Responsive by Design",
-      desc: "Fluid layouts and adaptive visuals ensure perfect rendering across all screens and devices.",
-    },
-    {
-      icon: <Rocket style={{ color: PRIMARY_COLOR }} size={32} />,
-      title: "SEO-Optimized",
-      desc: "Built with the best on-page SEO and accessibility practices for high visibility and discoverability.",
-    },
-  ];
+export default function Home() {
+  useEffect(() => {
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          obs.unobserve(entry.target);
+        }
+      });
+    });
+
+    document.querySelectorAll(".reveal-up").forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <main
-      className="min-h-screen"
-      style={{
-        background: `linear-gradient(to bottom right, ${SECONDARY_BG}, white, ${PRIMARY_COLOR}15)`,
-        color: TEXT_COLOR,
-      }}
-    >
-      {/* HERO SECTION */}
-      <section className="relative px-6 md:px-16 pt-32 pb-24 max-w-7xl mx-auto">
-        {/* Glows */}
-        <div
-          className="absolute top-20 right-10 w-80 h-80 rounded-full blur-3xl pointer-events-none"
-          style={{ background: `${PRIMARY_COLOR}25` }}
-        />
-        <div
-          className="absolute bottom-20 left-10 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-          style={{ background: "#6ee7b725" }}
-        />
+    <main className="relative min-h-screen pt-10">
+      {/* Ambient Background */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-50 rounded-full blur-[120px] pointer-events-none -z-10 opacity-60"></div>
+      <div className="absolute top-0 inset-x-0 h-[600px] bg-grid pointer-events-none -z-10"></div>
 
+      {/* HERO SECTION */}
+      <section className="relative px-6 md:px-16 pt-20 pb-24 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-16 relative z-10">
-          {/* --- LEFT --- */}
-          <div className="flex-1 text-center lg:text-left">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
-              style={{
-                backgroundColor: `${PRIMARY_COLOR}15`,
-                color: PRIMARY_COLOR,
-              }}
-            >
-              <Sparkles size={18} />
-              <span>Web Development Experts</span>
+          {/* Left Text */}
+          <div className="flex-1 text-center lg:text-left reveal-up">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-8 border border-indigo-200 bg-indigo-50 text-indigo-700 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+              <span className="text-xs font-semibold uppercase tracking-wide">
+                Web Development Experts
+              </span>
             </div>
 
-            <h1
-              className="text-5xl lg:text-7xl font-bold mb-6 leading-tight"
-              style={{ color: HEADING_COLOR }}
-            >
+            <h1 className="text-5xl lg:text-7xl font-semibold mb-6 tracking-tight leading-[1.1] text-neutral-900">
               Crafting{" "}
-              <span
-                style={{
-                  background: `linear-gradient(to right, ${PRIMARY_COLOR}, #10b981)`,
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Websites
-              </span>{" "}
+              <span className="relative inline-block px-2">
+                <span className="relative z-10 text-transparent bg-clip-text bg-linear-to-r from-indigo-600 via-purple-600 to-indigo-600 animate-gradient">
+                  Websites
+                </span>
+                <span className="absolute inset-0 bg-indigo-100/50 -skew-y-2 rounded-lg z-0 blur-sm mix-blend-multiply"></span>
+              </span>
+              <br className="hidden lg:block" />
               That Drive Growth
             </h1>
 
-            <p className="text-lg mb-10 max-w-xl mx-auto lg:mx-0 text-gray-600">
-              At{" "}
-              <span className="font-bold" style={{ color: PRIMARY_COLOR }}>
-                E Marketing Paradice
-              </span>
-              , we build high-performance, conversion-driven web experiences
-              tailored to your business goals.
+            <p className="text-lg mb-10 max-w-xl mx-auto lg:mx-0 text-neutral-500 leading-relaxed">
+              At <span className="text-neutral-900 font-medium">E Marketing Paradice</span>,
+              we fuse engineering precision with aesthetic excellence to build
+              high-performance web experiences.
             </p>
 
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 group"
-              style={{
-                background: `linear-gradient(to right, ${PRIMARY_COLOR}, #10b981)`,
-                boxShadow: `0 8px 25px ${PRIMARY_COLOR}40`,
-              }}
-            >
-              Get a Free Quote
-              <ArrowRight
-                size={20}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                href="#contact"
+                className="group h-11 px-8 rounded-full bg-neutral-900 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-neutral-800 transition shadow-lg"
+              >
+                Start Project
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
+              </a>
+
+              <a
+                href="#work"
+                className="h-11 px-8 rounded-full border border-neutral-200 bg-white text-neutral-700 text-sm font-medium flex items-center justify-center hover:bg-neutral-50 shadow-sm transition"
+              >
+                View Portfolio
+              </a>
+            </div>
           </div>
 
-          {/* --- RIGHT --- */}
-          <div className="flex-1 flex justify-center">
-            <div className="relative">
-              <div
-                className="absolute inset-0 rounded-3xl blur-2xl"
-                style={{
-                  background: `linear-gradient(to top right, ${PRIMARY_COLOR}40, #10b98130)`,
-                }}
-              />
-              <div className="relative w-96 h-72 rounded-3xl overflow-hidden shadow-2xl border border-white/30">
+          {/* Right Image */}
+          <div className="flex-1 w-full flex justify-center lg:justify-end reveal-up delay-200">
+            <div className="relative w-full max-w-lg aspect-4/3 group perspective-1000">
+              <div className="absolute -inset-4 bg-linear-to-tr from-indigo-200 via-purple-200 to-transparent rounded-4xl blur-3xl opacity-60 group-hover:opacity-80 transition duration-700"></div>
+
+              <div className="relative w-full h-full rounded-2xl overflow-hidden border border-neutral-200 shadow-2xl bg-white group-hover:rotate-y-2 group-hover:rotate-x-2 transition duration-700 ease-out transform-style-3d">
+                {/* Window Bar */}
+                <div className="absolute top-0 inset-x-0 h-8 bg-white/80 backdrop-blur-md border-b border-neutral-100 flex items-center px-4 gap-1.5 z-20">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                </div>
+
                 <Image
-                  src="https://images.unsplash.com/photo-1559028012-481c04fa702d?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080"
-                  alt="Web Development"
-                  fill
-                  className="object-cover"
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+                  alt="Code and Design"
+                  width={400}
+                  height={1000}
+                  className="object-cover w-full h-full opacity-90 group-hover:scale-105 transition duration-700"
                 />
               </div>
             </div>
@@ -129,159 +114,211 @@ export default function WebDevelopmentPage() {
       </section>
 
       {/* FEATURES */}
-      <section className="py-24 px-6 md:px-16" style={{ background: SECONDARY_BG }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2
-              className="text-4xl lg:text-5xl mb-4 font-semibold"
-              style={{ color: HEADING_COLOR }}
-            >
-              Why Choose Our Development
+      <section id="features" className="py-32 border-t border-neutral-100 bg-neutral-50/50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-2xl mb-20 reveal-up">
+            <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-neutral-900 mb-4">
+              Why Choose Our <br />
+              <span className="text-neutral-400">Development Stack.</span>
             </h2>
-            <p className="text-gray-600 text-xl max-w-2xl mx-auto">
-              Excellence in every line of code, from concept to completion
+            <p className="text-lg text-neutral-500">
+              Excellence in every line of code. We engineer digital assets that scale.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((item, i) => (
-              <div
-                key={i}
-                className="group p-8 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 border backdrop-blur-sm"
-                style={{
-                  background: "rgba(255,255,255,0.8)",
-                  borderColor: `${PRIMARY_COLOR}30`,
-                  boxShadow: "0 8px 25px rgba(0,0,0,0.05)",
-                }}
-              >
-                <div
-                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
-                  style={{
-                    background: `${PRIMARY_COLOR}20`,
-                  }}
-                >
-                  {item.icon}
-                </div>
-                <h3
-                  className="text-xl mb-3 font-semibold"
-                  style={{ color: HEADING_COLOR }}
-                >
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
+          {/* 3 Features */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <FeatureCard
+              icon={<Zap className="w-6 h-6" />}
+              color="indigo"
+              title="Performance First"
+              desc="Optimized architecture using Next.js and static generation for top-tier Core Web Vitals."
+              delay="delay-100"
+            />
+
+            <FeatureCard
+              icon={<Monitor className="w-6 h-6" />}
+              color="purple"
+              title="Responsive by Design"
+              desc="Fluid Tailwind layouts that look flawless on all devices."
+              delay="delay-200"
+            />
+
+            <FeatureCard
+              icon={<Rocket className="w-6 h-6" />}
+              color="emerald"
+              title="SEO-Optimized"
+              desc="Semantic HTML, proper meta tags & full accessibility compliance."
+              delay="delay-300"
+            />
           </div>
         </div>
       </section>
 
       {/* PROJECTS */}
-      <section className="py-24 px-6 md:px-16 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2
-            className="text-4xl lg:text-5xl mb-4 font-semibold"
-            style={{ color: HEADING_COLOR }}
-          >
-            Featured Projects
-          </h2>
-          <p className="text-gray-600 text-xl max-w-2xl mx-auto">
-            Real websites built for performance, aesthetics, and scalability
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {portfolioProjects.map((project, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
-              style={{
-                background: "rgba(255, 255, 255, 0.3)",
-                border: "1px solid rgba(255, 255, 255, 0.3)",
-                boxShadow: "0 8px 40px rgba(0, 0, 0, 0.06)",
-                backdropFilter: "blur(16px) saturate(180%)",
-                WebkitBackdropFilter: "blur(16px) saturate(180%)",
-              }}
-            >
-              {/* --- IMAGE --- */}
-              <div className="relative h-60 overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-white/40 via-white/20 to-transparent" />
-              </div>
-
-              {/* --- CONTENT --- */}
-              <div className="relative z-10 p-7">
-                <h3
-                  className={`text-2xl font-semibold mb-3 text-gray-900 group-hover:text-[${PRIMARY_COLOR}] transition-colors`}
-                >
-                  {project.title}
-                </h3>
-                <p className="text-gray-700/90 mb-6 leading-relaxed line-clamp-2">
-                  {project.description}
-                </p>
-
-                <Link
-                  href={`/services/web-development/projects/${project.slug}`}
-                  className={`relative inline-flex items-center gap-2 font-semibold text-[${PRIMARY_COLOR}] group transition-all duration-300`}
-                >
-                  <span
-                    className={`relative after:absolute after:-bottom-0.5 after:left-0 after:w-0 after:h-0.5 after:bg-[${PRIMARY_COLOR}] after:transition-all after:duration-300 group-hover:after:w-full`}
-                  >
-                    View Project
-                  </span>
-                  <ArrowRight
-                    size={18}
-                    className="group-hover:translate-x-1 transition-transform duration-300"
-                  />
-                </Link>
-              </div>
-
-              {/* --- GLASS HIGHLIGHT BORDER --- */}
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-linear-to-br from-emerald-300/20 via-transparent to-emerald-400/20 blur-md" />
-
-              {/* --- SUBTLE TOP LIGHT --- */}
-              <div className="absolute inset-x-0 top-0 h-[35%] bg-linear-to-b from-white/60 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition duration-700 pointer-events-none" />
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      <ProjectsSection />
 
       {/* CTA */}
       <section
-        className="relative overflow-hidden py-24 px-6 md:px-16 text-white"
-        style={{
-          background: `linear-gradient(to bottom right, ${PRIMARY_COLOR}, #10b981)`,
-        }}
+        id="contact"
+        className="py-32 relative overflow-hidden border-t border-neutral-200 bg-neutral-50"
       >
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl lg:text-6xl mb-6 font-bold">
-            Ready to Build Something Exceptional?
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-linear-to-r from-indigo-200/40 via-purple-200/40 to-indigo-200/40 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center reveal-up">
+          <h2 className="text-4xl md:text-6xl font-semibold text-neutral-900 mb-8">
+            Ready to craft your vision?
           </h2>
-          <p className="text-xl lg:text-2xl mb-12 opacity-90">
-            Let’s collaborate to create a high-performance website that converts
-            visitors into customers.
+          <p className="text-lg text-neutral-500 mb-10 max-w-xl mx-auto">
+            Transform your digital presence with a website that converts.
           </p>
 
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-white rounded-full hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-xl group"
-            style={{ color: PRIMARY_COLOR }}
-          >
-            Start Your Project
-            <ArrowRight
-              size={22}
-              className="group-hover:translate-x-1 transition-transform"
-            />
-          </Link>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="#"
+              className="h-12 px-10 rounded-full bg-neutral-900 text-white text-sm font-medium hover:scale-105 transition shadow-xl flex items-center justify-center"
+            >
+              Get Started
+            </a>
+            <a
+              href="#"
+              className="h-12 px-10 rounded-full border border-neutral-200 bg-white text-neutral-900 text-sm font-medium hover:bg-neutral-50 shadow-sm flex items-center justify-center"
+            >
+              Contact Sales
+            </a>
+          </div>
         </div>
       </section>
+
+      {/* FOOTER */}
+      <footer className="py-8 border-t border-neutral-200 bg-white">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-neutral-400">
+            © 2024 E Marketing Paradice. All rights reserved.
+          </p>
+
+          <div className="flex gap-6">
+            <FooterIcon icon={<Twitter className="w-4 h-4" />} />
+            <FooterIcon icon={<Github className="w-4 h-4" />} />
+            <FooterIcon icon={<Linkedin className="w-4 h-4" />} />
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
+
+/* ---------------- COMPONENTS ---------------- */
+
+const FeatureCard = ({
+  icon,
+  title,
+  desc,
+  color,
+  delay,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+  color: "indigo" | "purple" | "emerald";
+  delay?: string;
+}) => (
+  <div
+    className={`group relative p-8 rounded-2xl border border-neutral-200 bg-white hover:border-${color}-200 hover:shadow-xl 5 transition-all duration-300 overflow-hidden reveal-up ${delay}`}
+  >
+    <div
+      className={`w-12 h-12 rounded-lg bg-${color}-50 border border-${color}-100 flex items-center justify-center text-${color}-600 group-hover:scale-110 group-hover:bg-${color}-100 transition-all`}
+    >
+      {icon}
+    </div>
+
+    <h3 className="text-lg font-semibold text-neutral-900 mb-3">{title}</h3>
+    <p className="text-sm text-neutral-500 leading-relaxed">{desc}</p>
+  </div>
+);
+
+const FooterIcon = ({ icon }: { icon: React.ReactNode }) => (
+  <a className="text-neutral-400 hover:text-neutral-900 transition-colors">{icon}</a>
+);
+
+const ProjectsSection = () => (
+  <section id="work" className="py-32 px-6 md:px-16 max-w-7xl mx-auto">
+    <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal-up">
+      <div>
+        <h2 className="text-3xl md:text-5xl font-medium text-neutral-900 mb-4">
+          Featured Projects
+        </h2>
+        <p className="text-lg text-neutral-500 max-w-xl">
+          Real-world applications built for scalability and aesthetics.
+        </p>
+      </div>
+
+      <a className="text-sm font-medium text-neutral-900 border-b border-neutral-200 pb-1 hover:border-neutral-900 transition">
+        View All Work
+      </a>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {portfolioProjects.map((item, i) => (
+        <ProjectCard
+          key={i}
+          tag="SaaS"
+          tagColor="indigo"
+          title={item.title}
+          desc={item.description}
+          img={item.image}
+          page_links={item.page_link}
+          delay="delay-100"
+        />
+      ))}
+    </div>
+  </section>
+);
+
+const ProjectCard = ({
+  tag,
+  tagColor,
+  title,
+  desc,
+  img,
+  delay,
+  page_links,
+}: {
+  tag: string;
+  tagColor: "indigo" | "emerald" | "amber";
+  title: string;
+  desc: string;
+  img: string;
+  delay?: string;
+  page_links: string;
+}) => (
+  <div
+    className={`group relative rounded-2xl border border-neutral-200 bg-white overflow-hidden hover:-translate-y-2 transition-all duration-500  reveal-up ${delay}`}
+  >
+    <div className="relative h-56 overflow-hidden bg-neutral-100">
+      <Image
+        src={img}
+        alt={title}
+        width={400}
+        height={10000}
+        className="object-cover w-full h-full group-hover:scale-105 transition duration-700"
+      />
+    </div>
+
+    <div className="p-6">
+      <span
+        className={`text-[10px] uppercase tracking-wider font-semibold text-${tagColor}-700 border border-${tagColor}-200 px-2 py-0.5 rounded-full bg-${tagColor}-50`}
+      >
+        {tag}
+      </span>
+
+      <h3 className="text-xl font-semibold text-neutral-900 mt-3">{title}</h3>
+      <p className="text-sm text-neutral-500 mb-6 line-clamp-2">{desc}</p>
+
+      <Link href={page_links} className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 hover:text-indigo-600">
+        View Case Study <ArrowRight className="w-4 h-4" />
+      </Link>
+    </div>
+  </div>
+);
+

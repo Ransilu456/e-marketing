@@ -1,62 +1,52 @@
 "use client";
-import { motion } from "framer-motion";
 
-export default function WhyChooseUS() {
+export default function Studio() {
   return (
-    <section className="relative flex flex-col items-center justify-center text-center py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white text-black">
-      {/* --- SECTION TITLE --- */}
+       <section id="studio" className="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <div className="absolute top-10 left-10 w-96 h-96 bg-indigo-600 rounded-full blur-[120px]"></div>
+            <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-600 rounded-full blur-[120px]"></div>
+        </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4">
-        <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="section-header-main text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 md:mb-6"
-      >
-        Why
-      </motion.h1>
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="section-header text-secondary-text text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 md:mb-6"
-      >
-         Choose us
-      </motion.h1>
-        <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="section-header-main text-secondary-text text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 md:mb-6"
-      >
-         ?
-      </motion.h1>
-      </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="grid lg:grid-cols-12 gap-12">
+                <div className="lg:col-span-5">
+                    <h2 className="text-4xl md:text-5xl font-serif font-medium tracking-tight mb-6">The Paradice Method</h2>
+                    <p className="text-slate-400 text-lg leading-relaxed mb-10">
+                        Excellence isn&apos;t an accident. It&apos;s an engineered outcome. We follow a rigorous cycle of discovery, development, and optimization.
+                    </p>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="glass-dark p-6 rounded-2xl">
+                            <span className="block text-3xl font-bold text-white mb-1">50+</span>
+                            <span className="text-xs text-slate-400 uppercase tracking-wider">Products Shipped</span>
+                        </div>
+                        <div className="glass-dark p-6 rounded-2xl">
+                            <span className="block text-3xl font-bold text-indigo-400 mb-1">$12M</span>
+                            <span className="text-xs text-slate-400 uppercase tracking-wider">Client Revenue</span>
+                        </div>
+                    </div>
+                </div>
 
-      <motion.div
-        initial={{ width: 0 }}
-        animate={{ width: "80px" }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="h-1 sm:h-[3px] bg-secondary-text mb-6 sm:mb-8"
-      ></motion.div>
-
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="max-w-2xl sm:max-w-3xl text-base sm:text-lg md:text-xl lg:text-xl text-primary-text font-light mb-4 sm:mb-6 leading-relaxed px-2"
-      >
-       At E-Marketing Paradice, we believe great results come from passion, precision, and trust. From concept to completion, we&apos;ve successfully delivered every single project — on time, on budget, and beyond expectations. Here&apos;s why our clients choose us again and again.
-      </motion.p>
-
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="max-w-2xl sm:max-w-3xl text-base sm:text-lg md:text-xl lg:text-xl text-primary-text font-light italic leading-relaxed px-2"
-      >
-       &quot; We don&apos;t just build projects — we build quality, reliability, and long-term trust. &quot;
-      </motion.p>
+                <div className="lg:col-span-7 flex flex-col justify-center space-y-8 pl-4 lg:pl-12 border-l border-slate-800">
+                    <div className="relative pl-8 group cursor-default">
+                        <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-indigo-500 transition-colors ring-4 ring-slate-900"></div>
+                        <h3 className="text-xl font-medium text-white mb-2 group-hover:text-indigo-400 transition-colors">1. Discovery &amp; Architecture</h3>
+                        <p className="text-slate-400 text-sm">We map out the data schema, user flows, and technical requirements before writing a line of code.</p>
+                    </div>
+                    <div className="relative pl-8 group cursor-default">
+                        <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-indigo-500 transition-colors ring-4 ring-slate-900"></div>
+                        <h3 className="text-xl font-medium text-white mb-2 group-hover:text-indigo-400 transition-colors">2. Agile Development</h3>
+                        <p className="text-slate-400 text-sm">Bi-weekly sprints with deploy previews. You see progress in real-time, not just at the finish line.</p>
+                    </div>
+                    <div className="relative pl-8 group cursor-default">
+                        <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-indigo-500 transition-colors ring-4 ring-slate-900"></div>
+                        <h3 className="text-xl font-medium text-white mb-2 group-hover:text-indigo-400 transition-colors">3. Launch &amp; Scale</h3>
+                        <p className="text-slate-400 text-sm">Perfect lighthouse scores, analytics integration, and continuous deployment for rapid iteration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
   );
 }

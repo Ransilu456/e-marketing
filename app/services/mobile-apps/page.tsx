@@ -5,357 +5,269 @@ import Image from "next/image";
 import {
   Smartphone,
   Layers,
-  Cloud,
   Shield,
   Code,
   Rocket,
-  ArrowRight,
-  Sparkles,
-  Zap,
+  ChartBar,
+  Quote,
+  ArrowUpRight,
 } from "lucide-react";
 import { mobileProjects } from "./projects";
 
-const PRIMARY_ACCENT_COLOR = "#4AEA45";
-const SECONDARY_ACCENT_COLOR = "#34C930";
-const HEADING_COLOR = "#000000";
-const TEXT_COLOR = "#374151";
-
 const features = [
   {
-    icon: <Smartphone style={{ color: PRIMARY_ACCENT_COLOR }} size={32} />,
+    icon: <Smartphone size={22} />,
     title: "Cross-Platform Excellence",
-    desc: "Seamless apps for Android and iOS built with Flutter and React Native.",
+    desc: "Single codebase efficiency with React Native and Flutter without compromising the native feel.",
   },
   {
-    icon: <Layers style={{ color: PRIMARY_ACCENT_COLOR }} size={32} />,
+    icon: <Layers size={22} />,
     title: "Modern UI/UX Design",
-    desc: "Elegant and functional designs that captivate users and drive engagement.",
+    desc: "Scalable UI component libraries ensuring consistency across iOS, Android, and Web.",
   },
   {
-    icon: <Cloud style={{ color: PRIMARY_ACCENT_COLOR }} size={32} />,
-    title: "Cloud Integration",
-    desc: "Real-time syncing, scalable APIs, and seamless cloud data connections.",
-  },
-  {
-    icon: <Shield style={{ color: PRIMARY_ACCENT_COLOR }} size={32} />,
+    icon: <Shield size={22} />,
     title: "Enterprise Security",
-    desc: "Data encryption, secure authentication, and compliance-ready apps.",
+    desc: "Biometric auth, encrypted local storage, and secure API communication standards.",
   },
   {
-    icon: <Code style={{ color: PRIMARY_ACCENT_COLOR }} size={32} />,
+    icon: <Code size={22} />,
     title: "Clean, Efficient Code",
-    desc: "Fast, maintainable, and scalable code for future-ready applications.",
+    desc: "Optimized rendering engines, 60fps animations, and sub-second load times.",
   },
   {
-    icon: <Rocket style={{ color: PRIMARY_ACCENT_COLOR }} size={32} />,
-    title: "Launch & Maintenance",
-    desc: "We handle deployment, updates, and post-launch optimization.",
+    icon: <Rocket size={22} />,
+    title: "Offline First",
+    desc: "Robust data synchronization allowing full app functionality even without internet connection.",
   },
+  {
+    icon: <ChartBar size={22} />,
+    title: "Analytics & Growth",
+    desc: "Integrated tracking and attribution tools to measure user engagement and ROI.",
+  }
+
 ];
 
-export default function page() {
-  return (
-    <main
-      className="min-h-screen"
-      style={{
-        background: `linear-gradient(to bottom right, #f9fafb, white, ${PRIMARY_ACCENT_COLOR}10)`,
-        color: TEXT_COLOR,
-      }}
-    >
-      {/* HERO SECTION */}
-      <section className="relative px-6 md:px-16 pt-32 pb-24 max-w-7xl mx-auto">
-        <div
-          className="absolute top-20 right-10 w-80 h-80 rounded-full blur-3xl pointer-events-none opacity-25"
-          style={{ background: `${PRIMARY_ACCENT_COLOR}50` }}
-        />
-        <div
-          className="absolute bottom-20 left-10 w-96 h-96 rounded-full blur-3xl pointer-events-none opacity-20"
-          style={{ background: `${SECONDARY_ACCENT_COLOR}50` }}
-        />
 
-        <div className="flex flex-col lg:flex-row items-center gap-16 relative z-10">
-          <div className="flex-1 text-center lg:text-left">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
-              style={{
-                backgroundColor: `${PRIMARY_ACCENT_COLOR}15`,
-                color: PRIMARY_ACCENT_COLOR,
-              }}
-            >
-              <Sparkles size={18} />
-              <span>Mobile Development Experts</span>
+function Hero() {
+  return (
+    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-grid mask-[linear-gradient(to_bottom,white,transparent)]"></div>
+      <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-red-100/40 rounded-full blur-[100px] opacity-50"></div>
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+
+          <div className="flex-1 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-100 text-red-600 text-xs font-medium mb-8 animate-fade-up">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+              </span>
+              Accepting new enterprise projects
             </div>
 
-            <h1
-              className="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight"
-              style={{ color: HEADING_COLOR }}
-            >
-              Building{" "}
-              <span
-                style={{
-                  background: `linear-gradient(to right, ${PRIMARY_ACCENT_COLOR}, ${SECONDARY_ACCENT_COLOR})`,
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Mobile Apps
-              </span>{" "}
-              That Define Categories
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tighter-custom text-gray-900 leading-[1.1] mb-8 animate-fade-up delay-100">
+              Crafting world-className <br />
+              <span className="text-gradient">mobile experiences.</span>
             </h1>
 
-            <p className="text-gray-600 text-xl mb-10 max-w-xl mx-auto lg:mx-0">
-              We transform ambitious ideas into high-performing mobile
-              experiences that inspire users and scale businesses.
+            <p className="text-xl text-gray-500 leading-relaxed mb-10 max-w-lg animate-fade-up delay-200">
+              We build high-performance iOS and Android applications for fast-growing startups and visionary enterprises.
             </p>
 
-            <Link
-              href="/#contact"
-              className="inline-flex items-center gap-3 px-10 py-5 text-lg text-white rounded-full font-bold transition-all duration-300 hover:scale-[1.05] group"
-              style={{
-                background: `linear-gradient(to right, ${PRIMARY_ACCENT_COLOR}, ${SECONDARY_ACCENT_COLOR})`,
-                boxShadow: `0 12px 30px ${PRIMARY_ACCENT_COLOR}50`,
-              }}
-            >
-              Start Your Project Now
-              <ArrowRight
-                size={20}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-up delay-300">
+              <a href="#contact" className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-white transition-all bg-red-600 rounded-full hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/20 active:scale-95">
+                Start Project
+                <i data-lucide="arrow-right" className="w-4 h-4 ml-2"></i>
+              </a>
+              <a href="#work" className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-gray-600 transition-all bg-white border border-gray-200 rounded-full hover:bg-gray-50 hover:border-gray-300">
+                View Case Studies
+              </a>
+            </div>
+
+            <div className="mt-12 flex items-center gap-4 text-sm text-gray-400 animate-fade-up delay-300">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-gray-100 border-2 border-white"></div>
+                <div className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white"></div>
+                <div className="w-8 h-8 rounded-full bg-gray-300 border-2 border-white"></div>
+              </div>
+              <p>Trusted by 50+ innovative founders</p>
+            </div>
           </div>
 
-          <div className="flex-1 flex justify-center pt-10 lg:pt-0">
-            <div className="relative w-80 h-[600px]">
-              <div
-                className="absolute inset-0 bg-white/30 backdrop-blur-2xl rounded-[3rem] border border-white/50 shadow-2xl flex items-center justify-center p-3"
-                style={{
-                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.15)',
-                }}
-              >
-                {mobileProjects[0]?.image ? (
-                  <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-gray-100">
-                    <Image
-                      src={mobileProjects[0].image}
-                      alt="Mobile app screen mockup"
-                      fill
-                      className="object-cover"
-                      priority
-                    />
+          <div className="flex-1 w-full flex justify-center lg:justify-end animate-fade-up delay-200">
+            <div className="relative w-[300px] h-[600px] bg-gray-900 rounded-[3rem] border-8 border-gray-900 shadow-2xl overflow-hidden ring-1 ring-gray-900/10">
+              <div className="absolute inset-0 bg-white flex flex-col">
+                <div className="h-14 bg-white border-b border-gray-100 flex items-center justify-between px-6 pt-2">
+                  <div className="w-4 h-4 rounded-full bg-gray-100"></div>
+                  <div className="w-20 h-2 rounded-full bg-gray-100"></div>
+                </div>
+                <div className="p-6 space-y-6 flex-1 bg-gray-50/50">
+                  <div className="w-full aspect-video rounded-2xl bg-linear-to-br from-red-500 to-red-600 shadow-lg shadow-red-500/20"></div>
+                  <div className="space-y-3">
+                    <div className="h-4 w-3/4 rounded bg-gray-200"></div>
+                    <div className="h-4 w-1/2 rounded bg-gray-200"></div>
                   </div>
-                ) : (
-                  <Smartphone size={120} style={{ color: `${PRIMARY_ACCENT_COLOR}30` }} />
-                )}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="aspect-square rounded-2xl bg-white border border-gray-100 shadow-sm"></div>
+                    <div className="aspect-square rounded-2xl bg-white border border-gray-100 shadow-sm"></div>
+                  </div>
+                </div>
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[90%] bg-white/90 backdrop-blur-md border border-gray-200/50 p-4 rounded-2xl shadow-xl flex items-center justify-between">
+                  <div className="flex gap-3">
+                    <div className="w-10 h-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center">
+                      <i data-lucide="zap" className="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-gray-900">Performance</div>
+                      <div className="text-[10px] text-gray-500">99.9% uptime</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              <div className="absolute -top-10 -right-10 w-40 h-40 rounded-3xl bg-white p-4 shadow-xl rotate-6 group-hover:rotate-0 transition-transform duration-500"
-                style={{ border: `1px solid ${PRIMARY_ACCENT_COLOR}30` }}>
-                <Zap size={36} style={{ color: PRIMARY_ACCENT_COLOR }} className="mb-2" />
-                <p className="text-sm font-bold text-gray-800">High Speed</p>
-                <p className="text-xs text-gray-500">Sub-second loads.</p>
-              </div>
-
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-
-      {/* FEATURES */}
-      <section className="py-24 px-6 md:px-16 bg-white/60 backdrop-blur-md border-t border-white/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2
-              className="text-4xl lg:text-5xl mb-4 font-extrabold"
-              style={{ color: HEADING_COLOR }}
-            >
-              Our Mobile Development Advantage
-            </h2>
-            <p className="text-gray-600 text-xl max-w-2xl mx-auto">
-              Cutting-edge technology meets exceptional design for market-leading results.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {features.map((item, i) => (
-              <div
-                key={i}
-                className="group p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                style={{
-                  background: "rgba(255,255,255,0.7)",
-                  border: `1px solid ${PRIMARY_ACCENT_COLOR}25`,
-                  boxShadow: "0 4px 15px rgba(0,0,0,0.04)",
-                  backdropFilter: "blur(12px)",
-                }}
-              >
-                <div
-                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform"
-                  style={{
-                    background: `${PRIMARY_ACCENT_COLOR}15`,
-                  }}
-                >
-                  {item.icon}
-                </div>
-                <h3
-                  className="text-xl mb-3 font-bold"
-                  style={{ color: HEADING_COLOR }}
-                >
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* TRUST/TESTIMONIAL SECTION */}
-      <section className="py-16 px-6 md:px-16 bg-white">
-        <div className="max-w-7xl mx-auto text-center border-y border-gray-200 py-10">
-          <blockquote className="max-w-4xl mx-auto">
-            <p className="text-2xl font-medium italic text-gray-700">
-              “The team delivered a phenomenal mobile app—fast, secure, and incredibly user-friendly. It immediately streamlined our operations and boosted user retention by 30%.”
-            </p>
-            <footer className="mt-6 text-lg font-semibold text-gray-800">
-              — Jane Doe, CEO of FitPulse
-            </footer>
-          </blockquote>
-        </div>
-      </section>
-
-      {/* --- */}
-
-      {/* PROJECTS */}
-      <section className="py-24 px-6 md:px-16 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2
-            className="text-4xl lg:text-5xl mb-4 font-extrabold"
-            style={{ color: HEADING_COLOR }}
-          >
-            Featured Mobile Projects
+function Features() {
+  return (
+    <section className="py-24 bg-white relative">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-3xl mb-16">
+          <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 mb-4">
+            Engineering precision meets <br />
+            <span className="text-gray-400">user-centric design.</span>
           </h2>
-          <p className="text-gray-600 text-xl max-w-2xl mx-auto">
-            Real-world apps designed for performance and user delight
-          </p>
+          <p className="text-lg text-gray-500">We don&apos;t just write code; we architect scalable mobile ecosystems tailored to your business goals.</p>
         </div>
 
-
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {mobileProjects.map((project, i) => (
-            <div
-              key={i}
-
-              className="group relative rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
-              style={{
-                background: "rgba(255, 255, 255, 0.3)",
-                border: `1px solid ${PRIMARY_ACCENT_COLOR}30`,
-                boxShadow: "0 8px 40px rgba(0, 0, 0, 0.06)",
-                backdropFilter: "blur(16px) saturate(180%)",
-                WebkitBackdropFilter: "blur(16px) saturate(180%)",
-              }}
-            >
-              {/* --- IMAGE --- */}
-              <div className="relative h-60 overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-white/40 via-white/20 to-transparent" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((item, i) => (
+            <div key={i} className="group p-8 rounded-2xl border border-gray-200 bg-white hover:border-red-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-red-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                {item.icon}
               </div>
-
-              {/* --- CONTENT --- */}
-              <div className="relative z-10 p-7">
-                <h3
-                  className="text-2xl font-semibold mb-3 transition-colors"
-                  style={{
-                    color: HEADING_COLOR,
-                  }}
-                  onMouseOver={(e) => (e.currentTarget.style.color = PRIMARY_ACCENT_COLOR)}
-                  onMouseOut={(e) => (e.currentTarget.style.color = HEADING_COLOR)}
-                >
-                  {project.title}
-                </h3>
-                <p className="text-gray-700/90 mb-6 leading-relaxed line-clamp-2">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.slice(0, 3).map((tech, idx) => (
-                    <span key={idx} className="text-xs font-medium px-3 py-1 rounded-full border"
-                      style={{
-                        backgroundColor: `transparent`,
-                        color: PRIMARY_ACCENT_COLOR,
-                        borderColor: `${PRIMARY_ACCENT_COLOR}50`
-                      }}>
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-
-                <Link
-                  href={`/services/mobile-apps/projects/${project.slug}`}
-                  className="relative inline-flex items-center gap-2 font-semibold group transition-all duration-300"
-                  style={{ color: PRIMARY_ACCENT_COLOR }}
-                >
-                  <span
-                    className="relative after:absolute after:-bottom-0.5 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 group-hover:after:w-full"
-                  >
-                    View Project
-                  </span>
-                  <ArrowRight
-                    size={18}
-                    className="group-hover:translate-x-1 transition-transform duration-300"
-                  />
-                </Link>
-              </div>
-
-              <div
-                className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none blur-md"
-                style={{
-                  background: `linear-gradient(to bottom right, ${PRIMARY_ACCENT_COLOR}20, transparent, ${PRIMARY_ACCENT_COLOR}20)`
-                }}
-              />
-              <div className="absolute inset-x-0 top-0 h-[35%] bg-linear-to-b from-white/60 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition duration-700 pointer-events-none" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
 
+function Projects() {
+  return (
+    <section id="work" className="py-24 max-w-7xl mx-auto px-6">
+      <div className="container mx-auto px-4 py-12">
+        <h2 className="text-4xl font-extrabold text-gray-900 mb-10 border-b-4 border-red-600 inline-block pr-8 pb-2">
+          Mobile Projects
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+          {mobileProjects.map((project, i) => (
+            <div
+              className="group block rounded-xl overflow-hidden shadow-lg/5 hover:shadow-2xl/5 transition-all duration-500 transform hover:-translate-y-2 bg-white border border-gray-100"
+              key={i}
+            >
+              <Link href={project.link} className="block">
+                <div className="relative aspect-4/3 w-full overflow-hidden bg-gray-50">
+                  <Image
+                    src={project.image}
+                    width={600}
+                    height={450}
+                    alt={project.description}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    priority={i < 3}
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-gray-900/10 to-transparent transition-opacity duration-500"></div>
+                </div>
+
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
+                        {project.title}
+                      </h3>
+
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.slice(0, 3).map((tech, j) => (
+                          <span key={j} className="text-xs font-medium text-red-700 bg-red-100 px-3 py-1 rounded-full whitespace-nowrap">
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                            +{project.technologies.length - 3} more
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="shrink-0 ml-4">
+                      <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 transition-all group-hover:bg-red-600 group-hover:text-white border border-red-50">
+                        <ArrowUpRight className="w-5 h-5 transform group-hover:rotate-45 transition-transform duration-300" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  );
+}
+
+export default function page() {
+  return (
+    <main className="min-h-screen">
+      <Hero />
+      <Features />
+      <section className="py-20 bg-gray-50 border-y border-gray-200">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="mb-8 flex justify-center text-red-600">
+            <Quote className="w-10 h-10 fill-current opacity-20" size={10} />
+          </div>
+          <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 leading-tight tracking-tight mb-8">
+            &quot;They didn&apos;t just build an app; they completely transformed our digital customer journey. The attention to detail in animations and haptics is unmatched.&quot;
+          </blockquote>
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
+              <Image src="https://ui-avatars.com/api/?name=Alex+M&amp;background=random&amp;color=fff" unoptimized alt="Client" className="w-full h-full object-cover" width={400} height={1000} />
+            </div>
+            <div className="text-left">
+              <div className="font-semibold text-gray-900">Alex Morrison</div>
+              <div className="text-sm text-gray-500">CTO, FinTech Global</div>
+            </div>
+          </div>
+        </div>
       </section>
+      <Projects />
+      <section id="contact" className="py-24 px-6">
+        <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden relative bg-gray-900 text-white shadow-2xl">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-600/30 rounded-full blur-[100px] pointer-events-none"></div>
 
-      {/* --- */}
+          <div className="relative z-10 px-8 py-16 md:p-20 text-center">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-6">Ready to build something <span className="text-red-500">iconic?</span></h2>
+            <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">From MVP to enterprise scaling, our mobile experts are ready to turn your concept into a market-leading application.</p>
 
-      {/* FINAL CTA */}
-      <section
-        className="relative overflow-hidden py-24 px-6 md:px-16 text-white"
-        style={{
-          // CTA background gradient uses the new accent colors
-          background: `linear-gradient(to bottom right, ${PRIMARY_ACCENT_COLOR}, ${SECONDARY_ACCENT_COLOR})`,
-        }}
-      >
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl lg:text-6xl mb-6 font-extrabold">
-            Ready to Launch Your Vision?
-          </h2>
-          <p className="text-xl lg:text-2xl mb-12 opacity-95">
-            Let’s build a stunning, feature-rich mobile app tailored to your
-            business goals.
-          </p>
-          <Link
-            href="/#contact"
-            // CTA button styles updated: White button, Green text
-            className="inline-flex items-center gap-3 px-12 py-6 bg-white text-xl rounded-full hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-2xl group font-bold"
-            style={{ color: PRIMARY_ACCENT_COLOR }}
-          >
-            Request a Free Quote
-            <ArrowRight
-              size={24}
-              className="group-hover:translate-x-1 transition-transform"
-            />
-          </Link>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <a href="#" className="w-full sm:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-full font-semibold transition-all shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
+                Book a Free Strategy Call
+              </a>
+              <a href="mailto:hello@mobidev.com" className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/10 rounded-full font-semibold transition-all">
+                Email Us
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>

@@ -4,6 +4,7 @@ export interface Project {
   image: string;
   slug: string;
   features: string[];
+  link: string;
   technologies: string[];
 }
 
@@ -20,6 +21,7 @@ export const mobileProjects: Project[] = [
       "Integration with smartwatches",
       "Cloud sync across devices",
     ],
+    link: "/services/mobile-apps/projects/fitpulse-health-fitness",
     technologies: ["Flutter", "Firebase", "Node.js", "TensorFlow Lite"],
   },
   {
@@ -34,6 +36,7 @@ export const mobileProjects: Project[] = [
       "Push notifications for offers",
       "Integrated delivery tracking",
     ],
+    link: "/services/mobile-apps/projects/shopease-ecommerce",
     technologies: ["React Native", "Stripe", "MongoDB", "Express.js"],
   },
   {
@@ -48,6 +51,7 @@ export const mobileProjects: Project[] = [
       "Admin dashboard integration",
       "Real-time chat between users and drivers",
     ],
+    link: "/services/mobile-apps/projects/foodico-delivery",
     technologies: ["Flutter", "Google Maps API", "Firebase", "Node.js"],
   },
 ];
