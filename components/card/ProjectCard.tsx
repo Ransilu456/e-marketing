@@ -11,9 +11,10 @@ interface ProjectCardProps {
   image: string;
   description: string;
   tags?: string[];
+  href?: string;
 }
 
-const ProjectCard: FC<ProjectCardProps & { href?: string }> = ({
+const ProjectCard: FC<ProjectCardProps> = ({
   title,
   category,
   result,
@@ -25,60 +26,52 @@ const ProjectCard: FC<ProjectCardProps & { href?: string }> = ({
   return (
     <a
       href={href}
-      tabIndex={0}
-      className="group relative block overflow-hidden rounded-3xl shadow-xl  bg-white/80 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl focus-visible:ring-4 focus-visible:ring-accent/40 focus-visible:outline-none cursor-pointer hover-card"
+      className="group block overflow-hidden rounded-3xl bg-white shadow-md border border-gray-100 transition-all hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
       role="article"
       aria-label={`View project: ${title}`}
-      style={{ boxShadow: '0 8px 32px 0 rgba(60, 80, 180, 0.10), 0 1.5px 8px 0 rgba(80, 120, 255, 0.08)' }}
     >
       {/* Image Section */}
-      <div className="relative overflow-hidden aspect-video bg-slate-100">
+      <div className="relative w-full aspect-video bg-gray-100 overflow-hidden rounded-t-3xl">
         <ImageWithFallback
           src={image}
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700"
+          className="w-full h-full object-cover"
         />
-        {/* Overlay Badge */}
-        <div className="absolute top-3 left-3 px-3 py-1 bg-accent text-white text-xs font-bold rounded-full shadow-md drop-shadow-sm tracking-wide glass animate-fade-up">
+        <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold text-white bg-(--color-primary)">
           {category}
-        </div>
+        </span>
       </div>
 
       {/* Content Section */}
-      <div className="p-6 space-y-4">
-        <div>
-          <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-accent transition-colors mb-1 line-clamp-1 animate-fade-up delay-100">{title}</h3>
-          <p className="text-base text-slate-600 line-clamp-2 leading-relaxed animate-fade-up delay-200">{description}</p>
-        </div>
+      <div className="p-6 flex flex-col gap-3">
+        <h3 className="text-xl font-bold text-gray-900 line-clamp-2">{title}</h3>
+        <p className="text-gray-600 text-sm line-clamp-3">{description}</p>
 
-        {/* Tags */}
         {tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 max-w-full overflow-hidden animate-fade-up delay-300">
+          <div className="flex flex-wrap gap-2 mt-2">
             {tags.slice(0, 3).map((tag, i) => (
-              <span key={i} className="text-xs px-2 py-1 bg-accent/10 text-accent font-semibold rounded-full truncate max-w-[7rem] border border-accent/10 animate-scaleIn">{tag}</span>
+              <span
+                key={i}
+                className="text-xs px-2 py-1 rounded-full border border-(--color-primary) bg-(--color-primary)/10 text-(--color-primary) font-medium"
+              >
+                {tag}
+              </span>
             ))}
             {tags.length > 3 && (
-              <span className="text-xs text-accent/60 font-semibold animate-fade-up">+{tags.length - 3} more</span>
+              <span className="text-xs text-gray-500 font-medium">+{tags.length - 3} more</span>
             )}
           </div>
         )}
 
         {/* Footer */}
-        <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-2">
+        <div className="mt-4 flex justify-between items-center border-t border-gray-100 pt-3">
           <div>
-            <p className="text-xs text-muted font-medium">Result</p>
-            <p className="text-base font-bold text-slate-900">{result}</p>
+            <p className="text-xs text-gray-500 font-medium">Result</p>
+            <p className="text-base font-bold text-gray-900">{result}</p>
           </div>
-          <span
-            className="relative group/cta"
-            tabIndex={-1}
-          >
-            <span className="absolute -top-10 left-1/2 -translate-x-1/2 scale-0 group-hover/cta:scale-100 group-focus/cta:scale-100 transition-transform bg-accent text-white text-xs rounded px-3 py-1 pointer-events-none z-20 shadow-lg animate-fade-up" role="tooltip">
-              View project
-            </span>
-            <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-accent text-white hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all group-hover/cta:scale-110 group-hover/cta:shadow-lg animate-scaleIn">
-              <ArrowUpRight size={20} className="group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5 transition-transform" />
-            </span>
+
+          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-(--color-primary) text-white hover:bg-(--color-primary)/90 transition-colors">
+            <ArrowUpRight size={18} />
           </span>
         </div>
       </div>
@@ -87,4 +80,3 @@ const ProjectCard: FC<ProjectCardProps & { href?: string }> = ({
 };
 
 export default ProjectCard;
-

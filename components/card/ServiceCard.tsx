@@ -1,6 +1,5 @@
 ﻿"use client";
 
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Sparkles } from "lucide-react";
 import Image from "next/image";
@@ -39,7 +38,7 @@ export default function ServiceCard({
       <div className="absolute inset-0 pointer-events-none rounded-3xl border-2 border-transparent group-hover:border-accent/40 group-focus-visible:border-accent/60 transition-all duration-300" style={{ zIndex: 2 }} />
 
       {/* Image Section */}
-      <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-indigo-100 via-white to-slate-100">
+      <div className="relative aspect-video overflow-hidden bg-linear-to-br from-indigo-100 via-white to-slate-100">
         {image ? (
           <Image
             src={image}
@@ -50,7 +49,7 @@ export default function ServiceCard({
             style={{ zIndex: 1 }}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-slate-400 bg-gradient-to-br from-indigo-100 via-white to-slate-200 animate-pulse">
+          <div className="w-full h-full flex items-center justify-center text-slate-400 bg-linear-to-br from-indigo-100 via-white to-slate-200 animate-pulse">
             <div className="text-center">
               <div className="w-14 h-14 bg-white/60 rounded-xl mx-auto mb-2 flex items-center justify-center shadow-inner animate-bounce">
                 <Sparkles size={28} className="opacity-40 text-accent animate-spin-slow" />
@@ -77,7 +76,7 @@ export default function ServiceCard({
         {features.length > 0 && (
           <div className="flex flex-wrap gap-2 max-w-full overflow-hidden">
             {(showAll ? features : features.slice(0, 3)).map((feature, i) => (
-              <span key={i} className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-md truncate max-w-[6rem]">{feature}</span>
+              <span key={i} className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-md truncate max-w-24">{feature}</span>
             ))}
             {hasExtra && !showAll && (
               <button

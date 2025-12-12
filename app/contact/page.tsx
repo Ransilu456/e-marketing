@@ -28,7 +28,7 @@ export default function Page() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-slate-900">Get in touch</h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">Have questions or ready to start your project? We'd love to hear from you. Send us a message and we'll respond within 24 hours.</p>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">Have questions or ready to start your project? We&apos;d love to hear from you. Send us a message and we&apos;ll respond within 24 hours.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -115,7 +115,7 @@ export default function Page() {
 
             {submitted && (
               <div className="text-center p-4 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">
-                Thanks for reaching out! We'll get back to you soon.
+                Thanks for reaching out! We&apos;ll get back to you soon.
               </div>
             )}
           </form>

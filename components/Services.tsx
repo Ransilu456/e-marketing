@@ -85,7 +85,7 @@ export default function Services() {
       className="relative py-24 lg:py-36 px-4 sm:px-8 bg-surface overflow-hidden"
     >
       {/* Glassy background accent */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[80vw] h-96 bg-gradient-to-br from-accent/10 via-white/60 to-accent/5 rounded-full blur-3xl opacity-60 pointer-events-none" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[80vw] h-96 bg-linear-to-br from-accent/10 via-white/60 to-accent/5 rounded-full blur-3xl opacity-60 pointer-events-none" />
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-20 lg:mb-28">

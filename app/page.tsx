@@ -5,13 +5,10 @@ import Image from "next/image";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight, Zap, Layout, BarChart3,
-  CheckCircle, Code, Mail, Phone, MapPin, Send, Clock
-} from "lucide-react";
+import { ArrowRight, Zap, Layout, BarChart3, CheckCircle, Code, Mail, Phone, MapPin, Send, Clock } from "lucide-react";
 import * as Lucide from 'lucide-react';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
-import NewHero from "@/components/NewHero";
+import Hero from "@/components/Hero";
 
 const processSteps = [
   { id: "01", title: "Discovery", desc: "We dive deep into your business goals, audience, and competitors to build a solid foundation." },
@@ -44,11 +41,86 @@ const projects = [
   },
 ];
 
+const services = [
+  {
+    title: "Web Development",
+    image:
+      "https://images.pexels.com/photos/326502/pexels-photo-326502.jpeg?auto=compress&cs=tinysrgb&w=800",
+    description:
+      "Responsive, scalable, and SEO-optimized websites tailored to your brand and goals.",
+    features: [
+      { label: "Responsive design", icon: "MonitorSmartphone" },
+      { label: "SEO optimized", icon: "Search" },
+      { label: "Scalable architecture", icon: "Layers" },
+    ],
+    link: "/services/web-development",
+  },
+  {
+    title: "Mobile Apps",
+    image:
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+    description:
+      "Native and cross-platform mobile apps with seamless performance and user experience.",
+    features: [
+      { label: "iOS & Android", icon: "Smartphone" },
+      { label: "Cross-platform", icon: "PanelsTopLeft" },
+      { label: "High Performance", icon: "Rocket" },
+    ],
+    link: "/services/mobile-apps",
+  },
+  {
+    title: "Brand Identity",
+    image:
+      "https://images.pexels.com/photos/3243090/pexels-photo-3243090.jpeg?auto=compress&cs=tinysrgb&w=800",
+    description:
+      "Crafting memorable visual identities that make your brand stand out across platforms.",
+    features: [
+      { label: "Logo & Mark", icon: "Brush" },
+      { label: "Brand Guidelines", icon: "NotepadText" },
+      { label: "Visual Assets", icon: "Palette" },
+    ],
+    link: "/#contact",
+  },
+  {
+    title: "Creative Posters",
+    image:
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1080&auto=format&fit=crop",
+    description:
+      "Eye-catching poster and social designs to amplify your campaigns' visual impact.",
+    features: [
+      { label: "Campaign visuals", icon: "Megaphone" },
+      { label: "Social Ready", icon: "Share2" },
+      { label: "Print Ready", icon: "Printer" },
+    ],
+    link: "/services/creative-posters",
+  },
+  {
+    title: "Social Media Management",
+    image:
+      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1080&auto=format&fit=crop",
+    description:
+      "We build and manage your brand's social presence to drive engagement and growth.",
+    features: [
+      { label: "Content Calendar Strategy", icon: "Calendar" },
+      { label: "Community Engagement", icon: "Users" },
+      { label: "Analytics & Reporting", icon: "BarChart3" },
+    ],
+    featured: true,
+    link: "/services/social-media-management",
+  },
+];
+
+type LucideIconComponent = React.ComponentType<{
+  size?: number;
+  color?: string;
+  strokeWidth?: number;
+  className?: string;
+}>;
+
 interface IconProps {
   name: keyof typeof Lucide;
   size?: number;
   className?: string;
-  key: string;
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -65,8 +137,10 @@ interface SectionHeadingProps {
 }
 
 const Icon = ({ name, size = 20, className, ...props }: IconProps) => {
-  const LucideIcon = Lucide[name] as LucideIcon;
+  const LucideIcon = Lucide[name] as LucideIconComponent;
+
   if (!LucideIcon) return null;
+
   return <LucideIcon size={size} className={className} {...props} />;
 };
 
@@ -98,59 +172,6 @@ function SectionHeading({ badge, title, subtitle, align = "center" }: SectionHea
       <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-zinc-900 mb-6">{title}</h2>
       {subtitle && <p className="text-xl text-zinc-500 font-normal leading-relaxed max-w-3xl mx-auto">{subtitle}</p>}
     </div>
-  );
-}
-
-function Hero() {
-  return (
-    <section className="relative pt-32 pb-24 lg:pt-32 lg:pb-32 overflow-hidden bg-grid">
-      <div className="absolute inset-0 bg-grid -z-10 h-[600px]"></div>
-
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-300/20 text-xs font-medium text-green-600 ">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-          </span>
-          Accepting New Clients for Q4
-        </div>
-
-        <h1 className="max-w-4xl mx-auto text-5xl md:text-7xl font-display font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
-          Scale your digital revenue
-          <span className="text-transparent border-2 border-amber-600/20 p-2 bg-clip-text bg-linear-to-r from-red-500 to-red-300">with precision engineering.</span>
-        </h1>
-
-        <p className="max-w-xl mx-auto text-lg text-slate-500 mb-10 leading-relaxed">
-          We combine technical SEO architecture, high-performance development, and data-driven content strategies to dominate search results.
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#projects" className="w-full sm:w-auto inline-flex items-center justify-center h-12 px-8 font-medium text-white transition-colors bg-black rounded-lg hover:bg-(--color-primary) shadow-xl shadow-slate-900/10">
-            View Case Studies
-          </a>
-          <a href="#services" className="w-full sm:w-auto inline-flex items-center justify-center h-12 px-8 font-medium text-slate-700 transition-colors bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300">
-            Our Services
-          </a>
-        </div>
-
-        <div className="absolute mt-8 blur-3xl bg-linear-to-b from-white/60 to-white w-full h-100"></div>
-
-        <div className="mt-16 pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-          <div className="flex items-center gap-2">
-            <span className="font-display font-bold text-lg text-black/40">DM Feeds</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-display font-bold text-lg text-black/40">Sarasaviya</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-display font-bold text-lg text-black/40">Japaneese Cafe</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-display font-bold text-lg text-black/40">Yes Foods</span>
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -331,76 +352,34 @@ function Projects() {
   );
 }
 
-const services = [
-  {
-    title: "Web Development",
-    image:
-      "https://images.pexels.com/photos/326502/pexels-photo-326502.jpeg?auto=compress&cs=tinysrgb&w=800",
-    description:
-      "Responsive, scalable, and SEO-optimized websites tailored to your brand and goals.",
-    features: ["Responsive design", "SEO optimized", "Scalable architecture"],
-    link: "/services/web-development",
-  },
-  {
-    title: "Mobile Apps",
-    image:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;q=80&amp;w=1080",
-    description:
-      "Native and cross-platform mobile apps with seamless performance and user experience.",
-    features: ["iOS & Android", "Cross-platform", "High Performance"],
-    link: "/services/mobile-apps",
-  },
-  {
-    title: "Brand Identity",
-    image:
-      "https://images.pexels.com/photos/3243090/pexels-photo-3243090.jpeg?auto=compress&cs=tinysrgb&w=800",
-    description:
-      "Crafting memorable visual identities that make your brand stand out across platforms.",
-    features: ["Logo & Mark", "Brand Guidelines", "Visual Assets"],
-    link: "/#contact",
-  },
-  {
-    title: "Creative Posters",
-    image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&amp;w=1080&amp;auto=format&amp;fit=crop",
-    description:
-      "Eye-catching poster and social designs to amplify your campaigns' visual impact.",
-    features: ["Campaign visuals", "Social Ready", "Print Ready"],
-    link: "/services/creative-posters",
-  },
-  {
-    title: "Social Media Management",
-    image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&amp;w=1080&amp;auto=format&amp;fit=crop",
-    description:
-      "We build and manage your brand's social presence to drive engagement and growth.",
-    features: [
-      "Content Calendar Strategy",
-      "Community Engagement",
-      "Analytics & Reporting",
-    ],
-    featured: true,
-    link: "/services/social-media-management",
-  },
-];
-
 function NewServices() {
   return (
     <section id="services" className="py-24 bg-slate-50 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-6">
+
+        {/* Section Heading */}
         <SectionHeading
-          badge="Services"
-          title="What we do"
-          subtitle="Our expertise spans digital products, branding, marketing, and analytics."
+          badge="Our Services"
+          title="What We Offer"
+          subtitle="Explore our range of web, mobile, branding, and social media services designed to grow your business."
+          align="center"
         />
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-
-          <a href="#contact" className="text-sm font-semibold text-indigo-600 hover:text-indigo-700 flex items-center gap-1 group">
-            Get a proposal <span className="iconify group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right"></span>
+        {/* Call-to-action */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <a
+            href="#contact"
+            className="text-sm font-semibold text-indigo-600 hover:text-indigo-700 flex items-center gap-1 group"
+          >
+            Get a proposal
+            <span
+              className="iconify group-hover:translate-x-1 transition-transform"
+              data-icon="lucide:arrow-right"
+            ></span>
           </a>
         </div>
 
+        {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
@@ -408,46 +387,49 @@ function NewServices() {
               className={`group bg-white rounded-2xl p-2 border border-slate-200 hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 ${service.featured ? "md:col-span-2 lg:col-span-2" : ""
                 }`}
             >
-              <div
-                className={`${service.featured
-                    ? "flex flex-col md:flex-row gap-4"
-                    : "flex flex-col"
-                  }`}
-              >
+              <div className={`flex flex-col ${service.featured ? "md:flex-row" : ""} h-full`}>
                 <div
-                  className={`overflow-hidden rounded-xl bg-gray-100 relative mb-4 md:mb-0 ${service.featured
-                      ? "md:w-1/2 aspect-video md:aspect-auto"
-                      : "aspect-video"
+                  className={`overflow-hidden rounded-xl bg-gray-100 relative mb-4 md:mb-0 ${service.featured ? "md:w-1/2 h-full" : "aspect-video"
                     }`}
                 >
                   <Image
                     src={service.image}
                     alt={service.title}
-                    width={400} height={1000} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    width={400}
+                    height={1000}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
+
                 <div
                   className={`px-3 pb-3 flex flex-col ${service.featured ? "md:w-1/2 justify-center" : ""
                     }`}
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 mt-8">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
-                    {service.description}
-                  </p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 mt-8">{service.title}</h3>
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">{service.description}</p>
+
                   <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-center gap-2 text-sm text-gray-600 font-medium"
-                      >
-                        <CheckCircle className="text-emerald-500 w-4 h-4 shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
+                    {service.features.map((feature, idx) => {
+                      const FeatureIcon =
+                        Lucide[feature.icon as keyof typeof Lucide] as React.FC<
+                          React.SVGProps<SVGSVGElement>
+                        >;
+
+                      return (
+                        <li key={idx} className="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                          {FeatureIcon && (
+                            <FeatureIcon className="text-indigo-600 w-4 h-4 shrink-0" />
+                          )}
+                          {feature.label}
+                        </li>
+                      );
+                    })}
                   </ul>
-                  <Link href={service.link} className="mt-auto inline-flex items-center justify-center px-6 py-2 text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-red-50 hover:text-red-700 rounded-lg transition-all">
+
+                  <Link
+                    href={service.link}
+                    className="mt-auto inline-flex items-center justify-center px-6 py-2 text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-red-50 hover:text-red-700 rounded-lg transition-all"
+                  >
                     Learn More
                   </Link>
                 </div>
@@ -455,9 +437,9 @@ function NewServices() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
+
   );
 }
 
@@ -537,8 +519,9 @@ function WorkList() {
 }
 
 function InteractiveFAQs() {
-  const [openIndex, setOpenIndex] = useState(null);
-  const combinedFaqs = [
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const combinedFaqs: { q: string; a: string }[] = [
     { q: "What technologies do you specialize in for web development?", a: "We primarily use the **MERN stack** (MongoDB, Express, React, Node.js) for full-stack development, alongside popular frameworks like Next.js for high-performance applications." },
     { q: "Can you develop native or cross-platform mobile apps?", a: "We specialize in **cross-platform development** using **React Native**, which allows us to efficiently build a single codebase that runs natively on Android." },
     { q: "Do you provide post-launch maintenance and support?", a: "Yes, we offer flexible maintenance packages that cover bug fixes, security updates, feature enhancements, and technical support to ensure your application runs smoothly." },
@@ -547,7 +530,7 @@ function InteractiveFAQs() {
     { q: "How do you measure the success of a social media campaign?", a: "We track key performance indicators (**KPIs**) such as **engagement rate, reach, follower growth, website traffic**, and, most importantly, **conversion rates** relevant to your business goals." }
   ];
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -559,16 +542,26 @@ function InteractiveFAQs() {
           title="Advanced FAQs"
           subtitle="In-depth answers to common and technical queries."
         />
+
         <div className="space-y-2 mt-12">
-          {combinedFaqs.map((faq, i) => (
-            <div key={i} className="border border-zinc-200 rounded-xl overflow-hidden transition-all duration-300 ">
+          {combinedFaqs.map((faq, i: number) => (
+            <div
+              key={i}
+              className="border border-zinc-200 rounded-xl overflow-hidden transition-all duration-300"
+            >
               <button
                 className="w-full py-5 px-6 flex items-center justify-between text-left text-zinc-900 hover:bg-zinc-50 transition-colors"
                 onClick={() => toggleFAQ(i)}
               >
                 <span className="font-semibold text-lg pr-8">{faq.q}</span>
-                <Icon name={openIndex === i ? "Minus" : "Plus"} size={18} className="shrink-0 text-(--color-primary) transition-transform duration-300" />
+                <Icon
+
+                  name={openIndex === i ? "Minus" : "Plus"}
+                  size={18}
+                  className="shrink-0 text-(--color-primary) transition-transform duration-300"
+                />
               </button>
+
               <AnimatePresence>
                 {openIndex === i && (
                   <motion.div
@@ -578,7 +571,9 @@ function InteractiveFAQs() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-zinc-500 text-sm leading-relaxed px-6 pb-6 pt-2 bg-zinc-50 border-t border-zinc-200">{faq.a}</p>
+                    <p className="text-zinc-500 text-sm leading-relaxed px-6 pb-6 pt-2 bg-zinc-50 border-t border-zinc-200">
+                      {faq.a}
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -588,7 +583,7 @@ function InteractiveFAQs() {
       </div>
     </section>
   );
-};
+}
 
 function Contact() {
 
@@ -820,8 +815,7 @@ function BlogSection() {
 export default function Page() {
   return (
     <main className="bg-white antialiased w-full min-h-screen overflow-x-hidden">
-      <NewHero />
-      {/*<Hero />*/}
+      <Hero />
       <NewServices />
       <Projects />
       <WorkList />

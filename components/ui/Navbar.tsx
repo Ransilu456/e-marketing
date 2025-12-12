@@ -17,10 +17,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const navigation = [
-  { name: "Services", href: "#services" },
-  { name: "Process", href: "#process" },
-  { name: "Work", href: "#work" },
-  { name: "Blogs", href: "/blog" },
+  { name: "Services", href: "/#services" },
+  { name: "Process", href: "/#process" },
+  { name: "Work", href: "/#work" },
+  { name: "Blogs", href: "/under_development_200" },
 ];
 
 function Button({ children, variant = "primary", className = "", ...props }: ButtonProps) {

@@ -1,4 +1,3 @@
-// app/services/mobile-apps/projects/[slug]/page.tsx
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -166,7 +165,7 @@ export default async function ProjectPage({
                     <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black/40 rounded-full backdrop-blur-md"></div>
 
                     {/* Light reflection */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-linear-to-br from-white/10 to-transparent pointer-events-none"></div>
                   </div>
                 </div>
 
