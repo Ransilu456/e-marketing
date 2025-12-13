@@ -21,6 +21,7 @@ const navigation = [
   { name: "Process", href: "/#process" },
   { name: "Work", href: "/#work" },
   { name: "Blogs", href: "/under_development_200" },
+  { name: "Case Studies", href: "/case-studies" },
 ];
 
 function Button({ children, variant = "primary", className = "", ...props }: ButtonProps) {

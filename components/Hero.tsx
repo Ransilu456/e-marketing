@@ -44,14 +44,23 @@ export default function NewHero() {
           >
             Book Consultation
           </Link>
-          <a
+          <Link
             href="/portfolio/projects"
             className="inline-flex justify-center items-center px-8 py-3.5 bg-white text-slate-900 border border-slate-200 rounded-full font-semibold hover:bg-slate-50 transition-all"
             aria-label="View portfolio"
           >
             View Portfolio
-          </a>
+          </Link>
         </div>
+
+         <div className="mt-12 flex items-center gap-4 text-sm text-gray-400 animate-fade-up delay-300">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-gray-100 border-2 border-white"></div>
+                <div className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white"></div>
+                <div className="w-8 h-8 rounded-full bg-gray-300 border-2 border-white"></div>
+              </div>
+              <p>Trusted by 5+ innovative founders</p>
+            </div>
       </div>
 
       <div className="relative h-[500px] w-full mt-16 lg:mt-0 lg:w-1/2 animate-fade-up delay-200">

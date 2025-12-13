@@ -9,10 +9,11 @@ import {
   Code,
   Rocket,
   ChartBar,
-  Quote,
   ArrowUpRight,
+  Zap,
 } from "lucide-react";
 import { mobileProjects } from "./projects";
+import CTA from "@/components/ui/CTA";
 
 const features = [
   {
@@ -77,22 +78,13 @@ function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-up delay-300">
-              <a href="#contact" className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-white transition-all bg-red-600 rounded-full hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/20 active:scale-95">
+              <Link href="/contact" className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-white transition-all bg-red-600 rounded-full hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/20 active:scale-95">
                 Start Project
                 <i data-lucide="arrow-right" className="w-4 h-4 ml-2"></i>
-              </a>
-              <a href="#work" className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-gray-600 transition-all bg-white border border-gray-200 rounded-full hover:bg-gray-50 hover:border-gray-300">
+              </Link>
+              <Link href="/case-studies" className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-gray-600 transition-all bg-white border border-gray-200 rounded-full hover:bg-gray-50 hover:border-gray-300">
                 View Case Studies
-              </a>
-            </div>
-
-            <div className="mt-12 flex items-center gap-4 text-sm text-gray-400 animate-fade-up delay-300">
-              <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-gray-100 border-2 border-white"></div>
-                <div className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white"></div>
-                <div className="w-8 h-8 rounded-full bg-gray-300 border-2 border-white"></div>
-              </div>
-              <p>Trusted by 50+ innovative founders</p>
+              </Link>
             </div>
           </div>
 
@@ -117,7 +109,7 @@ function Hero() {
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[90%] bg-white/90 backdrop-blur-md border border-gray-200/50 p-4 rounded-2xl shadow-xl flex items-center justify-between">
                   <div className="flex gap-3">
                     <div className="w-10 h-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center">
-                      <i data-lucide="zap" className="w-5 h-5"></i>
+                      <Zap className="w-5 h-5"/>
                     </div>
                     <div>
                       <div className="text-xs font-semibold text-gray-900">Performance</div>
@@ -166,51 +158,75 @@ function Projects() {
   return (
     <section id="work" className="py-24 max-w-7xl mx-auto px-6">
       <div className="container mx-auto px-4 py-12">
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-10 border-b-4 border-red-600 inline-block pr-8 pb-2">
+        {/* Section Title */}
+        <h2 className="text-4xl font-extrabold text-gray-900 mb-14 border-b-4 border-red-600 inline-block pr-8 pb-2">
           Mobile Projects
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
           {mobileProjects.map((project, i) => (
             <div
-              className="group block rounded-xl overflow-hidden shadow-lg/5 hover:shadow-2xl/5 transition-all duration-500 transform hover:-translate-y-2 bg-white border border-gray-100"
               key={i}
+              className="group rounded-2xl overflow-hidden bg-white border border-gray-100
+              shadow-md hover:shadow-2xl hover:shadow-red-500/10
+              transition-all duration-500 hover:-translate-y-2"
             >
               <Link href={project.link} className="block">
-                <div className="relative aspect-4/3 w-full overflow-hidden bg-gray-50">
-                  <Image
-                    src={project.image}
-                    width={600}
-                    height={450}
-                    alt={project.description}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    priority={i < 3}
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-gray-900/10 to-transparent transition-opacity duration-500"></div>
+                {/* Image Container */}
+                <div className="relative aspect-9/16 w-full bg-gray-100">
+                  {/* Mobile Frame */}
+                  <div className="absolute inset-0 p-3">
+                    <div className="relative h-full w-full rounded-xl overflow-hidden bg-black">
+                      <Image
+                        src={project.image}
+                        width={504}
+                        height={1104}
+                        alt={project.description}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        priority={i < 3}
+                      />
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-linear-to-t from-black/25 to-transparent" />
+                    </div>
+                  </div>
                 </div>
 
+                {/* Content */}
                 <div className="p-6">
-                  <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
+                      <h3 className="text-lg font-bold text-gray-900 leading-tight mb-3 group-hover:text-red-600 transition-colors">
                         {project.title}
                       </h3>
 
+                      {/* Tech Stack */}
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.slice(0, 3).map((tech, j) => (
-                          <span key={j} className="text-xs font-medium text-red-700 bg-red-100 px-3 py-1 rounded-full whitespace-nowrap">
+                          <span
+                            key={j}
+                            className="text-[11px] font-semibold text-red-700 bg-red-50 border border-red-100 px-3 py-1 rounded-full"
+                          >
                             {tech}
                           </span>
                         ))}
+
                         {project.technologies.length > 3 && (
-                          <span className="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                          <span className="text-[11px] font-semibold text-gray-500 bg-gray-100 border border-gray-200 px-3 py-1 rounded-full">
                             +{project.technologies.length - 3} more
                           </span>
                         )}
                       </div>
                     </div>
 
-                    <div className="shrink-0 ml-4">
-                      <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 transition-all group-hover:bg-red-600 group-hover:text-white border border-red-50">
+                    {/* CTA Icon */}
+                    <div className="shrink-0">
+                      <div
+                        className="w-11 h-11 rounded-full bg-white shadow-sm
+                        flex items-center justify-center text-red-600
+                        transition-all duration-300
+                        group-hover:bg-red-600 group-hover:text-white"
+                      >
                         <ArrowUpRight className="w-5 h-5 transform group-hover:rotate-45 transition-transform duration-300" />
                       </div>
                     </div>
@@ -222,54 +238,18 @@ function Projects() {
         </div>
       </div>
     </section>
-
   );
 }
+
 
 export default function page() {
   return (
     <main className="min-h-screen">
       <Hero />
       <Features />
-      <section className="py-20 bg-gray-50 border-y border-gray-200">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="mb-8 flex justify-center text-red-600">
-            <Quote className="w-10 h-10 fill-current opacity-20" size={10} />
-          </div>
-          <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 leading-tight tracking-tight mb-8">
-            &quot;They didn&apos;t just build an app; they completely transformed our digital customer journey. The attention to detail in animations and haptics is unmatched.&quot;
-          </blockquote>
-          <div className="flex items-center justify-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
-              <Image src="https://ui-avatars.com/api/?name=Alex+M&amp;background=random&amp;color=fff" unoptimized alt="Client" className="w-full h-full object-cover" width={400} height={1000} />
-            </div>
-            <div className="text-left">
-              <div className="font-semibold text-gray-900">Alex Morrison</div>
-              <div className="text-sm text-gray-500">CTO, FinTech Global</div>
-            </div>
-          </div>
-        </div>
-      </section>
       <Projects />
-      <section id="contact" className="py-24 px-6">
-        <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden relative bg-gray-900 text-white shadow-2xl">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-600/30 rounded-full blur-[100px] pointer-events-none"></div>
 
-          <div className="relative z-10 px-8 py-16 md:p-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-6">Ready to build something <span className="text-red-500">iconic?</span></h2>
-            <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">From MVP to enterprise scaling, our mobile experts are ready to turn your concept into a market-leading application.</p>
-
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <a href="#" className="w-full sm:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-full font-semibold transition-all shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
-                Book a Free Strategy Call
-              </a>
-              <a href="mailto:hello@mobidev.com" className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/10 rounded-full font-semibold transition-all">
-                Email Us
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTA/>
     </main>
   );
 }

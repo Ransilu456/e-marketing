@@ -8,7 +8,7 @@ interface ProjectCardProps {
   title: string;
   category: string;
   result: string;
-  image: string;
+  image?: string;
   description: string;
   tags?: string[];
   href?: string;

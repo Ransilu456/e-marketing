@@ -28,7 +28,6 @@ export async function generateStaticParams() {
   return mobileProjects.map((p) => ({ slug: p.slug }));
 }
 
-// Small helper to choose icons for tech badges
 const getTechIcon = (tech: string) => {
   const t = tech.toLowerCase();
   if (t.includes("flutter")) return <Smartphone className="w-4 h-4" />;
@@ -41,6 +40,7 @@ const getTechIcon = (tech: string) => {
   if (t.includes("mongo") || t.includes("mongodb")) return <Database className="w-4 h-4" />;
   if (t.includes("google maps") || t.includes("maps")) return <Map className="w-4 h-4" />;
   if (t.includes("tensorflow") || t.includes("tflite")) return <CpuAlt className="w-4 h-4" />;
+  if (t.includes("github") || t.includes("tflite")) return <CpuAlt className="w-4 h-4" />;
   return <Code2 className="w-4 h-4" />;
 };
 
@@ -92,11 +92,10 @@ export default async function ProjectPage({
     <>
       <RevealInitClient />
 
-      <main className="min-h-screen bg-white antialiased selection:bg-red-600 selection:text-white bg-grid">
+      <main className="min-h-screen bg-white antialiased selection:bg-red-600 selection:text-white ">
 
-        <div className="fixed inset-0 bg-grid pointer-events-none -z-20 h-screen mask-image-gradient"></div>
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-100/40 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
-        <main className="pt-24 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-100/40 rounded-full blur-[100px] -z-10 pointer-events-none "></div>
+        <main className="pt-24 relative bg-grid overflow-hidden ">
           <section className="px-6 md:px-16 pb-16 max-w-7xl mx-auto">
             <div className="max-w-6xl mx-auto">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4 reveal-up">
@@ -145,40 +144,48 @@ export default async function ProjectPage({
                   {project.description}
                 </p>
               </div>
-
-              <div className="relative w-full aspect-video rounded-3xl overflow-hidden  border border-neutral-300/40 shadow-lg reveal-up">
+              <div className="relative w-full aspect-video rounded-3xl overflow-hidden bg-white/50 border border-neutral-300/40 reveal-up">
                 <div className="absolute inset-0 flex items-center justify-center">
 
                   {/* Phone */}
-                  <div className="relative w-[260px] h-[520px] rounded-[42px] overflow-hidden shadow-[0_20px_60px_-10px_rgba(0,0,0,0.25)] border-[6px] border-neutral-900 bg-neutral-900 transform transition-all duration-700 ease-out group hover:scale-105 hover:-rotate-1">
-
+                  <div
+                    className="
+        relative
+        aspect-1/2
+        w-[40%]
+        max-w-[280px]
+        min-w-[140px]
+        rounded-[42px]
+        overflow-hidden
+        shadow-[0_20px_60px_-10px_rgba(0,0,0,0.25)]
+        border-[6px]
+        border-neutral-900
+        bg-neutral-900
+        transition-all
+        duration-700
+        ease-out
+        sm:hover:scale-105
+        sm:hover:-rotate-1
+      "
+                  >
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
                       className="object-cover"
-                      sizes="(min-width: 1024px) 480px, 320px"
+                      sizes="
+          (min-width: 1280px) 280px,
+          (min-width: 768px) 220px,
+          160px
+        "
                       priority
                     />
-
-                    {/* Camera Notch */}
-                    <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black/40 rounded-full backdrop-blur-md"></div>
-
-                    {/* Light reflection */}
-                    <div className="absolute inset-0 bg-linear-to-br from-white/10 to-transparent pointer-events-none"></div>
                   </div>
                 </div>
-
-                {/* Soft glow behind phone */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-[400px] h-[400px] bg-blue-500/10 blur-3xl rounded-full"></div>
-                </div>
               </div>
-
             </div>
           </section>
 
-          {/* HIGHLIGHTS GRID */}
           <section className="px-6 md:px-16 py-20 bg-white border-y border-neutral-100">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-2xl font-semibold mb-12 text-neutral-900 tracking-tight text-center md:text-left">
@@ -202,8 +209,7 @@ export default async function ProjectPage({
             </div>
           </section>
 
-          {/* DETAILS & TECH STACK */}
-          <section className="px-6 md:px-16 py-24 max-w-7xl mx-auto bg-neutral-50/30">
+          <section className="px-6 md:px-16 py-24 max-w-7xl mx-auto bg-white ">
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
               {/* Features */}
               <div className="lg:col-span-2 reveal-up">
@@ -213,7 +219,7 @@ export default async function ProjectPage({
                   {project.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-4 p-4 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-neutral-100"
+                      className="flex items-start gap-4 p-4 rounded-xl bg-red-200/5 border border-red-700/10 hover:bg-red-400/10 hover:border-red-700/50"
                     >
                       <CheckCircle2 className="w-6 h-6 text-red-600 mt-0.5 shrink-0" />
                       <div>
@@ -227,7 +233,7 @@ export default async function ProjectPage({
 
               {/* Tech stack card */}
               <div className="lg:col-span-1 reveal-up delay-200">
-                <div className="bg-white rounded-2xl p-8 border border-neutral-200 shadow-sm sticky top-24">
+                <div className="bg-white rounded-2xl p-8 border border-neutral-200 hover:shadow-[0_10px_30px_rgba(250,38,38,0.05),0_4px_10px_rgba(220,38,38,0.05)] sticky top-24">
                   <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-900 mb-6 flex items-center gap-2">
                     <Cpu className="w-4 h-4 text-red-600" />
                     Technology Used

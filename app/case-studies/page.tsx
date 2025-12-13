@@ -4,6 +4,7 @@ import { projects, Project } from "@/components/data/data";
 import { useState } from "react";
 import { ArrowRight, X, CheckCircle2 } from "lucide-react";
 import { ImageWithFallback } from "@/components/error/ImageWithFallback";
+import Link from "next/link";
 
 export default function CaseStudiesPage() {
   const [expandedProject, setExpandedProject] = useState<Project | null>(null);
@@ -36,9 +37,8 @@ export default function CaseStudiesPage() {
               >
                 {/* Image */}
                 <div
-                  className={`relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-300/40 ${
-                    reverse ? "lg:order-2" : ""
-                  }`}
+                  className={`relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-300/40 ${reverse ? "lg:order-2" : ""
+                    }`}
                 >
                   <ImageWithFallback
                     src={project.image}
@@ -67,10 +67,14 @@ export default function CaseStudiesPage() {
                 {/* Content */}
                 <div className={reverse ? "lg:order-1 lg:pr-10" : "lg:pl-10"}>
                   <h3 className="text-4xl font-extrabold tracking-tight text-zinc-900 mb-6">
-                    {project.description}
+                    {project.title}
                   </h3>
 
-                  <p className="text-lg text-zinc-500 leading-relaxed mb-8">
+
+                  <p className="text-lg text-zinc-500 leading-relaxed mb-8 ">
+                    {project.description}
+                  </p>
+                  <p className="text-lg text-zinc-500 leading-relaxed mb-8 font-bold">
                     {project.result}
                   </p>
 
@@ -104,35 +108,107 @@ export default function CaseStudiesPage() {
       {expandedProject && (
         <div
           onClick={() => setExpandedProject(null)}
-          className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-6"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 sm:p-6"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-white max-w-4xl w-full rounded-3xl p-10 relative"
+            className="
+        relative w-full max-w-5xl max-h-[90vh] overflow-y-auto
+        bg-white rounded-3xl shadow-2xl
+        animate-in fade-in zoom-in duration-300
+      "
           >
+            {/* Close Button */}
             <button
               onClick={() => setExpandedProject(null)}
-              className="absolute top-6 right-6 text-zinc-500 hover:text-zinc-900"
+              className="
+          absolute top-6 right-6 z-10
+          w-10 h-10 rounded-full
+          flex items-center justify-center
+          bg-white shadow-md
+          text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100
+          transition
+        "
+              aria-label="Close modal"
             >
-              <X />
+              <X className="w-5 h-5" />
             </button>
 
-            <h2 className="text-4xl font-extrabold text-zinc-900 mb-6">
-              {expandedProject.title}
-            </h2>
+            {/* Content */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-8 sm:p-12">
+              {/* Image Section */}
+              <div className="flex justify-center">
+                <div className="relative aspect-9/16 w-full max-w-xs sm:max-w-sm bg-zinc-900 rounded-3xl p-3 shadow-inner">
+                  <div className="relative h-full w-full overflow-hidden rounded-2xl">
+                    <ImageWithFallback
+                      src={expandedProject.image}
+                      alt={expandedProject.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/25 to-transparent" />
+                  </div>
+                </div>
+              </div>
 
-            <ImageWithFallback
-              src={expandedProject.image}
-              alt={expandedProject.title}
-              className="w-full h-[400px] object-cover rounded-2xl mb-8"
-            />
+              {/* Text Section */}
+              <div className="flex flex-col justify-center">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 mb-5 leading-tight">
+                  {expandedProject.title}
+                </h2>
 
-            <p className="text-lg text-zinc-600">
-              {expandedProject.description}
-            </p>
+                <p className="text-base sm:text-lg text-zinc-600 leading-relaxed mb-6">
+                  {expandedProject.description}
+                </p>
+
+                {/* Tech Stack */}
+                {expandedProject.technologies && (
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {expandedProject.technologies.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="text-xs font-semibold text-red-700 bg-red-50 border border-red-100 px-3 py-1 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* CTA */}
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    href={expandedProject.link}
+                    target="_blank"
+                    className="
+                inline-flex items-center justify-center
+                px-8 py-3 rounded-full
+                font-semibold text-white
+                bg-black hover:bg-red-600
+                transition-all shadow-lg shadow-black/20
+              "
+                  >
+                    View Live Project
+                  </Link>
+
+                  <button
+                    onClick={() => setExpandedProject(null)}
+                    className="
+                inline-flex items-center justify-center
+                px-8 py-3 rounded-full
+                font-semibold text-zinc-700
+                border border-zinc-300 hover:bg-zinc-100
+                transition
+              "
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
+
     </section>
   );
 }

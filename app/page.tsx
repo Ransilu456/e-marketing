@@ -475,7 +475,7 @@ function WorkList() {
                 className="relative rounded-2xl overflow-hidden shadow-xl group cursor-pointer hover:shadow-2xl hover:scale-[1.01] transition-all duration-300"
               >
                 <Image
-                  src={project.image}
+                src={project.image}
                   alt={project.title}
                   width={500}
                   height={300}
@@ -499,12 +499,12 @@ function InteractiveFAQs() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const combinedFaqs: { q: string; a: string }[] = [
-    { q: "What technologies do you specialize in for web development?", a: "We primarily use the **MERN stack** (MongoDB, Express, React, Node.js) for full-stack development, alongside popular frameworks like Next.js for high-performance applications." },
-    { q: "Can you develop native or cross-platform mobile apps?", a: "We specialize in **cross-platform development** using **React Native**, which allows us to efficiently build a single codebase that runs natively on Android." },
+    { q: "What technologies do you specialize in for web development?", a: "We primarily use the MERN stack (MongoDB, Express, React, Node.js) for full-stack development, alongside popular frameworks like Next.js for high-performance applications." },
+    { q: "Can you develop native or cross-platform mobile apps?", a: "We specialize in cross-platform development using React Native, which allows us to efficiently build a single codebase that runs natively on Android." },
     { q: "Do you provide post-launch maintenance and support?", a: "Yes, we offer flexible maintenance packages that cover bug fixes, security updates, feature enhancements, and technical support to ensure your application runs smoothly." },
-    { q: "Do I need to provide the images and copy for the poster?", a: "We encourage clients to provide their branding guidelines and key messages. We can handle image sourcing using **royalty-free stock libraries** and offer basic copy editing as part of the package." },
-    { q: "Which social media platforms do you manage?", a: "We manage all major platforms, including **Instagram, Facebook, Twitter (X), LinkedIn, and TikTok**, tailoring content and strategy specifically to each platform's audience and best practices." },
-    { q: "How do you measure the success of a social media campaign?", a: "We track key performance indicators (**KPIs**) such as **engagement rate, reach, follower growth, website traffic**, and, most importantly, **conversion rates** relevant to your business goals." }
+    { q: "Do I need to provide the images and copy for the poster?", a: "We encourage clients to provide their branding guidelines and key messages. We can handle image sourcing using royalty-free stock libraries and offer basic copy editing as part of the package." },
+    { q: "Which social media platforms do you manage?", a: "We manage all major platforms, including Instagram, Facebook, Twitter (X), LinkedIn, and TikTok, tailoring content and strategy specifically to each platform's audience and best practices." },
+    { q: "How do you measure the success of a social media campaign?", a: "We track key performance indicators (KPIs) such as engagement rate, reach, follower growth, website traffic, and, most importantly, conversion rates relevant to your business goals." }
   ];
 
   const toggleFAQ = (index: number) => {
@@ -532,7 +532,6 @@ function InteractiveFAQs() {
               >
                 <span className="font-semibold text-lg pr-8">{faq.q}</span>
                 <Icon
-
                   name={openIndex === i ? "Minus" : "Plus"}
                   size={18}
                   className="shrink-0 text-(--color-primary) transition-transform duration-300"
