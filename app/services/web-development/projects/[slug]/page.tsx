@@ -40,12 +40,9 @@ const ProjectPage = () => {
 
   return (
     <main className="min-h-screen relative bg-white antialiased selection:bg-red-600 selection:text-white text-neutral-900">
-      {/* Background Grid */}
       <div className="fixed inset-0 bg-grid pointer-events-none -z-10 h-screen"></div>
 
-      {/* HERO */}
-      {/* HERO */}
-      <section className="px-6 md:px-16 pt-12 pb-16 max-w-7xl mx-auto">
+      <section className="px-6 md:px-16 pt-32 pb-16 max-w-7xl mx-auto">
         <div className="max-w-6xl mx-auto flex flex-col gap-12">
 
           {/* Navigation */}
@@ -89,15 +86,12 @@ const ProjectPage = () => {
           </div>
 
           {/* Header */}
-          {/* Header */}
           <div className="reveal-up delay-100 flex flex-col gap-6">
-            {/* Small Category Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-600/30 bg-red-50 text-red-600 text-xs font-semibold uppercase tracking-wide w-max">
               <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
               Case Study
             </div>
 
-            {/* Optional Subtitle / Category */}
             <p className="text-sm text-neutral-500 uppercase tracking-wide">Web Development Project</p>
 
             {/* Title */}
@@ -150,7 +144,6 @@ const ProjectPage = () => {
         </div>
       </section>
 
-      {/* TECH STACK & SUMMARY */}
       <section className="px-6 md:px-16 py-24 max-w-7xl mx-auto">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
           {/* Summary */}

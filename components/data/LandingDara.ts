@@ -24,7 +24,7 @@ export interface Feature {
   icon: LucideIcon;
 }
 
-export const portfolioProjects: Project[] = [
+export const LandingProjects: Project[] = [
   {
     title: "Attendance Management System",
     description:

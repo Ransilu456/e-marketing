@@ -6,10 +6,7 @@ import {
   ArrowRight,
   Zap,
   Monitor,
-  Rocket,
-  Twitter,
-  Github,
-  Linkedin,
+  Rocket
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -189,21 +186,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="py-8 border-t border-neutral-200 bg-white">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-neutral-400">
-            © 2024 E Marketing Paradice. All rights reserved.
-          </p>
-
-          <div className="flex gap-6">
-            <FooterIcon icon={<Twitter className="w-4 h-4" />} />
-            <FooterIcon icon={<Github className="w-4 h-4" />} />
-            <FooterIcon icon={<Linkedin className="w-4 h-4" />} />
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

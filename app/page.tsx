@@ -9,36 +9,13 @@ import { ArrowRight, Zap, Layout, BarChart3, CheckCircle, Code, Mail, Phone, Map
 import * as Lucide from 'lucide-react';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 import Hero from "@/components/Hero";
+import { LandingProjects } from "@/components/data/LandingDara";
 
 const processSteps = [
   { id: "01", title: "Discovery", desc: "We dive deep into your business goals, audience, and competitors to build a solid foundation." },
   { id: "02", title: "Strategy", desc: "We craft a tailored roadmap and digital strategy to ensure every step aligns with your objectives." },
   { id: "03", title: "Execution", desc: "Our expert team designs, builds, and implements solutions using cutting-edge technologies." },
   { id: "04", title: "Growth", desc: "We launch, monitor, and optimize continuously to scale your results and ROI." }
-];
-
-const projects = [
-  {
-    title: "Fintech Dashboard",
-    category: "Web App",
-    image:
-      "https://images.pexels.com/photos/187041/pexels-photo-187041.jpeg?auto=compress&cs=tinysrgb&w=800",
-    result: "+140% User Retention",
-  },
-  {
-    title: "Modern E-Commerce",
-    category: "Development",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    result: "2.5x Conversion Rate",
-  },
-  {
-    title: "Health & Wellness",
-    category: "Branding",
-    image:
-      "https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=800",
-    result: "Award Winning Design",
-  },
 ];
 
 const services = [
@@ -488,29 +465,29 @@ function WorkList() {
         />
 
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 mt-12">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative rounded-2xl overflow-hidden shadow-xl group cursor-pointer hover:shadow-2xl hover:scale-[1.01] transition-all duration-300"
-            >
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={500}
-                height={300}
-                className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-zinc-900/80 via-zinc-900/40 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <p className="text-xs uppercase tracking-widest font-semibold text-(--color-text) mb-1">{project.category}</p>
-                <h4 className="text-xl font-bold mb-1">{project.title}</h4>
-                <div className="inline-block py-1 px-3 rounded-full bg-(--color-primary) text-xs font-bold mt-2">{project.result}</div>
-              </div>
-            </motion.div>
+          {LandingProjects.map((project, index) => (
+            <Link href={project.page_link} key={index}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative rounded-2xl overflow-hidden shadow-xl group cursor-pointer hover:shadow-2xl hover:scale-[1.01] transition-all duration-300"
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={500}
+                  height={300}
+                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-zinc-900/80 via-zinc-900/40 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <p className="text-xs uppercase tracking-widest font-semibold text-(--color-text) mb-1">{project.category}</p>
+                  <h4 className="text-xl font-bold mb-1">{project.title}</h4>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
