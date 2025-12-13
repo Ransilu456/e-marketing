@@ -19,7 +19,7 @@
 
 ## 💻 Tech Stack
 
-- **Frontend**: React 18 / Next.js 13 (App Router)
+- **Frontend**: React 18 / Next.js 16.0.10 (App Router)
 - **Styling**: TailwindCSS, custom CSS for gradients and shadows
 - **Animations**: Framer Motion
 - **Icons**: Lucide-react
