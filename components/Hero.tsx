@@ -3,12 +3,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import Trusted from "@/components/ui/Trusted";
 
-export default function NewHero() {
+
+export default function Hero() {
   return (
     <motion.section
       id="hero"
-      className="relative min-h-screen pt-32 pb-20 flex flex-col lg:flex-row items-center justify-center overflow-hidden bg-grid"
+       className="relative min-h-screen pt-32 pb-20 flex flex-col lg:flex-row items-start justify-center overflow-hidden bg-grid"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -53,6 +55,8 @@ export default function NewHero() {
           </Link>
         </div>
 
+        <Trusted/>
+
          <div className="mt-12 flex items-center gap-4 text-sm text-gray-400 animate-fade-up delay-300">
               <div className="flex -space-x-2">
                 <div className="w-8 h-8 rounded-full bg-gray-100 border-2 border-white"></div>
@@ -63,7 +67,7 @@ export default function NewHero() {
             </div>
       </div>
 
-      <div className="relative h-[500px] w-full mt-16 lg:mt-0 lg:w-1/2 animate-fade-up delay-200">
+      <div className="relative h-[500px] w-full mt-10 lg:mt-0 lg:w-1/2 animate-fade-up delay-200">
         <div className="absolute inset-0 bg-slate-100 rounded-4xl overflow-hidden shadow-2xl border border-slate-200/50">
           <Image
             src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2940&auto=format&fit=crop"

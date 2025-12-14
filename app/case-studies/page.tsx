@@ -12,7 +12,6 @@ export default function CaseStudiesPage() {
   return (
     <section className="py-24 bg-zinc-50">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <div className="mb-20">
           <p className="text-sm font-semibold tracking-widest uppercase text-red-600 mb-3">
             Portfolio
@@ -25,7 +24,6 @@ export default function CaseStudiesPage() {
           </p>
         </div>
 
-        {/* Projects */}
         <div className="space-y-28">
           {projects.map((project, index) => {
             const reverse = index % 2 !== 0;
@@ -35,8 +33,7 @@ export default function CaseStudiesPage() {
                 key={index}
                 className="grid lg:grid-cols-2 gap-12 items-center"
               >
-                {/* Image */}
-                <div
+                <div id={project.id}
                   className={`relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-300/40 ${reverse ? "lg:order-2" : ""
                     }`}
                 >
@@ -46,7 +43,6 @@ export default function CaseStudiesPage() {
                     className="w-full h-[450px] object-cover"
                   />
 
-                  {/* Image Caption */}
                   <div className="absolute bottom-6 left-6 right-6 bg-white/80 backdrop-blur-md border border-white rounded-xl p-5">
                     <div className="flex justify-between items-center">
                       <div>
@@ -64,7 +60,6 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className={reverse ? "lg:order-1 lg:pr-10" : "lg:pl-10"}>
                   <h3 className="text-4xl font-extrabold tracking-tight text-zinc-900 mb-6">
                     {project.title}
@@ -104,7 +99,6 @@ export default function CaseStudiesPage() {
         </div>
       </div>
 
-      {/* Modal */}
       {expandedProject && (
         <div
           onClick={() => setExpandedProject(null)}
