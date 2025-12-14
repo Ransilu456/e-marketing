@@ -93,7 +93,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link href="#contact" onClick={() => setMobileOpen(false)}>
-                <Button className="w-full justify-center mt-2">Get Started</Button>
+                <Button className="w-full justify-center mt-2 bg-black text-white">Get Started</Button>
               </Link>
             </div>
           </motion.div>
