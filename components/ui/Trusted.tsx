@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const logos = ["DMFEED.png", "Sarasaviya.jpg"];
+const logos = ["DMFEED.png", "Sarasaviya.jpg", "Cafe.jpg", "Kevin's.jpg", "Yesfood.jpg"];
 
 export default function Trusted() {
   return (
@@ -11,7 +11,7 @@ export default function Trusted() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4, duration: 0.6 }}
-      className="mt-14"
+      className="mt-14 w-[1200px]"
     >
       <p className="text-xs uppercase tracking-wider text-slate-400 mb-4">
         Trusted by forward-thinking teams

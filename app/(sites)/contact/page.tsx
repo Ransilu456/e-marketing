@@ -27,14 +27,14 @@ export default function Page() {
       <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-slate-900">Get in touch</h1>
+          <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-slate-900  underline underline-offset-8">Get in touch</h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">Have questions or ready to start your project? We&apos;d love to hear from you. Send us a message and we&apos;ll respond within 24 hours.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {/* Contact Info Cards */}
           <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
-            <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mb-4">
+            <div className="w-10 h-10 bg-(--color-primary) rounded-lg flex items-center justify-center mb-4">
               <Mail className="text-white" size={20} />
             </div>
             <h3 className="font-semibold text-slate-900 mb-1">Email</h3>
@@ -42,7 +42,7 @@ export default function Page() {
           </div>
 
           <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
-            <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mb-4">
+            <div className="w-10 h-10 bg-(--color-primary) rounded-lg flex items-center justify-center mb-4">
               <Phone className="text-white" size={20} />
             </div>
             <h3 className="font-semibold text-slate-900 mb-1">Phone</h3>
@@ -50,7 +50,7 @@ export default function Page() {
           </div>
 
           <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
-            <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mb-4">
+            <div className="w-10 h-10 bg-(--color-primary) rounded-lg flex items-center justify-center mb-4">
               <Send className="text-white" size={20} />
             </div>
             <h3 className="font-semibold text-slate-900 mb-1">Response time</h3>
@@ -98,7 +98,7 @@ export default function Page() {
                 rows={6}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none resize-none transition-all text-sm"
+                className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:border-(--color-primary) focus:ring-2 focus:ring-accent/20 outline-none resize-none transition-all text-sm"
                 placeholder="Tell us about your project, goals, or any questions you have..."
               />
             </div>
@@ -106,7 +106,7 @@ export default function Page() {
             <button
               type="submit"
               disabled={submitting}
-              className="btn btn-accent w-full px-6 py-3 text-base font-medium rounded-lg flex items-center justify-center gap-2 shadow-md transition-all duration-300"
+              className="text-white cursor-pointer bg-(--color-primary) w-full px-6 py-3 text-base font-medium rounded-lg flex items-center justify-center gap-2 shadow-md transition-all duration-300"
               aria-busy={submitting}
             >
               <span>{submitting ? 'Sending...' : 'Send Message'}</span>

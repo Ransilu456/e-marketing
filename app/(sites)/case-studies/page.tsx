@@ -116,7 +116,7 @@ export default function CaseStudiesPage() {
             <button
               onClick={() => setExpandedProject(null)}
               className="
-          absolute top-6 right-6 z-10
+          fixed top-6 right-6 z-10
           w-10 h-10 rounded-full
           flex items-center justify-center
           bg-white shadow-md
@@ -131,17 +131,14 @@ export default function CaseStudiesPage() {
             {/* Content */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-8 sm:p-12">
               {/* Image Section */}
-              <div className="flex justify-center">
-                <div className="relative aspect-9/16 w-full max-w-xs sm:max-w-sm bg-zinc-900 rounded-3xl p-3 shadow-inner">
-                  <div className="relative h-full w-full overflow-hidden rounded-2xl">
+              <div className="flex justify-center rounded-2xl overflow-hidden">
+                
                     <ImageWithFallback
                       src={expandedProject.image}
                       alt={expandedProject.title}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/25 to-transparent" />
-                  </div>
-                </div>
+
               </div>
 
               {/* Text Section */}
