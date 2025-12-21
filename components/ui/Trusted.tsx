@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const logos = ["DMFEED.png", "Sarasaviya.jpg", "Cafe.jpg", "Kevin's.jpg", "Yesfood.jpg"];
+const logos = ["DMFEED.png", "Sarasaviya.jpg", "Cafe.jpg", "Kevin's.jpg", "Yesfood.jpg", "Opp.jpg"];
 
 export default function Trusted() {
   return (
