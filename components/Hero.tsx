@@ -16,7 +16,6 @@ export default function Hero() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Background */}
       <div className="absolute inset-0 bg-grid -z-10 h-[600px]" />
       <div className="absolute top-0 right-0 w-[500px] sm:w-[600px] h-[500px] sm:h-[600px]
                       bg-indigo-100 rounded-full blur-[100px] opacity-50
@@ -25,7 +24,6 @@ export default function Hero() {
                       bg-emerald-50 rounded-full blur-[80px] opacity-60
                       -z-10 -translate-x-1/4 translate-y-1/4" />
 
-      {/* LEFT */}
       <div className="max-w-xl w-full px-5 sm:px-6 text-center lg:text-left">
         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full
                          bg-white border border-slate-200 text-xs font-medium
@@ -77,7 +75,6 @@ export default function Hero() {
 
         <Trusted />
 
-        {/* Social proof */}
         <div className="mt-10 flex items-center justify-center lg:justify-start
                         gap-4 text-sm text-gray-400">
           <div className="flex -space-x-2">
@@ -89,11 +86,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* RIGHT IMAGE */}
       <div className=" hidden lg:block relative w-full lg:w-1/2
                       mt-12 lg:mt-0 px-4 sm:px-6">
 
-        {/* Image container */}
         <div className="relative h-80 sm:h-[400px] lg:h-[500px]
                         rounded-3xl overflow-hidden shadow-2xl
                         border border-slate-200/50 bg-slate-100">
@@ -106,7 +101,6 @@ export default function Hero() {
           />
         </div>
 
-        {/* FLOATING CARDS – hidden on small screens */}
         <div className="hidden lg:block absolute top-12 -left-12
                         p-5 rounded-2xl shadow-xl
                         backdrop-blur-md bg-white/70 w-64">
