@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { mobileProjects } from "./projects";
 import CTA from "@/components/ui/CTA";
+import BeautiyCTA from "@/components/ui/BeautiyCTA";
 
 const features = [
   {
@@ -244,12 +245,13 @@ function Projects() {
 
 export default function page() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen text-gray-900">
       <Hero />
       <Features />
       <Projects />
 
       <CTA/>
+      <BeautiyCTA/>
     </main>
   );
 }

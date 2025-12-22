@@ -10,6 +10,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { portfolioProjects, features } from "../../projects";
+import { ImageWithFallback } from "@/components/error/ImageWithFallback";
 
 const ProjectPage = () => {
   const { slug } = useParams();
@@ -111,7 +112,7 @@ const ProjectPage = () => {
 
           {/* Project Image */}
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-50 shadow-lg reveal-up delay-200 group">
-            <Image
+            <ImageWithFallback
               src={project.image}
               alt={project.title}
               width={1200}

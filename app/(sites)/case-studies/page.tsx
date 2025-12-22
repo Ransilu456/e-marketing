@@ -38,9 +38,9 @@ export default function CaseStudiesPage() {
                     }`}
                 >
                   <ImageWithFallback
-                    src={project.image}
+                    src={project.intro_image}
                     alt={project.title}
-                    className="w-full h-[450px] object-cover"
+                    className="w-full h-[450px] object-cover rounded-3xl"
                   />
 
                   <div className="absolute bottom-6 left-6 right-6 bg-white/80 backdrop-blur-md border border-white rounded-xl p-5">
