@@ -90,7 +90,7 @@ export default function Hero() {
       </div>
 
       {/* RIGHT IMAGE */}
-      <div className="relative w-full lg:w-1/2
+      <div className=" hidden lg:block relative w-full lg:w-1/2
                       mt-12 lg:mt-0 px-4 sm:px-6">
 
         {/* Image container */}
