@@ -471,7 +471,7 @@ function InteractiveFAQs() {
     { q: "Can you develop native or cross-platform mobile apps?", a: "We specialize in cross-platform development using React Native, which allows us to efficiently build a single codebase that runs natively on Android." },
     { q: "Do you provide post-launch maintenance and support?", a: "Yes, we offer flexible maintenance packages that cover bug fixes, security updates, feature enhancements, and technical support to ensure your application runs smoothly." },
     { q: "Do I need to provide the images and copy for the poster?", a: "We encourage clients to provide their branding guidelines and key messages. We can handle image sourcing using royalty-free stock libraries and offer basic copy editing as part of the package." },
-    { q: "Which social media platforms do you manage?", a: "We manage all major platforms, including Instagram, Facebook, Twitter (X), LinkedIn, and TikTok, tailoring content and strategy specifically to each platform's audience and best practices." },
+    { q: "Which social media platforms do you manage?", a: "We manage all major platforms, including Facebook, TikTok, and Youtube, tailoring content and strategy specifically to each platform's audience and best practices." },
     { q: "How do you measure the success of a social media campaign?", a: "We track key performance indicators (KPIs) such as engagement rate, reach, follower growth, website traffic, and, most importantly, conversion rates relevant to your business goals." }
   ];
 

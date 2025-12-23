@@ -2,11 +2,8 @@ import Link from "next/link";
 
 export default function BeautiyCTA() {
     return (
-        <section
-            id="cta"
-            className="py-32 relative overflow-hidden border-t border-red-100 bg-red-50/20"
-        >
-            <div className="relative z-10 max-w-3xl mx-auto px-6 text-center reveal-up">
+        <section className="py-32 relative overflow-hidden border-t border-red-100 bg-red-50/20">
+            <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
                 <h2 className="text-4xl md:text-6xl font-semibold text-gray-900 mb-8">
                     Ready to craft your vision?
                 </h2>

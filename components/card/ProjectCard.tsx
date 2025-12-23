@@ -26,7 +26,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
   return (
     <a
       href={href}
-      className="group block overflow-hidden rounded-3xl bg-white shadow-md border border-gray-100 transition-all hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
+      className="group block overflow-hidden rounded-3xl bg-white  border border-gray-300 transition-all  focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
       role="article"
       aria-label={`View project: ${title}`}
     >

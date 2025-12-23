@@ -13,7 +13,6 @@ import {
   Zap,
 } from "lucide-react";
 import { mobileProjects } from "./projects";
-import CTA from "@/components/ui/CTA";
 import BeautiyCTA from "@/components/ui/BeautiyCTA";
 
 const features = [
@@ -249,8 +248,6 @@ export default function page() {
       <Hero />
       <Features />
       <Projects />
-
-      <CTA/>
       <BeautiyCTA/>
     </main>
   );
