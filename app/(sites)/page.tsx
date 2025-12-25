@@ -530,24 +530,7 @@ function InteractiveFAQs() {
 }
 
 function Contact() {
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
   const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-      setFormData({ name: "", email: "", message: "" });
-    }, 700);
-  };
 
   return (
     <section id="contact" className="py-24 bg-grid">
@@ -559,109 +542,95 @@ function Contact() {
         />
 
         <div className="grid md:grid-cols-2 gap-8 w-full bg-white p-4 border border-black/10 rounded-2xl">
-          {/* Left - Contact Info */}
-          <div className="space-y-4">
+
+          {/* LEFT */}
+          <div className="space-y-4 text-left">
             <h3 className="font-semibold text-slate-900 mb-6">Contact Information</h3>
 
-            <div className="flex gap-4">
-              <div className="w-10 h-10 bg-(--color-primary)/10 rounded-lg flex items-center justify-center shrink-0 mt-1">
-                <Mail className="text-(--color-primary)" size={18} />
+            {[
+              { icon: Mail, label: "Email", value: "emarketingparadice@gmail.com", link: "mailto:emarketingparadice@gmail.com" },
+              { icon: Phone, label: "Phone", value: "+94 76 346 0514", link: "tel:+947123456789" },
+              { icon: MapPin, label: "Location", value: "Kuliyapitiya, Sri Lanka" },
+              { icon: Clock, label: "Hours", value: "Mon - Sat: 9:00 AM - 6:00 PM" },
+            ].map((item, i) => (
+              <div key={i} className="flex gap-4">
+                <div className="w-10 h-10 bg-(--color-primary)/10 rounded-lg flex items-center justify-center mt-1">
+                  <item.icon className="text-(--color-primary)" size={18} />
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500">{item.label}</p>
+                  {item.link ? (
+                    <a href={item.link} className="text-red-900 hover:text-(--color-primary)">
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="text-red-900">{item.value}</p>
+                  )}
+                </div>
               </div>
-              <div className="flex flex-col items-baseline">
-                <p className="text-sm text-slate-500">Email</p>
-                <a href="mailto:emarketingparadice@gmail.com" className="text-red-900 hover:(--color-primary) transition-colors">emarketingparadice@gmail.com</a>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="w-10 h-10 bg-(--color-primary)/10 rounded-lg flex items-center justify-center shrink-0 mt-1">
-                <Phone className="text-(--color-primary)" size={18} />
-              </div>
-              <div className="flex flex-col items-baseline">
-                <p className="text-sm text-slate-500">Phone</p>
-                <a href="tel:+947123456789" className="text-red-900 hover:(--color-primary) transition-colors">+94 712 345 6789</a>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="w-10 h-10 bg-(--color-primary)/10 rounded-lg flex items-center justify-center shrink-0 mt-1">
-                <MapPin className="text-(--color-primary)" size={18} />
-              </div>
-              <div className="flex flex-col items-baseline">
-                <p className="text-sm text-slate-500">Location</p>
-                <p className="text-red-900">Kuliyapitiya, Sri Lanka</p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="w-10 h-10 bg-(--color-primary)/10 rounded-lg flex items-center justify-center shrink-0 mt-1">
-                <Clock className="text-(--color-primary)" size={18} />
-              </div>
-              <div className="flex flex-col items-baseline">
-                <p className="text-sm text-slate-500">Hours</p>
-                <p className="text-red-900">Mon - Sat: 9:00 AM - 6:00 PM</p>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Right - Form */}
+          {/* RIGHT FORM */}
           <div className="bg-slate-50 rounded-xl p-8 border border-slate-100">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="flex flex-col items-baseline">
-                <label htmlFor="name" className="block text-sm font-medium text-slate-900 mb-1.5">Your Name *</label>
+            <form
+              name="contact"
+              method="POST"
+              action="/"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={() => setSubmitting(true)}
+              className="space-y-4 text-left"
+            >
+              {/* REQUIRED */}
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
+
+              <div>
+                <label className="block text-sm font-medium mb-1.5">Your Name *</label>
                 <input
-                  id="name"
+                  name="name"
                   type="text"
                   required
-                  aria-required="true"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:border-(--color-primary) focus:ring-1 focus:ring-(--color-primary)/30 outline-none transition-all text-sm"
                   placeholder="John Doe"
+                  className="w-full px-3 py-2 border  border-gray-200 rounded-lg focus:ring-1 focus:ring-(--color-primary)/30"
                 />
               </div>
 
-              <div className="flex flex-col items-baseline">
-                <label htmlFor="email" className="block text-sm font-medium text-slate-900 mb-1.5">Email *</label>
+              <div>
+                <label className="block text-sm font-medium mb-1.5">Email *</label>
                 <input
-                  id="email"
+                  name="email"
                   type="email"
                   required
-                  aria-required="true"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:border-(--color-primary) focus:ring-1 focus:ring-(--color-primary)/30 outline-none transition-all text-sm"
                   placeholder="john@company.com"
+                  className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-1 focus:ring-(--color-primary)/30"
                 />
               </div>
 
-              <div className="flex flex-col items-baseline">
-                <label htmlFor="message" className="block text-sm font-medium text-slate-900 mb-1.5">Message *</label>
+              <div>
+                <label className="block text-sm font-medium mb-1.5">Message *</label>
                 <textarea
-                  id="message"
-                  required
-                  aria-required="true"
+                  name="message"
                   rows={4}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:border-(--color-primary) focus:ring-1 focus:ring-(--color-primary)/30 outline-none resize-none transition-all text-sm"
+                  required
                   placeholder="Tell us about your project..."
+                  className="w-full px-3 py-2 border border-gray-200 rounded-lg resize-none focus:ring-1 focus:ring-(--color-primary)/30"
                 />
               </div>
 
               <Button
                 type="submit"
                 disabled={submitting}
-                className=" w-full px-4 py-2.5 text-sm font-medium rounded-lg flex items-center justify-center gap-2 transition-all duration-300"
-                aria-busy={submitting}
+                className="w-full flex items-center justify-center gap-2"
               >
-                {submitting ? 'Sending...' : 'Send Message'}
+                {submitting ? "Sending..." : "Send Message"}
                 {!submitting && <Send size={16} />}
               </Button>
 
-              {submitted && (
-                <div className="text-center text-sm text-green-600 bg-green-50 p-2 rounded-lg">Thanks! We&apos;ll reply soon.</div>
-              )}
+              <p className="text-xs text-slate-500 text-center">
+                We respect your privacy. Your data is never shared.
+              </p>
             </form>
           </div>
         </div>
@@ -669,6 +638,7 @@ function Contact() {
     </section>
   );
 }
+
 
 function BlogSection() {
   return (

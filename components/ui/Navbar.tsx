@@ -92,7 +92,7 @@ export default function Navbar() {
                   {item.name}
                 </Link>
               ))}
-              <Link href="#contact" onClick={() => setMobileOpen(false)}>
+              <Link href="/contact" onClick={() => setMobileOpen(false)}>
                 <Button className="w-full justify-center mt-2 bg-black text-white">Get Started</Button>
               </Link>
             </div>
