@@ -71,7 +71,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <Link href="#contact">
+          <Link href="/contact">
             <Button variant="primary" className="h-3 text-xs uppercase tracking-wide bg-black rounded-md">
               Start Project <ArrowRight className="w-3.5 h-3.5" />
             </Button>

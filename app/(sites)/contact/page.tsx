@@ -76,6 +76,19 @@ export default function ContactPage() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
+                    Name
+                  </label>
+                  <input
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="John Doe"
+                    className="w-full rounded-xl border border-gray-400/20 px-4 py-3 focus:ring-2 focus:ring-(--color-primary)/40 outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Email
                   </label>
                   <input
@@ -83,19 +96,6 @@ export default function ContactPage() {
                     name="email"
                     required
                     placeholder="you@company.com"
-                    className="w-full rounded-xl border border-gray-400/20 px-4 py-3 focus:ring-2 focus:ring-(--color-primary)/40 outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Phone
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    placeholder="+94 712 345 678"
                     className="w-full rounded-xl border border-gray-400/20 px-4 py-3 focus:ring-2 focus:ring-(--color-primary)/40 outline-none"
                   />
                 </div>
