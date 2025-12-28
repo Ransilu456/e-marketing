@@ -436,28 +436,53 @@ function WorkList() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 mt-12">
           {LandingProjects.map((project, index) => (
             <Link href={project.page_link} key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
+              <motion.article
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative rounded-2xl overflow-hidden shadow-xl group cursor-pointer hover:shadow-2xl hover:scale-[1.01] transition-all duration-300"
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.06 }}
+                className="group relative h-72 overflow-hidden rounded-2xl
+                 shadow-md hover:shadow-xl
+                 transition-all duration-300"
               >
                 <Image
                   src={project.image}
                   alt={project.title}
-                  width={500}
-                  height={300}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  priority={index < 3}
+                  className="object-cover transition-transform duration-700
+                   group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-zinc-900/80 via-zinc-900/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <p className="text-xs uppercase tracking-widest font-semibold text-(--color-text) mb-1">{project.category}</p>
-                  <h4 className="text-xl font-bold mb-1">{project.title}</h4>
+
+                <div className="absolute inset-0 bg-linear-to-t
+                      from-blue-100/80 via-blue-50/30 to-transparent
+                      transition-opacity duration-300" />
+
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <motion.span 
+                   whileHover={{ opacity: 1, y: -10 }}
+                  className="mb-2 w-fit rounded-full
+                         bg-white/90 px-3 py-1
+                         text-xs font-medium text-zinc-900">
+                    {project.category}
+                  </motion.span>
+
+                  <h3 className="text-lg font-semibold text-white leading-tight">
+                    {project.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm font-medium text-black/80
+                      opacity-0 translate-y-2
+                      group-hover:opacity-100 group-hover:translate-y-0
+                      transition-all duration-300">
+                    View project →
+                  </p>
                 </div>
-              </motion.div>
+              </motion.article>
             </Link>
           ))}
+
+
         </div>
       </div>
     </section>

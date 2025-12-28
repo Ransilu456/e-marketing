@@ -28,18 +28,18 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { label: "Employees", href: "/admin", icon: Users },
-  { label: "Departments", href: "/admin", icon: Layers },
+  { label: "Employees", href: "/employees", icon: Users },
+  { label: "Departments", href: "/", icon: Layers },
   {
     label: "Projects",
     icon: Users,
     children: [
-      { label: "Ongoing", href: "/admin", icon: Clock },
-      { label: "Deployed", href: "/admin", icon: Rocket },
+      { label: "Ongoing", href: "/", icon: Clock },
+      { label: "Deployed", href: "/", icon: Rocket },
     ],
   },
-  { label: "Attendance", href: "/admin", icon: CalendarCheck },
-  { label: "Settings", href: "/admin", icon: Settings },
+  { label: "Attendance", href: "/", icon: CalendarCheck },
+  { label: "Settings", href: "/", icon: Settings },
 ];
 
 export default function AdminSidebar() {
