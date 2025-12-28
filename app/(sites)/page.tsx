@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Zap, Layout, BarChart3, CheckCircle, Code, Mail, Phone, MapPin, Send, Clock, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Zap, Layout, BarChart3, CheckCircle, Code, Mail, Phone, MapPin, Clock, CheckCircle2 } from "lucide-react";
 import * as Lucide from 'lucide-react';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 import Hero from "@/components/Hero";
@@ -14,6 +14,7 @@ import { projects } from "@/components/data/data";
 import { ImageWithFallback } from "@/components/error/ImageWithFallback";
 import { blogPosts, BLOG_IS_PREVIEW } from "@/components/data/blog";
 import { formatDate } from "@/components/utils/date";
+import ContactForm from "@/components/ui/Contact";
 
 
 const processSteps = [
@@ -126,7 +127,7 @@ const Icon = ({ name, size = 20, className, ...props }: IconProps) => {
   return <LucideIcon size={size} className={className} {...props} />;
 };
 
-function Button({ children, variant = "primary", className = "", ...props }: ButtonProps) {
+export function Button({ children, variant = "primary", className = "", ...props }: ButtonProps) {
   const base = "inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-all duration-300 active:scale-[0.98] h-10 px-7";
   const variants = {
     primary: "bg-linear-to-r from-(--color-primary) to-red-800 text-white hover:bg-red-700 shadow-xl shadow-[var(--color-primary)]/20",
@@ -530,7 +531,13 @@ function InteractiveFAQs() {
 }
 
 function Contact() {
-  const [submitting, setSubmitting] = useState(false);
+
+  const contactInfo = [
+    { icon: Mail, label: "Email", value: "emarketingparadice@gmail.com", link: "mailto:emarketingparadice@gmail.com" },
+    { icon: Phone, label: "Phone", value: "+94 76 346 0514", link: "tel:+947123456789" },
+    { icon: MapPin, label: "Location", value: "Kuliyapitiya, Sri Lanka" },
+    { icon: Clock, label: "Hours", value: "Mon - Sat: 9:00 AM - 6:00 PM" },
+  ];
 
   return (
     <section id="contact" className="py-24 bg-grid">
@@ -546,16 +553,13 @@ function Contact() {
           {/* LEFT */}
           <div className="space-y-4 text-left">
             <h3 className="font-semibold text-slate-900 mb-6">Contact Information</h3>
-
-            {[
-              { icon: Mail, label: "Email", value: "emarketingparadice@gmail.com", link: "mailto:emarketingparadice@gmail.com" },
-              { icon: Phone, label: "Phone", value: "+94 76 346 0514", link: "tel:+947123456789" },
-              { icon: MapPin, label: "Location", value: "Kuliyapitiya, Sri Lanka" },
-              { icon: Clock, label: "Hours", value: "Mon - Sat: 9:00 AM - 6:00 PM" },
-            ].map((item, i) => (
+            {contactInfo.map((item, i) => (
               <div key={i} className="flex gap-4">
-                <div className="w-10 h-10 bg-(--color-primary)/10 rounded-lg flex items-center justify-center mt-1">
-                  <item.icon className="text-(--color-primary)" size={18} />
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center mt-1"
+                  style={{ backgroundColor: "var(--color-primary-10)" }}
+                >
+                  <item.icon style={{ color: "var(--color-primary)" }} size={18} />
                 </div>
                 <div>
                   <p className="text-sm text-slate-500">{item.label}</p>
@@ -573,72 +577,13 @@ function Contact() {
 
           {/* RIGHT FORM */}
           <div className="bg-slate-50 rounded-xl p-8 border border-slate-100">
-            <form
-              name="contact"
-              method="POST"
-              action="/"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              onSubmit={() => setSubmitting(true)}
-              className="space-y-4 text-left"
-            >
-              {/* REQUIRED */}
-              <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="bot-field" />
-
-              <div>
-                <label className="block text-sm font-medium mb-1.5">Your Name *</label>
-                <input
-                  name="name"
-                  type="text"
-                  required
-                  placeholder="John Doe"
-                  className="w-full px-3 py-2 border  border-gray-200 rounded-lg focus:ring-1 focus:ring-(--color-primary)/30"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-1.5">Email *</label>
-                <input
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="john@company.com"
-                  className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-1 focus:ring-(--color-primary)/30"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-1.5">Message *</label>
-                <textarea
-                  name="message"
-                  rows={4}
-                  required
-                  placeholder="Tell us about your project..."
-                  className="w-full px-3 py-2 border border-gray-200 rounded-lg resize-none focus:ring-1 focus:ring-(--color-primary)/30"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                disabled={submitting}
-                className="w-full flex items-center justify-center gap-2"
-              >
-                {submitting ? "Sending..." : "Send Message"}
-                {!submitting && <Send size={16} />}
-              </Button>
-
-              <p className="text-xs text-slate-500 text-center">
-                We respect your privacy. Your data is never shared.
-              </p>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>
     </section>
   );
 }
-
 
 function BlogSection() {
   return (
@@ -736,7 +681,6 @@ function BlogSection() {
     </section>
   );
 }
-
 
 
 export default function Page() {
