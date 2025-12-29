@@ -1,10 +1,50 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 
-export const metadata = {
-  title: "Terms & Conditions | eMarketing Paradice",
+export const metadata: Metadata = {
+  title:
+    "Terms & Conditions | E Marketing Paradice Sri Lanka – Digital Marketing Services",
   description:
-    "Read the terms and conditions governing the use of eMarketing Paradice services and website.",
+    "Read the official Terms and Conditions of E Marketing Paradice Sri Lanka. Learn about website usage, intellectual property, services, and legal policies.",
+  keywords: [
+    "E Marketing Paradice Sri Lanka",
+    "digital marketing Sri Lanka",
+    "SEO services Sri Lanka",
+    "terms and conditions Sri Lanka",
+    "online marketing company LK",
+  ],
+  authors: [{ name: "E Marketing Paradice Sri Lanka" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://emarketingparadice.lk/terms",
+  },
+  openGraph: {
+    title: "Terms & Conditions | E Marketing Paradice Sri Lanka",
+    description:
+      "Official terms and conditions for using E Marketing Paradice Sri Lanka digital marketing services.",
+    url: "https://emarketingparadice.lk/terms",
+    siteName: "E Marketing Paradice Sri Lanka",
+    type: "website",
+    locale: "en_LK",
+  },
+  twitter: {
+    card: "summary",
+    title: "Terms & Conditions | E Marketing Paradice Sri Lanka",
+    description:
+      "Legal terms governing E Marketing Paradice Sri Lanka digital marketing services.",
+  },
+  other: {
+    "geo.region": "LK",
+    "geo.placename": "Sri Lanka",
+    "geo.position": "7.8731;80.7718",
+    ICBM: "7.8731, 80.7718",
+  },
 };
+
 
 export default function TermsPage() {
   return (
@@ -25,7 +65,7 @@ export default function TermsPage() {
 
           <p>
             These Terms & Conditions govern your use of the website operated by
-            <strong> eMarketing Paradice</strong>. By accessing this website,
+            <strong> E Marketing Paradice</strong>. By accessing this website,
             you agree to be bound by these terms.
           </p>
 
@@ -45,7 +85,7 @@ export default function TermsPage() {
             </h2>
             <p>
               All content, designs, logos, and materials on this website are the
-              intellectual property of eMarketing Paradice unless otherwise stated.
+              intellectual property of E Marketing Paradice unless otherwise stated.
               Unauthorized use is prohibited.
             </p>
           </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "@/components/ui/CookieConsent";
+import Adsense from "@/components/Adsense/Adsense";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -85,6 +86,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} font-sans antialiased`}>
         {children}
         <CookieConsent />
+        <Adsense />
       </body>
     </html>
   );

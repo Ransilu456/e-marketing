@@ -6,8 +6,12 @@ export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookie_consent");
-    if (!consent) setVisible(true);
+    const timeout = setTimeout(() => {
+      const consent = localStorage.getItem("cookie_consent");
+      if (!consent) setVisible(true);
+    }, 0);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   const acceptCookies = () => {
@@ -24,6 +28,7 @@ export default function CookieConsent() {
           We use cookies to improve user experience, analyze traffic, and serve
           personalized ads in compliance with Google AdSense policies.
         </p>
+
         <div className="flex gap-3">
           <button
             onClick={acceptCookies}
@@ -31,6 +36,7 @@ export default function CookieConsent() {
           >
             Accept
           </button>
+
           <a
             href="/privacy-policy"
             className="px-4 py-2 rounded-lg text-sm font-semibold text-zinc-700 hover:underline"
