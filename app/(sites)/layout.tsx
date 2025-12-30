@@ -5,7 +5,7 @@ import Footer from "@/components/ui/Footer";
 export const metadata: Metadata = {
   title: {
     default: "E Marketing Paradice",
-    template: "%s | E Marketing Paradice",
+    template: "%s | Digital Marketing Agency in Sri Lankan",
   },
   description:
     "E Marketing Paradice is a digital marketing agency offering branding, web development, SEO, and growth solutions.",
@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "SEO services",
     "branding",
     "marketing agency",
+    "sri lanka marketing",
+    "poster design",
+    "facebook marketing"
   ],
   authors: [{ name: "E Marketing Paradice" }],
   creator: "E Marketing Paradice",
