@@ -3,6 +3,13 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
+
+  metadataBase: new URL("https://emarketingparadice.lk"),
+
+  verification: {
+    google: "r2bIazJ_HQ68MrlNjsq1pO6AkmYIcafOy4ZE5gGe_D8",
+  },
+
   title: {
     default: "E Marketing Paradice",
     template: "%s | Digital Marketing Agency in Sri Lanka",
