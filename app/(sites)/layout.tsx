@@ -29,8 +29,6 @@ export const metadata: Metadata = {
   authors: [{ name: "E Marketing Paradice" }],
   creator: "E Marketing Paradice",
 
-  metadataBase: new URL("https://emarketingparadice.lk"),
-
   openGraph: {
     title: "E Marketing Paradice",
     description:
