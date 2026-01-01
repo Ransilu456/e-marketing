@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
   title: {
     default: "E Marketing Paradice",
-    template: "%s | Digital Marketing Agency in Sri Lankan",
+    template: "%s | Digital Marketing Agency in Sri Lanka",
   },
 
   description: "We design & develop modern digital solutions for growing brands.",

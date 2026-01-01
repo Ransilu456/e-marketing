@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { posterProjects, Project } from "./projects";
-import CTA from "@/components/ui/CTA";
+import CTA from "@/components/ui/home/CTA";
 
 export default function PosterDesignServicePage() {
   const serviceFeatures = [

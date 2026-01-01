@@ -18,7 +18,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const navigation = [
   { name: "Services", href: "/#services" },
-  { name: "Process", href: "/#process" },
+  { name: "About Us", href: "/about-us" },
   { name: "Work", href: "/#work" },
   { name: "Blogs", href: "/under_development_200" },
   { name: "Case Studies", href: "/case-studies" },
@@ -73,7 +73,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <Link href="/contact">
             <Button variant="primary" className="h-3 text-xs uppercase tracking-wide bg-black rounded-md">
-              Start Project <ArrowRight className="w-3.5 h-3.5" />
+              Call us now <ArrowRight className="w-3.5 h-3.5" />
             </Button>
           </Link>
         </div>

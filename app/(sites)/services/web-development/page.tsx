@@ -12,7 +12,7 @@ import Link from "next/link";
 
 import { portfolioProjects } from "./projects";
 import { ImageWithFallback } from "@/components/error/ImageWithFallback";
-import BeautiyCTA from "@/components/ui/BeautiyCTA";
+import BeautiyCTA from "@/components/ui/home/BeautiyCTA";
 
 export default function Home() {
   useEffect(() => {

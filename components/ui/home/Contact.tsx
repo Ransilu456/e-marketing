@@ -1,12 +1,12 @@
-import { Button } from "@/app/(sites)/page";
 import { Send } from "lucide-react";
+import Button from "../tools/Button";
 
 export default function ContactForm() {
   return (
     <form
       name="contact"
       method="POST"
-      action="/contact/thank-you"
+      action="/thank-you"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       className="space-y-4 text-left"

@@ -13,7 +13,7 @@ import {
   Zap,
 } from "lucide-react";
 import { mobileProjects } from "./projects";
-import BeautiyCTA from "@/components/ui/BeautiyCTA";
+import BeautiyCTA from "@/components/ui/home/BeautiyCTA";
 
 const features = [
   {
