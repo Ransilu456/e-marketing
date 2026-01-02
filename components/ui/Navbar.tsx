@@ -7,14 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu, X, ArrowRight
 } from "lucide-react";
-import { ButtonHTMLAttributes, ReactNode } from 'react';
-
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  variant?: "primary" | "secondary" | "ghost" | "link";
-  className?: string;
-}
+import Button from "./tools/Button";
 
 const navigation = [
   { name: "Services", href: "/#services" },
@@ -23,23 +16,6 @@ const navigation = [
   { name: "Blogs", href: "/under_development_200" },
   { name: "Case Studies", href: "/case-studies" },
 ];
-
-function Button({ children, variant = "primary", className = "", ...props }: ButtonProps) {
-  const base = "inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-all duration-300 active:scale-[0.98] h-10 px-7";
-  const variants = {
-    primary: "bg-(-color-primary) text-white hover:bg-red-700 shadow-xl shadow-(--color-primary)/20",
-    secondary: "bg-white text-zinc-900 border border-zinc-300 hover:bg-red-50 hover:border-(--color-text) shadow-sm transition-all",
-    ghost: "text-zinc-600 hover:text-(--color-primary) hover:bg-zinc-100 px-4 py-2",
-    upsideghost: "text-zinc-600 hover:text-(--color-primary) bg-zinc-100 px-4 py-2",
-    link: "text-(--color-primary) hover:text-red-700 underline-offset-4 hover:underline p-0 h-auto px-0"
-  };
-
-  return (
-    <button className={`${base} ${variants[variant]} ${className}`} {...props}>
-      {children}
-    </button>
-  );
-}
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -72,7 +48,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <Link href="/contact">
-            <Button variant="primary" className="h-3 text-xs uppercase tracking-wide bg-black rounded-md">
+            <Button variant="ghost" className="h-3 text-xs uppercase tracking-wide bg-black rounded-md">
               Call us now <ArrowRight className="w-3.5 h-3.5" />
             </Button>
           </Link>

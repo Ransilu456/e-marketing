@@ -13,40 +13,74 @@ import {
   Award,
 } from "lucide-react";
 import Process from "@/components/ui/home/Proccess";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
-  title:{
+  title: {
     absolute: "About Us | E Marketing Paradice",
-  } ,
+  },
   description:
-    "E Marketing Paradice is a digital agency specializing in web design, development, branding, and SEO to help businesses grow online.",
+    "Learn about E Marketing Paradice, a leading digital agency in Sri Lanka specializing in web design, development, branding, SEO, and UI/UX solutions to help businesses grow online.",
   keywords: [
     "E Marketing Paradice",
-    "digital agency",
-    "web design",
-    "web development",
-    "branding",
+    "digital agency Sri Lanka",
+    "web design Sri Lanka",
+    "web development Sri Lanka",
+    "branding services",
     "SEO services",
     "UI UX design",
-    "About us"
+    "digital marketing company",
+    "About Us"
   ],
+  authors: [{ name: "E Marketing Paradice" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://emarketingparadice.lk/about",
+  },
   openGraph: {
     title: "About Us | E Marketing Paradice",
     description:
-      "We build modern, scalable, and performance-driven digital experiences for growing brands.",
+      "Discover how E Marketing Paradice creates modern, scalable, and performance-driven digital experiences for growing brands in Sri Lanka.",
+    url: "https://emarketingparadice.lk/about",
+    siteName: "E Marketing Paradice",
     type: "website",
+    locale: "en_LK",
+    images: [
+      {
+        url: "https://emarketingparadice.lk/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "E Marketing Paradice Team",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | E Marketing Paradice",
+    description:
+      "E Marketing Paradice is a Sri Lankan digital agency delivering web design, branding, SEO, and UI/UX solutions for businesses to thrive online.",
+    images: ["https://emarketingparadice.lk/og-image.png"],
+  },
+  other: {
+    "geo.region": "LK",
+    "geo.placename": "Sri Lanka",
+    "geo.position": "7.8731;80.7718",
+    ICBM: "7.8731, 80.7718",
   },
 };
 
 export default function Page() {
   return (
-    <main className="relative overflow-hidden bg-white">
+    <main className="min-h-screen bg-white">
+      <Navbar />
 
-      {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] from-neutral-100 via-white to-white" />
       <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[900px] h-[400px] blur-[120px] rounded-full bg-(--color-primary)/10 pointer-events-none" />
 
-      {/* Hero */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 text-center">
         <h1 className="text-5xl sm:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-linear-to-b from-neutral-900 to-neutral-600">
           About E Marketing Paradice
@@ -95,7 +129,6 @@ export default function Page() {
         ))}
       </section>
 
-      {/* Our Story */}
       <section className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
         <h2 className="text-3xl font-semibold text-neutral-900 mb-6">
           Our Story
@@ -112,7 +145,6 @@ export default function Page() {
         </p>
       </section>
 
-      {/* Services */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <h2 className="text-3xl font-semibold text-center text-neutral-900 mb-12">
           What We Do
@@ -157,7 +189,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 py-20 bg-neutral-50 rounded-3xl">
         <h2 className="text-3xl font-semibold text-center text-neutral-900 mb-12">
           Why Choose Marketing Paradice
@@ -201,7 +232,6 @@ export default function Page() {
 
       <Process />
 
-      {/* Stats */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <div className="grid gap-8 md:grid-cols-4 text-center">
           {[
@@ -218,7 +248,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 py-24 text-center">
         <div className="rounded-3xl border border-neutral-200 bg-neutral-50 p-12">
           <h3 className="text-3xl font-semibold text-neutral-900">
@@ -241,8 +270,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Bottom Fade */}
-      <div className="absolute bottom-0 w-full h-32 bg-linear-to-t from-white to-transparent pointer-events-none" />
+      <Footer/>
     </main>
   );
 }
