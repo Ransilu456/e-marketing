@@ -13,30 +13,44 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://emarketingparadice.lk"),
 
+  applicationName: "E Marketing Paradice",
+
   verification: {
     google: "r2bIazJ_HQ68MrlNjsq1pO6AkmYIcafOy4ZE5gGe_D8",
   },
 
   title: {
-    default: "E Marketing Paradice",
-    template: "%s | Digital Marketing Agency in Sri Lanka",
+    default: "E Marketing Paradice – Digital Marketing Agency in Sri Lanka",
+    template: "%s | E Marketing Paradice",
   },
 
-  description: "We design & develop modern digital solutions for growing brands.",
+  description:
+    "E Marketing Paradice is a leading digital marketing agency in Sri Lanka offering web development, SEO, branding, and social media marketing.",
 
   keywords: [
     "digital marketing sri lanka",
+    "digital marketing agency in sri lanka",
     "web development sri lanka",
-    "branding",
-    "SEO services",
+    "SEO services sri lanka",
+    "branding sri lanka",
+    "social media marketing",
     "E Marketing Paradice",
-    "Sri Lanka marketing",
-    "poster design",
-    "facebook marketing"
   ],
 
-  authors: [{ name: "E Marketing Paradice" }],
+  authors: [{ name: "E Marketing Paradice", url: "https://emarketingparadice.lk" }],
   creator: "E Marketing Paradice",
+  publisher: "E Marketing Paradice",
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 
   openGraph: {
     title: "E Marketing Paradice",
@@ -75,13 +89,8 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
 };
+
 
 export default function RootLayout({
   children,
