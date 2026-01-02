@@ -48,8 +48,9 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <Link href="/contact">
-            <Button variant="ghost" className="h-3 text-xs uppercase tracking-wide bg-black rounded-md">
-              Call us now <ArrowRight className="w-3.5 h-3.5" />
+            <Button variant="primary" className=" uppercase">
+              Call us now 
+              <ArrowRight className="w-3.5 h-3.5" />
             </Button>
           </Link>
         </div>
