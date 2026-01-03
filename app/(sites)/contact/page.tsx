@@ -1,10 +1,9 @@
 ﻿"use client";
 
+import ContactForm from "@/components/ui/home/Contact";
 import { Mail, Phone, Send } from "lucide-react";
-import { useState } from "react";
 
 export default function ContactPage() {
-  const [sending, setSending] = useState(false);
 
   return (
     <main className="min-h-screen bg-linear-to-b from-slate-50 to-white pt-28 pb-20">
@@ -58,76 +57,11 @@ export default function ContactPage() {
           ))}
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <div className="rounded-3xl border border-gray-400/20 bg-white/80 backdrop-blur-xl shadow-xl p-8 md:p-12">
-
-            <form
-              name="contact"
-              method="POST"
-              action="/"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              onSubmit={() => setSending(true)}
-              className="space-y-6"
-            >
-              <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="bot-field" />
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Name
-                  </label>
-                  <input
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="John Doe"
-                    className="w-full rounded-xl border border-gray-400/20 px-4 py-3 focus:ring-2 focus:ring-(--color-primary)/40 outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="you@company.com"
-                    className="w-full rounded-xl border border-gray-400/20 px-4 py-3 focus:ring-2 focus:ring-(--color-primary)/40 outline-none"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  rows={6}
-                  required
-                  placeholder="Tell us about your project or idea..."
-                  className="w-full rounded-xl border border-gray-400/20 px-4 py-3 resize-none focus:ring-2 focus:ring-(--color-primary)/40 outline-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={sending}
-                className="w-full rounded-xl bg-(--color-primary) text-white py-4 font-medium flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98]"
-              >
-                {sending ? "Sending..." : "Send Message"}
-                {!sending && <Send size={18} />}
-              </button>
-
-              <p className="text-center text-xs text-slate-500">
-                We respect your privacy. Your information is never shared.
-              </p>
-            </form>
-
+        <div className="max-w-4xl mx-auto">
+          <div className="relative rounded-3xl
+    bg-white  border border-zinc-200
+    p-8 md:p-12 overflow-hidden">
+            <ContactForm />
           </div>
         </div>
       </div>

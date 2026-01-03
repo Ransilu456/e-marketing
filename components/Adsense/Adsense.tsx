@@ -8,8 +8,8 @@ export default function Adsense() {
       id="adsense-script"
       strategy="afterInteractive"
       async
-      crossOrigin="anonymous"
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8436656924210802"
+      crossOrigin="anonymous"
       data-ad-client="ca-pub-8436656924210802"
     />
   );

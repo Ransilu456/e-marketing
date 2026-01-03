@@ -1,70 +1,89 @@
+"use client";
+
 import { Send } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 import Button from "../tools/Button";
 
 export default function ContactForm() {
-  return (
-    <form
-      name="contact"
-      method="POST"
-      action="/thank-you"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      className="space-y-4 text-left"
-    >
-      <input type="hidden" name="form-name" value="contact" />
+  const router = useRouter();
 
-      <p className="hidden">
-        <label>
-          Don’t fill this out if you’re human: <input name="bot-field" />
-        </label>
-      </p>
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-      <div>
-        <label className="block text-sm font-medium mb-1.5">
-          Your Name *
-        </label>
-        <input
-          name="name"
-          type="text"
-          required
-          placeholder="John Doe"
-          className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-1 focus:ring-[var(--color-primary)/30]"
-        />
-      </div>
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
 
-      <div>
-        <label className="block text-sm font-medium mb-1.5">
-          Email *
-        </label>
-        <input
-          name="email"
-          type="email"
-          required
-          placeholder="john@company.com"
-          className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-1 focus:ring-[var(--color-primary)/30]"
-        />
-      </div>
+    const formData = new FormData(e.currentTarget);
 
-      <div>
-        <label className="block text-sm font-medium mb-1.5">
-          Message *
-        </label>
-        <textarea
-          name="message"
-          rows={4}
-          required
-          placeholder="Tell us about your project..."
-          className="w-full px-3 py-2 border border-gray-200 rounded-lg resize-none focus:ring-1 focus:ring-[var(--color-primary)/30]"
-        />
-      </div>
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify({
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-      <Button type="submit" className="w-full flex items-center justify-center gap-2">
-        Send Message <Send size={16} />
-      </Button>
+    setLoading(false);
 
-      <p className="text-xs text-slate-500 text-center">
-        We respect your privacy. Your data is never shared.
-      </p>
-    </form>
-  );
+    if (res.ok) {
+      setSuccess(true);
+      router.push("/thank-you");
+    }
 }
+
+    return (
+      <form onSubmit={handleSubmit} className="space-y-4 text-left">
+        <div>
+          <label className="block text-sm font-medium mb-1.5">Your Name *</label>
+          <input
+            name="name"
+            required
+            placeholder="John Doe"
+            className="w-full px-3 py-2 border border-gray-200 rounded-lg resize-none focus:ring-1 focus:ring-[var(--color-primary)/30]"
+
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-1.5">Email *</label>
+          <input
+            name="email"
+            type="email"
+            required
+            placeholder="john@company.com"
+            className="w-full px-3 py-2 border border-gray-200 rounded-lg resize-none focus:ring-1 focus:ring-[var(--color-primary)/30]"
+
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-1.5">Message *</label>
+          <textarea
+            name="message"
+            rows={4}
+            required
+            className="w-full px-3 py-2 border border-gray-200 rounded-lg resize-none focus:ring-1 focus:ring-[var(--color-primary)/30]"
+
+          />
+        </div>
+
+        <Button type="submit" disabled={loading} className="w-full flex gap-2">
+          {loading ? "Sending..." : "Send Message"}
+          {!loading && <Send size={16} />}
+        </Button>
+
+        {success && (
+          <p className="text-sm text-green-600 text-center">
+            Message sent successfully!
+          </p>
+        )}
+      </form>
+    );
+  }
