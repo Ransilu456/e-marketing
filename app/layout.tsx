@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     google: "r2bIazJ_HQ68MrlNjsq1pO6AkmYIcafOy4ZE5gGe_D8",
   },
 
+  other: {
+    "google-adsense-account": "ca-pub-8254653836295264",
+  },
+
   title: {
     default: "E Marketing Paradice",
     template: "%s | Digital Marketing Agency in Sri Lanka",
