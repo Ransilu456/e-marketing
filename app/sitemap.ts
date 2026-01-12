@@ -67,24 +67,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 1,
         },
         {
-            url: `${baseUrl}/services/mobile-apps/projects`,
-            lastModified: lastModified,
-            changeFrequency: "monthly",
-            priority: 1,
-        },
-        {
-            url: `${baseUrl}/services/social-media-management/projects`,
-            lastModified: lastModified,
-            changeFrequency: "monthly",
-            priority: 1,
-        },
-        {
-            url: `${baseUrl}/services/web-development/projects`,
-            lastModified: lastModified,
-            changeFrequency: "monthly",
-            priority: 1,
-        },
-        {
             url: `${baseUrl}/not-found`,
             lastModified: lastModified,
             changeFrequency: "monthly",
