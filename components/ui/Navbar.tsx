@@ -13,7 +13,7 @@ const navigation = [
   { name: "Services", href: "/#services" },
   { name: "About Us", href: "/about-us" },
   { name: "Work", href: "/#work" },
-  { name: "Blogs", href: "/under_development_200" },
+  { name: "Blogs", href: "/blog" },
   { name: "Case Studies", href: "/case-studies" },
 ];
 
@@ -49,7 +49,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <Link href="/contact">
             <Button variant="primary" className=" uppercase">
-              Call us now 
+              Call us now
               <ArrowRight className="w-3.5 h-3.5" />
             </Button>
           </Link>
