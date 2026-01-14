@@ -4,7 +4,7 @@ import { projects } from "@/components/data/data";
 import { ImageWithFallback } from "@/components/error/ImageWithFallback";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import SectionHeading from "../tools/SectionHeading";
-import Link from "next/link"; 
+import Link from "next/link";
 
 export default function Projects() {
   return (

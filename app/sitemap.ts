@@ -1,4 +1,8 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/components/data/blog";
+import { mobileProjects } from "@/app/(sites)/services/mobile-apps/projects";
+import { portfolioProjects as smmProjects } from "@/app/(sites)/services/social-media-management/projects";
+import { portfolioProjects as webProjects } from "@/app/(sites)/services/web-development/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://emarketingparadice.lk";
@@ -90,5 +94,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "monthly",
             priority: 1,
         },
+        {
+            url: `${baseUrl}/blog`,
+            lastModified: lastModified,
+            changeFrequency: "weekly",
+            priority: 0.9,
+        },
+        ...blogPosts.map((post) => ({
+            url: `${baseUrl}/blog/${post.slug}`,
+            lastModified: new Date(post.date),
+            changeFrequency: "monthly" as const,
+            priority: 0.8,
+        })),
+        ...mobileProjects.map((project) => ({
+            url: `${baseUrl}/services/mobile-apps/projects/${project.slug}`,
+            lastModified: lastModified,
+            changeFrequency: "monthly" as const,
+            priority: 0.7,
+        })),
+        ...smmProjects.map((project) => ({
+            url: `${baseUrl}/services/social-media-management/projects/${project.slug}`,
+            lastModified: lastModified,
+            changeFrequency: "monthly" as const,
+            priority: 0.7,
+        })),
+        ...webProjects.map((project) => ({
+            url: `${baseUrl}/services/web-development/projects/${project.slug}`,
+            lastModified: lastModified,
+            changeFrequency: "monthly" as const,
+            priority: 0.7,
+        })),
     ];
 }

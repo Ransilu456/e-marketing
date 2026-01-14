@@ -47,6 +47,13 @@ export default function PrivacyPolicyPage() {
       title: "Third-Party Sharing",
       icon: UserCheck,
       content: "We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties except to provide our core services."
+    },
+    {
+      id: "advertising",
+      item: "5",
+      title: "Advertising Partners",
+      icon: Database, // Reusing Database icon or similar context
+      content: "Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet. Users may opt out of personalized advertising by visiting Google Ads Settings."
     }
   ];
 
@@ -80,7 +87,7 @@ export default function PrivacyPolicyPage() {
               ))}
               <a href="#contact" className="group flex items-center gap-4 text-slate-500 hover:text-(--color-primary) transition-all">
                 <span className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-xs font-bold group-hover:bg-(--color-primary)/10 group-hover:text-(--color-primary) transition-colors">
-                  5
+                  6
                 </span>
                 <span className="font-medium">Contact</span>
               </a>

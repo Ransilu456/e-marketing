@@ -103,10 +103,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <Adsense />
-      </head>
       <body className={`${poppins.variable} font-sans antialiased`}>
+        <Adsense />
         {children}
         <CookieConsent />
       </body>

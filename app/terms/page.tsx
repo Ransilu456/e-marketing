@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ShieldCheck, Users, Workflow, Award, ArrowRight, Scale, FileText, Lock, Globe, MessageCircle } from "lucide-react";
 import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
+import BeautiyCTA from "@/components/ui/home/BeautiyCTA";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | E Marketing Paradice Sri Lanka",
@@ -153,15 +154,7 @@ export default function TermsPage() {
       </section>
 
       {/* Footer CTA */}
-      <section className="py-24 bg-[#FAFAFA]">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Ready to move forward with a project?</h2>
-          <Link href="/contact" className="inline-flex items-center gap-3 px-10 py-5 bg-(--color-primary) text-white font-bold rounded-full hover:shadow-xl hover:shadow-(--color-primary)/20 transition-all group">
-            Start Today
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-      </section>
+      <BeautiyCTA />
 
       <Footer />
     </main>

@@ -19,13 +19,11 @@ export default function Trusted() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4, duration: 0.6 }}
       className="
-        mt-12
         w-full
-        max-w-4xl
-        mx-auto lg:mx-0
+        mx-auto
       "
     >
-      <p className="text-xs uppercase tracking-wider text-slate-400 mb-4 text-center lg:text-left">
+      <p className="text-xs uppercase tracking-wider text-slate-400 mb-6 text-center">
         Trusted by forward-thinking teams
       </p>
 
@@ -36,7 +34,7 @@ export default function Trusted() {
           gap-8
           overflow-x-auto lg:overflow-visible
           flex-wrap lg:flex-nowrap
-          justify-center lg:justify-start
+          justify-center
           scrollbar-hide
         "
       >

@@ -209,6 +209,21 @@ select:focus {
   transform: translateY(0);
 }
 
+@keyframes shine {
+  from {
+    mask-position: 150%;
+  }
+  to {
+    mask-position: -50%;
+  }
+}
+
+.animate-shine {
+  mask-image: linear-gradient(-75deg, transparent calc(50% - 30px), #000 50%, transparent calc(50% + 30px));
+  mask-size: 200%;
+  animation: shine 2s infinite linear;
+}
+
 .site-nav {
   height: 4rem;
   display: flex;
