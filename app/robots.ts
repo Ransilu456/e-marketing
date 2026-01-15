@@ -6,8 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: "https://emarketingparadice.lk/sitemap.xml", 
+    sitemap: "https://emarketingparadice.lk/sitemap.xml",
   };
 }

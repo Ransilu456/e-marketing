@@ -11,7 +11,7 @@ import Button from "./tools/Button";
 
 const navigation = [
   { name: "Services", href: "/#services" },
-  { name: "About Us", href: "/about-us" },
+  { name: "About Us", href: "/about" },
   { name: "Work", href: "/#work" },
   { name: "Blogs", href: "/blog" },
   { name: "Case Studies", href: "/case-studies" },

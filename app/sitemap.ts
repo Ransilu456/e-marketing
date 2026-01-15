@@ -7,7 +7,7 @@ import { portfolioProjects as webProjects } from "@/app/(sites)/services/web-dev
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://emarketingparadice.lk";
 
-    const lastModified = new Date("2026-01-10");
+    const lastModified = new Date();
 
     return [
         {
@@ -89,7 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/about-us`,
+            url: `${baseUrl}/about`,
             lastModified: lastModified,
             changeFrequency: "monthly",
             priority: 1,

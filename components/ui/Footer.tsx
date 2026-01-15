@@ -60,7 +60,7 @@ export default function Footer() {
         <nav aria-label="Footer Navigation">
           <ul className="grid grid-cols-2 gap-x-6 gap-y-4 text-sm font-medium">
             <li>
-              <Link href="/about-us" className="hover:text-white transition">
+              <Link href="/about" className="hover:text-white transition">
                 About Us
               </Link>
             </li>
