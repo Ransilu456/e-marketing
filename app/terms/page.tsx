@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShieldCheck, Users, Workflow, Award, ArrowRight, Scale, FileText, Lock, Globe, MessageCircle } from "lucide-react";
+import { ShieldCheck, Users, Workflow, Award, Megaphone, ArrowRight, Scale, FileText, Lock, Globe, MessageCircle } from "lucide-react";
 import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
 import BeautiyCTA from "@/components/ui/home/BeautiyCTA";
@@ -48,6 +48,12 @@ export default function TermsPage() {
       text: "These terms are governed by the laws of Sri Lanka. Any disputes will be resolved within the jurisdiction of Sri Lankan courts.",
       icon: Award,
       color: "bg-indigo-50 text-indigo-600",
+    },
+    {
+      title: "Advertising & Third-Party Services",
+      text: "This website may display advertisements provided by third-party advertising networks, including Google AdSense. These third-party services may use cookies or similar technologies to collect information about users’ interactions with ads displayed on this site. E Marketing Paradice does not control these cookies or the data collected by third-party advertisers.",
+      icon: Megaphone,
+      color: "bg-yellow-50 text-yellow-600",
     },
   ];
 
@@ -153,9 +159,35 @@ export default function TermsPage() {
         </div>
       </section>
 
-      {/* Footer CTA */}
-      <BeautiyCTA />
+         <section className="py-32 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-slate-600 leading-relaxed">
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">
+            Advertising Disclaimer
+          </h2>
+          <p className="mb-6">
+            E Marketing Paradice does not guarantee the availability, accuracy,
+            or relevance of advertisements displayed through third-party
+            advertising services. All advertisements are managed and served by
+            external advertising providers.
+          </p>
 
+          <p className="mb-6">
+            This website complies with Google AdSense program policies.
+          </p>
+
+          <div className="mt-20 pt-10 border-t border-slate-100 flex justify-between text-sm text-slate-400">
+            <p>Last Updated: {new Date().toLocaleDateString("en-GB")}</p>
+            <Link
+              href="/privacy-policy"
+              className="font-bold text-slate-900 hover:text-(--color-primary)"
+            >
+              View Privacy Policy
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <BeautiyCTA />
       <Footer />
     </main>
   );

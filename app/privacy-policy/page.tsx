@@ -52,8 +52,15 @@ export default function PrivacyPolicyPage() {
       id: "advertising",
       item: "5",
       title: "Advertising Partners",
-      icon: Database, // Reusing Database icon or similar context
+      icon: Database,
       content: "Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet. Users may opt out of personalized advertising by visiting Google Ads Settings."
+    },
+    {
+      id: "adsense",
+      item: "6",
+      title: "Google AdSense & Advertising Cookies",
+      icon: Shield,
+      content: "We use Google AdSense to display advertisements. Google AdSense uses DoubleClick cookies, which enable it and its partners to serve ads to users based on their visits to this website and/or other websites on the Internet. Users may opt out of personalized advertising by visiting Google Ads Settings. For more information on how Google manages data in advertising products, please visit https://policies.google.com/technologies/ads."
     }
   ];
 
