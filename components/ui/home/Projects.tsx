@@ -1,98 +1,108 @@
-"use client"
+"use client";
 
-import { projects } from "@/components/data/data";
-import { ImageWithFallback } from "@/components/error/ImageWithFallback";
-import { CheckCircle2, ArrowRight } from "lucide-react";
-import SectionHeading from "../tools/SectionHeading";
+import React from "react";
+
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { projects } from "@/components/data/data";
+import SectionHeading from "../tools/SectionHeading";
 
-export default function Projects() {
-  return (
-    <section id="portfolio" className="py-24 bg-zinc-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeading
-          badge="Portfolio"
-          title="Featured Case Studies"
-          subtitle="Explore our results-driven work for ambitious brands."
-        />
+const WorkCard = ({
+  title,
+  category,
+  image,
+  className,
+  link
+}: {
+  title: string,
+  category: string,
+  image: string,
+  className?: string,
+  link: string
+}) => (
+  <Link href={link} className={`block ${className}`}>
+    <div
+      className="group relative rounded-3xl overflow-hidden bg-zinc-100 cursor-pointer h-full min-h-[320px] md:min-h-[400px]"
+    >
+      <div
+        className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 bg-cover bg-center"
+        style={{ backgroundImage: `url(${image})` }}
+      />
 
-        <div className="space-y-24 mt-16">
-          <div className="space-y-28">
-            {projects.slice(0, 2).map((project, index) => {
-              const reverse = index % 2 !== 0;
-              return (
-                <div
-                  key={index}
-                  className="grid lg:grid-cols-2 gap-12 items-center"
-                >
-                  {/* Image */}
-                  <div
-                    className={`relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-300/40 ${reverse ? "lg:order-2" : ""
-                      }`}
-                  >
-                    <ImageWithFallback
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-[450px] object-cover"
-                    />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
 
-                    {/* Image Caption */}
-                    <div className="absolute bottom-6 left-6 right-6 bg-white/80 backdrop-blur-md border border-white rounded-xl p-5">
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <p className="text-xs uppercase tracking-widest text-zinc-500 mb-1">
-                            {project.categories[0]}
-                          </p>
-                          <h3 className="text-lg font-bold text-zinc-900">
-                            {project.title}
-                          </h3>
-                        </div>
-                        <p className="text-2xl font-extrabold text-red-600">
-                          ✓
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className={reverse ? "lg:order-1 lg:pr-10" : "lg:pl-10"}>
-                    <h3 className="text-4xl font-extrabold tracking-tight text-zinc-900 mb-6">
-                      {project.title}
-                    </h3>
-
-
-                    <p className="text-lg text-zinc-500 leading-relaxed mb-8 ">
-                      {project.description}
-                    </p>
-                    <p className="text-lg text-zinc-500 leading-relaxed mb-8 font-bold">
-                      {project.result}
-                    </p>
-
-                    <ul className="space-y-3 mb-8">
-                      {project.tags.slice(0, 3).map((tag, i) => (
-                        <li
-                          key={i}
-                          className="flex items-center text-zinc-600"
-                        >
-                          <CheckCircle2 className="w-4 h-4 text-red-600 mr-3" />
-                          {tag}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Link href={project.page_link}
-                      className="inline-flex items-center gap-2 text-red-600 font-semibold hover:underline"
-                    >
-                      Read Case Study
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
+      <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full z-10">
+        <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+          <p className="text-xs font-medium text-white/80 uppercase tracking-widest mb-2 font-display">{category}</p>
+          <div className="flex items-center justify-between">
+            <h3 className="text-xl md:text-2xl font-medium text-white font-display tracking-tight">{title}</h3>
+            <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
+              <ArrowUpRight size={18} />
+            </div>
           </div>
+        </div>
+
+        {/* Default state title (fades out on hover) */}
+        <div className="absolute bottom-6 md:bottom-8 left-6 md:left-8 right-8 group-hover:opacity-0 transition-opacity duration-300">
+          <h3 className="text-xl md:text-2xl font-medium text-white font-display tracking-tight">{title}</h3>
+        </div>
+      </div>
+    </div>
+  </Link>
+);
+
+const Projects = () => {
+  return (
+    <section id="portfolio" className="py-24 lg:py-32 bg-zinc-900 text-white relative overflow-hidden">
+      {/* Background decoration to match Hero */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[100px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 md:mb-20">
+          <div className="max-w-xl">
+            <SectionHeading
+              badge="Portfolio"
+              title="Selected Case Studies"
+              subtitle="Explore our results-driven work for ambitious brands."
+              dark
+              align="left"
+            />
+          </div>
+          <div className="mt-4 md:mt-0">
+            <Link href="/portfolio">
+              <button className="px-6 py-3 rounded-full border border-zinc-700 text-sm font-medium hover:bg-white hover:text-black transition-all group flex items-center gap-2">
+                <span>View Full Portfolio</span>
+                <ArrowUpRight size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+              </button>
+            </Link>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[320px] md:auto-rows-[400px]">
+          {projects.map((project, idx) => {
+            // Create a visual pattern for the grid: 2, 1, 1, 2
+            const isLarge = idx === 0 || idx === 3;
+
+            return (
+              <div
+                key={project.id}
+                className={isLarge ? "lg:col-span-2" : ""}
+              >
+                <WorkCard
+                  title={project.title}
+                  category={project.categories[0]}
+                  image={project.image}
+                  link={project.page_link}
+                  className="h-full w-full"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Projects;

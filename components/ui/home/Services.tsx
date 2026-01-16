@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import SectionHeading from "../tools/SectionHeading";
 import { ImageWithFallback } from "../../error/ImageWithFallback";
 import { Icon } from "../tools/Icon";
+
 
 type ServiceFeature = {
   label: string;
@@ -104,22 +107,19 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group bg-white rounded-2xl p-2 border border-slate-200 hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 ${
-                service.featured ? "md:col-span-2 lg:col-span-2" : ""
-              }`}
+              className={`group bg-white rounded-2xl p-2 border border-slate-200 hover:border-indigo-100 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 ${service.featured ? "md:col-span-2 lg:col-span-2" : ""
+                }`}
             >
               <div
-                className={`flex flex-col ${
-                  service.featured ? "md:flex-row" : ""
-                } h-full`}
+                className={`flex flex-col ${service.featured ? "md:flex-row" : ""
+                  } h-full`}
               >
                 {/* Image */}
                 <div
-                  className={`overflow-hidden rounded-xl bg-gray-100 relative mb-4 md:mb-0 ${
-                    service.featured
-                      ? "md:w-1/2 h-full"
-                      : "aspect-video"
-                  }`}
+                  className={`overflow-hidden rounded-xl bg-gray-100 relative mb-4 md:mb-0 ${service.featured
+                    ? "md:w-1/2 h-full"
+                    : "aspect-video"
+                    }`}
                 >
                   <ImageWithFallback
                     src={service.image}
@@ -132,9 +132,8 @@ export default function Services() {
 
                 {/* Content */}
                 <div
-                  className={`px-3 pb-3 flex flex-col ${
-                    service.featured ? "md:w-1/2 justify-center" : ""
-                  }`}
+                  className={`px-3 pb-3 flex flex-col ${service.featured ? "md:w-1/2 justify-center" : ""
+                    }`}
                 >
                   <h3 className="text-xl font-bold text-gray-900 mb-2 mt-8">
                     {service.title}

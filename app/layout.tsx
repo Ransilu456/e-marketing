@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
+
 import CookieConsent from "@/components/ui/CookieConsent";
-import Adsense from "@/components/Adsense/Adsense";
+import Script from "next/script";
+
+import "./globals.css";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -103,8 +105,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8254653836295264"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={`${poppins.variable} font-sans antialiased`}>
-        <Adsense />
         {children}
         <CookieConsent />
       </body>

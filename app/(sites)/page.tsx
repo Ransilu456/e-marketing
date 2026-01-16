@@ -76,7 +76,6 @@ export default function Page() {
       <Hero />
       <Services />
       <Projects />
-      <WorkList />
       <Methodology />
       <Process />
       <InteractiveFAQs />

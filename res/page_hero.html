@@ -1,0 +1,477 @@
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanka Digital Solutions | Elevating Brands</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #dc2626;
+            --color-primary-light: #fef2f2;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #18181b;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        .font-serif-custom {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Modern Grid Background */
+        .hero-bg {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(220, 38, 38, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(220, 38, 38, 0.05) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* 3D Tilt Effect for Hero Image */
+        .perspective-container {
+            perspective: 1000px;
+        }
+        
+        .tilt-card {
+            transform: rotateY(-10deg) rotateX(5deg);
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .tilt-card:hover {
+            transform: rotateY(-5deg) rotateX(2deg) scale(1.02);
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes slideRight {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #18181b 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Checkbox Design */
+        input[type="radio"]:checked + div {
+            border-color: #dc2626;
+            background-color: #fef2f2;
+            color: #dc2626;
+        }
+        
+        input[type="radio"]:checked + div .check-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-red-100 selection:text-red-900 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 border-b border-zinc-100 bg-white/80 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <div class="relative w-8 h-8 bg-zinc-900 rounded-lg flex items-center justify-center text-white overflow-hidden group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#dc2626] to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="iconify relative z-10" data-icon="lucide:gem" data-width="18"></span>
+                </div>
+                <span class="text-zinc-900 font-bold tracking-tight text-lg">Ceylon<span class="text-[#dc2626]">Creative</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-500">
+                <a href="#services" class="hover:text-zinc-900 transition-colors">Services</a>
+                <a href="#about" class="hover:text-zinc-900 transition-colors">About</a>
+                <a href="#work" class="hover:text-zinc-900 transition-colors">Work</a>
+                <a href="#pricing" class="hover:text-zinc-900 transition-colors">Pricing</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden md:flex items-center justify-center px-4 py-2 bg-zinc-900 text-white rounded-lg text-xs font-semibold hover:bg-zinc-800 transition-all shadow-lg shadow-zinc-200">
+                    Start Project
+                </a>
+                <button class="md:hidden p-2 text-zinc-600 hover:bg-zinc-100 rounded-lg">
+                    <span class="iconify" data-icon="lucide:menu" data-width="24"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Redesigned Unique Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-white">
+        <!-- Background Decor -->
+        <div class="absolute inset-0 hero-bg pointer-events-none opacity-40"></div>
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-b from-red-50/50 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            <!-- Left: Content -->
+            <div class="relative z-10 max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-50 border border-zinc-200 text-zinc-600 text-[11px] font-semibold uppercase tracking-wider mb-8 hover:border-red-200 transition-colors cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse"></span>
+                    Sri Lanka's Digital Partner
+                </div>
+                
+                <h1 class="text-5xl lg:text-7xl font-bold tracking-tight text-zinc-900 leading-[1.05] mb-6">
+                    Crafting <span class="font-serif-custom italic text-[#dc2626] pr-1">Iconic</span> <br>
+                    Digital Experiences.
+                </h1>
+                
+                <p class="text-lg text-zinc-500 mb-8 leading-relaxed max-w-lg font-poppins">
+                    We combine Colombo's creativity with world-class engineering to build websites, apps, and brands that stand out in the global market.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 mb-12">
+                    <button class="px-7 py-3.5 bg-[#dc2626] hover:bg-[#b91c1c] text-white font-medium rounded-xl transition-all shadow-lg shadow-red-600/20 hover:shadow-red-600/30 hover:-translate-y-0.5 flex items-center gap-2">
+                        Get Your Proposal
+                        <span class="iconify" data-icon="lucide:arrow-right" data-width="18"></span>
+                    </button>
+                    <button class="px-7 py-3.5 bg-white border border-zinc-200 hover:border-zinc-300 text-zinc-700 font-medium rounded-xl transition-all hover:bg-zinc-50 flex items-center gap-2">
+                        <span class="iconify" data-icon="lucide:play-circle" data-width="18"></span>
+                        View Our Work
+                    </button>
+                </div>
+
+                <!-- Trusted By Section -->
+                <div class="border-t border-zinc-100 pt-8">
+                    <p class="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-5">Trusted by innovative local brands</p>
+                    <div class="flex flex-wrap items-center gap-x-8 gap-y-4 opacity-60 hover:opacity-100 transition-opacity duration-500">
+                        <!-- Fake Logos using Iconify + Text for distinct "Unique" look -->
+                        <div class="flex items-center gap-1.5 grayscale hover:grayscale-0 transition-all duration-300 group">
+                            <span class="iconify text-xl text-green-600" data-icon="lucide:leaf"></span>
+                            <span class="font-bold text-zinc-800 text-sm tracking-tight">Kandy<span class="font-normal text-zinc-500">Tea</span></span>
+                        </div>
+                        <div class="flex items-center gap-1.5 grayscale hover:grayscale-0 transition-all duration-300">
+                            <span class="iconify text-xl text-blue-600" data-icon="lucide:waves"></span>
+                            <span class="font-bold text-zinc-800 text-sm tracking-tight">Ocean<span class="font-normal text-zinc-500">Blue</span></span>
+                        </div>
+                        <div class="flex items-center gap-1.5 grayscale hover:grayscale-0 transition-all duration-300">
+                            <span class="iconify text-xl text-orange-600" data-icon="lucide:zap"></span>
+                            <span class="font-bold text-zinc-800 text-sm tracking-tight">Lanka<span class="font-normal text-zinc-500">Power</span></span>
+                        </div>
+                        <div class="flex items-center gap-1.5 grayscale hover:grayscale-0 transition-all duration-300">
+                            <span class="iconify text-xl text-purple-600" data-icon="lucide:box"></span>
+                            <span class="font-bold text-zinc-800 text-sm tracking-tight">Cargo<span class="font-normal text-zinc-500">LK</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: 3D Visual Abstract Interface -->
+            <div class="perspective-container hidden lg:block h-[600px] w-full relative">
+                <div class="tilt-card absolute inset-0 w-full h-full flex items-center justify-center">
+                    
+                    <!-- Main Dashboard Card -->
+                    <div class="relative w-[500px] h-[380px] bg-white rounded-2xl border border-zinc-200 shadow-2xl shadow-zinc-200/50 overflow-hidden z-20">
+                        <!-- Window Controls -->
+                        <div class="h-10 border-b border-zinc-100 flex items-center px-4 gap-2 bg-zinc-50/50">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                        </div>
+                        <!-- Content -->
+                        <div class="p-6 grid grid-cols-3 gap-6">
+                            <!-- Sidebar -->
+                            <div class="col-span-1 space-y-3">
+                                <div class="h-2 w-20 bg-zinc-100 rounded-full"></div>
+                                <div class="h-2 w-12 bg-zinc-100 rounded-full"></div>
+                                <div class="mt-6 space-y-2">
+                                    <div class="h-8 w-full bg-red-50 rounded-lg border border-red-100"></div>
+                                    <div class="h-8 w-full bg-white border border-zinc-100 rounded-lg"></div>
+                                    <div class="h-8 w-full bg-white border border-zinc-100 rounded-lg"></div>
+                                </div>
+                            </div>
+                            <!-- Main Area -->
+                            <div class="col-span-2 space-y-4">
+                                <div class="flex justify-between">
+                                    <div class="h-8 w-24 bg-zinc-100 rounded-lg"></div>
+                                    <div class="h-8 w-8 bg-zinc-100 rounded-full"></div>
+                                </div>
+                                <div class="h-24 w-full bg-gradient-to-br from-zinc-50 to-zinc-100 rounded-xl border border-zinc-100 relative overflow-hidden">
+                                     <!-- Chart Line -->
+                                     <svg class="absolute bottom-0 left-0 w-full h-16 text-red-500/20" viewBox="0 0 100 40" preserveAspectRatio="none">
+                                         <path d="M0 30 Q 20 10 40 25 T 80 15 T 100 20 V 40 H 0 Z" fill="currentColor"></path>
+                                         <path d="M0 30 Q 20 10 40 25 T 80 15 T 100 20" fill="none" stroke="#dc2626" stroke-width="2"></path>
+                                     </svg>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="h-20 bg-zinc-50 rounded-lg border border-zinc-100"></div>
+                                    <div class="h-20 bg-zinc-50 rounded-lg border border-zinc-100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Elements for Depth -->
+                    
+                    <!-- Code Snippet -->
+                    <div class="absolute -right-8 top-12 z-30 p-4 bg-[#18181b] rounded-xl shadow-xl animate-float w-48">
+                        <div class="flex gap-1 mb-2 opacity-50">
+                            <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="h-1.5 w-16 bg-purple-400 rounded-full opacity-80"></div>
+                            <div class="h-1.5 w-24 bg-blue-400 rounded-full opacity-80"></div>
+                            <div class="h-1.5 w-10 bg-green-400 rounded-full opacity-80 pl-4"></div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Mockup -->
+                    <div class="absolute -left-12 bottom-0 z-30 bg-white p-2 rounded-3xl shadow-2xl border border-zinc-200 w-40 animate-float" style="animation-delay: 1.5s;">
+                        <div class="bg-zinc-50 rounded-2xl h-64 w-full border border-zinc-100 relative overflow-hidden">
+                             <div class="absolute top-0 w-full h-32 bg-red-50/50 rounded-b-[30px]"></div>
+                             <div class="absolute bottom-4 left-4 right-4 h-8 bg-white shadow-sm rounded-lg flex items-center justify-center">
+                                 <div class="w-12 h-1.5 bg-zinc-100 rounded-full"></div>
+                             </div>
+                             <div class="absolute inset-0 flex items-center justify-center">
+                                 <span class="iconify text-[#dc2626]" data-icon="lucide:activity" data-width="24"></span>
+                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Badge -->
+                    <div class="absolute top-20 left-10 z-0 w-24 h-24 bg-orange-100 rounded-full blur-xl opacity-60 animate-pulse"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid (Cleaned up for consistency) -->
+    <section id="services" class="py-24 bg-zinc-50 border-t border-zinc-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight mb-4">Our Expertise</h2>
+                <p class="text-zinc-500 font-poppins">Everything you need to dominate the Sri Lankan market and reach international clients.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Web Dev -->
+                <div class="group bg-white p-6 rounded-2xl border border-zinc-200 hover:border-red-200 shadow-sm hover:shadow-lg hover:shadow-red-500/5 transition-all duration-300">
+                    <div class="w-12 h-12 bg-zinc-50 rounded-xl flex items-center justify-center text-zinc-900 mb-6 group-hover:bg-[#dc2626] group-hover:text-white transition-colors duration-300">
+                        <span class="iconify" data-icon="lucide:monitor" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-bold text-zinc-900 mb-2">Web Development</h3>
+                    <p class="text-sm text-zinc-500 leading-relaxed">
+                        High-performance websites built with Next.js &amp; Tailwind. SEO-optimized for Google.lk ranking.
+                    </p>
+                </div>
+
+                <!-- App Dev -->
+                <div class="group bg-white p-6 rounded-2xl border border-zinc-200 hover:border-red-200 shadow-sm hover:shadow-lg hover:shadow-red-500/5 transition-all duration-300">
+                    <div class="w-12 h-12 bg-zinc-50 rounded-xl flex items-center justify-center text-zinc-900 mb-6 group-hover:bg-[#dc2626] group-hover:text-white transition-colors duration-300">
+                        <span class="iconify" data-icon="lucide:smartphone" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-bold text-zinc-900 mb-2">Mobile Apps</h3>
+                    <p class="text-sm text-zinc-500 leading-relaxed">
+                        Native iOS and Android applications. Intuitive user interfaces for maximum engagement.
+                    </p>
+                </div>
+
+                <!-- Social Media -->
+                <div class="group bg-white p-6 rounded-2xl border border-zinc-200 hover:border-red-200 shadow-sm hover:shadow-lg hover:shadow-red-500/5 transition-all duration-300">
+                    <div class="w-12 h-12 bg-zinc-50 rounded-xl flex items-center justify-center text-zinc-900 mb-6 group-hover:bg-[#dc2626] group-hover:text-white transition-colors duration-300">
+                        <span class="iconify" data-icon="lucide:share-2" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-bold text-zinc-900 mb-2">Social Media</h3>
+                    <p class="text-sm text-zinc-500 leading-relaxed">
+                        Strategic content for Facebook &amp; Instagram. We handle community growth and Meta advertising.
+                    </p>
+                </div>
+
+                <!-- Branding -->
+                <div class="group bg-white p-6 rounded-2xl border border-zinc-200 hover:border-red-200 shadow-sm hover:shadow-lg hover:shadow-red-500/5 transition-all duration-300">
+                    <div class="w-12 h-12 bg-zinc-50 rounded-xl flex items-center justify-center text-zinc-900 mb-6 group-hover:bg-[#dc2626] group-hover:text-white transition-colors duration-300">
+                        <span class="iconify" data-icon="lucide:pen-tool" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-bold text-zinc-900 mb-2">Brand Design</h3>
+                    <p class="text-sm text-zinc-500 leading-relaxed">
+                        Eye-catching logos and posters. Designs that speak the local visual language effectively.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 max-w-7xl mx-auto px-6 bg-white">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight mb-4">Investment Packages</h2>
+                <p class="text-zinc-500 font-poppins max-w-md">Transparent pricing tailored for the Sri Lankan economy. No hidden fees.</p>
+            </div>
+            
+            <div class="flex items-center gap-3 p-1 bg-zinc-100 rounded-lg">
+                <button class="px-4 py-1.5 bg-white shadow-sm rounded-md text-sm font-semibold text-zinc-900">Monthly</button>
+                <button class="px-4 py-1.5 text-sm font-medium text-zinc-500 hover:text-zinc-900">Yearly (-20%)</button>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Starter -->
+            <div class="p-8 rounded-3xl border border-zinc-200 bg-white hover:border-red-200 hover:shadow-xl hover:shadow-red-500/5 transition-all duration-300 relative group">
+                <div class="mb-6">
+                    <div class="text-zinc-500 font-semibold mb-2 text-xs uppercase tracking-wider">Startup</div>
+                    <h3 class="text-4xl font-bold text-zinc-900 tracking-tight">45,000<span class="text-lg font-normal text-zinc-400"> LKR</span></h3>
+                    <p class="text-xs text-zinc-400 mt-2">One-time payment</p>
+                </div>
+                <div class="h-px w-full bg-zinc-100 mb-6"></div>
+                <ul class="space-y-4 mb-8 text-sm text-zinc-600">
+                    <li class="flex items-start gap-3"><span class="iconify text-zinc-900 mt-0.5" data-icon="lucide:check-circle-2" data-width="16"></span> <span>5 Page Portfolio Website</span></li>
+                    <li class="flex items-start gap-3"><span class="iconify text-zinc-900 mt-0.5" data-icon="lucide:check-circle-2" data-width="16"></span> <span>Basic SEO Setup</span></li>
+                    <li class="flex items-start gap-3"><span class="iconify text-zinc-900 mt-0.5" data-icon="lucide:check-circle-2" data-width="16"></span> <span>Mobile Responsive</span></li>
+                </ul>
+                <button class="w-full py-3 rounded-xl border border-zinc-200 hover:border-zinc-900 hover:bg-zinc-900 hover:text-white transition-all text-sm font-semibold text-zinc-900">Get Started</button>
+            </div>
+
+            <!-- Business -->
+            <div class="p-8 rounded-3xl border border-[#dc2626] bg-[#fef2f2] shadow-2xl shadow-red-900/10 relative transform md:-translate-y-4">
+                <div class="absolute -top-4 inset-x-0 flex justify-center">
+                    <div class="bg-[#dc2626] text-white text-[10px] uppercase font-bold px-4 py-1.5 rounded-full shadow-md tracking-wider">Most Popular</div>
+                </div>
+                <div class="mb-6">
+                    <div class="text-[#dc2626] font-semibold mb-2 text-xs uppercase tracking-wider">Growth</div>
+                    <h3 class="text-4xl font-bold text-zinc-900 tracking-tight">85,000<span class="text-lg font-normal text-zinc-500"> LKR</span></h3>
+                    <p class="text-xs text-zinc-500 mt-2">Per month</p>
+                </div>
+                <div class="h-px w-full bg-red-200 mb-6"></div>
+                <ul class="space-y-4 mb-8 text-sm text-zinc-800 font-medium">
+                    <li class="flex items-start gap-3"><span class="iconify text-[#dc2626] mt-0.5" data-icon="lucide:check-circle-2" data-width="16"></span> <span>E-commerce Functionality</span></li>
+                    <li class="flex items-start gap-3"><span class="iconify text-[#dc2626] mt-0.5" data-icon="lucide:check-circle-2" data-width="16"></span> <span>12 Social Media Posts</span></li>
+                    <li class="flex items-start gap-3"><span class="iconify text-[#dc2626] mt-0.5" data-icon="lucide:check-circle-2" data-width="16"></span> <span>Facebook Ad Management</span></li>
+                    <li class="flex items-start gap-3"><span class="iconify text-[#dc2626] mt-0.5" data-icon="lucide:check-circle-2" data-width="16"></span> <span>Weekly Analytics Report</span></li>
+                </ul>
+                <button class="w-full py-3 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white transition-all text-sm font-semibold shadow-lg shadow-red-200">Subscribe Now</button>
+            </div>
+
+            <!-- Corporate -->
+            <div class="p-8 rounded-3xl border border-zinc-200 bg-white hover:border-red-200 hover:shadow-xl hover:shadow-red-500/5 transition-all duration-300">
+                <div class="mb-6">
+                    <div class="text-zinc-500 font-semibold mb-2 text-xs uppercase tracking-wider">Enterprise</div>
+                    <h3 class="text-4xl font-bold text-zinc-900 tracking-tight">Custom</h3>
+                    <p class="text-xs text-zinc-400 mt-2">Tailored solution</p>
+                </div>
+                <div class="h-px w-full bg-zinc-100 mb-6"></div>
+                <ul class="space-y-4 mb-8 text-sm text-zinc-600">
+                    <li class="flex items-start gap-3"><span class="iconify text-zinc-900 mt-0.5" data-icon="lucide:check-circle-2" data-width="16"></span> <span>Complex Web Applications</span></li>
+                    <li class="flex items-start gap-3"><span class="iconify text-zinc-900 mt-0.5" data-icon="lucide:check-circle-2" data-width="16"></span> <span>Full Brand Identity System</span></li>
+                    <li class="flex items-start gap-3"><span class="iconify text-zinc-900 mt-0.5" data-icon="lucide:check-circle-2" data-width="16"></span> <span>Dedicated Project Manager</span></li>
+                </ul>
+                <button class="w-full py-3 rounded-xl border border-zinc-200 hover:border-zinc-900 hover:bg-zinc-900 hover:text-white transition-all text-sm font-semibold text-zinc-900">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-24 bg-zinc-50 border-t border-zinc-200 relative overflow-hidden">
+        <div class="max-w-2xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center justify-center w-12 h-12 bg-white rounded-full border border-zinc-200 shadow-sm mb-4">
+                    <span class="iconify text-[#dc2626]" data-icon="lucide:mail" data-width="20"></span>
+                </div>
+                <h2 class="text-3xl font-bold text-zinc-900 tracking-tight mb-2">Let's Build Something Great</h2>
+                <p class="text-zinc-500 font-poppins">Ayubowan! Send us a message and we'll get back to you within 24 hours.</p>
+            </div>
+
+            <form class="space-y-4 bg-white p-8 rounded-3xl shadow-xl shadow-zinc-200/50 border border-zinc-100">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label class="text-[11px] font-bold text-zinc-400 uppercase tracking-widest">First Name</label>
+                        <input type="text" class="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:border-[#dc2626] focus:bg-white transition-all" placeholder="Enter name">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[11px] font-bold text-zinc-400 uppercase tracking-widest">Email</label>
+                        <input type="email" class="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:border-[#dc2626] focus:bg-white transition-all" placeholder="Enter email">
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <label class="text-[11px] font-bold text-zinc-400 uppercase tracking-widest">I'm interested in...</label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <label class="cursor-pointer relative group">
+                            <input type="radio" name="service" class="peer sr-only">
+                            <div class="text-xs text-center py-2.5 px-2 rounded-lg border border-zinc-200 text-zinc-500 hover:border-zinc-300 transition-all font-medium bg-white flex items-center justify-center gap-2">
+                                <span class="iconify check-icon text-[#dc2626] absolute left-2 opacity-0 scale-50 transition-all" data-icon="lucide:check" data-width="12"></span>
+                                Web Dev
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative group">
+                            <input type="radio" name="service" class="peer sr-only">
+                            <div class="text-xs text-center py-2.5 px-2 rounded-lg border border-zinc-200 text-zinc-500 hover:border-zinc-300 transition-all font-medium bg-white">Mobile App</div>
+                        </label>
+                        <label class="cursor-pointer relative group">
+                            <input type="radio" name="service" class="peer sr-only">
+                            <div class="text-xs text-center py-2.5 px-2 rounded-lg border border-zinc-200 text-zinc-500 hover:border-zinc-300 transition-all font-medium bg-white">Socials</div>
+                        </label>
+                        <label class="cursor-pointer relative group">
+                            <input type="radio" name="service" class="peer sr-only">
+                            <div class="text-xs text-center py-2.5 px-2 rounded-lg border border-zinc-200 text-zinc-500 hover:border-zinc-300 transition-all font-medium bg-white">Design</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-[11px] font-bold text-zinc-400 uppercase tracking-widest">Message</label>
+                    <textarea rows="4" class="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:border-[#dc2626] focus:bg-white transition-all resize-none" placeholder="Tell us about your project..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-zinc-900 hover:bg-black text-white font-semibold py-3.5 rounded-xl transition-all duration-300 mt-2 shadow-lg flex items-center justify-center gap-2">
+                    Send Message
+                    <span class="iconify" data-icon="lucide:send" data-width="16"></span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-zinc-200 bg-white">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="iconify text-[#dc2626]" data-icon="lucide:gem" data-width="20"></span>
+                <span class="text-zinc-900 font-bold tracking-tight uppercase">Ceylon<span class="text-[#dc2626]">Creative</span></span>
+            </div>
+            
+            <div class="text-zinc-500 text-sm font-medium">
+                © 2024 Ceylon Creative. Proudly Sri Lankan <span class="text-[#dc2626]">🇱🇰</span>
+            </div>
+
+            <div class="flex gap-6">
+                <a href="#" class="text-zinc-400 hover:text-[#dc2626] transition-colors"><span class="iconify" data-icon="lucide:facebook" data-width="20"></span></a>
+                <a href="#" class="text-zinc-400 hover:text-[#dc2626] transition-colors"><span class="iconify" data-icon="lucide:instagram" data-width="20"></span></a>
+                <a href="#" class="text-zinc-400 hover:text-[#dc2626] transition-colors"><span class="iconify" data-icon="lucide:linkedin" data-width="20"></span></a>
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>
