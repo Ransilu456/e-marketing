@@ -124,9 +124,9 @@ export default function Services() {
                   <ImageWithFallback
                     src={service.image}
                     alt={service.title}
-                    width={400}
-                    height={1000}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
 

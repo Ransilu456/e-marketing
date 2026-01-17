@@ -35,7 +35,9 @@ const ProjectCard: FC<ProjectCardProps> = ({
         <ImageWithFallback
           src={image}
           alt={title}
-          className="w-full h-full object-cover"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+          className="object-cover"
         />
         <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold text-white bg-(--color-primary)">
           {category}

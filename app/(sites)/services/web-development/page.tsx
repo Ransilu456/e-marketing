@@ -90,9 +90,9 @@ export default function Home() {
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
                   alt="Code and Design"
-                  width={400}
-                  height={1000}
-                  className="object-cover w-full h-full opacity-90 group-hover:scale-105 transition duration-700"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 600px"
+                  className="object-cover opacity-90 group-hover:scale-105 transition duration-700"
                 />
               </div>
             </div>
@@ -208,9 +208,9 @@ function ProjectCard({ tag, tagColor, title, desc, img, delay, page_links, }: { 
         <ImageWithFallback
           src={img}
           alt={title}
-          width={400}
-          height={1000}
-          className="object-cover w-full h-full group-hover:scale-105 transition duration-700" />
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+          className="object-cover group-hover:scale-105 transition duration-700" />
       </div>
 
       <div className="p-6">

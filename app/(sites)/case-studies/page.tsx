@@ -35,13 +35,15 @@ export default function CaseStudiesPage() {
                 className="grid lg:grid-cols-2 gap-12 items-center"
               >
                 <div id={project.id}
-                  className={`relative rounded-3xl overflow-hidden shadow-2xl shadow-zinc-300/40 ${reverse ? "lg:order-2" : ""
+                  className={`relative h-[450px] rounded-3xl overflow-hidden shadow-2xl shadow-zinc-300/40 ${reverse ? "lg:order-2" : ""
                     }`}
                 >
                   <ImageWithFallback
                     src={project.intro_image}
                     alt={project.title}
-                    className="w-full h-[450px] object-cover rounded-3xl"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                    className="object-cover rounded-3xl"
                   />
 
                   <div className="absolute bottom-6 left-6 right-6 bg-white/80 backdrop-blur-md border border-white rounded-xl p-5">
@@ -132,7 +134,9 @@ export default function CaseStudiesPage() {
                   <ImageWithFallback
                     src={expandedProject.intro_image || expandedProject.image}
                     alt={expandedProject.title}
-                    className="w-full h-full object-cover transition-transform duration-1000"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    className="object-cover transition-transform duration-1000"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
 
