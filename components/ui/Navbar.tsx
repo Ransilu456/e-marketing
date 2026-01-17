@@ -104,6 +104,7 @@ export default function Navbar() {
           <button
             className="md:hidden relative z-50 p-2 text-zinc-900 hover:bg-zinc-100 rounded-full transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

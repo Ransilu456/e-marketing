@@ -59,9 +59,9 @@ export default function Process() {
                 {step.id}
               </div>
 
-              <h4 className="text-lg font-semibold text-zinc-900 mb-2">
+              <h3 className="text-lg font-semibold text-zinc-900 mb-2">
                 {step.title}
-              </h4>
+              </h3>
 
               <p className="text-sm text-zinc-600 leading-relaxed">
                 {step.desc}

@@ -19,7 +19,7 @@ export default function SectionHeading({ badge, title, subtitle, align = "center
       {badge && (
         <span className={`inline-block py-1.5 px-4 rounded-full border text-xs font-semibold uppercase tracking-wider mb-4 ${dark
           ? "bg-zinc-800 border-zinc-700 text-zinc-300"
-          : "bg-red-50 border-red-200 text-(--color-primary)"
+          : "bg-red-50 border-red-200 text-red-700"
           }`}>
           {badge}
         </span>

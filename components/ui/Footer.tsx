@@ -24,16 +24,17 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               {[
-                { href: "https://www.facebook.com/emarketingparadice", Icon: Facebook },
-                { href: "https://www.linkedin.com/in/keshan-samarasekara-6a9137399", Icon: Linkedin },
-                { href: "https://github.com/ransilu456", Icon: Github },
-              ].map(({ href, Icon }, i) => (
+                { href: "https://www.facebook.com/emarketingparadice", Icon: Facebook, label: "Facebook" },
+                { href: "https://www.linkedin.com/in/keshan-samarasekara-6a9137399", Icon: Linkedin, label: "LinkedIn" },
+                { href: "https://github.com/ransilu456", Icon: Github, label: "GitHub" },
+              ].map(({ href, Icon, label }, i) => (
                 <a
                   key={i}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full bg-zinc-50 border border-zinc-100 flex items-center justify-center text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all cursor-pointer group"
+                  aria-label={label}
                 >
                   <Icon size={16} className="group-hover:scale-110 transition-transform" />
                 </a>
@@ -66,7 +67,10 @@ export default function Footer() {
             <p className="text-sm text-zinc-500 mb-4">Subscribe to our newsletter for the latest digital marketing insights.</p>
             <div className="flex gap-2">
               <input type="email" placeholder="Enter your email" className="flex-1 bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-900/10 focus:border-zinc-400 transition-all placeholder:text-zinc-400" />
-              <button className="bg-zinc-900 text-white rounded-xl px-4 py-2.5 hover:bg-zinc-800 transition-colors text-sm font-medium flex items-center justify-center">
+              <button
+                className="bg-zinc-900 text-white rounded-xl px-4 py-2.5 hover:bg-zinc-800 transition-colors text-sm font-medium flex items-center justify-center"
+                aria-label="Subscribe to newsletter"
+              >
                 <Send size={14} />
               </button>
             </div>
@@ -74,7 +78,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-zinc-100 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex flex-col gap-1 items-center md:items-start text-xs text-zinc-400 font-medium">
+          <div className="flex flex-col gap-1 items-center md:items-start text-xs text-zinc-600 font-medium">
             <p>© {new Date().getFullYear()} Marketing Paradice. All rights reserved.</p>
             <p>Designed & Developed by E Marketing Paradice Design Lab</p>
           </div>

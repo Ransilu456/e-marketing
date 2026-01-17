@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        serif: ["var(--font-playfair)", "serif"],
+        display: ["var(--font-playfair)", "serif"],
         pristina: ["Pristina", "cursive"],
       },
       backgroundImage: {

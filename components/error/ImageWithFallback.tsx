@@ -24,8 +24,6 @@ export function ImageWithFallback({
       src={hasError || !src ? ERROR_IMG_SRC : src}
       alt={alt}
       className={className}
-      width={400}
-      height={10000}
       onError={() => setHasError(true)}
       {...props}
     />
