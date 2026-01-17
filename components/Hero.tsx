@@ -35,8 +35,8 @@ const Hero = () => {
                     {/* Copy Content */}
                     <div className="lg:w-1/2 text-center lg:text-left">
                         <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            initial={{ y: 10 }}
+                            animate={{ y: 0 }}
                             transition={{ duration: 0.5 }}
                             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-zinc-200 text-zinc-600 text-[11px] font-medium uppercase tracking-wide mb-8 shadow-sm"
                         >
@@ -48,9 +48,9 @@ const Hero = () => {
                         </motion.div>
 
                         <motion.h1
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
+                            initial={{ y: 20 }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                             className="text-5xl lg:text-7xl font-semibold tracking-tight text-zinc-900 leading-[1.05] mb-6 font-display"
                         >
                             Crafting Premium <br />
@@ -61,9 +61,9 @@ const Hero = () => {
                         </motion.h1>
 
                         <motion.p
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
+                            initial={{ y: 15 }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                             className="text-lg text-zinc-500 font-light leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10"
                         >
                             We help ambitious brands scale with high-performance web development, strategic marketing, and state-of-the-art mobile experiences.

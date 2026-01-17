@@ -46,6 +46,7 @@ export default function BlogSection({ limit, showTitle = true }: BlogSectionProp
                                         alt={post.title}
                                         width={400}
                                         height={250}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                     {post.preview && (
@@ -65,6 +66,7 @@ export default function BlogSection({ limit, showTitle = true }: BlogSectionProp
                                         alt={post.title}
                                         width={400}
                                         height={250}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                 </Link>

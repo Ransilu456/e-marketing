@@ -54,6 +54,8 @@ export default function Trusted() {
               width={120}
               height={48}
               className="object-contain h-10 w-auto"
+              priority={i < 4}
+              sizes="120px"
             />
           </div>
         ))}

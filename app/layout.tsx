@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Inter, Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 
 import CookieConsent from "@/components/ui/CookieConsent";
 
@@ -9,6 +10,25 @@ const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -111,7 +131,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         ></script>
       </head>
-      <body className={`${poppins.variable} font-sans antialiased`}>
+      <body className={`${poppins.variable} ${inter.variable} ${jakarta.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
         <CookieConsent />
       </body>

@@ -72,12 +72,12 @@ export default function Navbar() {
       <nav className={`fixed top-0 inset-x-0 z-[60] transition-background duration-300 ${isScrolled || mobileOpen ? "bg-white/80 backdrop-blur-xl  py-3" : "bg-transparent py-5"
         }`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5 group relative z-50">
-            <div className={`transition-all duration-300 rounded-lg flex items-center justify-center text-white shadow-xl ${mobileOpen ? 'bg-rose-500 shadow-rose-500/20' : 'bg-black shadow-black/20'
+          <Link href="/" className="flex items-center gap-2 group relative z-50">
+            <div className={`transition-all duration-300 rounded-lg flex items-center justify-center text-white shadow-xl ${mobileOpen ? 'bg-rose-500 shadow-rose-500/20' : 'bg-zinc-900 shadow-black/20'
               }`}>
-              <span className="font-serif italic font-bold text-xl leading-none px-3 py-2">E</span>
+              <span className="font-serif font-bold text-2xl leading-none px-3 py-2">E</span>
             </div>
-            <span className={`font-serif text-xl tracking-tight transition-colors duration-300 ${mobileOpen ? 'text-zinc-900' : 'text-zinc-900 md:text-zinc-900 group-hover:text-rose-500'
+            <span className={`font-serif text-2xl font-medium transition-colors duration-300 ${mobileOpen ? 'text-zinc-900' : 'text-zinc-900 md:text-zinc-900 group-hover:text-rose-500'
               }`}>
               Marketing Paradice
             </span>

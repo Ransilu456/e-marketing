@@ -96,21 +96,21 @@ export const projects: Project[] = [
     description:
       "Designed high-converting Facebook marketing posters and promotional creatives focused on clear messaging, brand consistency, and audience engagement.",
     tags: ["Facebook Ads", "Canva", "Brand Design", "Post Design"],
-    link: "/under_development_200",
+    link: "/services/creative-posters",
     page_link: "/case-studies/#facebook",
 
   },
-/*
-  {
-    id: "festival",
-    title: "Festival Promotion Poster Designs",
-    categories: [Category.FacebookDesign, Category.GraphicDesign],
-    result: "Strong Reach During Seasonal Campaigns",
-    image: "/data/fes.jpg",
-    description:
-      "Created festival-themed promotional poster designs for Sri Lankan seasonal campaigns, optimized for social media visibility and conversions.",
-    tags: ["Social Media", "Canva", "Figma", "Post Design"],
-    link: "/under_development_200",
-    page_link: "/case-studies/#festival",
-  },*/
+  /*
+    {
+      id: "festival",
+      title: "Festival Promotion Poster Designs",
+      categories: [Category.FacebookDesign, Category.GraphicDesign],
+      result: "Strong Reach During Seasonal Campaigns",
+      image: "/data/fes.jpg",
+      description:
+        "Created festival-themed promotional poster designs for Sri Lankan seasonal campaigns, optimized for social media visibility and conversions.",
+      tags: ["Social Media", "Canva", "Figma", "Post Design"],
+      link: "/under_development_200",
+      page_link: "/case-studies/#festival",
+    },*/
 ];

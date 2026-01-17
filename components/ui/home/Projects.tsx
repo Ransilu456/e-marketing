@@ -7,6 +7,8 @@ import Link from "next/link";
 import { projects } from "@/components/data/data";
 import SectionHeading from "../tools/SectionHeading";
 
+import Image from "next/image";
+
 const WorkCard = ({
   title,
   category,
@@ -20,13 +22,17 @@ const WorkCard = ({
   className?: string,
   link: string
 }) => (
-  <Link href={link} className={`block ${className}`}>
+  <Link href={link} className={`block h-full ${className}`}>
     <div
       className="group relative rounded-3xl overflow-hidden bg-zinc-100 cursor-pointer h-full min-h-[320px] md:min-h-[400px]"
     >
-      <div
-        className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 bg-cover bg-center"
-        style={{ backgroundImage: `url(${image})` }}
+      <Image
+        src={image}
+        alt={title}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+        loading="lazy"
       />
 
       {/* Overlay */}
@@ -55,7 +61,6 @@ const WorkCard = ({
 const Projects = () => {
   return (
     <section id="portfolio" className="py-24 lg:py-32 bg-zinc-900 text-white relative overflow-hidden">
-      {/* Background decoration to match Hero */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[100px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -70,7 +75,7 @@ const Projects = () => {
             />
           </div>
           <div className="mt-4 md:mt-0">
-            <Link href="/portfolio">
+            <Link href="/portfolio/projects">
               <button className="px-6 py-3 rounded-full border border-zinc-700 text-sm font-medium hover:bg-white hover:text-black transition-all group flex items-center gap-2">
                 <span>View Full Portfolio</span>
                 <ArrowUpRight size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
@@ -81,7 +86,6 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[320px] md:auto-rows-[400px]">
           {projects.map((project, idx) => {
-            // Create a visual pattern for the grid: 2, 1, 1, 2
             const isLarge = idx === 0 || idx === 3;
 
             return (
