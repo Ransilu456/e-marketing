@@ -118,6 +118,19 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8254653836295264"
           crossOrigin="anonymous"
         ></script>
+        <Script
+          async src="https://www.googletagmanager.com/gtag/js?id=G-4NBZ6YMCRK"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4NBZ6YMCRK');
+          `}
+        </Script>
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
