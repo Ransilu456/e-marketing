@@ -1,194 +1,128 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { ShieldCheck, Users, Workflow, Award, Megaphone, ArrowRight, Scale, FileText, Lock, Globe, MessageCircle } from "lucide-react";
-import Footer from "@/components/ui/Footer";
-import Navbar from "@/components/ui/Navbar";
-import BeautiyCTA from "@/components/ui/home/BeautiyCTA";
-
-export const metadata: Metadata = {
-  title: "Terms & Conditions | E Marketing Paradice Sri Lanka",
-  description: "Official terms and conditions for using E Marketing Paradice Sri Lanka digital marketing services.",
-  keywords: ["digital marketing sri lanka", "SEO services", "terms and conditions", "E Marketing Paradice"],
-};
-
-export default function TermsPage() {
-  const sections = [
-    {
-      title: "Use of Website",
-      text: "You agree to use this website for lawful purposes only and not in a way that violates any applicable laws or regulations.",
-      icon: Globe,
-      color: "bg-blue-50 text-blue-600",
-    },
-    {
-      title: "Intellectual Property",
-      text: "All content, designs, logos, and materials on this website are the intellectual property of E Marketing Paradice. Unauthorized use is prohibited.",
-      icon: Scale,
-      color: "bg-purple-50 text-purple-600",
-    },
-    {
-      title: "Services",
-      text: "We reserve the right to modify or discontinue any service without notice. Service descriptions do not constitute a binding contract.",
-      icon: Workflow,
-      color: "bg-orange-50 text-orange-600",
-    },
-    {
-      title: "User Obligations",
-      text: "Users must provide accurate information when using our contact forms and must not attempt to breach our infrastructure.",
-      icon: Users,
-      color: "bg-green-50 text-green-600",
-    },
-    {
-      title: "Limitation of Liability",
-      text: "E Marketing Paradice is not liable for any indirect, incidental, or consequential damages arising from the use of this website.",
-      icon: ShieldCheck,
-      color: "bg-red-50 text-red-600",
-    },
-    {
-      title: "Governing Law",
-      text: "These terms are governed by the laws of Sri Lanka. Any disputes will be resolved within the jurisdiction of Sri Lankan courts.",
-      icon: Award,
-      color: "bg-indigo-50 text-indigo-600",
-    },
-    {
-      title: "Advertising & Third-Party Services",
-      text: "This website may display advertisements provided by third-party advertising networks, including Google AdSense. These third-party services may use cookies or similar technologies to collect information about users’ interactions with ads displayed on this site. E Marketing Paradice does not control these cookies or the data collected by third-party advertisers.",
-      icon: Megaphone,
-      color: "bg-yellow-50 text-yellow-600",
-    },
-  ];
-
+export default function TermsOfService() {
   return (
-    <main className="bg-[#FAFAFA] min-h-screen">
-      <Navbar />
+    <main className="min-h-screen bg-slate-50 py-24">
+      <div className="max-w-4xl mx-auto px-6 bg-white p-12 rounded-3xl shadow-sm border border-slate-100">
+        <h1 className="text-4xl font-bold text-slate-900 mb-8">Terms of Service</h1>
+        <div className="prose prose-slate max-w-none prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4">
+          <p className="lead text-lg text-slate-600 mb-8">Effective Date: February 21, 2026</p>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.03)_0%,transparent_70%)] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/5 border border-slate-900/10 text-slate-600 text-xs font-bold uppercase tracking-widest mb-6">
-              <FileText className="w-3.5 h-3.5" />
-              Legal Framework
-            </div>
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-slate-900 tracking-tight mb-8">
-              Terms & <span className="text-(--color-primary)">Conditions</span>
-            </h1>
-            <p className="text-xl text-slate-500 leading-relaxed mb-10">
-              These terms govern your access to and use of E Marketing Paradice's website and services.
-              By interacting with our platform, you agree to comply with these professional standards.
-            </p>
-            <div className="flex items-center gap-6">
-              <div className="flex -space-x-3">
-                {[1, 2, 3].map(i => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                    <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" />
-                  </div>
-                ))}
-              </div>
-              <p className="text-sm font-medium text-slate-900">Trusted by over 50+ businesses</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content - Bento Grid Layout */}
-      <section className="py-20 max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sections.map((item, idx) => (
-            <div key={idx} className="group bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500 flex flex-col items-start text-left">
-              <div className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-inner`}>
-                <item.icon className="w-7 h-7" />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-(--color-primary) transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-slate-500 leading-relaxed text-lg">
-                {item.text}
-              </p>
-            </div>
-          ))}
-
-          {/* Special Contact Bento Card */}
-          <div className="md:col-span-2 lg:col-span-1 bg-slate-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden flex flex-col justify-between">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-(--color-primary) opacity-20 blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-            <div>
-              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-8 text-white">
-                <MessageCircle className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Any Questions?</h3>
-              <p className="text-slate-400 leading-relaxed mb-8">
-                If you have any doubts regarding our terms, feel free to reach out to our legal support team.
-              </p>
-            </div>
-            <a href="mailto:emarketingparadice@gmail.com" className="inline-flex items-center gap-2 text-(--color-primary) font-bold hover:gap-4 transition-all group">
-              Email Support
-              <ArrowRight className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Structured Legal Content Section */}
-      <section className="py-32 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="prose prose-slate prose-lg max-w-none text-slate-600 leading-relaxed">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">Detailed Service Agreement</h2>
-            <p className="mb-6">
-              At <strong>E Marketing Paradice</strong>, we strive to deliver the highest quality of digital marketing,
-              web development, and branding services. However, please be aware that the specifics of each project
-              may vary and are subject to the individual Service Agreement signed at the commencement of work.
-            </p>
-            <p className="mb-6">
-              Our website provides information about our services and a gateway for communication. While we aim for
-              100% accuracy, we do not warrant that service descriptions or other content are error-free.
-            </p>
-            <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100 my-12 italic">
-              "We reserve the right to refuse service to anyone for any reason at any time."
-            </div>
-            <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Termination of Use</h3>
-            <p>
-              We may terminate your access to the website or services immediately, without prior notice or liability,
-              for any reason whatsoever, including without limitation if you breach the Terms.
-            </p>
-          </div>
-
-          <div className="mt-20 pt-10 border-t border-slate-100 flex flex-wrap gap-4 items-center justify-between text-sm text-slate-400">
-            <p>Last Updated: {new Date().toLocaleDateString('en-GB')}</p>
-            <Link href="/privacy-policy" className="text-slate-900 font-bold hover:text-(--color-primary) transition-colors">View Privacy Policy</Link>
-          </div>
-        </div>
-      </section>
-
-         <section className="py-32 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-slate-600 leading-relaxed">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">
-            Advertising Disclaimer
-          </h2>
-          <p className="mb-6">
-            E Marketing Paradice does not guarantee the availability, accuracy,
-            or relevance of advertisements displayed through third-party
-            advertising services. All advertisements are managed and served by
-            external advertising providers.
+          <p>
+            Welcome to E Marketing Paradice. These Terms of Service ("Terms", "Agreement") constitute a legally binding agreement
+            between you ("User", "Client", "you") and E Marketing Paradice ("Company", "we", "us", "our") regarding your use of our website
+            (emarketingparadice.lk) and any digital marketing, web development, SEO, graphic design, and consultation services we provide (collectively, the "Services").
+          </p>
+          <p>
+            Please read these Terms carefully before accessing or using our website or engaging our services. By accessing or using any part of the site,
+            you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services.
           </p>
 
-          <p className="mb-6">
-            This website complies with Google AdSense program policies.
+          <h2>1. General Conditions & Acceptance</h2>
+          <p>
+            By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence,
+            or that you are the age of majority and you have given us your consent to allow any of your minor dependents to use this site.
+            You may not use our products or services for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).
+          </p>
+          <p>
+            We reserve the right to refuse service to anyone for any reason at any time. You understand that your content (not including credit card information),
+            may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices.
           </p>
 
-          <div className="mt-20 pt-10 border-t border-slate-100 flex justify-between text-sm text-slate-400">
-            <p>Last Updated: {new Date().toLocaleDateString("en-GB")}</p>
-            <Link
-              href="/privacy-policy"
-              className="font-bold text-slate-900 hover:text-(--color-primary)"
-            >
-              View Privacy Policy
-            </Link>
-          </div>
-        </div>
-      </section>
+          <h2>2. Service Scope and Deliverables</h2>
+          <p>
+            E Marketing Paradice provides specialized digital solutions including web development, mobile application design, social media management,
+            Search Engine Optimization (SEO), and branding (the "Services"). The specific details, timelines, costs, and deliverables of any project will be outlined
+            in a separate contractual agreement, Statement of Work (SOW), or formal invoice agreed upon by both parties before work begins.
+          </p>
+          <ul>
+            <li><strong>Modifications:</strong> We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) without notice at any time.</li>
+            <li><strong>Pricing:</strong> Prices for our services are subject to change without notice. We shall not be liable to you or to any third-party for any modification, price change, suspension, or discontinuance of the Service.</li>
+            <li><strong>Revisions:</strong> Unless otherwise specified in the SOW, our fixed-price service packages include a set number of revisions. Additional revisions outside that scope will be billed at our standard hourly rate.</li>
+          </ul>
 
-      <BeautiyCTA />
-      <Footer />
+          <h2>3. User Responsibilities & Client Cooperation</h2>
+          <p>
+            The successful delivery of our Services heavily relies on prompt and clear communication. You agree to provide us with all necessary access,
+            materials, content, login credentials (where applicable), and feedback required to execute the agreed-upon project in a timely manner.
+          </p>
+          <p>
+            Delays in providing required assets or feedback will inevitably result in project timeline extensions. E Marketing Paradice is not liable for
+            missed deadlines directly stemming from client delays. Furthermore, you guarantee that any elements of text, graphics, photos, designs, trademarks,
+            or other artwork provided to us are either owned by you, or that you have explicit permission to use them.
+          </p>
+
+          <h2>4. Intellectual Property and Copyrights</h2>
+          <p>
+            All content published and made available on our site is the property of E Marketing Paradice and the site's creators. This includes, but is not limited to images, text, logos, documents, downloadable files and anything that contributes to the composition of our site.
+          </p>
+          <p>
+            Regarding client projects: Upon full payment of all invoices related to a specific project, the intellectual property rights of the final, delivered
+            assets (e.g., website source code, finalized logo designs, written copy) are transferred to you, the client. We reserve the right to display the completed
+            work in our agency portfolio and marketing materials for promotional purposes, unless a strict Non-Disclosure Agreement (NDA) is signed prior to project commencement.
+          </p>
+
+          <h2>5. Third-Party Links & Tools</h2>
+          <p>
+            We may provide you with access to third-party tools over which we neither monitor nor have any control nor input (e.g., Shopify, WordPress plugins, Google Analytics, Vercel).
+            You acknowledge and agree that we provide access to such tools "as is" and "as available" without any warranties, representations or conditions of any kind and without any endorsement.
+          </p>
+          <p>
+            Our website may contain links to third-party web sites or services that are not owned or controlled by E Marketing Paradice. We have no control over, and assume no responsibility for,
+            the content, privacy policies, or practices of any third party web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.
+          </p>
+
+          <h2>6. Limitation of Liability</h2>
+          <p>
+            In no case shall E Marketing Paradice, our directors, officers, employees, affiliates, agents, contractors, interns, suppliers, service providers or licensors be liable for any injury, loss, claim,
+            or any direct, indirect, incidental, punitive, special, or consequential damages of any kind, including, without limitation lost profits, lost revenue, lost savings, loss of data, replacement costs,
+            or any similar damages, whether based in contract, tort (including negligence), strict liability or otherwise, arising from your use of any of the service or any products procured using the service,
+            or for any other claim related in any way to your use of the service or any product.
+          </p>
+          <p>
+            Our overall liability in respect of any single event or series of events arising out of our provision of the Services will be limited strictly to the total amount paid by you to E Marketing Paradice
+            in the twelve (12) months preceding the event giving rise to the claim.
+          </p>
+
+          <h2>7. Warranties and Disclaimers</h2>
+          <p>
+            We do not guarantee, represent or warrant that your use of our service will be uninterrupted, timely, secure or error-free. We do not warrant that the results that may be obtained from the use of the service will be accurate or reliable.
+          </p>
+          <p>
+            Particularly regarding SEO and Digital Marketing services: While we employ industry-standard best practices, search engine algorithms change constantly. E Marketing Paradice cannot guarantee specific search engine rankings,
+            volume of traffic, or guaranteed sales/conversions resulting from our digital marketing efforts.
+          </p>
+
+          <h2>8. Indemnification</h2>
+          <p>
+            You agree to indemnify, defend and hold harmless E Marketing Paradice and our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors,
+            suppliers, interns and employees, harmless from any claim or demand, including reasonable attorneys' fees, made by any third-party due to or arising out of your breach of these Terms of Service or the documents they incorporate by reference,
+            or your violation of any law or the rights of a third-party.
+          </p>
+
+          <h2>9. Termination</h2>
+          <p>
+            The obligations and liabilities of the parties incurred prior to the termination date shall survive the termination of this agreement for all purposes.
+            These Terms of Service are effective unless and until terminated by either you or us. You may terminate these Terms of Service at any time by notifying us that you no longer wish to use our Services, or when you cease using our site.
+          </p>
+          <p>
+            If in our sole judgment you fail, or we suspect that you have failed, to comply with any term or provision of these Terms of Service, we also may terminate this agreement at any time without notice and you will remain liable for all amounts due up to and including the date of termination.
+          </p>
+
+          <h2>10. Governing Law</h2>
+          <p>
+            These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of Sri Lanka, without regard to its conflict of law provisions.
+          </p>
+
+          <h2>11. Contact Information</h2>
+          <p>
+            Questions about the Terms of Service should be sent to us directly. We are happy to clarify any conditions or terms outlined in this document.
+          </p>
+          <p className="font-semibold text-slate-800">
+            Email: emarketingparadice@gmail.com<br />
+            Phone: +94 76 346 0514<br />
+            Address: Kuliyapitiya, Sri Lanka
+          </p>
+        </div>
+      </div>
     </main>
   );
 }

@@ -13,6 +13,7 @@ import Methodology from "@/components/ui/home/Methodology";
 import WorkList from "@/components/ui/home/WorkList";
 import Projects from "@/components/ui/home/Projects";
 import Services from "@/components/ui/home/Services";
+import DetailedAbout from "@/components/ui/home/DetailedAbout";
 
 function Contact() {
 
@@ -75,6 +76,7 @@ export default function Page() {
     <main className="bg-white antialiased w-full min-h-screen overflow-x-hidden">
       <Hero />
       <Services />
+      <DetailedAbout />
       <Projects />
       <Methodology />
       <Process />

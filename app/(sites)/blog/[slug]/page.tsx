@@ -1,4 +1,5 @@
-import { blogPosts, ContentBlock } from "@/components/data/blog";
+import { blogPosts } from "@/components/data/blog";
+import { ContentBlock } from "@/components/data/types";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { formatDate } from "@/components/utils/date";

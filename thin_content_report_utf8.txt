@@ -1,0 +1,21 @@
+﻿URL | WORD COUNT | STATUS | FILEPATH
+-----------------------------------------
+/                              |   22 | FAIL (Thin) | \app\(sites)\page.tsx
+/under_development_200         |   27 | FAIL (Thin) | \app\under_development_200\page.tsx
+/blog                          |   42 | FAIL (Thin) | \app\(sites)\blog\page.tsx
+/contact                       |   42 | FAIL (Thin) | \app\(sites)\contact\page.tsx
+/services/mobile-apps          |   44 | FAIL (Thin) | \app\(sites)\services\mobile-apps\page.tsx
+/case-studies                  |   55 | FAIL (Thin) | \app\(sites)\case-studies\page.tsx
+/thank-you                     |   59 | FAIL (Thin) | \app\thank-you\page.tsx
+/services/creative-posters/[slug] |   61 | FAIL (Thin) | \app\(sites)\services\creative-posters\[slug]\page.tsx
+/services/social-media-management |   76 | FAIL (Thin) | \app\(sites)\services\social-media-management\page.tsx
+/services/social-media-management/projects/[slug] |   84 | FAIL (Thin) | \app\(sites)\services\social-media-management\projects\[slug]\page.tsx
+/portfolio/projects            |  113 | FAIL (Thin) | \app\(sites)\portfolio\projects\page.tsx
+/privacy-policy                |  127 | FAIL (Thin) | \app\privacy-policy\page.tsx
+/services/web-development      |  151 | FAIL (Thin) | \app\(sites)\services\web-development\page.tsx
+/services/mobile-apps/projects/[slug] |  158 | FAIL (Thin) | \app\(sites)\services\mobile-apps\projects\[slug]\page.tsx
+/services/web-development/projects/[slug] |  159 | FAIL (Thin) | \app\(sites)\services\web-development\projects\[slug]\page.tsx
+/about                         |  187 | FAIL (Thin) | \app\about\page.tsx
+/blog/[slug]                   |  190 | FAIL (Thin) | \app\(sites)\blog\[slug]\page.tsx
+/services/creative-posters     |  263 | FAIL (Thin) | \app\(sites)\services\creative-posters\page.tsx
+/terms                         |  289 | FAIL (Thin) | \app\terms\page.tsx
