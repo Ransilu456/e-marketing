@@ -9,867 +9,651 @@ export interface Project {
 
 export const posterProjects: Project[] = [
   {
-    "title": "Social Media Marketing Campaign #01",
-    "description": "High-conversion social media graphics designed for maximum engagement and brand consistency across platforms.",
+    "title": "DM Feed - Broiler Finisher 2 #01",
+    "description": "High-quality animal feed designed for optimal broiler growth and health in Kuliyapitiya.",
     "image": "/data/post/poster-01.jpeg",
     "slug": "poster-01",
     "features": [
-      "Platform-optimized layouts",
-      "Brand-aligned color theory",
-      "High-impact CTAs"
+      "High Protein Content",
+      "Growth Formula",
+      "Free Delivery"
     ],
-    "technologies": [
-      "Photoshop",
-      "Canva",
-      "Graphic Design"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Corporate Event Flyer #02",
-    "description": "Professional event materials designed for corporate seminars and networking events, focusing on legibility and prestige.",
+    "title": "DM Feed - Broiler Finisher 2 #02",
+    "description": "Premium broiler feed formulated for maximum weight gain and healthy poultry growth.",
     "image": "/data/post/poster-02.jpeg",
     "slug": "poster-02",
     "features": [
-      "Informational hierarchy",
-      "Print-ready CMYK",
-      "Brand-integrated patterns"
+      "Optimized Nutrition",
+      "Farm-Tested Quality",
+      "Weight Gain Guarantee"
     ],
-    "technologies": [
-      "InDesign",
-      "Illustrator",
-      "Typography"
-    ]
+    "technologies": ["Photoshop", "Figma"]
   },
   {
-    "title": "Product Launch Visuals #03",
-    "description": "Stunning product-focused posters for new launches, using advanced photo manipulation and lighting effects.",
+    "title": "DM Feed - Broiler Finisher 2 #03",
+    "description": "High-performance broiler feed designed for commercial poultry farming success.",
     "image": "/data/post/poster-03.jpeg",
     "slug": "poster-03",
     "features": [
-      "Product-centric composition",
-      "Soft-glow lighting",
-      "Modern aesthetics"
+      "Protein-Rich Content",
+      "Growth Acceleration",
+      "Professional Grade"
     ],
-    "technologies": [
-      "Photoshop",
-      "Lightroom",
-      "Visual Arts"
-    ]
+    "technologies": ["Canva"]
   },
   {
-    "title": "Educational Infographic Poster #04",
-    "description": "Complex information distilled into beautiful, easy-to-understand visual narratives for educational purposes.",
+    "title": "DM Feed - Super Egg Feed #04",
+    "description": "Specialized layer feed to ensure strong eggshells and consistent egg production (92% rate).",
     "image": "/data/post/poster-04.jpeg",
     "slug": "poster-04",
     "features": [
-      "Data visualization",
-      "Clean iconography",
-      "Logical flow"
+      "Enhanced Egg Quality",
+      "Calcium Fortified",
+      "Production Rate Boost"
     ],
-    "technologies": [
-      "Illustrator",
-      "Vector Art",
-      "Infographics"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Restaurant Menu & Promo #05",
-    "description": "Appetizing food photography combined with elegant typography to drive sales in the hospitality sector.",
+    "title": "DM Feed - Super Egg Feed #05",
+    "description": "Premium egg feeds designed for strong layers and high-yield egg production.",
     "image": "/data/post/poster-05.jpeg",
     "slug": "poster-05",
     "features": [
-      "Lifestyle photography",
-      "Elegant font pairing",
-      "Category-based layout"
+      "Strong Eggshells",
+      "Nutrient Balanced",
+      "Free Delivery"
     ],
-    "technologies": [
-      "Photoshop",
-      "InDesign",
-      "Menu Design"
-    ]
+    "technologies": ["Canva", "Figma"]
   },
   {
-    "title": "Hiring & Recruitment Graphics #06",
-    "description": "Friendly and professional posters for company recruitment drives, highlighting culture and opportunities.",
+    "title": "DM Feed - Broiler Finisher 2 #06",
+    "description": "Reliable broiler finisher feed for healthy livestock and profitable farming.",
     "image": "/data/post/poster-06.jpeg",
     "slug": "poster-06",
     "features": [
-      "Culture-focused visuals",
-      "Clear application steps",
-      "Professional tone"
+      "Quality Livestock Support",
+      "Easy Digestion",
+      "Growth Focused"
     ],
-    "technologies": [
-      "Figma",
-      "Illustrator",
-      "Employer Branding"
-    ]
+    "technologies": ["Photoshop"]
   },
   {
-    "title": "Seasonal Sale Promotion #07",
-    "description": "Vibrant and urgent promotional graphics for holiday sales and seasonal discounts.",
+    "title": "DM Feed - Broiler Finisher 2 #07",
+    "description": "Advanced poultry nutrition for broiler finishers with high-quality protein.",
     "image": "/data/post/poster-07.jpeg",
     "slug": "poster-07",
     "features": [
-      "Urgency-driven design",
-      "Vibrant color palettes",
-      "Eye-catching headers"
+      "High Weight Gain",
+      "Nutrient Dense",
+      "Tested Formula"
     ],
-    "technologies": [
-      "Photoshop",
-      "Digital Marketing",
-      "Retail Design"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Real Estate Listing Poster #08",
-    "description": "Minimalist and modern property showcase posters for real estate agencies and independent sellers.",
+    "title": "DM Feed - Broiler Finisher 2 #08",
+    "description": "Comprehensive poultry feed solutions for modern broiler farming.",
     "image": "/data/post/poster-08.jpeg",
     "slug": "poster-08",
     "features": [
-      "Grid-based image layout",
-      "Property detail icons",
-      "Clean layout"
+      "Balanced Nutrition",
+      "Efficient Digestion",
+      "Premium Ingredients"
     ],
-    "technologies": [
-      "Illustrator",
-      "Canva",
-      "Real Estate Marketing"
-    ]
+    "technologies": ["Figma"]
   },
   {
-    "title": "Tech Conference Branding #09",
-    "description": "Futuristic and abstract poster designs for technology summits and developer conferences.",
+    "title": "DM Feed - New Year 2026 Wishes #09",
+    "description": "Celebrating the New Year 2026 with our valued poultry farming partners.",
     "image": "/data/post/poster-09.jpeg",
     "slug": "poster-09",
     "features": [
-      "Abstract vector shapes",
-      "Cyberpunk aesthetics",
-      "Dynamic layouts"
+      "Community Focused",
+      "Vibrant Graphics",
+      "New Year Wishes"
     ],
-    "technologies": [
-      "After Effects",
-      "Figma",
-      "Conference Design"
-    ]
+    "technologies": ["Canva", "Figma"]
   },
   {
-    "title": "Social Media Marketing Campaign #10",
-    "description": "High-conversion social media graphics designed for maximum engagement and brand consistency across platforms.",
+    "title": "DM Feed - Broiler Finisher 2 #10",
+    "description": "Strategic broiler feed to maximize output and bird health.",
     "image": "/data/post/poster-10.jpeg",
     "slug": "poster-10",
     "features": [
-      "Platform-optimized layouts",
-      "Brand-aligned color theory",
-      "High-impact CTAs"
+      "Maximized Output",
+      "Health Focused",
+      "Consistent Quality"
     ],
-    "technologies": [
-      "Photoshop",
-      "Canva",
-      "Graphic Design"
-    ]
+    "technologies": ["Photoshop"]
   },
   {
-    "title": "Corporate Event Flyer #11",
-    "description": "Professional event materials designed for corporate seminars and networking events, focusing on legibility and prestige.",
+    "title": "DM Feed - Broiler Finisher 2 #11",
+    "description": "Engaging poultry feed advertisement featuring a friendly broiler character.",
     "image": "/data/post/poster-11.jpeg",
     "slug": "poster-11",
     "features": [
-      "Informational hierarchy",
-      "Print-ready CMYK",
-      "Brand-integrated patterns"
+      "Character Illustration",
+      "Eye-Catching Layout",
+      "Key Benefits Listed"
     ],
-    "technologies": [
-      "InDesign",
-      "Illustrator",
-      "Typography"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Product Launch Visuals #12",
-    "description": "Stunning product-focused posters for new launches, using advanced photo manipulation and lighting effects.",
+    "title": "DM Feed - Broiler Finisher 2 #12",
+    "description": "Professional broiler feed poster highlighting LKR 8750 pricing and contact info.",
     "image": "/data/post/poster-12.jpeg",
     "slug": "poster-12",
     "features": [
-      "Product-centric composition",
-      "Soft-glow lighting",
-      "Modern aesthetics"
+      "Clear Pricing",
+      "High Contact Visibility",
+      "Branding Consistency"
     ],
-    "technologies": [
-      "Photoshop",
-      "Lightroom",
-      "Visual Arts"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Educational Infographic Poster #13",
-    "description": "Complex information distilled into beautiful, easy-to-understand visual narratives for educational purposes.",
+    "title": "DM Feed - Broiler Finisher 2 #13",
+    "description": "Clean and informative broiler feed graphics for direct sales and farm distribution.",
     "image": "/data/post/poster-13.jpeg",
     "slug": "poster-13",
     "features": [
-      "Data visualization",
-      "Clean iconography",
-      "Logical flow"
+      "Minimalist Design",
+      "Direct Call to Action",
+      "Essential Info Focused"
     ],
-    "technologies": [
-      "Illustrator",
-      "Vector Art",
-      "Infographics"
-    ]
+    "technologies": ["Canva"]
   },
   {
-    "title": "Restaurant Menu & Promo #14",
-    "description": "Appetizing food photography combined with elegant typography to drive sales in the hospitality sector.",
+    "title": "DM Feed - Broiler Finisher 2 #14",
+    "description": "Dynamic broiler feed ad showcasing the product with high-impact visuals.",
     "image": "/data/post/poster-14.jpeg",
     "slug": "poster-14",
     "features": [
-      "Lifestyle photography",
-      "Elegant font pairing",
-      "Category-based layout"
+      "Dynamic Visuals",
+      "Action Oriented",
+      "Free Delivery Badge"
     ],
-    "technologies": [
-      "Photoshop",
-      "InDesign",
-      "Menu Design"
-    ]
+    "technologies": ["Photoshop", "Figma"]
   },
   {
-    "title": "Hiring & Recruitment Graphics #15",
-    "description": "Friendly and professional posters for company recruitment drives, highlighting culture and opportunities.",
+    "title": "DM Feed - Broiler Finisher 2 #15",
+    "description": "Classic broiler feed promotion with strong focus on pricing and contact.",
     "image": "/data/post/poster-15.jpeg",
     "slug": "poster-15",
     "features": [
-      "Culture-focused visuals",
-      "Clear application steps",
-      "Professional tone"
+      "Strong Price Point",
+      "Local Area Focused",
+      "Trusted Branding"
     ],
-    "technologies": [
-      "Figma",
-      "Illustrator",
-      "Employer Branding"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Seasonal Sale Promotion #16",
-    "description": "Vibrant and urgent promotional graphics for holiday sales and seasonal discounts.",
+    "title": "DM Feed - Broiler Finisher 2 #16",
+    "description": "Informative poster detailing the nutrients and benefits of Broiler Finisher 2.",
     "image": "/data/post/poster-16.jpeg",
     "slug": "poster-16",
     "features": [
-      "Urgency-driven design",
-      "Vibrant color palettes",
-      "Eye-catching headers"
+      "Benefit Breakdown",
+      "Informative Layout",
+      "Professional Finish"
     ],
-    "technologies": [
-      "Photoshop",
-      "Digital Marketing",
-      "Retail Design"
-    ]
+    "technologies": ["Figma"]
   },
   {
-    "title": "Real Estate Listing Poster #17",
-    "description": "Minimalist and modern property showcase posters for real estate agencies and independent sellers.",
+    "title": "DM Feed - Egg Feeds #17",
+    "description": "Creative egg feed ad with humorous character elements for higher engagement.",
     "image": "/data/post/poster-17.jpeg",
     "slug": "poster-17",
     "features": [
-      "Grid-based image layout",
-      "Property detail icons",
-      "Clean layout"
+      "Humorous Elements",
+      "High Engagement",
+      "Clear Value Prop"
     ],
-    "technologies": [
-      "Illustrator",
-      "Canva",
-      "Real Estate Marketing"
-    ]
+    "technologies": ["Photoshop", "Canva"]
   },
   {
-    "title": "Tech Conference Branding #18",
-    "description": "Futuristic and abstract poster designs for technology summits and developer conferences.",
+    "title": "DM Feed - Pig Feed #18",
+    "description": "Modern and clean pig feed advertisement for digital platforms and social media.",
     "image": "/data/post/poster-18.jpeg",
     "slug": "poster-18",
     "features": [
-      "Abstract vector shapes",
-      "Cyberpunk aesthetics",
-      "Dynamic layouts"
+      "Modern Aesthetics",
+      "Digital Optimized",
+      "High Contrast"
     ],
-    "technologies": [
-      "After Effects",
-      "Figma",
-      "Conference Design"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Social Media Marketing Campaign #19",
-    "description": "High-conversion social media graphics designed for maximum engagement and brand consistency across platforms.",
+    "title": "DM Feed - Broiler Finisher 2 #19",
+    "description": "Poultry feed graphics highlighting speed and efficiency in livestock growth.",
     "image": "/data/post/poster-19.jpeg",
     "slug": "poster-19",
     "features": [
-      "Platform-optimized layouts",
-      "Brand-aligned color theory",
-      "High-impact CTAs"
+      "Growth Efficiency",
+      "Bold Typography",
+      "Free Delivery Support"
     ],
-    "technologies": [
-      "Photoshop",
-      "Canva",
-      "Graphic Design"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Corporate Event Flyer #20",
-    "description": "Professional event materials designed for corporate seminars and networking events, focusing on legibility and prestige.",
+    "title": "DM Feed - Egg Feed #20",
+    "description": "High-impact egg feed flyer with strong branding and clear messaging.",
     "image": "/data/post/poster-20.jpeg",
     "slug": "poster-20",
     "features": [
-      "Informational hierarchy",
-      "Print-ready CMYK",
-      "Brand-integrated patterns"
+      "Bold Branding",
+      "Clear Messaging",
+      "High Visibility"
     ],
-    "technologies": [
-      "InDesign",
-      "Illustrator",
-      "Typography"
-    ]
+    "technologies": ["Photoshop"]
   },
   {
-    "title": "Product Launch Visuals #21",
-    "description": "Stunning product-focused posters for new launches, using advanced photo manipulation and lighting effects.",
+    "title": "DM Feed - Broiler Finisher 2 #21",
+    "description": "Effective broiler feed promotion for local poultry farmers in Kuliyapitiya.",
     "image": "/data/post/poster-21.jpeg",
     "slug": "poster-21",
     "features": [
-      "Product-centric composition",
-      "Soft-glow lighting",
-      "Modern aesthetics"
+      "Local Market Target",
+      "Direct Sales Focus",
+      "Essential Specs"
     ],
-    "technologies": [
-      "Photoshop",
-      "Lightroom",
-      "Visual Arts"
-    ]
+    "technologies": ["Canva", "Figma"]
   },
   {
-    "title": "Educational Infographic Poster #22",
-    "description": "Complex information distilled into beautiful, easy-to-understand visual narratives for educational purposes.",
+    "title": "DM Feed - Super Egg Feed #22",
+    "description": "Specialized layer feed to ensure high-quality egg production and hen health.",
     "image": "/data/post/poster-22.jpeg",
     "slug": "poster-22",
     "features": [
-      "Data visualization",
-      "Clean iconography",
-      "Logical flow"
+      "Egg Quality Boost",
+      "Nutrient Rich",
+      "Trusted Advice"
     ],
-    "technologies": [
-      "Illustrator",
-      "Vector Art",
-      "Infographics"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Restaurant Menu & Promo #23",
-    "description": "Appetizing food photography combined with elegant typography to drive sales in the hospitality sector.",
+    "title": "DM Feed - Super Pig Feed #23",
+    "description": "Consistent quality pig feed for professional pig farms and commercial layers.",
     "image": "/data/post/poster-23.jpeg",
     "slug": "poster-23",
     "features": [
-      "Lifestyle photography",
-      "Elegant font pairing",
-      "Category-based layout"
+      "Consistency Guarantee",
+      "Production Optimized",
+      "Support Included"
     ],
-    "technologies": [
-      "Photoshop",
-      "InDesign",
-      "Menu Design"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Hiring & Recruitment Graphics #24",
-    "description": "Friendly and professional posters for company recruitment drives, highlighting culture and opportunities.",
+    "title": "DM Feed - Super Pig Feed #24",
+    "description": "Professional feed advertisement for high-yield pig meat production.",
     "image": "/data/post/poster-24.jpeg",
     "slug": "poster-24",
     "features": [
-      "Culture-focused visuals",
-      "Clear application steps",
-      "Professional tone"
+      "High Yield Focus",
+      "Premium Nutrition",
+      "Fast Delivery"
     ],
-    "technologies": [
-      "Figma",
-      "Illustrator",
-      "Employer Branding"
-    ]
+    "technologies": ["Photoshop"]
   },
   {
-    "title": "Seasonal Sale Promotion #25",
-    "description": "Vibrant and urgent promotional graphics for holiday sales and seasonal discounts.",
+    "title": "DM Feed - Broiler Finisher 2 #25",
+    "description": "Clear and detailed broiler feed ad for commercial livestock breeders.",
     "image": "/data/post/poster-25.jpeg",
     "slug": "poster-25",
     "features": [
-      "Urgency-driven design",
-      "Vibrant color palettes",
-      "Eye-catching headers"
+      "Detailed Information",
+      "Commercial Grade",
+      "Clear Pricing"
     ],
-    "technologies": [
-      "Photoshop",
-      "Digital Marketing",
-      "Retail Design"
-    ]
+    "technologies": ["Canva", "Figma"]
   },
   {
-    "title": "Real Estate Listing Poster #26",
-    "description": "Minimalist and modern property showcase posters for real estate agencies and independent sellers.",
+    "title": "DM Feed - Broiler Finisher 2 #26",
+    "description": "Targeted broiler feed graphics (92% result) for specific poultry needs.",
     "image": "/data/post/poster-26.jpeg",
     "slug": "poster-26",
     "features": [
-      "Grid-based image layout",
-      "Property detail icons",
-      "Clean layout"
+      "Targeted Nutrition",
+      "Proven Results",
+      "High Availability"
     ],
-    "technologies": [
-      "Illustrator",
-      "Canva",
-      "Real Estate Marketing"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Tech Conference Branding #27",
-    "description": "Futuristic and abstract poster designs for technology summits and developer conferences.",
+    "title": "DM Feed - Super Egg Feed #27",
+    "description": "Optimized layer feed for maximum hen productivity and health (19% protein).",
     "image": "/data/post/poster-27.jpeg",
     "slug": "poster-27",
     "features": [
-      "Abstract vector shapes",
-      "Cyberpunk aesthetics",
-      "Dynamic layouts"
+      "Max Productivity",
+      "Hen Health Support",
+      "Free Consultation"
     ],
-    "technologies": [
-      "After Effects",
-      "Figma",
-      "Conference Design"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Social Media Marketing Campaign #28",
-    "description": "High-conversion social media graphics designed for maximum engagement and brand consistency across platforms.",
+    "title": "DM Feed - Broiler Finisher 2 #28",
+    "description": "Poultry feed solutions for consistent high-quality broiler production and larger eggs.",
     "image": "/data/post/poster-28.jpeg",
     "slug": "poster-28",
     "features": [
-      "Platform-optimized layouts",
-      "Brand-aligned color theory",
-      "High-impact CTAs"
+      "Consistent Results",
+      "High Protein (19%)",
+      "Free Delivery"
     ],
-    "technologies": [
-      "Photoshop",
-      "Canva",
-      "Graphic Design"
-    ]
+    "technologies": ["Photoshop"]
   },
   {
-    "title": "Corporate Event Flyer #29",
-    "description": "Professional event materials designed for corporate seminars and networking events, focusing on legibility and prestige.",
+    "title": "DM Feed - Broiler Finisher 2 #29",
+    "description": "Strong and bold broiler feed ad for competitive poultry markets.",
     "image": "/data/post/poster-29.jpeg",
     "slug": "poster-29",
     "features": [
-      "Informational hierarchy",
-      "Print-ready CMYK",
-      "Brand-integrated patterns"
+      "Bold Visuals",
+      "Competitive Pricing",
+      "Direct Contact"
     ],
-    "technologies": [
-      "InDesign",
-      "Illustrator",
-      "Typography"
-    ]
+    "technologies": ["Canva", "Figma"]
   },
   {
-    "title": "Product Launch Visuals #30",
-    "description": "Stunning product-focused posters for new launches, using advanced photo manipulation and lighting effects.",
+    "title": "DM Feed - Broiler Finisher 2 #30",
+    "description": "Efficient broiler feed promotion emphasizing weight and growth metrics.",
     "image": "/data/post/poster-30.jpeg",
     "slug": "poster-30",
     "features": [
-      "Product-centric composition",
-      "Soft-glow lighting",
-      "Modern aesthetics"
+      "Weight Gain Focus",
+      "Growth Stats",
+      "Clear Order Path"
     ],
-    "technologies": [
-      "Photoshop",
-      "Lightroom",
-      "Visual Arts"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Educational Infographic Poster #31",
-    "description": "Complex information distilled into beautiful, easy-to-understand visual narratives for educational purposes.",
+    "title": "Sarasaviya - Photo Frames #31",
+    "description": "Premium personalized photo frames available in a variety of sizes from Sarasaviya Frame Shop.",
     "image": "/data/post/poster-31.jpeg",
     "slug": "poster-31",
     "features": [
-      "Data visualization",
-      "Clean iconography",
-      "Logical flow"
+      "Custom Sizes",
+      "Premium Finish",
+      "Fast Delivery"
     ],
-    "technologies": [
-      "Illustrator",
-      "Vector Art",
-      "Infographics"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Restaurant Menu & Promo #32",
-    "description": "Appetizing food photography combined with elegant typography to drive sales in the hospitality sector.",
+    "title": "Sarasaviya - Frame Collection #32",
+    "description": "Elegant and durable photo frames to display your most treasured photographs.",
     "image": "/data/post/poster-32.jpeg",
     "slug": "poster-32",
     "features": [
-      "Lifestyle photography",
-      "Elegant font pairing",
-      "Category-based layout"
+      "Durable Materials",
+      "Multiple Styles",
+      "Affordable Pricing"
     ],
-    "technologies": [
-      "Photoshop",
-      "InDesign",
-      "Menu Design"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Hiring & Recruitment Graphics #33",
-    "description": "Friendly and professional posters for company recruitment drives, highlighting culture and opportunities.",
+    "title": "Sarasaviya - Custom Frame Orders #33",
+    "description": "Order custom-sized frames for portraits, landscapes, and special occasion photography.",
     "image": "/data/post/poster-33.jpeg",
     "slug": "poster-33",
     "features": [
-      "Culture-focused visuals",
-      "Clear application steps",
-      "Professional tone"
+      "Portrait & Landscape",
+      "Special Occasions",
+      "Custom Orders"
     ],
-    "technologies": [
-      "Figma",
-      "Illustrator",
-      "Employer Branding"
-    ]
+    "technologies": ["Canva"]
   },
   {
-    "title": "Seasonal Sale Promotion #34",
-    "description": "Vibrant and urgent promotional graphics for holiday sales and seasonal discounts.",
+    "title": "Sarasaviya - Frame Size Guide #34",
+    "description": "Detailed size guide for all available photo frames — from 4x6 to 18x24 and beyond.",
     "image": "/data/post/poster-34.jpeg",
     "slug": "poster-34",
     "features": [
-      "Urgency-driven design",
-      "Vibrant color palettes",
-      "Eye-catching headers"
+      "Wide Size Range",
+      "Clear Dimensions",
+      "Easy Ordering"
     ],
-    "technologies": [
-      "Photoshop",
-      "Digital Marketing",
-      "Retail Design"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Real Estate Listing Poster #35",
-    "description": "Minimalist and modern property showcase posters for real estate agencies and independent sellers.",
+    "title": "Sarasaviya - New Year 2026 Greetings #35",
+    "description": "Sarasaviya Photo Frame Shop extends warm New Year 2026 wishes to all valued customers.",
     "image": "/data/post/poster-35.jpeg",
     "slug": "poster-35",
     "features": [
-      "Grid-based image layout",
-      "Property detail icons",
-      "Clean layout"
+      "Festive Design",
+      "Brand Identity",
+      "Customer Appreciation"
     ],
-    "technologies": [
-      "Illustrator",
-      "Canva",
-      "Real Estate Marketing"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Tech Conference Branding #36",
-    "description": "Futuristic and abstract poster designs for technology summits and developer conferences.",
+    "title": "Sarasaviya - Enlargement Services #36",
+    "description": "Professional photo enlargement and printing services for home and commercial use.",
     "image": "/data/post/poster-36.jpeg",
     "slug": "poster-36",
     "features": [
-      "Abstract vector shapes",
-      "Cyberpunk aesthetics",
-      "Dynamic layouts"
+      "Large Format Prints",
+      "High Resolution",
+      "Quick Turnaround"
     ],
-    "technologies": [
-      "After Effects",
-      "Figma",
-      "Conference Design"
-    ]
+    "technologies": ["Photoshop"]
   },
   {
-    "title": "Social Media Marketing Campaign #37",
-    "description": "High-conversion social media graphics designed for maximum engagement and brand consistency across platforms.",
+    "title": "Sarasaviya - Premium Frame Deals #37",
+    "description": "Special promotional deals on premium photo frames for limited time from Sarasaviya.",
     "image": "/data/post/poster-37.jpeg",
     "slug": "poster-37",
     "features": [
-      "Platform-optimized layouts",
-      "Brand-aligned color theory",
-      "High-impact CTAs"
+      "Limited Offers",
+      "Premium Quality",
+      "Best Value"
     ],
-    "technologies": [
-      "Photoshop",
-      "Canva",
-      "Graphic Design"
-    ]
+    "technologies": ["Canva", "Figma"]
   },
   {
-    "title": "Corporate Event Flyer #38",
-    "description": "Professional event materials designed for corporate seminars and networking events, focusing on legibility and prestige.",
+    "title": "Sarasaviya - Personalized Frames #38",
+    "description": "High-quality personalized photo frames to preserve your most cherished memories.",
     "image": "/data/post/poster-38.jpeg",
     "slug": "poster-38",
     "features": [
-      "Informational hierarchy",
-      "Print-ready CMYK",
-      "Brand-integrated patterns"
+      "Custom Engraving",
+      "Premium Wood/Glass",
+      "various Sizes"
     ],
-    "technologies": [
-      "InDesign",
-      "Illustrator",
-      "Typography"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Product Launch Visuals #39",
-    "description": "Stunning product-focused posters for new launches, using advanced photo manipulation and lighting effects.",
+    "title": "Sarasaviya - Frame Size Guide #39",
+    "description": "Comprehensive guide to available photo frame sizes and styles for every need.",
     "image": "/data/post/poster-39.jpeg",
     "slug": "poster-39",
     "features": [
-      "Product-centric composition",
-      "Soft-glow lighting",
-      "Modern aesthetics"
+      "Standard Size Range",
+      "Style Variety",
+      "Expert Framing"
     ],
-    "technologies": [
-      "Photoshop",
-      "Lightroom",
-      "Visual Arts"
-    ]
+    "technologies": ["Photoshop"]
   },
   {
-    "title": "Educational Infographic Poster #40",
-    "description": "Complex information distilled into beautiful, easy-to-understand visual narratives for educational purposes.",
+    "title": "Japanese Cafe - Language Classes #40",
+    "description": "Identify your Japanese language potential with our expert-led classes and cafe environment.",
     "image": "/data/post/poster-40.jpeg",
     "slug": "poster-40",
     "features": [
-      "Data visualization",
-      "Clean iconography",
-      "Logical flow"
+      "Expert Instructors",
+      "Immersive Environment",
+      "JLPT Preparation"
     ],
-    "technologies": [
-      "Illustrator",
-      "Vector Art",
-      "Infographics"
-    ]
+    "technologies": ["Canva", "Figma"]
   },
   {
-    "title": "Restaurant Menu & Promo #41",
-    "description": "Appetizing food photography combined with elegant typography to drive sales in the hospitality sector.",
+    "title": "Japanese Cafe - Beginner Classes #41",
+    "description": "Japanese language beginner classes at the Japanese Cafe — start your language journey today.",
     "image": "/data/post/poster-41.jpeg",
     "slug": "poster-41",
     "features": [
-      "Lifestyle photography",
-      "Elegant font pairing",
-      "Category-based layout"
+      "Beginner Friendly",
+      "Structured Curriculum",
+      "Small Groups"
     ],
-    "technologies": [
-      "Photoshop",
-      "InDesign",
-      "Menu Design"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Hiring & Recruitment Graphics #42",
-    "description": "Friendly and professional posters for company recruitment drives, highlighting culture and opportunities.",
+    "title": "Japanese Cafe - N5 Level Course #42",
+    "description": "Comprehensive JLPT N5 course taught by Apsara Sathurusinghe at the Japanese Cafe.",
     "image": "/data/post/poster-42.jpeg",
     "slug": "poster-42",
     "features": [
-      "Culture-focused visuals",
-      "Clear application steps",
-      "Professional tone"
+      "JLPT N5 Prep",
+      "Expert Teacher",
+      "Flexible Schedule"
     ],
-    "technologies": [
-      "Figma",
-      "Illustrator",
-      "Employer Branding"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Seasonal Sale Promotion #43",
-    "description": "Vibrant and urgent promotional graphics for holiday sales and seasonal discounts.",
+    "title": "Japanese Cafe - Language & Culture #43",
+    "description": "Explore Japanese language and culture in a warm cafe-style learning environment.",
     "image": "/data/post/poster-43.jpeg",
     "slug": "poster-43",
     "features": [
-      "Urgency-driven design",
-      "Vibrant color palettes",
-      "Eye-catching headers"
+      "Culture Integration",
+      "Language Practice",
+      "Friendly Atmosphere"
     ],
-    "technologies": [
-      "Photoshop",
-      "Digital Marketing",
-      "Retail Design"
-    ]
+    "technologies": ["Canva"]
   },
   {
-    "title": "Real Estate Listing Poster #44",
-    "description": "Minimalist and modern property showcase posters for real estate agencies and independent sellers.",
+    "title": "Japanese Cafe - N4 Advanced Classes #44",
+    "description": "Advanced N4-level Japanese language classes for serious learners and exam takers.",
     "image": "/data/post/poster-44.jpeg",
     "slug": "poster-44",
     "features": [
-      "Grid-based image layout",
-      "Property detail icons",
-      "Clean layout"
+      "N4 Level",
+      "Exam Focused",
+      "Grammar & Kanji"
     ],
-    "technologies": [
-      "Illustrator",
-      "Canva",
-      "Real Estate Marketing"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Tech Conference Branding #45",
-    "description": "Futuristic and abstract poster designs for technology summits and developer conferences.",
+    "title": "Japanese Cafe - Apsara Sathurusinghe #45",
+    "description": "Study Japanese with expert instructor Apsara Sathurusinghe — JLPT preparation classes.",
     "image": "/data/post/poster-45.jpeg",
     "slug": "poster-45",
     "features": [
-      "Abstract vector shapes",
-      "Cyberpunk aesthetics",
-      "Dynamic layouts"
+      "Expert Instructor",
+      "JLPT Certified",
+      "Personalized Learning"
     ],
-    "technologies": [
-      "After Effects",
-      "Figma",
-      "Conference Design"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Social Media Marketing Campaign #46",
-    "description": "High-conversion social media graphics designed for maximum engagement and brand consistency across platforms.",
+    "title": "YES FOODS - Pastry Platter #46",
+    "description": "Assorted pastry platters featuring savory and sweet selections.",
     "image": "/data/post/poster-46.jpeg",
     "slug": "poster-46",
     "features": [
-      "Platform-optimized layouts",
-      "Brand-aligned color theory",
-      "High-impact CTAs"
+      "Savory & Sweet",
+      "Platter Sizes",
+      "Office Catering"
     ],
-    "technologies": [
-      "Photoshop",
-      "Canva",
-      "Graphic Design"
-    ]
+    "technologies": ["Photoshop"]
   },
   {
-    "title": "Corporate Event Flyer #47",
-    "description": "Professional event materials designed for corporate seminars and networking events, focusing on legibility and prestige.",
+    "title": "YES FOODS - Deviled Dishes #47",
+    "description": "Spicy and flavorful deviled Sri Lankan styled dishes.",
     "image": "/data/post/poster-47.jpeg",
     "slug": "poster-47",
     "features": [
-      "Informational hierarchy",
-      "Print-ready CMYK",
-      "Brand-integrated patterns"
+      "Authentic Spice",
+      "Meat & Veg Options",
+      "Party Portions"
     ],
-    "technologies": [
-      "InDesign",
-      "Illustrator",
-      "Typography"
-    ]
+    "technologies": ["Canva", "Figma"]
   },
   {
-    "title": "Product Launch Visuals #48",
-    "description": "Stunning product-focused posters for new launches, using advanced photo manipulation and lighting effects.",
+    "title": "YES FOODS - Sweet Treats #48",
+    "description": "Gourmet sweet treats and traditional Sri Lankan sweets for festivals.",
     "image": "/data/post/poster-48.jpeg",
     "slug": "poster-48",
     "features": [
-      "Product-centric composition",
-      "Soft-glow lighting",
-      "Modern aesthetics"
+      "Traditional Sweets",
+      "Gourmet Options",
+      "Festive Packaging"
     ],
-    "technologies": [
-      "Photoshop",
-      "Lightroom",
-      "Visual Arts"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Educational Infographic Poster #49",
-    "description": "Complex information distilled into beautiful, easy-to-understand visual narratives for educational purposes.",
+    "title": "YES FOODS - Special Rice Combos #49",
+    "description": "Complete meal combos featuring special rice, curries, and accompaniments.",
     "image": "/data/post/poster-49.jpeg",
     "slug": "poster-49",
     "features": [
-      "Data visualization",
-      "Clean iconography",
-      "Logical flow"
+      "Complete Meals",
+      "Varied Menus",
+      "Large Orders"
     ],
-    "technologies": [
-      "Illustrator",
-      "Vector Art",
-      "Infographics"
-    ]
+    "technologies": ["Photoshop"]
   },
   {
-    "title": "Restaurant Menu & Promo #50",
-    "description": "Appetizing food photography combined with elegant typography to drive sales in the hospitality sector.",
+    "title": "YES FOODS - Dessert Table #50",
+    "description": "Beautifully arranged dessert tables for high-end events and celebrations.",
     "image": "/data/post/poster-50.jpeg",
     "slug": "poster-50",
     "features": [
-      "Lifestyle photography",
-      "Elegant font pairing",
-      "Category-based layout"
+      "Beautiful Arrangement",
+      "Custom Dessert List",
+      "Full Setup"
     ],
-    "technologies": [
-      "Photoshop",
-      "InDesign",
-      "Menu Design"
-    ]
+    "technologies": ["Canva", "Figma"]
   },
   {
-    "title": "Hiring & Recruitment Graphics #51",
-    "description": "Friendly and professional posters for company recruitment drives, highlighting culture and opportunities.",
+    "title": "YES FOODS - Anniversary Cake #51",
+    "description": "Elegant anniversary cakes crafted with love for milestone celebrations.",
     "image": "/data/post/poster-51.jpeg",
     "slug": "poster-51",
     "features": [
-      "Culture-focused visuals",
-      "Clear application steps",
-      "Professional tone"
+      "Milestone Designs",
+      "Custom Messages",
+      "Premium Ingredients"
     ],
-    "technologies": [
-      "Figma",
-      "Illustrator",
-      "Employer Branding"
-    ]
+    "technologies": ["Figma", "Photoshop"]
   },
   {
-    "title": "Seasonal Sale Promotion #52",
-    "description": "Vibrant and urgent promotional graphics for holiday sales and seasonal discounts.",
+    "title": "YES FOODS - Short Eats & Snacks #52",
+    "description": "Freshly prepared short eats and savory snacks perfect for events and daily orders.",
     "image": "/data/post/poster-52.jpeg",
     "slug": "poster-52",
     "features": [
-      "Urgency-driven design",
-      "Vibrant color palettes",
-      "Eye-catching headers"
+      "Wide Variety",
+      "Bulk Orders",
+      "Fresh Daily"
     ],
-    "technologies": [
-      "Photoshop",
-      "Digital Marketing",
-      "Retail Design"
-    ]
+    "technologies": ["Canva", "Photoshop"]
   },
   {
-    "title": "Real Estate Listing Poster #53",
-    "description": "Minimalist and modern property showcase posters for real estate agencies and independent sellers.",
+    "title": "YES FOODS - Rice & Curry #53",
+    "description": "Authentic Sri Lankan rice and curry meals prepared fresh for delivery and dine-in.",
     "image": "/data/post/poster-53.jpeg",
     "slug": "poster-53",
     "features": [
-      "Grid-based image layout",
-      "Property detail icons",
-      "Clean layout"
+      "Authentic Recipes",
+      "Generous Portions",
+      "Daily Menu"
     ],
-    "technologies": [
-      "Illustrator",
-      "Canva",
-      "Real Estate Marketing"
-    ]
+    "technologies": ["Figma", "Canva"]
   },
   {
-    "title": "Tech Conference Branding #54",
-    "description": "Futuristic and abstract poster designs for technology summits and developer conferences.",
+    "title": "YES FOODS - Full Catering Package #54",
+    "description": "Complete catering solutions for weddings, corporate events, and private parties.",
     "image": "/data/post/poster-54.jpeg",
     "slug": "poster-54",
     "features": [
-      "Abstract vector shapes",
-      "Cyberpunk aesthetics",
-      "Dynamic layouts"
+      "Full Event Coverage",
+      "Custom Menus",
+      "Professional Staff"
     ],
-    "technologies": [
-      "After Effects",
-      "Figma",
-      "Conference Design"
-    ]
+    "technologies": ["Photoshop", "Canva"]
   }
 ];
