@@ -2,49 +2,93 @@ import { BlogPost } from "../types";
 
 export const schema_markup_rich_snippets: BlogPost = {
   slug: "schema-markup-rich-snippets",
-  title: "Unlocking Rich Snippets: A Complete Guide to Schema Markup",
-  excerpt: "Dominate the SERPs by communicating directly with Google's crawlers. How to implement JSON-LD schema effectively.",
+  title: "Unlocking Rich Snippets: A Complete JSON-LD Schema Markup Guide",
+  excerpt: "Star ratings, FAQ dropdowns, breadcrumbs, and price information in Google search results — all powered by Schema markup. Here's how to implement it correctly.",
   category: "Technical SEO",
   date: "2026-02-05",
   readTime: "7 min read",
-  image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=1200",
+  image: "/images/blog-seo-nextjs.png",
   author: {
-    name: "Ransilu",
+    name: "Keshan Samarasekara",
     role: "SEO Strategist",
-    avatar: "https://ui-avatars.com/api/?name=Ransilu&background=0D8ABC&color=fff"
+    avatar: "https://ui-avatars.com/api/?name=Keshan+S&background=0D8ABC&color=fff"
   },
-  tags: ["SEO","Digital Strategy","Growth"],
+  tags: ["Schema Markup", "Rich Snippets", "Technical SEO", "JSON-LD"],
   preview: false,
   content: [
-    { type: "paragraph", content: "Dominate the SERPs by communicating directly with Google's crawlers. How to implement JSON-LD schema effectively. Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "blockquote", content: "The key to mastering " + "Technical SEO" + " lies in understanding the core principles outlined in this comprehensive guide." },
-    { type: "heading", level: 2, content: "What is Structured Data?" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "heading", level: 2, content: "The Impact of Rich Snippets on CTR" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "list", content: ["Conduct a comprehensive audit", "Identify gaps in implementation", "Execute the optimized strategy", "Measure results continuously"] },
-    { type: "heading", level: 2, content: "Essential Schemas for Local Business" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "heading", level: 2, content: "Product and Review Markup Specifications" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "image", src: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=1200", alt: "Conceptual illustration for " + "Product and Review Markup Specifications" },
-    { type: "heading", level: 2, content: "Testing and Validating JSON-LD" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "heading", level: 2, content: "Future Proofing Your Semantic Web presence" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "heading", level: 2, content: "Conclusion" },
-    { type: "paragraph", content: "The integration of structured data markup is another technical necessity. By utilizing Schema.org vocabulary, you directly communicate the context of your content to search engines. Whether it's marking up an article, a local business profile, a product review, or an FAQ section, structured data helps search engines display rich snippets in the results, significantly improving click-through rates. It's a translation layer that turns human-readable text into machine-actionable data." }
+    {
+      type: "paragraph",
+      content: "A rich snippet is Google displaying additional information alongside your standard search result — star ratings, price ranges, FAQs, event dates, or review counts. Rich snippets consistently achieve 20–40% higher click-through rates than standard blue links. They're powered entirely by structured data (Schema markup) that you add to your pages, and they cost nothing beyond the time to implement them correctly."
+    },
+    {
+      type: "heading",
+      level: 2,
+      content: "What is Structured Data and Why JSON-LD?"
+    },
+    {
+      type: "paragraph",
+      content: "Structured data is a standardised vocabulary (schema.org) that lets you describe your page content in a machine-readable format. There are three formats — JSON-LD, Microdata, and RDFa — but Google strongly recommends JSON-LD, and it's the only one worth using in 2026. JSON-LD is embedded in a `<script type='application/ld+json'>` tag and doesn't interfere with your HTML structure, making it easy to implement and maintain."
+    },
+    {
+      type: "blockquote",
+      content: "Schema markup doesn't directly boost rankings — it gives Google the confidence to display your result with rich features, which dramatically increases click-through rate, which does improve rankings."
+    },
+    {
+      type: "heading",
+      level: 2,
+      content: "The 5 Most Impactful Schema Types for Businesses"
+    },
+    {
+      type: "list",
+      content: [
+        "LocalBusiness: Name, address, phone, hours, geo-coordinates — enables Google Maps rich cards and knowledge panels",
+        "Article/BlogPosting: Author, published date, modified date — enables article rich results in news and discover",
+        "FAQPage: Question and answer pairs — shows FAQ dropdowns directly in search results, doubling SERP real estate",
+        "Product: Price, availability, review — essential for e-commerce, enables price and stock rich snippets",
+        "BreadcrumbList: Hierarchical page path — replaces URL with readable breadcrumb trail in results"
+      ]
+    },
+    {
+      type: "heading",
+      level: 2,
+      content: "Implementing LocalBusiness Schema for Sri Lankan Businesses"
+    },
+    {
+      type: "paragraph",
+      content: "For any business serving a local area, LocalBusiness schema is the highest-priority implementation. It tells Google your exact business name, categories, location, contact information, and operating hours — the same information displayed in Google Maps and the local knowledge panel. Correct LocalBusiness schema combined with a verified Google Business Profile is the most impactful one-time SEO action a local business can take."
+    },
+    {
+      type: "image",
+      src: "/images/blog-seo-nextjs.png",
+      alt: "Google search results page showing FAQ rich snippets and star rating rich results for a business"
+    },
+    {
+      type: "heading",
+      level: 2,
+      content: "FAQPage Schema: Double Your SERP Real Estate"
+    },
+    {
+      type: "paragraph",
+      content: "FAQPage schema is the most visually impactful schema type available in 2026. When Google displays your result with FAQ dropdowns, your listing can occupy 3x the vertical space of a standard result — effectively pushing competitors below the fold. Implementation is straightforward: list 3–7 question-and-answer pairs that genuinely match what users search for, add the JSON-LD schema to your page, and validate with Google's Rich Results Test. Focus FAQ content on questions users actually ask, not questions that promote your business."
+    },
+    {
+      type: "heading",
+      level: 2,
+      content: "Testing, Validating, and Monitoring Your Schema"
+    },
+    {
+      type: "paragraph",
+      content: "Always validate schema implementation with Google's Rich Results Test (search.google.com/test/rich-results) before deploying. This tool tells you exactly which rich snippets your schema qualifies for and highlights any errors or warnings. After deployment, monitor Google Search Console's Rich Results Status report — it shows which pages have valid rich results and flags any issues that prevent display. Schema that's technically valid but contains inaccurate information can lead to a manual action penalty, so keep business details current."
+    },
+    {
+      type: "list",
+      content: [
+        "Use Google's Rich Results Test to validate before deploying any schema",
+        "Include all required properties for each schema type — optional properties improve eligibility",
+        "Never use schema to mark up content that isn't visible on the page (Google's explicit guideline)",
+        "Update LocalBusiness schema whenever your hours, location, or phone number changes",
+        "Monitor Search Console 'Rich Results' report monthly for errors and new opportunities"
+      ]
+    }
   ]
 };

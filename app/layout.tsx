@@ -104,7 +104,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: {
@@ -113,28 +112,43 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
+        <Script
+          id="adsense-init"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4444198189403985"
           crossOrigin="anonymous"
-        ></script>
-        <Script
-          async src="https://www.googletagmanager.com/gtag/js?id=G-4NBZ6YMCRK"
           strategy="afterInteractive"
         />
-        <Script id="ga-init" strategy="afterInteractive">
+        <Script id="adsense-consent" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-4NBZ6YMCRK');
+            (function() {
+              try {
+                var consent = localStorage.getItem("cookie_consent");
+                window.adsbygoogle = window.adsbygoogle || [];
+                if (consent === "declined") {
+                  window.adsbygoogle.requestNonPersonalizedAds = 1;
+                }
+              } catch(e) {}
+            })();
           `}
         </Script>
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
         <CookieConsent />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-4NBZ6YMCRK"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4NBZ6YMCRK');
+          `}
+        </Script>
       </body>
     </html>
   );

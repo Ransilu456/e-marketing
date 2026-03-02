@@ -2,49 +2,103 @@ import { BlogPost } from "../types";
 
 export const ssr_vs_ssg_isr: BlogPost = {
   slug: "ssr-vs-ssg-isr",
-  title: "SSR vs SSG vs ISR: Choosing the Right Strategy",
-  excerpt: "Performance and SEO depend on your rendering choice. We break down the technical trade-offs for Next.js users.",
-  category: "Technical SEO",
+  title: "SSR vs SSG vs ISR: Choosing the Right Rendering Strategy in Next.js",
+  excerpt: "Your rendering choice directly affects SEO scores, page speed, and hosting costs. Here's the definitive technical breakdown with real-world guidance on when to use each.",
+  category: "Web Development",
   date: "2026-02-03",
   readTime: "12 min read",
-  image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1200",
+  image: "/images/blog-seo-nextjs.png",
   author: {
-    name: "Kevin",
-    role: "Full Stack Dev",
-    avatar: "https://ui-avatars.com/api/?name=Kevin&background=10b981&color=fff"
+    name: "Keshan Samarasekara",
+    role: "Full Stack Developer",
+    avatar: "https://ui-avatars.com/api/?name=Keshan+S&background=10b981&color=fff"
   },
-  tags: ["SEO","Digital Strategy","Growth"],
+  tags: ["Next.js", "SSR", "SSG", "ISR", "Web Performance"],
   preview: false,
   content: [
-    { type: "paragraph", content: "Performance and SEO depend on your rendering choice. We break down the technical trade-offs for Next.js users. Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "blockquote", content: "The key to mastering " + "Technical SEO" + " lies in understanding the core principles outlined in this comprehensive guide." },
-    { type: "heading", level: 2, content: "The Evolution of Web Rendering" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "heading", level: 2, content: "Server-Side Rendering (SSR) Deep Dive" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "list", content: ["Conduct a comprehensive audit", "Identify gaps in implementation", "Execute the optimized strategy", "Measure results continuously"] },
-    { type: "heading", level: 2, content: "When to Use Static Site Generation (SSG)" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "heading", level: 2, content: "The Magic of Incremental Static Regeneration (ISR)" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "image", src: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1200", alt: "Conceptual illustration for " + "The Magic of Incremental Static Regeneration (ISR)" },
-    { type: "heading", level: 2, content: "Performance Benchmarks and SEO Impact" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "heading", level: 2, content: "Implementation Architecture" },
-    { type: "paragraph", content: "Search engine optimization (SEO) has fundamentally changed over the past decade. What used to be a simple game of matching exact phrases and building basic backlinks has morphed into a complex landscape where semantic meaning, user intent, and topical authority reign supreme. The transition driven by algorithms like Google's BERT and MUM means that search engines now understand the nuanced relationship between concepts, moving from simply reading strings of text to understanding 'things' and entities." },
-    { type: "paragraph", content: "This paradigm shift requires a completely new approach to content creation and site architecture. Instead of creating fragmented pieces of content that target highly specific, long-tail keywords in isolation, modern digital marketing demands a holistic approach. This is where the concept of topic clusters and pillar pages comes into play, serving to organize content in a way that signals broad expertise to search engines while providing a structured, logical journey for the user." },
-    { type: "paragraph", content: "Crucially, a pillar page acts as the comprehensive hub for a core topic. It broadly covers all aspects of the subject on a single page, providing a high-level overview while linking out to more detailed cluster content. These cluster pages dive deep into specific subtopics, answering the granular questions users have. By interlinking these pages with descriptive anchor text, you create a semantic web that search crawlers easily navigate, distributing link equity and reinforcing your site's authority on the entire subject matter." },
-    { type: "heading", level: 2, content: "Conclusion" },
-    { type: "paragraph", content: "The integration of structured data markup is another technical necessity. By utilizing Schema.org vocabulary, you directly communicate the context of your content to search engines. Whether it's marking up an article, a local business profile, a product review, or an FAQ section, structured data helps search engines display rich snippets in the results, significantly improving click-through rates. It's a translation layer that turns human-readable text into machine-actionable data." }
+    {
+      type: "paragraph",
+      content: "When building a website with Next.js, one of the most consequential architectural decisions you'll make is choosing how your pages render. Server-Side Rendering (SSR), Static Site Generation (SSG), and Incremental Static Regeneration (ISR) each have distinct performance profiles, SEO implications, and infrastructure costs. Getting this decision wrong can mean slower pages, higher server bills, or stale content — all of which hurt your business."
+    },
+    {
+      type: "heading",
+      level: 2,
+      content: "Server-Side Rendering (SSR): Real-Time HTML Generation"
+    },
+    {
+      type: "paragraph",
+      content: "With SSR (using `export async function generateMetadata` or `fetch()` with no caching in Next.js App Router), a new HTML document is generated on the server for every request. This means the page always reflects the latest data — perfect for personalised dashboards, real-time stock prices, or user-specific content. The trade-off is latency: every request must wait for the server to query a database or API before sending HTML."
+    },
+    {
+      type: "paragraph",
+      content: "From an SEO perspective, SSR is excellent — Googlebot receives fully rendered HTML with no JavaScript execution needed. The downside is your Time to First Byte (TTFB) will be higher than SSG, which affects your Largest Contentful Paint (LCP) score. Use SSR for pages that must show unique, user-specific, or real-time data."
+    },
+    {
+      type: "blockquote",
+      content: "SSR is the right choice when the cost of showing stale data exceeds the performance cost of server round-trips. For most marketing pages, that trade-off doesn't make sense."
+    },
+    {
+      type: "heading",
+      level: 2,
+      content: "Static Site Generation (SSG): The Performance Champion"
+    },
+    {
+      type: "paragraph",
+      content: "SSG pre-builds all your HTML files at build time and serves them from a CDN. When a user requests a page, the CDN delivers a pre-built HTML file in milliseconds — there's no server computation, no database query, no runtime overhead. This produces exceptional Core Web Vitals scores: TTFB under 50ms from a properly configured CDN, LCP under 1 second, and zero layout shift from pre-sized assets."
+    },
+    {
+      type: "list",
+      content: [
+        "Best for: Marketing pages, blog posts, portfolios, documentation, landing pages",
+        "Hosting cost: Near-zero — serve from Vercel, Netlify, or Cloudflare Pages free tier",
+        "Trade-off: Content is only updated when you rebuild and redeploy",
+        "SEO: Excellent — Googlebot gets instant, fully rendered HTML from CDN edge nodes"
+      ]
+    },
+    {
+      type: "heading",
+      level: 2,
+      content: "Incremental Static Regeneration (ISR): The Best of Both Worlds"
+    },
+    {
+      type: "paragraph",
+      content: "ISR, configured in Next.js with `revalidate` time in seconds, allows statically generated pages to be updated in the background without a full rebuild. When a page's revalidation time expires, the next request serves the stale cached page while Next.js regenerates a fresh version in the background. Subsequent requests serve the new version."
+    },
+    {
+      type: "paragraph",
+      content: "For a blog with daily posts, an e-commerce site with changing product prices, or a news site — ISR is transformative. You get near-SSG performance with content that can be refreshed every 60 seconds, 1 hour, or 24 hours depending on your needs. This is how the E Marketing Paradice website is architected: marketing pages are SSG, blog posts use ISR with a 24-hour revalidation."
+    },
+    {
+      type: "image",
+      src: "/images/blog-seo-nextjs.png",
+      alt: "Comparison chart showing SSR vs SSG vs ISR performance metrics and use cases"
+    },
+    {
+      type: "heading",
+      level: 2,
+      content: "The Decision Framework: Which to Choose"
+    },
+    {
+      type: "paragraph",
+      content: "Follow this decision tree. If your page content is identical for all users and doesn't change often → use SSG. If your page content changes frequently but doesn't need to be personalised → use ISR with an appropriate revalidation time. If your page must show real-time or user-specific data → use SSR. If your page shows user-authenticated content → use SSR or client-side fetching after load."
+    },
+    {
+      type: "list",
+      content: [
+        "Homepage, About, Services, Contact → SSG (rebuild on content change)",
+        "Blog posts, Portfolio items → ISR (revalidate: 3600 = 1 hour)",
+        "Product pages with live inventory → ISR (revalidate: 60 = 1 minute)",
+        "User dashboard, Cart, Account → SSR or Client-side fetch"
+      ]
+    },
+    {
+      type: "heading",
+      level: 2,
+      content: "Practical Implementation in Next.js 15 App Router"
+    },
+    {
+      type: "paragraph",
+      content: "In Next.js 15's App Router, control rendering by configuring `fetch()` cache options. Use `fetch(url, { cache: 'force-cache' })` for SSG behaviour. Use `fetch(url, { next: { revalidate: 3600 } })` for ISR. Use `fetch(url, { cache: 'no-store' })` for SSR. For route-level control, export `export const revalidate = 3600` or `export const dynamic = 'force-dynamic'` from your page file. Understanding these options lets you mix rendering strategies at the component level — the most powerful architectural pattern in Next.js."
+    }
   ]
 };
