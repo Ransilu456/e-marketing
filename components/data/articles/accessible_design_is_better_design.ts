@@ -7,11 +7,11 @@ export const accessible_design_is_better_design: BlogPost = {
   category: "UI/UX Design",
   date: "2026-02-18",
   readTime: "9 min read",
-  image: "/images/blog-seo-nextjs.png",
+  image: "/images/blog-web-design.png",
   author: {
-    name: "Keshan Samarasekara",
+    name: "Ameesha",
     role: "UI/UX Designer",
-    avatar: "https://ui-avatars.com/api/?name=Keshan+S&background=0369a1&color=fff"
+    avatar: "https://ui-avatars.com/api/?name=Ameesha+S&background=0369a1&color=fff"
   },
   tags: ["Accessibility", "WCAG", "UI/UX", "Inclusive Design", "SEO"],
   preview: false,

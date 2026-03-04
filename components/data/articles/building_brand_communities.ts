@@ -9,9 +9,9 @@ export const building_brand_communities: BlogPost = {
   readTime: "6 min read",
   image: "/images/blog-digital-marketing.png",
   author: {
-    name: "Keshan Samarasekara",
-    role: "Brand Strategist",
-    avatar: "https://ui-avatars.com/api/?name=Keshan+S&background=f43f5e&color=fff"
+    name: "Dasun Sankalpa",
+    role: "CEO & Brand Strategist",
+    avatar: "https://ui-avatars.com/api/?name=Dasun+S&background=f43f5e&color=fff"
   },
   tags: ["Community Building", "Brand Strategy", "Facebook Groups", "WhatsApp"],
   preview: false,

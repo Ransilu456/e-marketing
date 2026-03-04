@@ -7,11 +7,11 @@ export const dark_mode_design_psychology: BlogPost = {
   category: "UI Design",
   date: "2026-02-13",
   readTime: "7 min read",
-  image: "/images/blog-digital-marketing.png",
+  image: "/images/blog-web-design.png",
   author: {
-    name: "Keshan Samarasekara",
+    name: "Ameesha",
     role: "UI/UX Designer",
-    avatar: "https://ui-avatars.com/api/?name=Keshan+S&background=1e293b&color=fff"
+    avatar: "https://ui-avatars.com/api/?name=Ameesha+S&background=1e293b&color=fff"
   },
   tags: ["Dark Mode", "UI Design", "Psychology", "Design Systems"],
   preview: false,

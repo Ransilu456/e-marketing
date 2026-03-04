@@ -9,9 +9,9 @@ export const high_converting_facebook_posters: BlogPost = {
   readTime: "8 min read",
   image: "/images/blog-facebook-posters.png",
   author: {
-    name: "Keshan Samarasekara",
+    name: "Hasini Gunawardhana",
     role: "Creative Director",
-    avatar: "https://ui-avatars.com/api/?name=Keshan+S&background=f43f5e&color=fff"
+    avatar: "https://ui-avatars.com/api/?name=Hasini+S&background=f43f5e&color=fff"
   },
   tags: ["Facebook Ads", "Graphic Design", "Social Media", "Conversion"],
   preview: false,

@@ -9,9 +9,9 @@ export const future_of_ai_branding: BlogPost = {
   readTime: "9 min read",
   image: "/images/blog-web-design.png",
   author: {
-    name: "Keshan Samarasekara",
+    name: "Hasini Gunawardhana",
     role: "Creative Director",
-    avatar: "https://ui-avatars.com/api/?name=Keshan+S&background=7c3aed&color=fff"
+    avatar: "https://ui-avatars.com/api/?name=Hasini+S&background=7c3aed&color=fff"
   },
   tags: ["AI", "Branding", "Design", "Generative AI", "Creative"],
   preview: false,

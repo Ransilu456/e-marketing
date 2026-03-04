@@ -9,7 +9,7 @@ export const nextjs_vs_wordpress_for_seo: BlogPost = {
   readTime: "10 min read",
   image: "/images/blog-seo-nextjs.png",
   author: {
-    name: "Keshan Samarasekara",
+    name: "Keshan Ransilu",
     role: "Lead Developer",
     avatar: "https://ui-avatars.com/api/?name=Keshan+S&background=0ea5e9&color=fff"
   },
