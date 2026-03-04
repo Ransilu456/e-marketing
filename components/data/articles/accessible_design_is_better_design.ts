@@ -7,7 +7,7 @@ export const accessible_design_is_better_design: BlogPost = {
   category: "UI/UX Design",
   date: "2026-02-18",
   readTime: "9 min read",
-  image: "/images/blog-web-design.png",
+  image: "/images/blog-accessible_design.png",
   author: {
     name: "Ameesha",
     role: "UI/UX Designer",

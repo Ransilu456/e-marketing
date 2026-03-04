@@ -7,7 +7,7 @@ export const dark_mode_design_psychology: BlogPost = {
   category: "UI Design",
   date: "2026-02-13",
   readTime: "7 min read",
-  image: "/images/blog-web-design.png",
+  image: "/images/blog-dark_mode_psycholo.png",
   author: {
     name: "Ameesha",
     role: "UI/UX Designer",
