@@ -43,7 +43,7 @@ export default function BlogSection({ limit, showTitle = true }: BlogSectionProp
                                     <div className="absolute inset-0 bg-slate-900/0 transition-colors z-10" />
                                     <Image
                                         src={post.image}
-                                        alt={post.title}
+                                        alt={`Preview cover image for upcoming post: ${post.title}`}
                                         width={400}
                                         height={250}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
@@ -63,7 +63,7 @@ export default function BlogSection({ limit, showTitle = true }: BlogSectionProp
                                     <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/5 transition-colors z-10" />
                                     <Image
                                         src={post.image}
-                                        alt={post.title}
+                                        alt={`Preview cover image for upcoming post: ${post.title}`}
                                         width={400}
                                         height={250}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"

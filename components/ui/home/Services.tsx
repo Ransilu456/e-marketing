@@ -23,8 +23,7 @@ interface Service {
 const services: Service[] = [
   {
     title: "Web Development",
-    image:
-      "https://images.pexels.com/photos/326502/pexels-photo-326502.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/images/bg-web-dev-service.webp",
     description:
       "We build high-performance, responsive, and scalable websites specifically engineered for the modern digital economy. Our web development services go beyond just visual design; we focus on technical SEO optimization, robust security protocols, and seamless integrations with CRM and automation tools. By utilizing frameworks like Next.js and React, we ensure that every site we deliver is optimized for Core Web Vitals, providing an exceptional user experience that boosts search engine rankings and drives measurable business growth in the Sri Lankan and global markets.",
     features: [
@@ -36,8 +35,7 @@ const services: Service[] = [
   },
   {
     title: "Mobile Apps",
-    image:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?crop=entropy&cs=tinysrgb&fit=max&q=80&w=1080",
+    image: "/images/bg-mobile-dev-service.webp",
     description:
       "Our mobile application development services deliver high-impact native and cross-platform solutions that engage users and streamline operations. We specialize in building fast, secure, and intuitive apps for iOS and Android using modern frameworks like React Native. From conceptualization and UI/UX design to backend integration and app store optimization, our comprehensive approach ensures your mobile product stands out in a crowded marketplace, providing your customers with a reliable and delightful experience on any device, anywhere.",
     features: [
@@ -49,8 +47,7 @@ const services: Service[] = [
   },
   {
     title: "Brand Identity",
-    image:
-      "https://images.pexels.com/photos/3243090/pexels-photo-3243090.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/images/bg-brand-service.webp",
     description:
       "We define and craft unique visual identities that resonate with your target audience and build lasting brand equity. Our branding process is deeply collaborative and strategic, involving exhaustive market research, competitor analysis, and creative exploration. We provide a full suite of brand assets, including custom logos, typography systems, color palettes, and comprehensive brand guidelines. Our goal is to ensure your brand communicates a consistent, professional, and trustworthy image across all digital and physical touchpoints, establishing a clear authority in your industry.",
     features: [
@@ -62,8 +59,7 @@ const services: Service[] = [
   },
   {
     title: "Creative Posters",
-    image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1080&auto=format&fit=crop",
+    image: "/images/bg-create-service.webp",
     description:
       "Our creative graphic design team produces high-converting posters and visual assets designed to stop the scroll and capture attention. We combine aesthetic excellence with psychological triggers to create social media posters, promotional flyers, and digital advertisements that drive clicks and engagement. By focusing on visual hierarchy, bold typography, and impactful imagery, we help your marketing campaigns deliver a stronger ROI, ensuring your message is not only seen but acted upon by your core demographic across Facebook, Instagram, and other high-traffic platforms.",
     features: [
@@ -75,8 +71,7 @@ const services: Service[] = [
   },
   {
     title: "Social Media Management",
-    image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1080&auto=format&fit=crop",
+    image: "/images/bg-social-media-service.png",
     description:
       "We provide comprehensive social media management services that build communities and drive consistent growth. Our approach involves strategic content planning, community engagement, and detailed performance analytics to ensure your brand remains relevant and active in the social space. We handle everything from content creation and scheduling to ad campaign management and crisis communication. By leveraging data-driven insights and platform-specific best practices, we help you transform your social media presence from a simple broadcast channel into a powerful engine for customer loyalty and lead generation.",
     features: [
@@ -85,7 +80,7 @@ const services: Service[] = [
       { label: "Analytics & Reporting", icon: "BarChart3" },
     ],
     featured: true,
-    link: "/under_development_200",
+    link: "/#contact",
   },
 ] as const;
 

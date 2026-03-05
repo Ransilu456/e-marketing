@@ -111,7 +111,9 @@ export default async function BlogPostPage({ params }: Props) {
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": `https://emarketingparadice.lk/blog/${post.slug}`
-        }
+        },
+        "wordCount": post.content.reduce((acc, block) => acc + (typeof block.content === 'string' ? block.content.split(' ').length : 0), 0),
+        "keywords": post.tags.join(", ")
     };
 
     return (

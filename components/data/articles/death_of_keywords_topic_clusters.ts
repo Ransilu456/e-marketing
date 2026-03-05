@@ -94,6 +94,10 @@ export const death_of_keywords_topic_clusters: BlogPost = {
     {
       type: "paragraph",
       content: "Most Sri Lankan business websites have zero content strategy. They have a homepage, services page, and contact page — and nothing else indexed by Google. This means the topical authority bar is extremely low. A business that publishes 10 well-researched articles on their area of expertise over six months will likely dominate their niche's search results entirely. The opportunity for first-mover advantage in Sinhala and English long-tail keywords is significant, and it costs nothing but time and expertise."
+    },
+    {
+      type: "blockquote",
+      content: "Expert insight: For local businesses in regions like Gampaha or Kurunegala, building content clusters around 'best service in [City]' can capture high-intent local traffic far more effectively than broad keywords."
     }
   ]
 };

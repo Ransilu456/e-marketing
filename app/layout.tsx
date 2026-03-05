@@ -32,22 +32,26 @@ export const metadata: Metadata = {
   },
 
   title: {
-    default: "E Marketing Paradice",
-    template: "%s | Digital Marketing Agency in Sri Lanka",
+    default: "E Marketing Paradice | Digital Marketing Agency Sri Lanka",
+    template: "%s | E Marketing Paradice",
   },
 
   description:
-    "E Marketing Paradice is a leading digital marketing agency in Sri Lanka offering web development, SEO, branding, and social media marketing.",
+    "E Marketing Paradice is a premium digital marketing agency in Sri Lanka. We specialize in high-performance web development, SEO, branding, and results-driven social media strategies.",
 
   keywords: [
-    "digital marketing sri lanka",
-    "digital marketing agency in sri lanka",
-    "web development sri lanka",
-    "SEO services sri lanka",
-    "branding sri lanka",
-    "social media marketing",
+    "digital marketing agency sri lanka",
+    "web development services sri lanka",
+    "best SEO agency sri lanka",
+    "social media marketing sri lanka",
+    "branding and design agency",
     "E Marketing Paradice",
-    "emarketingparadice.lk",
+    "ecommerce web development sri lanka",
+    "pay per click advertising sri lanka",
+    "e marketing",
+    "sri lanka marketing",
+    "online marketing",
+    "sri lanka web development"
   ],
 
   authors: [{ name: "E Marketing Paradice", url: "https://emarketingparadice.lk" }],
@@ -66,9 +70,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "E Marketing Paradice",
+    title: "E Marketing Paradice | Digital Marketing Agency Sri Lanka",
     description:
-      "We design & develop modern digital solutions for businesses in Sri Lanka and beyond.",
+      "Transforming brands with high-performance digital solutions. Web development, SEO, and strategic marketing tailored for growth.",
     url: "https://emarketingparadice.lk",
     siteName: "E Marketing Paradice",
     images: [
@@ -76,7 +80,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "E Marketing Paradice",
+        alt: "E Marketing Paradice - Digital Marketing Agency",
       },
     ],
     locale: "en_LK",
@@ -85,9 +89,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "E Marketing Paradice",
+    title: "E Marketing Paradice | Digital Marketing Agency Sri Lanka",
     description:
-      "We design & develop modern digital solutions for growing brands.",
+      "Premium web development and digital marketing solutions for growing brands.",
     images: ["/og-image.png"],
   },
 
@@ -109,9 +113,52 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "E Marketing Paradice",
+    "url": "https://emarketingparadice.lk",
+    "logo": "https://emarketingparadice.lk/og-image.png",
+    "sameAs": [
+      "https://www.facebook.com/emarketingparadice",
+      "https://www.linkedin.com/in/keshan-samarasekara-6a9137399",
+      "https://github.com/ransilu456"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kuliyapitiya",
+      "addressCountry": "LK"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+94-76-346-0514",
+      "contactType": "customer service"
+    }
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "E Marketing Paradice",
+    "url": "https://emarketingparadice.lk",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://emarketingparadice.lk/blog?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <Script
           id="adsense-init"
           async
@@ -133,7 +180,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased text-zinc-900`}>
         {children}
         <CookieConsent />
         <Script

@@ -9,6 +9,7 @@ import {
   Rocket
 } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import { portfolioProjects } from "./projects";
 import { ImageWithFallback } from "@/components/error/ImageWithFallback";
@@ -76,25 +77,96 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Image */}
-          <div className="flex-1 w-full flex justify-center lg:justify-end reveal-up delay-200 overflow-hidden">
-            <div className="relative w-full max-w-lg aspect-4/3 group perspective-1000 overflow-hidden">
-              <div className="relative w-full h-full rounded-2xl overflow-hidden border border-red-200  bg-white">
+          {/* Right Content: Interactive Mockup */}
+          <div className="flex-1 w-full flex justify-center lg:justify-end reveal-up delay-200">
+            <div className="relative w-full max-w-lg aspect-[4/3] group perspective-1000">
+              {/* Decorative Background Glows */}
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-red-100 rounded-full blur-[80px] opacity-40 animate-pulse" />
+              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-red-50 rounded-full blur-[80px] opacity-40 animate-pulse delay-1000" />
 
-                <div className="absolute top-0 inset-x-0 h-8 bg-white/80 backdrop-blur-md border-b border-red-100 flex items-center px-4 gap-1.5 z-20">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
+              {/* Main 3D Tilted Mockup */}
+              <motion.div
+                whileHover={{ rotateY: -10, rotateX: 5, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative w-full h-full rounded-2xl overflow-hidden border border-red-200 bg-white shadow-2xl shadow-red-900/10 z-10"
+              >
+                {/* Browser Top Bar */}
+                <div className="absolute top-0 inset-x-0 h-8 bg-slate-50 border-b border-red-100 flex items-center px-4 gap-1.5 z-20">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                  <div className="ml-4 w-32 h-3.5 bg-red-100/50 rounded-full" />
                 </div>
 
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
-                  alt="Code and Design"
+                  src="/images/web-dev-hero.png"
+                  alt="High Performance Web Design Mockup"
                   fill
                   sizes="(max-width: 768px) 100vw, 600px"
-                  className="object-cover opacity-90 group-hover:scale-105 transition duration-700"
+                  className="object-cover mt-8 opacity-95 transition-opacity group-hover:opacity-100"
                 />
-              </div>
+
+                {/* Internal UI Overlay Elements */}
+                <div className="absolute inset-0 bg-linear-to-t from-red-900/10 to-transparent pointer-events-none" />
+              </motion.div>
+
+              {/* Floating Element 1: Feature Tag */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-6 -left-6 z-20 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-xl border border-red-100 flex items-center gap-3"
+              >
+                <div className="w-10 h-10 rounded-lg bg-red-600 flex items-center justify-center text-white">
+                  <Monitor className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-bold text-red-600 uppercase tracking-wider">Status</div>
+                  <div className="text-sm font-semibold text-gray-900 uppercase">Live Performance</div>
+                </div>
+              </motion.div>
+
+              {/* Floating Element 2: Stats Card */}
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute -bottom-10 -right-6 z-20 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-2xl border border-red-100 min-w-[200px]"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">Core Web Vitals</span>
+                  <Rocket className="w-4 h-4 text-red-600" />
+                </div>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600 uppercase font-medium tracking-tight">LCP</span>
+                    <span className="text-sm font-bold text-green-600">0.8s</span>
+                  </div>
+                  <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="w-[92%] h-full bg-green-500 rounded-full" />
+                  </div>
+                  <div className="flex justify-between items-center pt-1">
+                    <span className="text-sm text-gray-600 uppercase font-medium tracking-tight">FID</span>
+                    <span className="text-sm font-bold text-green-600">12ms</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Floating Element 3: Code Fragment */}
+              <motion.div
+                animate={{ x: [0, 8, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="absolute top-1/4 -right-12 z-20 bg-gray-900/95 backdrop-blur-sm p-4 rounded-xl shadow-2xl border border-white/10 hidden md:block"
+              >
+                <div className="flex gap-1.5 mb-3">
+                  <div className="w-2 h-2 rounded-full bg-red-400" />
+                  <div className="w-2 h-2 rounded-full bg-slate-600" />
+                </div>
+                <div className="font-mono text-[10px] leading-relaxed">
+                  <div className="text-red-400">const<span className="text-white"> performance = </span>&#123;</div>
+                  <div className="pl-4 text-slate-300">speed<span className="text-white">: </span><span className="text-red-300">'99ms'</span>,</div>
+                  <div className="pl-4 text-slate-300">scalable<span className="text-white">: </span><span className="text-red-300">true</span></div>
+                  <div className="text-red-400">&#125;;</div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
